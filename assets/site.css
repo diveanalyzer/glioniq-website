@@ -1,0 +1,137 @@
+:root {
+  color-scheme: dark;
+  --navy: #020d20;
+  --silver: #e5ebf3;
+  --muted: #b9c8da;
+  --gold: #f4ce7e;
+  --blue: #70d7ff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--navy);
+  color: var(--silver);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: var(--gold); text-underline-offset: .3em; }
+a:hover { color: #fff0cb; }
+a:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+main:focus { outline: none; }
+.visually-hidden, .skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed;
+  z-index: 10;
+  top: 12px;
+  left: 12px;
+  padding: 16px;
+  background: var(--navy);
+}
+nav { display: flex; gap: clamp(20px, 4vw, 48px); align-items: center; }
+nav a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 550;
+  color: var(--silver);
+  border-bottom: 2px solid transparent;
+}
+nav a:last-child { color: var(--gold); }
+nav a[aria-current="page"] { border-bottom-color: var(--gold); }
+.home-page {
+  min-height: 100svh;
+  background: radial-gradient(ellipse at center, #09213b 0, var(--navy) 70%);
+}
+.home-header { display: flex; justify-content: center; padding: 4px 24px 8px; }
+.home-main { display: flex; flex-direction: column; align-items: center; padding: 0 16px 16px; }
+.launch-art {
+  position: relative;
+  margin: 0;
+  width: min(100%, 1221px, calc((100svh - 122px) * 1221 / 1288));
+  flex-shrink: 0;
+}
+.launch-art img { display: block; width: 100%; height: auto; }
+.art-link { position: absolute; border-radius: 5px; }
+.art-link:hover { box-shadow: 0 0 0 1px var(--gold); }
+.art-link:focus-visible { outline-offset: 0; background: #f4ce7e12; }
+.art-logo { left: 4%; top: 0; width: 19%; height: 4.8%; }
+.art-home { left: 69.5%; top: 0; width: 6.5%; height: 4.8%; }
+.art-about { left: 78%; top: 0; width: 8.5%; height: 4.8%; }
+.art-contact { left: 89%; top: 0; width: 8%; height: 4.8%; }
+.art-story { left: 39.5%; top: 70.2%; width: 21%; height: 4.1%; border-radius: 999px; }
+.art-footer-logo { left: 4%; top: 93%; width: 16%; height: 6%; }
+.art-email { left: 80%; top: 93%; width: 17%; height: 6%; }
+.launch-message { width: min(100%, 620px); font-size: 16px; line-height: 1.65; margin-top: 10px; }
+.launch-message summary { cursor: pointer; color: var(--muted); text-align: center; min-height: 32px; }
+.launch-message[open] { padding-bottom: 24px; }
+.launch-message p, .launch-message > a { margin-inline: 12px; }
+.about-page { background: radial-gradient(ellipse 80% 650px at 50% 0, #0b2446, transparent), var(--navy); }
+.about-header {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 48px;
+  border-bottom: 1px solid #f4ce7e30;
+}
+.brand { display: block; width: clamp(160px, 22vw, 260px); flex-shrink: 0; }
+.brand img { display: block; width: 100%; height: auto; }
+.story { max-width: 960px; margin: 0 auto; padding: 64px 48px 80px; font-size: 19px; line-height: 1.85; }
+.story h1 { font-size: 14px; color: var(--gold); letter-spacing: .2em; margin: 0 0 14px; font-weight: 600; }
+.story h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(36px, 5.5vw, 62px); line-height: 1.12; font-weight: 400; letter-spacing: -.03em; max-width: 650px; margin: 0 0 32px; text-wrap: balance; }
+.story p { margin: 0 0 24px; }
+.story .opening { font-size: clamp(22px, 3vw, 28px); line-height: 1.5; color: var(--gold); margin-bottom: 24px; }
+.story h3 { font-size: 24px; font-weight: 500; line-height: 1.4; color: var(--gold); margin: 0 0 20px; text-wrap: balance; }
+.principle { border-left: 2px solid #77d5ff75; padding: 8px 0 8px 28px; margin: 32px 0; }
+.principle p { margin-bottom: 0; }
+.chapter { margin-top: 64px; padding-top: 40px; border-top: 1px solid #f4ce7e40; }
+.reserve { margin-inline: -28px; padding: 36px 28px 12px; border: 1px solid #f4ce7e60; border-radius: 4px; background: linear-gradient(125deg, #102c45, #07172d); }
+.reserve h3 { font-family: Georgia, "Times New Roman", serif; font-size: 32px; }
+.life-stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 32px 0; }
+.life-stages p { padding: 24px 0 0; border-top: 2px solid var(--gold); font-size: 17px; line-height: 1.8; }
+.life-stages strong { display: block; font-weight: 600; color: var(--gold); font-size: 20px; margin-bottom: 12px; }
+.story .closing { font-family: Georgia, "Times New Roman", serif; color: var(--gold); font-size: clamp(26px, 4vw, 36px); line-height: 1.4; margin: 40px 0 0; }
+.closing strong { font-weight: 400; }
+.site-footer { max-width: 1120px; padding: 28px 48px; margin: 0 auto; border-top: 1px solid #f4ce7e30; display: flex; justify-content: space-between; gap: 24px; font-size: 14px; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) {
+  .launch-art, .story { animation: arrive .6s ease-out both; }
+  @keyframes arrive { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (max-width: 640px) {
+  .home-main { padding: 12px 0 24px; }
+  .launch-art { width: 100%; }
+  .launch-message { padding: 12px 24px; }
+  .launch-message summary { min-height: 44px; }
+  .about-header { padding: 16px 24px; gap: 16px; }
+  .about-header nav { gap: 20px; }
+  .about-header nav a { font-size: 15px; }
+  .brand { width: 144px; }
+  .story { padding: 40px 24px 56px; font-size: 18px; line-height: 1.8; }
+  .story h3 { font-size: 22px; }
+  .principle { padding-left: 20px; }
+  .chapter { margin-top: 44px; padding-top: 28px; }
+  .reserve { margin-inline: 0; padding: 24px 20px 0; }
+  .reserve h3 { font-size: 28px; }
+  .life-stages { grid-template-columns: 1fr; gap: 0; }
+  .life-stages p { font-size: 18px; }
+  .site-footer { padding: 24px; flex-wrap: wrap; }
+}
+@media (max-width: 360px) {
+  .about-header { padding-inline: 16px; gap: 12px; }
+  .brand { width: 124px; }
+  .about-header nav { gap: 16px; }
+}
