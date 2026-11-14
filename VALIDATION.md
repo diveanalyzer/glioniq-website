@@ -44,7 +44,15 @@ These are desktop Safari viewport tests, not physical iPhone, iPad, or Android d
 
 Existing Pages configuration was verified through GitHub's API: `main`, `/`, legacy branch publishing. Root CNAME was corrected to `glioniq.tech` with explicit owner authorization; `.nojekyll` is retained. No workflow or DNS configuration changes are required.
 
-Before publishing, `glioniq.tech` resolved to all four GitHub Pages IPv4 addresses, and `www.glioniq.tech` had CNAME `diveanalyzer.github.io`. HTTPS then failed certificate hostname validation while GitHub still held the old domain. Post-publication status will be recorded after deployment completes.
+Before publishing, `glioniq.tech` resolved to all four GitHub Pages IPv4 addresses, and `www.glioniq.tech` had CNAME `diveanalyzer.github.io`. HTTPS initially failed certificate hostname validation while GitHub still held the old domain; this resolved after the domain correction.
+
+Implementation commit `d9c144eb340af2a0c812007383e2a4bf709fba3e` was pushed successfully. A concurrent remote CNAME correction (`1019c0c`) was preserved by rebasing the unpublished implementation; the only conflict was a trailing newline in the same approved domain value. No force push was used.
+
+GitHub Pages reported `built` for the implementation commit, and [deployment run 43572596911](https://github.com/diveanalyzer/glioniq-website/actions/runs/43572596911) completed successfully. The Pages API confirms `glioniq.tech`, `main`, and `/`; domain health reports valid apex and www DNS.
+
+Production checks over normally validated HTTPS returned HTTP 200 and exact local-file bytes for Home, `/about-us/`, `/about-us/index.html`, CSS, both original PNGs, and CNAME. The ordinary Home and About URLs also return HTTP 200. `https://www.glioniq.tech/` redirects to `https://glioniq.tech/`. GitHub reports an approved certificate covering both hostnames, expiring 2027-02-12.
+
+HTTPS is active and verified. The existing `https_enforced: false` setting is unchanged: HTTP remains available without an automatic HTTPS redirect. No DNS/Namecheap settings were modified.
 
 ## Remaining verification limits
 
