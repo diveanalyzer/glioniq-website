@@ -34,15 +34,21 @@ Safari on macOS:
 
 - Visually inspected the Home hero and compact header, with no visible rectangular logo background on the navy page; About Us opens without its redundant large logo.
 - Visually inspected the exported artwork on navy and light backgrounds and the browser/app icon contact sheet.
-- The blue brain favicon was visible in Safari's active About Us tab.
+- The blue brain favicon was visible in Safari's active About Us tab and on a fresh Home URL (`/?branding=bb104b6`). Safari retained its old generic cached favicon on the previously visited bare Home URL, including after a normal reload; existing favicon caches can lag the published files.
 - Home hero click returns to `/`; Home Contact navigates to the contact section and its footer brain returns to `/`.
 - Main navigation opens About Us; its header brain returns to `/`.
-- Home rendered in same-origin frames with measured viewport widths **320, 390, 768, 1024, and 1440 CSS pixels**: no horizontal overflow, all images loaded, all three brand links target `/`, and all icon metadata is present.
+- Home and About Us rendered in same-origin frames with measured viewport widths **320, 390, 768, 1024, and 1440 CSS pixels**: no horizontal overflow, all images loaded, all brand links target `/`, and all icon metadata is present. About Us reports zero story images at every width.
+- The 320-pixel About Us header brain opens Home. At 390 pixels, About Us Contact moves focus to the contact section, and its footer brain opens Home.
+- Published Home and About Us were visually inspected over HTTPS. Option-Tab focuses the About Us header brain with a visible blue ring; Return opens Home. Keyboard traversal also reaches the Home hero and Return activates its `/` link.
 
-The earlier site release had passed About Us layout checks at those five widths and keyboard navigation. Those earlier results are baseline evidence only. Safari stopped exposing an accessible window during the remaining branding rechecks; a repeated About Us five-width check, mobile brand interaction, and new-brand keyboard interaction were not completed at this checkpoint. Static checks verify ordinary anchor semantics and the existing visible focus styling.
+Safari access was temporarily interrupted. After the user reopened its window, the outstanding viewport, mobile interaction, and keyboard checks above were completed against this revision.
 
 These are desktop Safari viewport checks, not physical iPhone/Android home-screen installation tests. Cross-browser/device acceptance and a full assistive-technology audit remain unverified. No offline capability is claimed.
 
 ## Publication
 
-The existing `main` + `/` GitHub Pages branch publishing configuration and `.nojekyll` are retained. The earlier site release was verified over valid HTTPS; its recorded `https_enforced` setting was `false`. Fresh deployment and enforcement verification for this branding revision will be recorded after publication.
+Implementation commit `bb104b68e3538ab381872392d33ba28bf3cf97cb` was committed and pushed to the existing `main` branch. GitHub Pages reported `built` for that exact commit; [deployment run 43576413670](https://github.com/diveanalyzer/glioniq-website/actions/runs/43576413670) completed successfully. Existing `main` + `/` publishing, `.nojekyll`, and the `glioniq.tech` CNAME are retained.
+
+Production HTTP 200 and exact local-file byte comparisons pass for **17 resources**: Home, both About Us URL forms, CSS, six root icon files, the manifest, CNAME, both original PNGs, and three transparent derivatives. Requests use normal TLS certificate validation. The manifest is served as `application/manifest+json`; image MIME types are correct. Ordinary Home and About Us URLs also return HTTP 200 without a release query parameter.
+
+GitHub reports an approved certificate for `glioniq.tech` and `www.glioniq.tech`, expiring 2027-02-12. **HTTPS works; enforcement remains disabled (`https_enforced: false`).** A direct HTTP request returns HTTP 200 without redirecting to HTTPS. No Pages setting or DNS/Namecheap configuration was changed by this branding revision.
