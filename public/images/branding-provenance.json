@@ -1,0 +1,31 @@
+{
+  "method": "Non-generative measured-background alpha matting; original bright surfaces retained; Lanczos icon resizing.",
+  "sources": {
+    "glioniq-logo-official.PNG": "68b5f5375e51c588d45726377b1963aaa5403bbe523cde0350eb4b19449fe76f",
+    "glioniq-coming-soon.PNG": "1bec352cca692d54d39e16f7ede7528f32eaa321c29f3fb277b51c3176c6dc3c"
+  },
+  "hero_source_box": [
+    390,
+    8,
+    840,
+    278
+  ],
+  "brain_source_box": [
+    60,
+    1,
+    134,
+    61
+  ],
+  "brain_source_limit": "The fully visible approved symbol is a 74x60 reference crop. Large icon exports are resampled, not new high-resolution artwork. Larger brains overlap lettering and are not reconstructed.",
+  "derivatives": {
+    "public/images/glioniq-logo-transparent.png": "bcfb5691a264134411e3132bc7c1f61fce60c4935af7228297eb0b0e2d48c966",
+    "public/images/glioniq-hero-transparent.png": "21c16b91af6f03fa062a10d504c7e499e493f4d12766f5627828797ed3a075e8",
+    "public/images/glioniq-brain-transparent.png": "bce0950ecdf9897cacdfed6843811a487b236e5f489fc4f2b443c74089ccab4f",
+    "favicon-16x16.png": "2f7b6f39a2fdbb2bd75c9a0e63fb295e2057d9ce85288a867ce40fefc0befc6a",
+    "favicon-32x32.png": "88a70473e60df3aba04a7f614f17b17ab53ceb8bb4925855591bcf489f5425cc",
+    "favicon.ico": "91f07204d4f69983a3afbc7193e239b092a284c64b39b0e70fa954952f18cb4e",
+    "apple-touch-icon.png": "c0c7856c4398e6513164f5ce333720addcfd17c7599569b394410e44d915da54",
+    "icon-192.png": "b3ca84ae58367729e3e7ccfa69096c0d942e1417446a421f405a034cf387b689",
+    "icon-512.png": "589d4df86efea6379dbe1b2bddf78f4ca64070d206059192a03ad26c3a00ef78"
+  }
+}

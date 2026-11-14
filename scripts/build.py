@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate static pages without transforming or overwriting approved artwork."""
+"""Generate static pages using approved originals and documented derivatives."""
 from html import escape
 from pathlib import Path
 import re
@@ -29,6 +29,12 @@ def head(title, description, path, prefix):
   <meta property="og:image:height" content="1024">
   <meta property="og:image:alt" content="GlionIQ — Grow Your Mind. Enrich Your Life.">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{prefix}favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="{prefix}favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{prefix}favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{prefix}apple-touch-icon.png">
+  <link rel="manifest" href="{prefix}site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="GlionIQ">
   <link rel="stylesheet" href="{prefix}assets/site.css">
 </head>'''
 
@@ -40,7 +46,9 @@ def header(prefix, current):
                   + f'>{label}</a>' for path, label in links)
     return f'''<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="reference-brand" href="{prefix or './'}" aria-label="GlionIQ — Home"><span class="visually-hidden">GlionIQ</span></a>
+    <a class="brand-link" href="/" aria-label="GlionIQ — Home">
+      <img src="{prefix}public/images/glioniq-brain-transparent.png" width="768" height="768" decoding="async" alt="GlionIQ brain symbol">
+    </a>
     <nav aria-label="Main navigation">{nav}</nav>
   </header>'''
 
@@ -56,8 +64,8 @@ def contact():
 
 def footer(prefix):
     return f'''<footer class="site-footer">
-    <a class="footer-brand" href="{prefix or './'}" aria-label="GlionIQ — Home">
-      <img src="{prefix}public/images/glioniq-logo-official.PNG" width="1536" height="1024" loading="lazy" decoding="async" alt="GlionIQ — Grow Your Mind. Enrich Your Life.">
+    <a class="footer-brand" href="/" aria-label="GlionIQ — Home">
+      <img src="{prefix}public/images/glioniq-brain-transparent.png" width="768" height="768" loading="lazy" decoding="async" alt="GlionIQ brain symbol">
     </a>
     <p>© 2026 GlionIQ. All Rights Reserved.</p>
     <a href="#contact">Contact</a>
@@ -98,7 +106,9 @@ def build():
   {header('', 'Home')}
   <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-art" role="img" aria-label="GlionIQ: a luminous blue brain with gold neural connections above the silver and gold wordmark"></div>
+      <a class="hero-art" href="/" aria-label="GlionIQ — Home">
+        <img src="public/images/glioniq-hero-transparent.png" width="450" height="270" fetchpriority="high" decoding="async" alt="GlionIQ: a luminous blue brain with gold neural connections above the silver and gold wordmark">
+      </a>
       <h1 id="hero-heading">Where <em>Neuroscience</em> Meets <span>Lifelong Learning</span></h1>
       <p>Exploring the science of the mind. Creating meaningful learning experiences for every generation.</p>
     </section>
@@ -134,7 +144,6 @@ def build():
   {header('../', 'About Us')}
   <main id="main" tabindex="-1">
     <article class="story">
-      <img class="story-logo" src="../public/images/glioniq-logo-official.PNG" width="1536" height="1024" fetchpriority="high" decoding="async" alt="GlionIQ — Grow Your Mind. Enrich Your Life.">
 {story_html()}
     </article>
     {contact().format(story='./')}

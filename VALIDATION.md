@@ -1,59 +1,48 @@
-# GlionIQ validation — 2026-11-14
+# GlionIQ branding validation — 2026-11-14
 
-## Scope and assets
+## Scope and preservation
 
-Work is limited to `/Users/igor/Documents/Repositories/glioniq-website`, repository `diveanalyzer/glioniq-website`, branch `main`. Starting tree was clean at `f190358`.
+Work is limited to `/Users/igor/Documents/Repositories/glioniq-website`, repository `diveanalyzer/glioniq-website`, branch `main`. This branding revision started from clean commit `e78fb12e433512ef898ef280b0217a894ac0eb71`, after the initial site was published successfully.
 
-Both approved PNGs are unchanged and protected by SHA-256 assertions. The homepage reference is `public/images/glioniq-coming-soon.PNG`; the official logo is `public/images/glioniq-logo-official.PNG`. Home uses the approved image motifs with responsive HTML typography and functional navigation, preserving its composition and visual identity. This is a responsive reconstruction, not a claim of pixel-for-pixel equivalence. The separate official logo is shown in full without stretching or cropping.
+Both original PNGs, the approved story Markdown, and CNAME are byte-for-byte unchanged, protected by SHA-256 assertions. CNAME contains exactly `glioniq.tech`. No DNS/Namecheap settings were changed. The homepage copy, scientific imagery, panels, cards, vision, navigation, and contact content are retained. Only branding, icon metadata, and the redundant About Us logo change.
 
 `BOOST.md`, referenced by the session instructions, was absent from the checkout and checked parent directories. No BoostGraph index exists in this checkout.
 
-## Content and static checks
+## Artwork and icons
 
-- `python3 scripts/build.py` and `python3 scripts/verify.py` pass.
-- All **61 story blocks** match the supplied updated narrative exactly, including punctuation and order. A separate comparison against the original user attachment also passed.
-- Both HTML pages have balanced markup, English language, one H1, unique IDs, and valid local links/anchors. All 22 local references resolve. The CSS artwork reference resolves.
-- Home copy, complete About Us narrative, Contact sections, correct domain metadata, and copyright are present.
-- No unverified mailbox address/link is displayed. The untouched source reference image still contains its original embedded address, outside the regions displayed by CSS.
-- Local HTTP 200 and exact served-byte checks pass for Home, both About Us URL forms, CSS, both images, and CNAME.
-- No runtime JavaScript, external fonts, libraries, forms, analytics, or server dependencies. Safari's rendered documents report zero scripts; a separate developer-console inspection was not performed.
+- True-alpha derivatives preserve the existing Home hero composition and provide the full official logo including its slogan and emblem as a separate asset. The full derivative is not redundantly displayed on the pages.
+- Header and footer branding uses the approved compact brain symbol. About Us retains its title and entire story without a large story logo.
+- Every displayed brand is an ordinary keyboard-accessible anchor targeting `/`, labelled “GlionIQ — Home”.
+- Browser icons: transparent 16/32-pixel PNGs and a 16/32/48-pixel ICO.
+- Home-screen icons: centered brain on deep navy, at 180, 192, and 512 pixels. Both pages reference the Apple icon and web manifest.
+- `public/images/branding-provenance.json` records source crops, hashes, processing method, and derivative hashes. No artwork was generated, redrawn, or substituted.
 
-## Browser checks
+Matting uses measured background samples. Bright source surfaces and protected brain interiors retain their source RGB; edge/glow pixels are unmatted. A flattened PNG cannot establish the exact original alpha channel. The only unobscured brain symbol in the supplied artwork is a **74 × 60** reference crop. Larger exports are resampled and softer than a dedicated high-resolution symbol master; lettering-overlapped anatomy is not reconstructed.
 
-Safari on macOS, with same-origin frames measuring actual layout viewport widths:
+## Automated and HTTP checks
 
-| Page | Widths in CSS pixels | Result |
-| --- | --- | --- |
-| Home | 320, 390, 768, 1024, 1440 | No horizontal overflow; all images loaded |
-| About Us | 320, 390, 768, 1024, 1440 | No horizontal overflow; all images loaded |
+- `python3 scripts/build.py`, `python3 scripts/verify.py`, and `git diff --check` pass.
+- All **61 story blocks** match the approved narrative, including punctuation and order.
+- Both pages have balanced HTML, English language, one H1, unique IDs, accessible brand links, correct icon metadata, and valid local links/anchors. All **35 local references** resolve; the CSS artwork path also resolves.
+- PNG dimensions, real alpha with transparent corners and antialiased edges, ICO entries, navy app-icon backgrounds, manifest icon paths, and derivative hashes pass.
+- Local HTTP 200 and exact served-byte checks pass for Home, About Us, all six root icon files, the manifest, and all three transparent derivatives.
+- No runtime JavaScript, unverified email destination, external fonts, analytics, forms, or server dependencies were introduced. The temporary browser QA harness is excluded from publication.
 
-Visually inspected Home's hero, Coming Soon panel, scientific cards, Our Vision and wave artwork, plus the About Us introduction and full logo. Narrow-screen cards stack in one column; desktop/tablet cards remain in three columns. The original reference was opened and compared with the implementation.
+## Browser evidence for this branding revision
 
-Verified by browser interaction:
+Safari on macOS:
 
-- Home → About Us through the main navigation.
-- Read Our Story → separate About Us page.
-- About Us → Home via Home navigation and the logo.
-- Contact on both pages → the real contact section, with focus moving to that section.
-- About Us direct navigation and refresh.
-- Option-Tab reveals the skip link with a visible blue focus ring; keyboard traversal and Return open About Us.
+- Visually inspected the Home hero and compact header, with no visible rectangular logo background on the navy page; About Us opens without its redundant large logo.
+- Visually inspected the exported artwork on navy and light backgrounds and the browser/app icon contact sheet.
+- The blue brain favicon was visible in Safari's active About Us tab.
+- Home hero click returns to `/`; Home Contact navigates to the contact section and its footer brain returns to `/`.
+- Main navigation opens About Us; its header brain returns to `/`.
+- Home rendered in same-origin frames with measured viewport widths **320, 390, 768, 1024, and 1440 CSS pixels**: no horizontal overflow, all images loaded, all three brand links target `/`, and all icon metadata is present.
 
-These are desktop Safari viewport tests, not physical iPhone, iPad, or Android device tests. Chrome/Android, a full assistive-technology audit, and OS-level reduced-motion emulation were not performed. The site has no entrance or looping animations; optional link transitions are limited to users allowing motion.
+The earlier site release had passed About Us layout checks at those five widths and keyboard navigation. Those earlier results are baseline evidence only. Safari stopped exposing an accessible window during the remaining branding rechecks; a repeated About Us five-width check, mobile brand interaction, and new-brand keyboard interaction were not completed at this checkpoint. Static checks verify ordinary anchor semantics and the existing visible focus styling.
 
-## Publication checks
+These are desktop Safari viewport checks, not physical iPhone/Android home-screen installation tests. Cross-browser/device acceptance and a full assistive-technology audit remain unverified. No offline capability is claimed.
 
-Existing Pages configuration was verified through GitHub's API: `main`, `/`, legacy branch publishing. Root CNAME was corrected to `glioniq.tech` with explicit owner authorization; `.nojekyll` is retained. No workflow or DNS configuration changes are required.
+## Publication
 
-Before publishing, `glioniq.tech` resolved to all four GitHub Pages IPv4 addresses, and `www.glioniq.tech` had CNAME `diveanalyzer.github.io`. HTTPS initially failed certificate hostname validation while GitHub still held the old domain; this resolved after the domain correction.
-
-Implementation commit `d9c144eb340af2a0c812007383e2a4bf709fba3e` was pushed successfully. A concurrent remote CNAME correction (`1019c0c`) was preserved by rebasing the unpublished implementation; the only conflict was a trailing newline in the same approved domain value. No force push was used.
-
-GitHub Pages reported `built` for the implementation commit, and [deployment run 43572596911](https://github.com/diveanalyzer/glioniq-website/actions/runs/43572596911) completed successfully. The Pages API confirms `glioniq.tech`, `main`, and `/`; domain health reports valid apex and www DNS.
-
-Production checks over normally validated HTTPS returned HTTP 200 and exact local-file bytes for Home, `/about-us/`, `/about-us/index.html`, CSS, both original PNGs, and CNAME. The ordinary Home and About URLs also return HTTP 200. `https://www.glioniq.tech/` redirects to `https://glioniq.tech/`. GitHub reports an approved certificate covering both hostnames, expiring 2027-02-12.
-
-HTTPS is active and verified. The existing `https_enforced: false` setting is unchanged: HTTP remains available without an automatic HTTPS redirect. No DNS/Namecheap settings were modified.
-
-## Remaining verification limits
-
-Physical-device/cross-browser acceptance remains unverified. Contact information must be supplied and verified before a real email destination or submission flow is enabled.
+The existing `main` + `/` GitHub Pages branch publishing configuration and `.nojekyll` are retained. The earlier site release was verified over valid HTTPS; its recorded `https_enforced` setting was `false`. Fresh deployment and enforcement verification for this branding revision will be recorded after publication.
