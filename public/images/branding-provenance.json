@@ -1,4 +1,5 @@
 {
+  "icon_cache_version": "20261114-2",
   "method": "Non-generative measured-background alpha matting; original bright surfaces retained; Lanczos icon resizing.",
   "sources": {
     "glioniq-logo-official.PNG": "68b5f5375e51c588d45726377b1963aaa5403bbe523cde0350eb4b19449fe76f",

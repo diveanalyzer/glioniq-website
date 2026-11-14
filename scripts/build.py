@@ -2,10 +2,12 @@
 """Generate static pages using approved originals and documented derivatives."""
 from html import escape
 from pathlib import Path
+import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DOMAIN = (ROOT / 'CNAME').read_text().strip()
+ICON_VERSION = json.loads((ROOT / 'public/images/branding-provenance.json').read_text())['icon_cache_version']
 
 
 def head(title, description, path, prefix):
@@ -29,11 +31,11 @@ def head(title, description, path, prefix):
   <meta property="og:image:height" content="1024">
   <meta property="og:image:alt" content="GlionIQ — Grow Your Mind. Enrich Your Life.">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="{prefix}favicon.ico" sizes="16x16 32x32 48x48">
-  <link rel="icon" type="image/png" sizes="32x32" href="{prefix}favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{prefix}favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="{prefix}apple-touch-icon.png">
-  <link rel="manifest" href="{prefix}site.webmanifest">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico?v={ICON_VERSION}" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v={ICON_VERSION}">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v={ICON_VERSION}">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v={ICON_VERSION}">
+  <link rel="manifest" href="/site.webmanifest?v={ICON_VERSION}">
   <meta name="apple-mobile-web-app-title" content="GlionIQ">
   <link rel="stylesheet" href="{prefix}assets/site.css">
 </head>'''

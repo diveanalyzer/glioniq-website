@@ -33,6 +33,8 @@ The unobscured approved brain symbol is a **74 × 60** crop from the reference. 
 
 Both pages reference the 16/32-pixel PNG favicons, multi-size ICO, 180-pixel Apple touch icon, and `site.webmanifest` with 192/512-pixel Android icons. The manifest supplies home-screen presentation metadata; no service worker or offline capability is provided.
 
+Icon and manifest URLs use the shared `?v=20261114-2` cache version on both pages, including icon URLs inside the manifest. When releasing revised icons, change `ICON_VERSION` in `scripts/build_brand_assets.py`, regenerate the assets, then rebuild both HTML pages. The verifier checks that every icon reference uses the same version. Safari can retain a tab icon separately from its normal page cache; versioned asset URLs request fresh files but cannot guarantee immediate replacement in every existing tab or saved home-screen shortcut.
+
 The reference PNG contains an email address. That part is not displayed on the site, and no email link is published because the mailbox is unverified. Contact navigates to a real section explaining that contact details will be shared when ready; it does not claim to send messages.
 
 ## GitHub Pages

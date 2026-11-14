@@ -52,3 +52,11 @@ Implementation commit `bb104b68e3538ab381872392d33ba28bf3cf97cb` was committed a
 Production HTTP 200 and exact local-file byte comparisons pass for **17 resources**: Home, both About Us URL forms, CSS, six root icon files, the manifest, CNAME, both original PNGs, and three transparent derivatives. Requests use normal TLS certificate validation. The manifest is served as `application/manifest+json`; image MIME types are correct. Ordinary Home and About Us URLs also return HTTP 200 without a release query parameter.
 
 GitHub reports an approved certificate for `glioniq.tech` and `www.glioniq.tech`, expiring 2027-02-12. **HTTPS works; enforcement remains disabled (`https_enforced: false`).** A direct HTTP request returns HTTP 200 without redirecting to HTTPS. No Pages setting or DNS/Namecheap configuration was changed by this branding revision.
+
+## Favicon cache revision — 2026-11-14
+
+Starting commit: `25bcee3b895af1887f9439a6036553b25fe37f35`. The existing six icon files were regenerated from the same approved brain crop; their bytes are unchanged. All three ICO frames (16, 32, 48) decode as RGBA, both browser PNGs have transparency, and the 180/192/512-pixel home-screen icons have the intended navy background. No higher-resolution unobscured source was available in the repository.
+
+Both HTML heads now explicitly reference root-relative favicon, Apple touch icon, and manifest URLs with `?v=20261114-2`. Manifest icons use the same version. The ICO has an explicit image MIME type, and the 32-pixel PNG follows the 16-pixel entry. GlionIQ name, start URL, scope, and navy colors are retained.
+
+`scripts/verify.py` passes, including all versioned paths, icon dimensions, alpha, hashes, manifest branding, and all 61 story blocks. Independent Pillow decoding confirms all ICO frames and PNG dimensions. A comparison against the starting commit confirms both complete HTML bodies, CSS, all displayed logo derivatives, original PNGs, story Markdown, and CNAME are byte-for-byte unchanged. `git diff --check` passes. DNS and HTTPS settings are outside this revision; physical iPhone Add to Home Screen has not been tested.

@@ -7,9 +7,12 @@ import json
 import re
 import struct
 import zlib
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+provenance = json.loads((ROOT / 'public/images/branding-provenance.json').read_text())
+icon_version = provenance['icon_cache_version']
+assert icon_version, 'Missing icon cache version'
 APPROVED = {
     'content/about-us.md': '0e7cabd04e9c2180bdfbb5e6cfd68246edecbcb10240f1ed8a0dfbfb4dfeb01d',
     'public/images/glioniq-coming-soon.PNG': '1bec352cca692d54d39e16f7ede7528f32eaa321c29f3fb277b51c3176c6dc3c',
@@ -98,6 +101,13 @@ for filename in ('index.html', 'about-us/index.html'):
     assert len([item for item in page.metadata if item.get('rel') == 'icon']) == 3
     assert any(item.get('rel') == 'apple-touch-icon' and item.get('sizes') == '180x180' for item in page.metadata)
     assert any(item.get('rel') == 'manifest' for item in page.metadata)
+    icon_links = [item for item in page.metadata if item.get('rel') in ('icon', 'apple-touch-icon', 'manifest')]
+    for item in icon_links:
+        url = urlsplit(item['href'])
+        assert url.path.startswith('/') and parse_qs(url.query) == {'v': [icon_version]}, 'Unversioned or inconsistent icon reference'
+    assert {urlsplit(item['href']).path for item in icon_links} == {
+        '/favicon.ico', '/favicon-16x16.png', '/favicon-32x32.png',
+        '/apple-touch-icon.png', '/site.webmanifest'}, 'Incorrect icon paths'
     assert not page.stack, filename
     assert page.h1 == 1, filename
     assert len(page.ids) == len(set(page.ids)), filename
@@ -120,7 +130,7 @@ for filename in ('index.html', 'about-us/index.html'):
             assert parsed.fragment in target_page.ids, ref
         reference_count += 1
 print(f'PASS: 2 balanced English HTML pages, one H1 each, unique IDs, {reference_count} local references.')
-print('PASS: every displayed brand links to /; favicon, touch-icon, and manifest metadata on both pages.')
+print('PASS: every displayed brand links to /; versioned favicon, touch-icon, and manifest metadata on both pages.')
 
 css = ROOT / 'assets/site.css'
 for ref in re.findall(r'url\([\'"]?([^\)\'\"]+)', css.read_text()):
@@ -200,10 +210,15 @@ assert struct.unpack('<HHH', ico[:6]) == (0, 1, 3)
 assert {(ico[6+i*16], ico[7+i*16]) for i in range(3)} == {(16,16), (32,32), (48,48)}
 manifest = json.loads((ROOT / 'site.webmanifest').read_text())
 assert manifest['start_url'] == '/' and manifest['scope'] == '/'
+assert manifest['name'] == manifest['short_name'] == 'GlionIQ'
+assert manifest['theme_color'] == manifest['background_color'] == '#020d20'
 assert {icon['sizes'] for icon in manifest['icons']} == {'192x192', '512x512'}
 for icon in manifest['icons']:
-    assert (ROOT / icon['src']).is_file()
-provenance = json.loads((ROOT / 'public/images/branding-provenance.json').read_text())
+    url = urlsplit(icon['src'])
+    size = icon['sizes'].split('x')[0]
+    assert url.path == f'/icon-{size}.png' and icon['type'] == 'image/png'
+    assert parse_qs(url.query) == {'v': [icon_version]}
+    assert (ROOT / url.path.lstrip('/')).is_file()
 for name, expected in provenance['derivatives'].items():
     assert sha256((ROOT / name).read_bytes()).hexdigest() == expected, name
 print('PASS: PNG dimensions and real alpha, 3 ICO sizes, opaque navy app icons, manifest and derivative hashes.')

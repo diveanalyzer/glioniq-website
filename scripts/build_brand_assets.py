@@ -15,6 +15,7 @@ from scipy.interpolate import LinearNDInterpolator
 
 ROOT = Path(__file__).resolve().parents[1]
 IMAGES = ROOT / 'public/images'
+ICON_VERSION = '20261114-2'
 SOURCES = {
     'glioniq-logo-official.PNG': '68b5f5375e51c588d45726377b1963aaa5403bbe523cde0350eb4b19449fe76f',
     'glioniq-coming-soon.PNG': '1bec352cca692d54d39e16f7ede7528f32eaa321c29f3fb277b51c3176c6dc3c',
@@ -113,10 +114,11 @@ def build():
         'start_url': '/', 'scope': '/', 'display': 'standalone',
         'theme_color': '#020d20', 'background_color': '#020d20',
         'description': 'Where Neuroscience Meets Lifelong Learning',
-        'icons': [{'src': f'icon-{n}.png', 'sizes': f'{n}x{n}', 'type': 'image/png', 'purpose': 'any'} for n in (192, 512)],
+        'icons': [{'src': f'/icon-{n}.png?v={ICON_VERSION}', 'sizes': f'{n}x{n}', 'type': 'image/png', 'purpose': 'any'} for n in (192, 512)],
     }
     (ROOT / 'site.webmanifest').write_text(json.dumps(manifest, indent=2) + '\n')
     provenance = {
+        'icon_cache_version': ICON_VERSION,
         'method': 'Non-generative measured-background alpha matting; original bright surfaces retained; Lanczos icon resizing.',
         'sources': SOURCES,
         'hero_source_box': [390, 8, 840, 278],
