@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
-"""Render the approved Markdown into buildless, GitHub Pages-ready HTML."""
+"""Generate static pages without transforming or overwriting approved artwork."""
 from html import escape
 from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-DOMAIN = (ROOT / "CNAME").read_text().strip()
-
-
-def inline(text):
-    return re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escape(text))
+DOMAIN = (ROOT / 'CNAME').read_text().strip()
 
 
 def head(title, description, path, prefix):
-    url = f"https://{DOMAIN}/{path}"
+    url = f'https://{DOMAIN}/{path}'
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -31,112 +27,125 @@ def head(title, description, path, prefix):
   <meta property="og:image" content="https://{DOMAIN}/public/images/glioniq-logo-official.PNG">
   <meta property="og:image:width" content="1536">
   <meta property="og:image:height" content="1024">
-  <meta property="og:image:alt" content="Official GlionIQ logo — Grow Your Mind. Enrich Your Life.">
+  <meta property="og:image:alt" content="GlionIQ — Grow Your Mind. Enrich Your Life.">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="{prefix}assets/site.css">
 </head>'''
 
 
-def nav(prefix, current):
-    return '<nav aria-label="Main navigation">' + ''.join(
-        f'<a href="{prefix}{path}"' + (' aria-current="page"' if label == current else '')
-        + f'>{label}</a>' for path, label in [('./', 'Home'), ('about-us/', 'About Us')]
-    ) + '</nav>'
+def header(prefix, current):
+    links = [('./', 'Home'), ('about-us/', 'About Us'), ('#contact', 'Contact')]
+    nav = ''.join(f'<a href="{prefix + path if not path.startswith("#") else path}"'
+                  + (' aria-current="page"' if label == current else '')
+                  + f'>{label}</a>' for path, label in links)
+    return f'''<a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="reference-brand" href="{prefix or './'}" aria-label="GlionIQ — Home"><span class="visually-hidden">GlionIQ</span></a>
+    <nav aria-label="Main navigation">{nav}</nav>
+  </header>'''
+
+
+def contact():
+    return '''<section class="contact-section" id="contact" tabindex="-1" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>We look forward to connecting with you.</p>
+      <p>Our contact details will be shared here when they are ready. In the meantime, discover the vision and science behind GlionIQ.</p>
+      <a href="{story}">Read Our Story <span aria-hidden="true">→</span></a>
+    </section>'''
+
+
+def footer(prefix):
+    return f'''<footer class="site-footer">
+    <a class="footer-brand" href="{prefix or './'}" aria-label="GlionIQ — Home">
+      <img src="{prefix}public/images/glioniq-logo-official.PNG" width="1536" height="1024" loading="lazy" decoding="async" alt="GlionIQ — Grow Your Mind. Enrich Your Life.">
+    </a>
+    <p>© 2026 GlionIQ. All Rights Reserved.</p>
+    <a href="#contact">Contact</a>
+  </footer>'''
 
 
 def story_html():
     blocks = (ROOT / 'content/about-us.md').read_text().strip().split('\n\n')
-    result = []
-    section_open = False
-    cards_open = False
-    for index, block in enumerate(blocks):
-        if block.startswith('### '):
-            if section_open:
-                result.append('</section>')
-            title = block[4:]
-            section_id = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
-            kind = 'principle' if title.startswith(('GLIA', 'NEURON', 'IQ')) else 'chapter'
-            if title.startswith('Building Cognitive'):
-                kind += ' reserve'
-            result.append(f'<section class="{kind}" aria-labelledby="{section_id}"><h3 id="{section_id}">{escape(title)}</h3>')
-            section_open = True
-        elif block.startswith('# '):
-            result.append(f'<h1>{escape(block[2:])}</h1>')
-        elif block.startswith('## '):
-            result.append(f'<h2>{escape(block[3:])}</h2>')
-        elif block.startswith(('**Early Development**', '**Lifelong Learning**', '**Healthy Cognitive Aging**')):
-            if not cards_open:
-                result.append('<div class="life-stages">')
-                cards_open = True
-            result.append(f'<p>{inline(block)}</p>')
-            if block.startswith('**Healthy Cognitive Aging**'):
-                result.append('</div>')
-                cards_open = False
+    result, section_open = [], False
+    for block in blocks:
+        match = re.match(r'^(#{1,4}) (.+)$', block)
+        if match:
+            level, title = len(match[1]), match[2]
+            if level == 3:
+                if section_open:
+                    result.append('</section>')
+                section_id = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+                result.append(f'<section class="chapter" aria-labelledby="{section_id}">')
+                section_open = True
+                result.append(f'<h3 id="{section_id}">{escape(title)}</h3>')
+            else:
+                result.append(f'<h{level}>{escape(title)}</h{level}>')
         else:
-            kind = ' class="opening"' if index == 2 else ''
-            if block == '**Grow Your Mind. Enrich Your Life.**':
-                kind = ' class="closing"'
-            result.append(f'<p{kind}>{inline(block)}</p>')
+            kind = ' class="closing"' if block.startswith('GlionIQ — Where') else ''
+            if block == 'Inspired by Research. Guided by Evidence. Continuously Evolving.':
+                kind = ' class="statement"'
+            result.append(f'<p{kind}>{escape(block)}</p>')
     if section_open:
         result.append('</section>')
     return '\n'.join(result)
 
 
 def build():
-    home = head('GlionIQ — Coming Soon',
-                'GlionIQ is preparing for launch. Discover the science behind our name and our vision for lifelong learning and cognitive engagement.', '', '')
+    home = head('GlionIQ — Where Neuroscience Meets Lifelong Learning',
+                'Exploring the science of the mind. Creating meaningful learning experiences for every generation. Discover the vision and science behind GlionIQ.', '', '')
     home += f'''
 <body class="home-page">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="home-header">{nav('', 'Home')}</header>
-  <main id="main" tabindex="-1" class="home-main">
-    <h1 class="visually-hidden">GlionIQ — Coming Soon</h1>
-    <figure class="launch-art">
-      <img src="public/images/glioniq-coming-soon.PNG" width="1221" height="1288" fetchpriority="high" decoding="async"
-           alt="GlionIQ. Where Neuroscience Meets Lifelong Learning. Coming soon: our new digital home is currently under development. Discover the vision and science behind GlionIQ while we prepare for launch.">
-      <a class="art-link art-logo" href="./" aria-label="GlionIQ — Home"></a>
-      <a class="art-link art-home" href="./" aria-label="Home" aria-current="page"></a>
-      <a class="art-link art-about" href="about-us/" aria-label="About Us"></a>
-      <a class="art-link art-contact" href="mailto:info@glioniq.tech" aria-label="Contact GlionIQ by email"></a>
-      <a class="art-link art-story" href="about-us/" aria-label="Read Our Story"></a>
-      <a class="art-link art-footer-logo" href="./" aria-label="GlionIQ — Home"></a>
-      <a class="art-link art-email" href="mailto:info@glioniq.tech" aria-label="Email info@glioniq.tech"></a>
-    </figure>
-    <details class="launch-message">
-      <summary>Read the launch message</summary>
-      <p>Something Extraordinary Is Taking Shape.</p>
+  {header('', 'Home')}
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-art" role="img" aria-label="GlionIQ: a luminous blue brain with gold neural connections above the silver and gold wordmark"></div>
+      <h1 id="hero-heading">Where <em>Neuroscience</em> Meets <span>Lifelong Learning</span></h1>
+      <p>Exploring the science of the mind. Creating meaningful learning experiences for every generation.</p>
+    </section>
+    <section class="coming-soon" aria-labelledby="coming-heading">
+      <p class="eyebrow">COMING SOON</p>
+      <h2 id="coming-heading">Something Extraordinary Is Taking Shape.</h2>
       <p>Our new digital home is currently under development. Discover the vision and science behind GlionIQ while we prepare for launch.</p>
-      <a href="about-us/">Read Our Story <span aria-hidden="true">→</span></a>
-    </details>
+    </section>
+    <section class="about-preview" aria-labelledby="about-heading">
+      <h2 class="section-title" id="about-heading">About Us</h2>
+      <p class="section-subtitle">The Science Behind Our Name</p>
+      <div class="science-cards">
+        <article class="science-card"><span class="science-icon glia" aria-hidden="true"></span><div><h3>GLIA</h3><p>Supporting neural function, learning and memory.</p></div></article>
+        <article class="science-card"><span class="science-icon neuron" aria-hidden="true"></span><div><h3>NEURON</h3><p>The extraordinary power of neural connections.</p></div></article>
+        <article class="science-card"><span class="science-icon iq" aria-hidden="true"></span><div><h3>IQ</h3><p>Curiosity, intelligence and the pursuit of knowledge.</p></div></article>
+      </div>
+      <a class="story-link" href="about-us/">Read Our Story <span aria-hidden="true">⟶</span></a>
+    </section>
+    <section class="vision" aria-labelledby="vision-heading">
+      <h2 class="section-title" id="vision-heading">Our Vision</h2>
+      <p>We believe that curiosity belongs to every generation, learning should never stop, and technology inspired by science can enrich the way we think, discover, and grow.</p>
+    </section>
+    {contact().format(story='about-us/')}
   </main>
+  {footer('')}
 </body>
 </html>
 '''
-    about = head('About Us — The Science Behind GlionIQ',
-                 'Explore the story of GlionIQ: glia, neurons, curiosity, and our vision for lifelong learning and cognitive engagement.', 'about-us/', '../')
+    about = head('About Us — Our Story | GlionIQ',
+                 'A Healthy Body. A Clear Mind. A Fuller Life. Our complete story, scientific commitment, and vision for learning and cognitive engagement at every age.', 'about-us/', '../')
     about += f'''
 <body class="about-page">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="about-header">
-    <a class="brand" href="../" aria-label="GlionIQ — Home">
-      <img src="../public/images/glioniq-logo-official.PNG" width="1536" height="1024" fetchpriority="high" decoding="async"
-           alt="GlionIQ — Grow Your Mind. Enrich Your Life.">
-    </a>
-    {nav('../', 'About Us')}
-  </header>
+  {header('../', 'About Us')}
   <main id="main" tabindex="-1">
     <article class="story">
+      <img class="story-logo" src="../public/images/glioniq-logo-official.PNG" width="1536" height="1024" fetchpriority="high" decoding="async" alt="GlionIQ — Grow Your Mind. Enrich Your Life.">
 {story_html()}
     </article>
+    {contact().format(story='./')}
   </main>
-  <footer class="site-footer"><a href="../">Home</a><span>© 2026 GlionIQ. All Rights Reserved.</span></footer>
+  {footer('../')}
 </body>
 </html>
 '''
     (ROOT / 'index.html').write_text(home)
-    (ROOT / 'about-us').mkdir(exist_ok=True)
     (ROOT / 'about-us/index.html').write_text(about)
-    print('Built index.html and about-us/index.html from the approved source.')
+    print('Built Home and About Us. CNAME:', DOMAIN)
 
 
 if __name__ == '__main__':

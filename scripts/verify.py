@@ -8,7 +8,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 APPROVED = {
-    'content/about-us.md': '76ac31345bda9f4723afe161b757432c33549467f4a4529e6d3f22ccd7cd3ac7',
+    'content/about-us.md': '0e7cabd04e9c2180bdfbb5e6cfd68246edecbcb10240f1ed8a0dfbfb4dfeb01d',
     'public/images/glioniq-coming-soon.PNG': '1bec352cca692d54d39e16f7ede7528f32eaa321c29f3fb277b51c3176c6dc3c',
     'public/images/glioniq-logo-official.PNG': '68b5f5375e51c588d45726377b1963aaa5403bbe523cde0350eb4b19449fe76f',
 }
@@ -38,7 +38,7 @@ class Page(HTMLParser):
                 self.refs.append(attrs[key])
         if tag == 'article':
             self.article = True
-        if self.article and tag in ('h1', 'h2', 'h3', 'p'):
+        if self.article and tag in ('h1', 'h2', 'h3', 'h4', 'p'):
             self.current, self.text = tag, []
         if tag not in ('meta', 'link', 'img', 'br', 'hr', 'input'):
             self.stack.append(tag)
@@ -61,12 +61,21 @@ for filename, expected in APPROVED.items():
 print('PASS: original PNG bytes and approved Markdown checksum (3/3).')
 
 source = (ROOT / 'content/about-us.md').read_text().strip().split('\n\n')
-expected_blocks = [re.sub(r'^#{1,3} ', '', block).replace('**', '') for block in source]
+expected_blocks = [re.sub(r'^#{1,4} ', '', block).replace('**', '') for block in source]
+assert (ROOT / 'CNAME').read_text().strip() == 'glioniq.tech'
+assert (ROOT / '.nojekyll').is_file()
 reference_count = 0
 for filename in ('index.html', 'about-us/index.html'):
     path = ROOT / filename
     page = Page()
     page.feed(path.read_text())
+    assert 'mailto:' not in path.read_text(), 'Unverified contact address'
+    assert 'info@glioniq.tech' not in path.read_text(), 'Unverified mailbox published'
+    assert '<script' not in path.read_text(), 'Unexpected runtime JavaScript'
+    assert 'id="contact"' in path.read_text(), 'Missing real contact section'
+    assert f'https://glioniq.tech/' in path.read_text(), 'Incorrect canonical domain'
+    assert 'Home</a>' in path.read_text() and 'About Us</a>' in path.read_text()
+    assert 'Contact</a>' in path.read_text()
     assert not page.stack, filename
     assert page.h1 == 1, filename
     assert len(page.ids) == len(set(page.ids)), filename
@@ -90,3 +99,8 @@ for filename in ('index.html', 'about-us/index.html'):
         reference_count += 1
 print(f'PASS: 2 balanced English HTML pages, one H1 each, unique IDs, {reference_count} local references.')
 print('PASS: relative URLs support both custom-domain root and GitHub project subpaths.')
+
+css = ROOT / 'assets/site.css'
+for ref in re.findall(r'url\([\'"]?([^\)\'\"]+)', css.read_text()):
+    assert (css.parent / ref).resolve().is_file(), f'Missing CSS asset: {ref}'
+print('PASS: CSS artwork reference, contact sections, domain, no unverified mailbox or runtime JS.')
