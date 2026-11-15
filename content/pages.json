@@ -1,0 +1,144 @@
+[
+  {
+    "route": "/science/",
+    "name": "Science & Research",
+    "category": "The science behind our work",
+    "introduction": "Science-informed technology begins with curiosity, careful questions and respect for evidence.",
+    "audience": "For anyone interested in the research principles that inform GlionIQ’s work.",
+    "purpose": "To explain our approach to responsible educational and cognitive-engagement experiences.",
+    "status": "Our research overview will evolve as approved reviews and product-specific evidence become available.",
+    "sections": [
+      {
+        "title": "Research-inspired, evidence-aware",
+        "paragraphs": [
+          "GlionIQ aims to draw on neuroscience, developmental psychology, educational research and the study of lifelong learning. These fields provide questions and perspectives for product development; inspiration alone is not proof of a product’s effectiveness."
+        ],
+        "items": []
+      },
+      {
+        "title": "Cognitive reserve and healthy aging",
+        "paragraphs": [
+          "Cognitive reserve, cognitive engagement and healthy aging are part of the scientific context explored in our company story. We distinguish broad research ideas from evidence about a particular digital activity."
+        ],
+        "items": []
+      },
+      {
+        "title": "How we approach evidence",
+        "paragraphs": [],
+        "items": [
+          "Review relevant research and its limitations.",
+          "Distinguish hypotheses and design intentions from demonstrated outcomes.",
+          "Evaluate claims in the context of the population and methods studied.",
+          "Improve products when appropriate evidence supports a change."
+        ]
+      },
+      {
+        "title": "Clear limits",
+        "paragraphs": [
+          "Our digital laboratories are not certified clinical laboratories or medical treatments. We do not guarantee prevention of Alzheimer’s disease, dementia or cognitive decline. Research references will accompany future research articles."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "page",
+    "parent": "/#laboratories",
+    "artwork": null,
+    "links": [
+      {
+        "label": "Read our complete scientific story",
+        "href": "/about-us/"
+      }
+    ]
+  },
+  {
+    "route": "/blog/",
+    "name": "Blog & Insights",
+    "category": "From our laboratories",
+    "introduction": "Insights Coming Soon",
+    "audience": "For curious readers following our ideas, research interests and development journey.",
+    "purpose": "A future home for articles, ideas and updates from our laboratories.",
+    "status": "There are no approved published articles to display yet.",
+    "sections": [
+      {
+        "title": "Thoughtful reading, when it is ready",
+        "paragraphs": [
+          "Research perspectives, learning ideas and laboratory updates will appear here as they are ready to share."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "page",
+    "parent": "/#laboratories",
+    "artwork": null,
+    "links": []
+  },
+  {
+    "route": "/contact/",
+    "name": "Contact",
+    "category": "Connect with GlionIQ",
+    "introduction": "We look forward to connecting with people who share our interest in learning, discovery and cognitive engagement.",
+    "audience": "Families, educators, curious learners and potential collaborators.",
+    "purpose": "A future point of contact for questions about GlionIQ and its platforms.",
+    "status": "Verified contact details will be shared here when they are ready.",
+    "sections": [
+      {
+        "title": "Stay connected with our work",
+        "paragraphs": [
+          "For now, explore our laboratories and company story. A contact channel will be added once it is ready to receive enquiries."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "page",
+    "parent": "/#laboratories",
+    "artwork": null,
+    "links": [
+      {
+        "label": "Explore our laboratories",
+        "href": "/#laboratories"
+      },
+      {
+        "label": "Read our story",
+        "href": "/about-us/"
+      }
+    ]
+  },
+  {
+    "route": "/journey/",
+    "name": "Join Our Journey",
+    "category": "Learning has no finish line",
+    "introduction": "Follow the development of GlionIQ’s digital laboratories for learning, knowledge and cognitive engagement.",
+    "audience": "Anyone interested in our platforms and the ideas behind them.",
+    "purpose": "To provide a clear place to find future release information and laboratory updates.",
+    "status": "Release dates and public availability have not been announced on this website.",
+    "sections": [
+      {
+        "title": "Where to find updates",
+        "paragraphs": [
+          "Visit the individual laboratory pages for confirmed product information. Blog & Insights will carry approved articles and development updates when they are available."
+        ],
+        "items": []
+      },
+      {
+        "title": "Explore at your own pace",
+        "paragraphs": [
+          "Return to this website for confirmed release information and new ideas from our laboratories as they become available."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "page",
+    "parent": "/#laboratories",
+    "artwork": null,
+    "links": [
+      {
+        "label": "Our laboratories",
+        "href": "/#laboratories"
+      },
+      {
+        "label": "Blog & Insights",
+        "href": "/blog/"
+      }
+    ]
+  }
+]

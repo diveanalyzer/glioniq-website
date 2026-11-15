@@ -1,44 +1,43 @@
-# GlionIQ
+# GlionIQ website
 
-Official static company website for **glioniq.tech**, published from the existing `main` branch and repository root on GitHub Pages.
+Static HTML, CSS and lightweight JavaScript for `glioniq.tech`. The v2 website is developed **locally only** on `development/glioniq-homepage-v2`. Do not push, merge or deploy until the owner explicitly approves publication. The production `main` branch, GitHub Pages configuration, CNAME, DNS and HTTPS are unchanged.
 
-- `/` — responsive implementation of the approved Home reference, with real text, scientific artwork, three cards, Our Vision, and Contact.
-- `/about-us/` — the complete updated company story, generated from `content/about-us.md`.
-- Both pages include Home, About Us, Contact, accessible keyboard navigation, and linked branding.
+## Build and preview
 
-## Build and validate
-
-Python 3.9 or later; normal HTML builds and validation have no third-party dependencies:
+Python 3.9+ is sufficient; normal builds have no package dependencies:
 
 ```sh
 python3 scripts/build.py
 python3 scripts/verify.py
-python3 -m http.server 8765 --bind 127.0.0.1
+node scripts/verify_interactions.js
+python3 -m http.server 8787 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8765/`. Generated HTML is committed; GitHub Pages needs no Python build step. After reviewing approved content changes, update its checksum in the verifier and regenerate the HTML.
+Open <http://127.0.0.1:8787/>. With the server running, `python3 scripts/verify_http.py` checks local HTTP responses. Open `/scripts/responsive-qa.html` for the browser viewport and search integration checks. Generated HTML is tracked so a future approved GitHub Pages release needs no Python build step. The search test uses Node's built-in modules; Node is not a website runtime dependency.
 
-## Approved artwork
+## Content and routes
 
-Originals remain byte-for-byte unchanged:
+- Home: `/`; approved composition from `design/glioniq-homepage-approved.png`.
+- About: `/about-us/`; all 61 approved blocks come unchanged from `content/about-us.md`.
+- Platforms and four NeuroPath laboratories: `content/platforms.json`.
+- Science, Blog, Contact and Journey: `content/pages.json`.
+- Search: `/search/`, generated `assets/search-index.json`, and `assets/site.js`.
+- Future articles: `content/articles.json`. The approved article list is intentionally empty. Each article supports a unique slug, title, category, ISO publication date, optional author, summary, body sections and relevant source links. Adding an approved article creates its page, blog listing and search entry on the next build. Rebuilds do not automatically delete previously generated article directories; remove a withdrawn article's output deliberately during editorial review.
 
-- `public/images/glioniq-coming-soon.PNG` — 1221 × 1288, the approved homepage reference.
-- `public/images/glioniq-logo-official.PNG` — 1536 × 1024, the complete official logo.
+Search is case-insensitive, matches all query terms against the local website index, handles empty queries and no results, and links directly to matching pages. No external search provider or data collection is used. The mobile menu and NeuroPath disclosure use native HTML controls. JavaScript enhances mobile state, Escape handling and search; content/navigation remain usable without it. Reduced-motion preferences are respected.
 
-Home retains the reference composition, blue/gold palette, brain and wordmark, neural imagery, illuminated panel, cards, separators, and footer waves. The hero uses a true-alpha derivative of its existing approved reference crop. Headers and footers use the compact brain symbol; About Us has no redundant story logo. Every displayed brand links to `/` with an accessible label. On narrow screens the navigation wraps and the cards stack vertically.
+## Artwork and preserved icons
 
-`scripts/build_brand_assets.py` removes the measured navy background without generating or redrawing artwork. It creates transparent full-logo, hero, and brain derivatives, transparent browser favicons, and navy home-screen icons. `public/images/branding-provenance.json` records source hashes, crop coordinates, output hashes, and limitations. Bright surfaces and protected brain interiors retain source RGB; edge/glow colors are unmatted. Exact recovery of an original alpha channel from flattened PNGs is not claimed.
+The two original PNGs and approved design reference remain unchanged. Existing transparent GlionIQ hero/brain assets, favicon files, Apple touch icon, Android icons and `site.webmanifest` are preserved. Every generated page shares the existing icon cache version `20261114-2`.
 
-The unobscured approved brain symbol is a **74 × 60** crop from the reference. The larger brains overlap lettering, so hidden anatomy is not reconstructed. Larger icon exports are resampled and can look softer than a dedicated high-resolution symbol master. For optional asset regeneration, install `scripts/branding-requirements.txt` into an isolated virtual environment and run `scripts/build_brand_assets.py`. These packages are not needed by the site or GitHub Pages.
+`public/images/development/` contains crops of the supplied approved reference, plus a transparent compact header crop of the original coming-soon artwork. `provenance.json` records the source hash, crop boxes and limitations. The product cards use the actual approved artwork; headings, descriptions, navigation, buttons, tree and search are HTML, not a screenshot of the page. The Earth crop has its embedded button removed with alpha so the real CTA remains interactive.
 
-Both pages reference the 16/32-pixel PNG favicons, multi-size ICO, 180-pixel Apple touch icon, and `site.webmanifest` with 192/512-pixel Android icons. The manifest supplies home-screen presentation metadata; no service worker or offline capability is provided.
+Separate high-resolution transparent product masters were not supplied. For sharper exports, supply approved Trampolina, Dr. Quiz and NeuroPath logo/artwork files (suggested names: `trampolina-logo-transparent.png`, `dr-quiz-logo-transparent.png`, `neuropath-logo-transparent.png`). The current reference crops are faithful but limited by their source resolution. No substitute logos or missing brain anatomy were generated.
 
-Icon and manifest URLs use the shared `?v=20261114-2` cache version on both pages, including icon URLs inside the manifest. When releasing revised icons, change `ICON_VERSION` in `scripts/build_brand_assets.py`, regenerate the assets, then rebuild both HTML pages. The verifier checks that every icon reference uses the same version. Safari can retain a tab icon separately from its normal page cache; versioned asset URLs request fresh files but cannot guarantee immediate replacement in every existing tab or saved home-screen shortcut.
+The existing `scripts/build_brand_assets.py` is an optional authoring tool using `scripts/branding-requirements.txt`. **Do not run it for routine v2 builds**: current favicon and home-screen icon files must remain unchanged. Their prior provenance is in `public/images/branding-provenance.json`.
 
-The reference PNG contains an email address. That part is not displayed on the site, and no email link is published because the mailbox is unverified. Contact navigates to a real section explaining that contact details will be shared when ready; it does not claim to send messages.
+## Content limits
 
-## GitHub Pages
+Product availability is not independently verified in this website repository, so planned areas and development status are explicit. NeuroWeave and CodeQuest remain in Logic Lab; Memory Lab remains in Memory Lab. Light Paths is named only on the NeuroPath overview, with its category awaiting confirmation. No games, fake store links, invented publications, contact details or subscription forms are included.
 
-The existing `main` + `/` branch publishing configuration and `.nojekyll` are retained. Brand links target the custom-domain root `/`; other internal navigation and asset references are relative. The root `CNAME` remains exactly `glioniq.tech`, following the earlier owner-authorized correction. Canonical and social metadata use this domain. DNS/Namecheap settings are not changed.
-
-See `VALIDATION.md` for verification evidence and limits.
+See `DEVELOPMENT_REPORT.md` for local acceptance evidence and remaining review items. `VALIDATION.md` records earlier production work and is historical; it is not evidence that v2 has been deployed.

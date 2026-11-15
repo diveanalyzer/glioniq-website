@@ -1,0 +1,298 @@
+[
+  {
+    "route": "/laboratories/trampolina/",
+    "name": "Trampolina",
+    "category": "Children’s Learning & Development Laboratories",
+    "introduction": "A growing world of discovery for children, bringing learning, exploration and creative thinking into interactive digital experiences.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "To create opportunities to explore foundational ideas, try new approaches and enjoy the process of learning.",
+    "status": "In development. Activity availability and release details will be confirmed before public access is offered.",
+    "sections": [
+      {
+        "title": "Planned learning areas",
+        "paragraphs": [
+          "The following areas describe the platform’s planned direction. They are not a catalogue of currently released activities."
+        ],
+        "items": [
+          "Colors",
+          "Shapes",
+          "Numbers",
+          "Letters",
+          "Puzzles",
+          "Problem-solving",
+          "Creativity",
+          "Interactive learning"
+        ]
+      },
+      {
+        "title": "Learning with curiosity",
+        "paragraphs": [
+          "Trampolina’s educational direction emphasizes exploration and opportunities to practise. Digital activities are intended to complement the wider experiences through which children learn."
+        ],
+        "items": []
+      },
+      {
+        "title": "Availability",
+        "paragraphs": [
+          "Confirmed feature details will be added as activities are ready to share. No public download or store release is announced here."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "platform",
+    "parent": "/#laboratories",
+    "artwork": "trampolina",
+    "links": [
+      {
+        "label": "Our laboratories",
+        "href": "/#laboratories"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/dr-quiz/",
+    "name": "Dr. Quiz",
+    "category": "Knowledge & Discovery Lab",
+    "introduction": "Fascinating facts, quizzes and mind-expanding challenges. Dr. Quiz is being developed as a place to explore questions, discover ideas and follow curiosity.",
+    "audience": "Curious learners who enjoy discovering knowledge, thinking through questions and sharing quiz experiences with others.",
+    "purpose": "To make knowledge discovery inviting through scientific facts, questions and intellectual challenges.",
+    "status": "In development. The areas below describe the product direction; release availability and individual features are not yet announced here.",
+    "sections": [
+      {
+        "title": "Discover & Learn",
+        "paragraphs": [
+          "Explore the intended discovery experience: interesting questions, accessible explanations and opportunities to learn something new."
+        ],
+        "items": []
+      },
+      {
+        "title": "Quizzes and intellectual challenges",
+        "paragraphs": [
+          "Quizzes are part of Dr. Quiz’s planned approach to knowledge discovery. Detailed formats and available topics will be introduced when confirmed."
+        ],
+        "items": []
+      },
+      {
+        "title": "Party quiz activities",
+        "paragraphs": [
+          "Shared quiz activities are part of the product direction. Participation options and play formats will be described when ready."
+        ],
+        "items": []
+      },
+      {
+        "title": "Responsible discovery",
+        "paragraphs": [
+          "Scientific facts need careful sourcing and clear explanations. Product information will distinguish what is established, what is uncertain and what remains under development."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "platform",
+    "parent": "/#laboratories",
+    "artwork": "dr-quiz",
+    "links": [
+      {
+        "label": "Our laboratories",
+        "href": "/#laboratories"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/",
+    "name": "NeuroPath",
+    "category": "Cognitive Engagement Laboratories",
+    "introduction": "A suite of brain-training labs for memory, attention, logic and cognitive flexibility.",
+    "audience": "People interested in ongoing cognitive engagement and lifelong learning, including adults exploring structured challenges at their own pace.",
+    "purpose": "To provide a coherent collection of digital activities organized around different kinds of cognitive engagement.",
+    "status": "In development. This website introduces the laboratories and their confirmed activity organization; it does not provide the mobile activities or announce a public release.",
+    "sections": [
+      {
+        "title": "Four connected laboratories",
+        "paragraphs": [
+          "Explore Memory Lab, Attention Lab, Logic Lab and Flexibility Lab. Each has its own focus within the wider NeuroPath platform."
+        ],
+        "items": []
+      },
+      {
+        "title": "Confirmed activity organization",
+        "paragraphs": [],
+        "items": [
+          "Memory Lab contains the signature activity Memory Lab.",
+          "Logic Lab contains NeuroWeave and CodeQuest."
+        ]
+      },
+      {
+        "title": "Light Paths",
+        "paragraphs": [
+          "Light Paths is an existing NeuroPath activity. Its laboratory category is awaiting confirmation, so it is not assigned to a laboratory here."
+        ],
+        "items": []
+      },
+      {
+        "title": "Engagement with realistic expectations",
+        "paragraphs": [
+          "NeuroPath is not a medical treatment. No activity is presented as clinically proven to prevent dementia, Alzheimer’s disease or cognitive decline, or to build cognitive reserve. Product-specific benefits require appropriate evidence."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "platform",
+    "parent": "/#laboratories",
+    "artwork": "neuropath",
+    "links": [
+      {
+        "label": "Memory Lab",
+        "href": "/laboratories/neuropath/memory/"
+      },
+      {
+        "label": "Attention Lab",
+        "href": "/laboratories/neuropath/attention/"
+      },
+      {
+        "label": "Logic Lab",
+        "href": "/laboratories/neuropath/logic/"
+      },
+      {
+        "label": "Flexibility Lab",
+        "href": "/laboratories/neuropath/flexibility/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/memory/",
+    "name": "Memory Lab",
+    "category": "NeuroPath laboratory",
+    "introduction": "A dedicated space within NeuroPath for memory-oriented cognitive engagement.",
+    "audience": "People interested in exploring memory-focused digital activities as part of their lifelong learning.",
+    "purpose": "To organize memory-oriented experiences within a clear, accessible laboratory.",
+    "status": "In development. Detailed activity descriptions and availability will be shared when confirmed.",
+    "sections": [
+      {
+        "title": "Signature activity",
+        "paragraphs": [
+          "Memory Lab is the confirmed signature activity in this laboratory. Specific mechanics and release details are not announced here."
+        ],
+        "items": []
+      },
+      {
+        "title": "What to expect next",
+        "paragraphs": [
+          "Further information will explain the activity’s intended experience and how it fits into the NeuroPath platform. No clinical or preventive benefit is promised."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "lab",
+    "parent": "/laboratories/neuropath/",
+    "artwork": null,
+    "links": [
+      {
+        "label": "Explore NeuroPath",
+        "href": "/laboratories/neuropath/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/attention/",
+    "name": "Attention Lab",
+    "category": "NeuroPath laboratory",
+    "introduction": "The NeuroPath laboratory dedicated to attention-oriented cognitive engagement.",
+    "audience": "People interested in exploring attention-focused challenges within the NeuroPath collection.",
+    "purpose": "To give attention-oriented experiences a distinct home within the platform.",
+    "status": "In development. An approved activity catalogue is not yet available for this laboratory.",
+    "sections": [
+      {
+        "title": "Activities under development",
+        "paragraphs": [
+          "Confirmed activity names and descriptions will appear here when available."
+        ],
+        "items": []
+      },
+      {
+        "title": "Our approach",
+        "paragraphs": [
+          "This page introduces the laboratory’s focus. It does not claim measured improvements in attention or clinical outcomes."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "lab",
+    "parent": "/laboratories/neuropath/",
+    "artwork": null,
+    "links": [
+      {
+        "label": "Explore NeuroPath",
+        "href": "/laboratories/neuropath/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/logic/",
+    "name": "Logic Lab",
+    "category": "NeuroPath laboratory",
+    "introduction": "A home for logic-oriented cognitive engagement within NeuroPath.",
+    "audience": "People who enjoy reasoning, considering possibilities and exploring intellectual challenges.",
+    "purpose": "To bring the platform’s logic-focused experiences together in one laboratory.",
+    "status": "In development. Signature activity names and placement are confirmed; mechanics and release availability will be introduced separately.",
+    "sections": [
+      {
+        "title": "Signature activities",
+        "paragraphs": [],
+        "items": [
+          "NeuroWeave",
+          "CodeQuest"
+        ]
+      },
+      {
+        "title": "Explore the ideas behind the activities",
+        "paragraphs": [
+          "NeuroWeave and CodeQuest belong to Logic Lab. Further information about their individual experiences will be added when approved."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "lab",
+    "parent": "/laboratories/neuropath/",
+    "artwork": null,
+    "links": [
+      {
+        "label": "Explore NeuroPath",
+        "href": "/laboratories/neuropath/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/flexibility/",
+    "name": "Flexibility Lab",
+    "category": "NeuroPath laboratory",
+    "introduction": "The NeuroPath laboratory for cognitive-flexibility-oriented engagement.",
+    "audience": "People interested in exploring different approaches to challenges within a lifelong learning journey.",
+    "purpose": "To organize experiences around cognitive flexibility as a distinct focus of the platform.",
+    "status": "In development. Approved activity details will be added as they become available.",
+    "sections": [
+      {
+        "title": "A laboratory taking shape",
+        "paragraphs": [
+          "No specific activity catalogue is announced for Flexibility Lab yet. Future descriptions will clarify each confirmed activity and its intended experience."
+        ],
+        "items": []
+      },
+      {
+        "title": "Responsible expectations",
+        "paragraphs": [
+          "The laboratory’s focus describes a design direction. It is not a claim of clinically established improvements or protection against cognitive decline."
+        ],
+        "items": []
+      }
+    ],
+    "kind": "lab",
+    "parent": "/laboratories/neuropath/",
+    "artwork": null,
+    "links": [
+      {
+        "label": "Explore NeuroPath",
+        "href": "/laboratories/neuropath/"
+      }
+    ]
+  }
+]

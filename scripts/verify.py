@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check approved content, original artwork, HTML structure and local references."""
+"""Check the complete static site, approved story, artwork, icons and links."""
 from hashlib import sha256
 from html.parser import HTMLParser
 from pathlib import Path
@@ -18,7 +18,14 @@ APPROVED = {
     'public/images/glioniq-coming-soon.PNG': '1bec352cca692d54d39e16f7ede7528f32eaa321c29f3fb277b51c3176c6dc3c',
     'public/images/glioniq-logo-official.PNG': '68b5f5375e51c588d45726377b1963aaa5403bbe523cde0350eb4b19449fe76f',
     'CNAME': '032cb9062e2ae84bdd721624565df97ae64ab2929e925b8e8241e94af8dfd45f',
+    'design/glioniq-homepage-approved.png': '6309d5952eb403822a4becfda6f357b6108f1e9b501336c059a135c17921b152',
 }
+
+ROUTES = ('/', '/about-us/', '/science/', '/blog/', '/contact/', '/journey/',
+          '/search/', '/laboratories/trampolina/', '/laboratories/dr-quiz/',
+          '/laboratories/neuropath/', '/laboratories/neuropath/memory/',
+          '/laboratories/neuropath/attention/', '/laboratories/neuropath/logic/',
+          '/laboratories/neuropath/flexibility/')
 
 
 class Page(HTMLParser):
@@ -32,6 +39,11 @@ class Page(HTMLParser):
         self.anchor = None
         self.brands = 0
         self.metadata = []
+        self.scripts = []
+        self.forms = []
+        self.details = []
+        self.detail_stack = []
+        self.buttons = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -45,25 +57,40 @@ class Page(HTMLParser):
             self.anchor = attrs
         if tag == 'link':
             self.metadata.append(attrs)
+        if tag == 'script':
+            self.scripts.append(attrs)
+        if tag == 'form':
+            self.forms.append(attrs)
+        if tag == 'details':
+            self.detail_stack.append({'attrs': attrs, 'summaries': 0, 'summary_text': [], 'summary_links': 0, 'refs': []})
+        if tag == 'summary' and self.detail_stack:
+            self.detail_stack[-1]['summaries'] += 1
+        if tag == 'a' and self.detail_stack:
+            self.detail_stack[-1]['refs'].append(attrs.get('href', ''))
+            if 'summary' in self.stack:
+                self.detail_stack[-1]['summary_links'] += 1
+        if tag == 'button':
+            self.buttons.append(attrs)
         if tag == 'img':
-            assert all(attrs.get(key) for key in ('alt', 'width', 'height'))
-            if 'glioniq-' in attrs.get('src', ''):
+            assert 'alt' in attrs and all(attrs.get(key) for key in ('width', 'height'))
+            if self.anchor and self.anchor.get('aria-label') == 'GlionIQ — Home':
                 assert self.anchor and self.anchor.get('href') == '/', 'Brand must link to /'
-                assert self.anchor.get('aria-label') == 'GlionIQ — Home'
                 self.brands += 1
-        for key in ('href', 'src'):
+        for key in ('href', 'src', 'action'):
             if key in attrs:
                 self.refs.append(attrs[key])
         if tag == 'article':
             self.article = True
         if self.article and tag in ('h1', 'h2', 'h3', 'h4', 'p'):
             self.current, self.text = tag, []
-        if tag not in ('meta', 'link', 'img', 'br', 'hr', 'input'):
+        if tag not in ('meta', 'link', 'img', 'br', 'hr', 'input', 'source', 'wbr', 'area', 'col', 'embed', 'param', 'track', 'base'):
             self.stack.append(tag)
 
     def handle_data(self, data):
         if self.current:
             self.text.append(data)
+        if self.detail_stack and 'summary' in self.stack:
+            self.detail_stack[-1]['summary_text'].append(data)
 
     def handle_endtag(self, tag):
         assert self.stack and self.stack.pop() == tag, f'Unbalanced HTML: {tag}'
@@ -74,30 +101,36 @@ class Page(HTMLParser):
             self.article = False
         if tag == 'a':
             self.anchor = None
+        if tag == 'details':
+            self.details.append(self.detail_stack.pop())
 
 
 for filename, expected in APPROVED.items():
     assert sha256((ROOT / filename).read_bytes()).hexdigest() == expected, filename
-print('PASS: original PNGs, approved Markdown, and CNAME bytes unchanged (4/4).')
+print('PASS: original PNGs, approved reference, Markdown, and CNAME bytes unchanged (5/5).')
 
 source = (ROOT / 'content/about-us.md').read_text().strip().split('\n\n')
 expected_blocks = [re.sub(r'^#{1,4} ', '', block).replace('**', '') for block in source]
 assert (ROOT / 'CNAME').read_text().strip() == 'glioniq.tech'
 assert (ROOT / '.nojekyll').is_file()
 reference_count = 0
-for filename in ('index.html', 'about-us/index.html'):
+pages = {}
+for route in ROUTES:
+    filename = route.lstrip('/') + 'index.html'
     path = ROOT / filename
+    assert path.is_file(), f'Missing required route: {route}'
+    html = path.read_text()
     page = Page()
-    page.feed(path.read_text())
-    assert 'mailto:' not in path.read_text(), 'Unverified contact address'
-    assert 'info@glioniq.tech' not in path.read_text(), 'Unverified mailbox published'
-    assert '<script' not in path.read_text(), 'Unexpected runtime JavaScript'
-    assert 'id="contact"' in path.read_text(), 'Missing real contact section'
-    assert f'https://glioniq.tech/' in path.read_text(), 'Incorrect canonical domain'
-    assert 'Home</a>' in path.read_text() and 'About Us</a>' in path.read_text()
-    assert 'Contact</a>' in path.read_text()
-    assert page.brands == (2 if filename.startswith('about-us/') else 3)
-    assert 'story-logo' not in path.read_text(), 'Redundant About Us logo'
+    page.feed(html)
+    pages[path.resolve()] = page
+    assert 'mailto:' not in html and 'info@glioniq.tech' not in html, 'Unverified contact address'
+    assert all(script.get('src') == '/assets/site.js' and 'defer' in script for script in page.scripts), 'Unexpected or blocking runtime JavaScript'
+    assert len(page.scripts) == 1, f'Missing shared interaction script: {route}'
+    assert f'https://glioniq.tech{route}' in html, 'Incorrect canonical domain'
+    for destination in ('/', '/about-us/', '/science/', '/blog/', '/contact/', '/search/'):
+        assert destination in page.refs, f'Missing shared navigation {destination} on {route}'
+    assert page.brands == (3 if route == '/' else 2), f'Brand count on {route}: {page.brands}'
+    assert 'story-logo' not in html, 'Redundant About Us logo'
     assert len([item for item in page.metadata if item.get('rel') == 'icon']) == 3
     assert any(item.get('rel') == 'apple-touch-icon' and item.get('sizes') == '180x180' for item in page.metadata)
     assert any(item.get('rel') == 'manifest' for item in page.metadata)
@@ -111,9 +144,21 @@ for filename in ('index.html', 'about-us/index.html'):
     assert not page.stack, filename
     assert page.h1 == 1, filename
     assert len(page.ids) == len(set(page.ids)), filename
-    if filename.startswith('about-us/'):
+    if route == '/about-us/':
         assert page.blocks == expected_blocks, 'Story wording, punctuation or paragraph order changed'
         print(f'PASS: all {len(page.blocks)} story blocks match, in order, including punctuation.')
+    for form in page.forms:
+        assert form.get('method', 'get').lower() == 'get' and form.get('action') == '/search/', 'Unexpected data-collecting form'
+    for detail in page.details:
+        assert detail['summaries'] == 1 and ''.join(detail['summary_text']).strip(), 'Disclosure needs one named summary'
+        assert detail['summary_links'] == 0, 'Keep navigation separate from the disclosure control'
+
+home = pages[(ROOT / 'index.html').resolve()]
+lab_routes = {f'/laboratories/neuropath/{name}/' for name in ('memory', 'attention', 'logic', 'flexibility')}
+assert any(lab_routes <= set(detail['refs']) for detail in home.details), 'Missing accessible four-laboratory tree'
+assert '/laboratories/neuropath/' in home.refs, 'Explore NeuroPath must navigate independently'
+
+for path, page in pages.items():
     for ref in page.refs:
         parsed = urlsplit(ref)
         if parsed.scheme or parsed.netloc:
@@ -125,17 +170,20 @@ for filename in ('index.html', 'about-us/index.html'):
             target /= 'index.html'
         assert target.is_file(), f'Missing target: {ref}'
         if parsed.fragment:
-            target_page = Page()
-            target_page.feed(target.read_text())
+            assert target in pages, f'Anchor targets a non-page: {ref}'
+            target_page = pages[target]
             assert parsed.fragment in target_page.ids, ref
         reference_count += 1
-print(f'PASS: 2 balanced English HTML pages, one H1 each, unique IDs, {reference_count} local references.')
-print('PASS: every displayed brand links to /; versioned favicon, touch-icon, and manifest metadata on both pages.')
+print(f'PASS: {len(pages)} balanced English HTML pages, one H1 each, unique IDs, {reference_count} local references.')
+print('PASS: shared navigation, Home-linked branding, deferred local JavaScript, and versioned icon metadata on every page.')
 
 css = ROOT / 'assets/site.css'
 for ref in re.findall(r'url\([\'"]?([^\)\'\"]+)', css.read_text()):
-    assert (css.parent / ref).resolve().is_file(), f'Missing CSS asset: {ref}'
-print('PASS: CSS artwork reference, contact sections, domain, no unverified mailbox or runtime JS.')
+    parsed = urlsplit(ref)
+    assert not parsed.scheme and not parsed.netloc, f'Unexpected external CSS asset: {ref}'
+    target = (ROOT / parsed.path.lstrip('/')) if parsed.path.startswith('/') else css.parent / parsed.path
+    assert target.resolve().is_relative_to(ROOT) and target.is_file(), f'Missing CSS asset: {ref}'
+print('PASS: CSS artwork references, canonical domain, and no unverified mailbox or data-collecting forms.')
 
 
 def png(path):

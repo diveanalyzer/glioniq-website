@@ -1,0 +1,13 @@
+{
+  "approved_articles": [],
+  "article_fields": {
+    "slug": "Unique lowercase URL segment",
+    "title": "Approved article title",
+    "category": "Editorial category",
+    "publication_date": "ISO date YYYY-MM-DD; required for publication",
+    "author": "Approved author display name or null",
+    "summary": "Short search and listing description",
+    "body": "Array of sections with title, paragraphs and items",
+    "sources": "Array of objects containing title and url for relevant scientific sources; empty when not applicable"
+  }
+}
