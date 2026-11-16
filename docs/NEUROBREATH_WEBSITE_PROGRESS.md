@@ -25,8 +25,8 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 | 1 — approved NeuroBreath wordmark | Complete | `9c44096` |
 | 2 — central laboratory trees | Complete | `f7b9528` |
 | 3 — living orb | Complete | `5c33c70` |
-| 4 — breathing activities | Complete | Recorded in the next checkpoint |
-| 5 — responsive verification | Pending | — |
+| 4 — breathing activities | Complete | `67e8932` |
+| 5 — responsive verification | Complete | Recorded in the next checkpoint |
 | 6 — complete testing / screenshots | Pending | — |
 | 7 — verified GitHub backup | Pending | — |
 
@@ -34,7 +34,7 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 
 GitHub Backup: INCOMPLETE — implementation has just started; no push attempted.
 
-Next step: complete responsive and visual QA, then capture final screenshots.
+Next step: final test sweep, screenshot evidence, source-only security review and verified non-deploying GitHub backup.
 
 Publication is not authorized. Never merge into main, change DNS/hosting, or trigger production deployment.
 
@@ -63,3 +63,9 @@ Node timing tests passed: exact boundaries for all three patterns, continuous si
 Three existing URLs now contain working guides: Square Focus 4/4/4/4, Sleep Calm 4/2/6 and Neural Wave 4/6. Start, Pause, Resume, Restart and Exit are functional; phase, countdown, cycle, highlighted steps and frame trace derive from the same elapsed-time snapshot. Hidden pages, leaving the activity and scrolling the guide out of view pause the clock; return requires explicit Resume. No saved data, backend or permissions are required. Existing comfort guidance remains.
 
 Safari **149 checks PASS**: actual full 16s, 12s and 10s cycles, phase order, controls, paused countdown/animation, resume, restart and Exit destinations. Also manually activated and paused Square Focus with focus moving to the next available control. Static build and links passed; artwork verification was updated from the retired flat activity-thumbnail contract to the original orb image and passed. Node timing and search tests passed.
+
+## Phase 5 — homepage and responsive design
+
+Preserved the original grid dimensions/order, Explore destinations, subtitle/descriptions, shared header/footer and complete approved Hero HTML/CSS prefix (compared with `c289642`). The exact cropped wordmark is blended against navy; its thin reference glow remains visible. Tree connectors now follow measured node positions, including wrapped rows and mobile, without changing homepage layout.
+
+Safari **205/205 page-width combinations PASS** (41 pages × 320/390/768/1024/1440 CSS pixels): no horizontal overflow, no clipped main cards, all images decoded, navigation breakpoint correct, zero captured JavaScript/resource errors. Browser search direct-query/result/no-results/blank-query checks also passed. Mobile NeuroBreath tree was visually inspected. These are desktop Safari viewport tests, not physical-device acceptance. HTTP verification: **93 unique URLs PASS**, all 200 and byte-matched.

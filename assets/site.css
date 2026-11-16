@@ -378,3 +378,14 @@ html{scroll-behavior:smooth}
 .breathing-activity .comfort-note{font-size:15px;line-height:1.7;max-width:780px;margin:22px auto;color:var(--muted)}
 [data-state="paused"] .frame-trace{opacity:.65}
 @media(max-width:650px){.breathing-activity{padding-inline:18px}.breathing-workspace{grid-template-columns:1fr;gap:10px;padding:18px 14px}.breathing-scene{max-width:290px}.exercise-heading{margin:18px 0}.exercise-guidance .current-phase{font-size:26px}.exercise-guidance .countdown{font-size:42px}.exercise-steps{gap:5px}.exercise-steps li{padding:7px 9px}}
+
+/* Blend the exact reference crop into the existing navy surface. */
+.neurobreath-wordmark,.exercise-wordmark{mix-blend-mode:lighten;mask-image:linear-gradient(transparent,#000 12%,#000 96%,transparent)}
+.breathing-node .category-visual{mask-image:radial-gradient(ellipse,#000 47%,transparent 76%)}
+.central-exploration .tree-root{padding-bottom:24px}
+.central-exploration .tree-root>.product-art,.central-exploration .tree-root>.neurobreath-art{height:200px}
+.neural-tree{position:relative;isolation:isolate;padding-inline:18px}
+.tree-wires{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible;pointer-events:none}
+.tree-wires path{fill:none;stroke:#70d7ff;stroke-width:1.5;filter:drop-shadow(0 0 4px #39baff);stroke-linecap:round;stroke-linejoin:round}
+.neural-tree[data-connected] .tree-branches:before,.neural-tree[data-connected] .tree-branch:before{display:none}
+@media(max-width:650px){.neural-tree{padding-left:18px;padding-right:0}.neural-tree[data-connected] .tree-branches{border:0;padding-left:0;margin-left:0}.central-exploration .tree-root{padding-bottom:24px}}

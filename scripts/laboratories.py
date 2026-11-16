@@ -63,7 +63,7 @@ def central_tree(platform, entries):
             node = branch_card(branch) + '<p class="tree-status">In development · Explore information</p>'
         nodes.append('<li class="tree-branch">'+node+nested+'</li>')
     key = platform['key']
-    return f'''<section class="central-exploration content-page" data-central-tree="{key}"><a class="breadcrumb" href="/#platform-{key}">← Back to Home</a><header class="tree-root">{platform_art(platform)}<h1>{e(platform['name'])} Laboratories</h1><p>{e(platform['description'])}</p><p class="kicker">Choose a connected experience</p></header><nav class="neural-tree" aria-label="{e(platform['name'])} laboratory tree"><ul class="tree-branches">{''.join(nodes)}</ul></nav><a class="breadcrumb" href="/#platform-{key}">← Back to Home</a></section>'''
+    return f'''<section class="central-exploration content-page" data-central-tree="{key}"><a class="breadcrumb" href="/#platform-{key}">← Back to Home</a><header class="tree-root">{platform_art(platform)}<h1>{e(platform['name'])} Laboratories</h1><p>{e(platform['description'])}</p><p class="kicker">Choose a connected experience</p></header><nav class="neural-tree" aria-label="{e(platform['name'])} laboratory tree"><svg class="tree-wires" aria-hidden="true" focusable="false"></svg><ul class="tree-branches">{''.join(nodes)}</ul></nav><a class="breadcrumb" href="/#platform-{key}">← Back to Home</a></section>'''
 
 
 METHODS = {

@@ -161,3 +161,25 @@ function initializeBreathingActivity(root) {
   controls();
 }
 if(typeof document!=='undefined')document.querySelectorAll('[data-breathing]').forEach(initializeBreathingActivity);
+
+function initializeCentralTree(tree) {
+  const svg=tree.querySelector('.tree-wires'),nodes=[...tree.querySelectorAll('.tree-branch>.activity-card')];
+  function connect() {
+    const bounds=tree.getBoundingClientRect();
+    svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);
+    const points=nodes.map(node=>{const r=node.getBoundingClientRect();return {x:r.left+r.width/2-bounds.left,y:r.top-bounds.top,left:r.left-bounds.left};});
+    const narrow=matchMedia('(max-width:650px)').matches;
+    svg.replaceChildren(...points.map(point=>{
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      const d=narrow?`M${bounds.width/2} 0H1V${point.y+32}H${point.left}`:
+        point.y<40?`M${bounds.width/2} 0V7H${point.x}V${point.y}`:
+        `M${bounds.width/2} 0H1V${point.y-14}H${point.x}V${point.y}`;
+      path.setAttribute('d',d);return path;
+    }));
+    tree.toggleAttribute('data-connected',true);
+  }
+  const observer=new ResizeObserver(connect);observer.observe(tree);connect();
+  window.addEventListener('pagehide',()=>observer.disconnect());
+  window.addEventListener('pageshow',()=>observer.observe(tree));
+}
+if(typeof document!=='undefined')document.querySelectorAll('.neural-tree').forEach(initializeCentralTree);
