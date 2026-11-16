@@ -1,0 +1,15 @@
+{
+  "reference": "public/images/laboratories/neurobreath/approved_neurobreath_branding.png",
+  "reference_sha256": "d53c68581df70d6b9189a9e0f0426e11c79386b2ef60fd11468d82c70a364e65",
+  "original_orb": "public/images/laboratories/neurobreath/IMG_0020 3.JPG",
+  "orb_sha256": "6866c599f679a561dbe5aa78e7ed4dcaeb5fd19246c7f17790d7882ba065ac4b",
+  "wordmark": "public/images/laboratories/derived/neurobreath-approved-wordmark.png",
+  "wordmark_sha256": "67661cb5b5793d6223062bcdb73a0dbfd1799f2b3786b3fada67613816f3dc49",
+  "crop": [
+    825,
+    704,
+    1364,
+    787
+  ],
+  "method": "Exact RGB crop of approved wordmark only; original orb is rendered separately without redrawing."
+}

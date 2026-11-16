@@ -21,8 +21,8 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 
 | Phase | Status | Local checkpoint |
 |---|---|---|
-| 0 — safety / preserve existing artwork | Complete | Recorded after commit |
-| 1 — approved NeuroBreath wordmark | Pending | — |
+| 0 — safety / preserve existing artwork | Complete | `1542123` |
+| 1 — approved NeuroBreath wordmark | Complete | Recorded in the next checkpoint |
 | 2 — central laboratory trees | Pending | — |
 | 3 — living orb | Pending | — |
 | 4 — breathing activities | Pending | — |
@@ -34,6 +34,12 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 
 GitHub Backup: INCOMPLETE — implementation has just started; no push attempted.
 
-Next step: integrate a separate exact crop of the approved NeuroBreath wordmark while retaining the original orb and other homepage logos. Verify desktop/mobile, then create the phase 1 checkpoint.
+Next step: build four central exploration routes using existing laboratory and activity data.
 
 Publication is not authorized. Never merge into main, change DNS/hosting, or trigger production deployment.
+
+## Phase 1 — approved branding
+
+Extracted the exact 539 × 83 wordmark from the supplied approved reference, with reproducible crop coordinates and SHA-256 provenance. Both original NeuroBreath files and all other approved logos remain unchanged. The original orb is larger within the existing artwork area. The subtitle, descriptions, card sizing and both actions are retained.
+
+Safari visual review: desktop and a 320 CSS-pixel iframe show the full wordmark, original orb, readable text and reachable controls. Build: 37 pages. The crop retains a thin blue reference glow and navy background; this is not a redrawn or newly approved logo. The reference's lung-orb differs from the explicitly required original neural orb, which is preserved. Final screenshots and responsive sweep follow in phase 6.

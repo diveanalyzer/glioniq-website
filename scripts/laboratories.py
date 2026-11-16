@@ -7,7 +7,7 @@ ARTWORK = json.loads((Path(__file__).resolve().parents[1] / "content/artwork-map
 
 
 def neurobreath_art(detail=False):
-    return '<div class="neurobreath-art'+(' detail-art' if detail else '')+'"><img src="/public/images/neurobreath-logo-official.jpg" width="1206" height="640" alt="Official NeuroBreath blue and gold neural orb" loading="lazy"><strong>NeuroBreath</strong></div>'
+    return '<div class="neurobreath-art'+(' detail-art' if detail else '')+'"><img class="orb-image" src="/public/images/neurobreath-logo-official.jpg" width="1206" height="640" alt="Official NeuroBreath blue and gold neural orb" loading="lazy"><img class="neurobreath-wordmark" src="/public/images/laboratories/derived/neurobreath-approved-wordmark.png" width="539" height="83" alt="NeuroBreath" loading="lazy"></div>'
 
 
 def artwork_for(route, detail=False):
@@ -35,7 +35,7 @@ def explorer(platforms):
     for p in platforms:
         key = p['key']
         art = neurobreath_art() if key == 'neurobreath' else f'<img class="product-art" src="/public/images/development/{key}.webp" width="364" height="230" alt="{e(p["name"])} approved artwork" loading="lazy">'
-        cards.append(f'''<article class="platform-card {key}" data-platform="{key}">{art}<h3 class="visually-hidden">{e(p['name'])}</h3><h4>{e(p['subtitle'])}</h4><p class="platform-description">{e(p['description'])}</p><div class="platform-actions"><a class="gold-button" href="{p['route']}">Explore {e(p['name'])} <span aria-hidden="true">›</span></a><button class="laboratory-toggle" id="explore-{key}" type="button" aria-expanded="false" aria-controls="laboratory-panel" data-name="{e(p['name'])}" hidden><span class="toggle-label">Discover Laboratories</span> <span class="toggle-mark" aria-hidden="true">+</span><span class="visually-hidden"> — {e(p['name'])}</span></button></div></article>''')
+        cards.append(f'''<article class="platform-card {key}" id="platform-{key}" data-platform="{key}">{art}<h3 class="visually-hidden">{e(p['name'])}</h3><h4>{e(p['subtitle'])}</h4><p class="platform-description">{e(p['description'])}</p><div class="platform-actions"><a class="gold-button" href="{p['route']}">Explore {e(p['name'])} <span aria-hidden="true">›</span></a><button class="laboratory-toggle" id="explore-{key}" type="button" aria-expanded="false" aria-controls="laboratory-panel" data-name="{e(p['name'])}" hidden><span class="toggle-label">Discover Laboratories</span> <span class="toggle-mark" aria-hidden="true">+</span><span class="visually-hidden"> — {e(p['name'])}</span></button></div></article>''')
         trees.append(f'<div class="laboratory-tree" id="branches-{key}" data-tree="{key}" hidden><div class="branch-links">'+''.join(branch_card(b) for b in p['branches'])+'</div></div>')
     panel='<section class="laboratory-panel" id="laboratory-panel" aria-labelledby="tree-title" hidden><header class="tree-header"><div><p class="kicker">Connected laboratories</p><h3 id="tree-title" tabindex="-1"></h3></div><button class="tree-close" type="button">Close Laboratories <span aria-hidden="true">×</span></button></header>'+''.join(trees)+'</section>'
     return '<p class="explorer-hint">Choose Discover Laboratories to reveal a platform’s connected experiences.</p><div class="laboratory-explorer"><svg class="neural-connector" aria-hidden="true" focusable="false"><path></path></svg><div class="platform-grid">'+''.join(cards)+'</div>'+panel+'<noscript><p>Explore each platform above to discover its laboratories.</p></noscript></div>'
