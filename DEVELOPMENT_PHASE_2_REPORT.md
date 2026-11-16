@@ -11,7 +11,7 @@ The local implementation adds four platform cards, a shared laboratory explorer,
 - [Blog destination](http://127.0.0.1:8787/blog/) and [Science destination](http://127.0.0.1:8787/science/)
 - [Local Editorial Studio](http://127.0.0.1:8787/admin/)
 - After opening the Studio: [Blog article template](http://127.0.0.1:8787/preview/blog/) and [Science article template](http://127.0.0.1:8787/preview/science/)
-- [Full route/width QA](http://127.0.0.1:8787/scripts/responsive-qa.html?v=phase2-final) and [Explorer/editor browser QA](http://127.0.0.1:8787/scripts/phase2-qa.html?v=phase2-final)
+- [Full route/width QA](http://127.0.0.1:8787/scripts/responsive-qa.html?v=resume-20261116) and [Explorer/editor browser QA](http://127.0.0.1:8787/scripts/phase2-qa.html?v=phase2-final)
 
 The preview binds only `127.0.0.1`; it is not a public preview deployment. If it is stopped, run `python3 -B scripts/serve.py --port 8787`. Open `/admin/` again after a restart to establish a new local session. One clearly labelled browser QA draft is retained in the ignored `.local-cms/` folder; it is not in public content or Git.
 
@@ -68,17 +68,17 @@ PASS means the stated local scope was verified; it does not imply production rea
 | 7 | NeuroPath tree | PASS | Exactly four labs; existing signature placements and routes retained. |
 | 8 | NeuroBreath tree | PASS | Exactly three methods; no Custom fourth branch; browser expansion passes. |
 | 9 | All branch navigation | PASS | Static targets and local HTTP responses verified; each branch has a dedicated page. |
-| 10 | NeuroBreath product page | PASS | Generated page, diagrams, durations, safety text and HTTP verified. Final visual sweep remains under item 20; approved orb absent. |
-| 11 | Search | PASS | 26 indexed destinations; existing search assertions pass including NeuroWeave, Party Quiz and Neural Wave. Earlier native browser query/no-results/blank-query integration passed. |
+| 10 | NeuroBreath product page | PASS | Generated page, diagrams, durations, safety text and HTTP verified. Native Safari visual inspection confirmed the three routes and readable content; neutral development artwork remains pending approval/integration of the newly present asset. |
+| 11 | Search | PASS | 26 indexed destinations; existing search assertions pass including NeuroWeave, Party Quiz and Neural Wave. Fresh Safari integration passed direct query, result URL, no-results and blank-query checks. |
 | 12 | About Us preservation | PASS | All 61 blocks match; protected Markdown hash unchanged. |
-| 13 | Blog layout | PASS | Local branded template and five-width browser fit checks passed; fixture generation/listing/search tested in isolation. No public article invented. |
-| 14 | Science & Research layout | PASS | Shared branded template and five-width browser fit checks passed; structured references supported. |
+| 13 | Blog layout | PASS | Local branded template and five-width browser fit checks passed; native Safari visual inspection confirmed typography and the unpublished banner. Fixture generation/listing/search tested in isolation. No public article invented. |
+| 14 | Science & Research layout | PASS | Shared branded template and five-width browser fit checks passed; native Safari visual inspection confirmed readable typography and the unpublished banner. Structured references supported. |
 | 15 | CMS article editor | PASS | Browser create/edit/review sequence passed; all editor form fields and local safe-paste implementation present. Production roles excluded. |
 | 16 | Article preview | PASS | Browser preview displays edited title, emphasis and unpublished banner; script text does not execute. Server image/caption preview test passes. |
 | 17 | Draft storage | PASS | Browser save/reopen passed; server revision/history/conflict tests pass. Local drafts are not remotely backed up. |
 | 18 | Publishing architecture | NOT VERIFIED | Design, inactive Decap schema and isolated build/package/unpublish tests complete. Real OAuth, protected branch rules, roles and release flow not activated or tested. |
 | 19 | CMS security boundaries | PASS | Local API denial, Origin/Host checks, private-path/traversal denial, safe rendering, type/size/signature checks and disabled publishing tested. Production auth/RBAC remains item 18. |
-| 20 | Responsive layouts | NOT VERIFIED | Explorer plus Studio/Blog/Science checks passed at 320/390/768/1024/1440. Full fresh 27-page × five-width sweep could not finish after browser access failed; see below. |
+| 20 | Responsive layouts | PASS | Fresh native Safari harness: 135/135 combinations passed across 27 pages at 320/390/768/1024/1440px; no horizontal overflow, missing images or captured JavaScript/resource errors, and navigation breakpoints correct. Explorer plus Studio/Blog/Science width checks also passed. Desktop browser viewport coverage; physical-device acceptance remains item 4. |
 
 **Verification runs and limits**
 
@@ -90,8 +90,9 @@ PASS means the stated local scope was verified; it does not imply production rea
 - `python3 -B scripts/verify_editorial.py`: 8 test groups pass. Tests use temporary isolated drafts/media and a temporary build copy; synthetic published fixtures never enter public source.
 - Native Safari `scripts/phase2-qa.html`: 160 assertions passed, zero failures, covering all four expansions at five widths, single active selection, centering, close/Escape, 300/500 ms pointer timing, touch-pointer suppression, local draft create/edit/review/reopen, safe preview and Studio/Blog/Science width checks. Pointer/tap simulations are not physical-device testing.
 - Native keyboard Enter, Space and Escape were observed on the Dr. Quiz disclosure. The active desktop card and secondary cards were visually inspected.
-- The older responsive harness displayed 70/70, but it used cached old harness/index data. This is NOT accepted as coverage of the 27-page phase-two build. The harness was updated for dynamic route counts/no-store fetches, and CSS/JS URLs now carry content hashes. A final fresh 135-combination run remains required.
-- Browser control then repeatedly returned `Computer Use server error -10005: cgWindowNotFound`; browser inventory also reported its access host unavailable. Reconnecting/resetting did not restore access. No final all-page visual result is claimed. The local HTTP server continued to work.
+- The older responsive harness displayed 70/70 using cached old harness/index data; that result is excluded from phase-two coverage. After updating the harness for dynamic route counts/no-store fetches and using content-hashed CSS/JS URLs, a fresh Safari run at `scripts/responsive-qa.html?v=resume-20261116` completed **135/135 PASS; 0 failures; 0 JavaScript/resource errors**. All 27 pages passed at 320, 390, 768, 1024 and 1440px with no horizontal overflow, all images loaded and correct navigation breakpoints. Fresh browser search integration also passed direct query, result URL, no-results and blank-query checks.
+- Browser access initially failed with `Computer Use server error -10005: cgWindowNotFound`. After the owner restored Safari availability, control recovered and the full responsive result was observed. Native screenshots additionally confirmed the NeuroBreath diagrams/phase labels and Blog/Science template typography. These checks use desktop Safari and iframe viewport widths; they do not establish physical touchscreen, assistive-technology or OS reduced-motion acceptance.
+- During the resumed QA, the new untracked file `public/images/neurobreath-logo-official.jpg` was present (228,197 bytes; SHA-256 `6866c599f679a561dbe5aa78e7ed4dcaeb5fd19246c7f17790d7882ba065ac4b`). It was preserved without modification, staging or integration. Its correspondence to the approved neural orb was not verified in this browser-only follow-up.
 - Static artifact test: 59 allowlisted files; new routes present; no admin/drafts/source/scripts/Git metadata included. This artifact was temporary and was not uploaded.
 - `git diff --check` and Python syntax checks pass. Shared site JavaScript is 6,975 bytes with no third-party runtime dependency. No network-performance or Lighthouse score is claimed.
 
@@ -101,8 +102,8 @@ Read-only HTTPS checks found production `/`, `/about-us/`, `/assets/site.css`, `
 
 **Remaining owner review / activation work**
 
-1. Supply the approved NeuroBreath orb. Neutral development placeholders are deliberate; orb/energy-arm motion is not implemented without the approved artwork.
-2. Restore browser control and run the fresh 135 route-width checks, inspect NeuroBreath and article typography visually, and test real mobile tap/scroll, reduced motion and assistive technology. Fix any resulting issue before release approval.
+1. Verify the newly present NeuroBreath asset against the approved orb, then integrate the approved artwork and assess the requested motion. Neutral development placeholders remain; orb/energy-arm motion is not yet implemented.
+2. Test real mobile tap/scroll, OS reduced motion and assistive technology. Fix any resulting issue before release approval. The fresh 135 route-width checks and native NeuroBreath/article visual inspection are complete.
 3. Review the expanded card motion and six source-backed Trampolina areas.
 4. Select/configure authentication and protected Git permissions, then test distinct real Owner and Editor identities. Complete production upload processing and authenticated preview infrastructure.
 5. Approve content and a future publication separately. This report grants no release permission.
