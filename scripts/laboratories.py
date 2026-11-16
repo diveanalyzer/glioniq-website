@@ -6,8 +6,14 @@ import json
 ARTWORK = json.loads((Path(__file__).resolve().parents[1] / "content/artwork-map.json").read_text())
 
 
+def living_orb():
+    source = '/public/images/neurobreath-logo-official.jpg'
+    image = f'<img src="{source}" width="1206" height="640" alt="" loading="lazy" decoding="async">'
+    return f'<div class="living-orb" role="img" aria-label="Original NeuroBreath neural orb"><div class="orb-body">{image}</div><div class="orb-arms arms-left" aria-hidden="true">{image}</div><div class="orb-arms arms-right" aria-hidden="true">{image}</div></div>'
+
+
 def neurobreath_art(detail=False):
-    return '<div class="neurobreath-art'+(' detail-art' if detail else '')+'"><img class="orb-image" src="/public/images/neurobreath-logo-official.jpg" width="1206" height="640" alt="Official NeuroBreath blue and gold neural orb" loading="lazy"><img class="neurobreath-wordmark" src="/public/images/laboratories/derived/neurobreath-approved-wordmark.png" width="539" height="83" alt="NeuroBreath" loading="lazy"></div>'
+    return '<div class="neurobreath-art'+(' detail-art' if detail else '')+'">'+living_orb()+'<img class="neurobreath-wordmark" src="/public/images/laboratories/derived/neurobreath-approved-wordmark.png" width="539" height="83" alt="NeuroBreath" loading="lazy"></div>'
 
 
 def artwork_for(route, detail=False):
@@ -67,11 +73,16 @@ METHODS = {
 }
 
 
+def breathing_scene(key):
+    _, _, _, path, label = METHODS[key]
+    return f'<div class="breathing-scene" data-shape="{key}">{living_orb()}<svg class="breathing-frame" viewBox="0 0 210 210" aria-hidden="true"><path class="frame-base" d="{path}"></path><path class="frame-trace" d="{path}" pathLength="1"></path></svg></div>'
+
+
 def breathing_methods(key=None):
     cards = []
     for slug, (name, cycle, phases, path, label) in METHODS.items():
         if key and slug != key:
             continue
         phase_text = ''.join(f'<li><strong>{phase}</strong> {duration} seconds</li>' for phase, duration in phases)
-        cards.append(f'<section class="breathing-method"><h2>{name}</h2><p class="cycle">{cycle}</p><svg class="breathing-route" viewBox="0 0 210 210" role="img" aria-label="{label}"><path d="{path}"></path></svg><p>{label}</p><ol class="breathing-phases">{phase_text}</ol><p class="method-note">Illustrative route · Coming Soon</p></section>')
+        cards.append(f'<section class="breathing-method"><h2>{name}</h2><p class="cycle">{cycle}</p>{breathing_scene(slug)}<p>{label}</p><ol class="breathing-phases">{phase_text}</ol><p class="method-note">Illustrative route · Coming Soon</p></section>')
     return '<div class="breathing-methods">'+''.join(cards)+'</div>'

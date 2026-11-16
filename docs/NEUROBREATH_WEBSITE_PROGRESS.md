@@ -23,8 +23,8 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 |---|---|---|
 | 0 — safety / preserve existing artwork | Complete | `1542123` |
 | 1 — approved NeuroBreath wordmark | Complete | `9c44096` |
-| 2 — central laboratory trees | Complete | Recorded in the next checkpoint |
-| 3 — living orb | Pending | — |
+| 2 — central laboratory trees | Complete | `f7b9528` |
+| 3 — living orb | Complete | Recorded in the next checkpoint |
 | 4 — breathing activities | Pending | — |
 | 5 — responsive verification | Pending | — |
 | 6 — complete testing / screenshots | Pending | — |
@@ -34,7 +34,7 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 
 GitHub Backup: INCOMPLETE — implementation has just started; no push attempted.
 
-Next step: implement elapsed-time breathing state and non-destructive living orb layers.
+Next step: connect the three exercise pages to Start, Pause, Resume, Restart and Exit controls.
 
 Publication is not authorized. Never merge into main, change DNS/hosting, or trigger production deployment.
 
@@ -49,3 +49,11 @@ Safari visual review: desktop and a 320 CSS-pixel iframe show the full wordmark,
 Four native, directly addressable `/laboratories/{platform}/explore/` pages replace the homepage expansion. Each uses its approved logo, existing branches, and the ten existing child-activity links. Luminous connectors preserve the approved palette. Unimplemented products are explicitly described as in development. NeuroBreath's three nodes show their names, exact timing sequences and links.
 
 Validation: build 41 pages; static verification 1,239 local references, original branding and 61 About Us blocks pass; artwork verification passes. Safari local QA: **118 checks PASS**, including all four Discover and Back to Home actions at 320, 390, 768, 1024 and 1440px, equal card heights and no tree overflow. Actual Safari toolbar Back and Forward returned between the NeuroBreath tree and homepage correctly. Direct NeuroBreath tree visually inspected. Editorial-writing browser tests are now opt-in (`?editorial=1`); this navigation run did not write drafts.
+
+## Phase 3 — living orb
+
+The unchanged original image is rendered as a base and two soft masked outer-arm overlays. Idle expansion/light and slight asymmetric arm movement use CSS. IntersectionObserver and page visibility stop offscreen idle work. Active rendering uses the monotonic clock and cosine easing: expand on inhale, hold the corresponding size, contract on exhale. A shared frame renderer maps cycle progress onto square / ח / wave paths. Frame highlights and arm expansion approximate contact with the square edges.
+
+Limit: the JPG has no separate arm geometry. The two masked overlays are a faithful non-destructive approximation, not independently rigged individual neurons. Reduced-motion CSS removes all orb animation/transforms; the renderer also keeps its scale fixed.
+
+Node timing tests passed: exact boundaries for all three patterns, continuous sizes, pause/resume with fractional elapsed time, restart/reset and 100-cycle frame gaps. Safari **125 checks PASS**, including moving idle animations, explicit active-renderer phase sizes and reduced-motion renderer behavior. End-to-end user controls are phase 4; OS-level reduced-motion preference has not been changed.

@@ -327,3 +327,29 @@ html{scroll-behavior:smooth}
 @media(min-width:1000px){[data-central-tree="neuropath"] .tree-branches{grid-template-columns:repeat(4,minmax(0,1fr))}[data-central-tree="neuropath"] .tree-branches:before{left:12.5%;right:12.5%}}
 @media(max-width:850px){.tree-branches{grid-template-columns:repeat(2,minmax(0,1fr))}.tree-branches:before{left:25%;right:25%}}
 @media(max-width:650px){.tree-branches{grid-template-columns:1fr;padding-left:18px;border-left:1px solid #62cbff;margin-left:8px;gap:24px}.tree-branches:before{left:-1px;right:50%;height:1px}.tree-branch:before{left:-19px;top:32px;width:19px;height:1px}.tree-branch>.activity-card{min-height:0}.tree-activities{margin-left:8px}.tree-root{padding-bottom:28px}.central-exploration{padding-inline:18px}}
+
+/* Original raster artwork, with independently masked outer-arm overlays. */
+.living-orb{position:relative;isolation:isolate;width:100%;aspect-ratio:1206/640;--breath:0;--arm-shift:0px;--orb-scale:1;--orb-light:1;--arm-scale:1;--life:0;mask-image:radial-gradient(ellipse 50% 49% at center,#000 48%,#000b 72%,transparent 100%)}
+.living-orb img{display:block;width:100%;height:auto;object-fit:contain}
+.orb-body,.orb-arms{position:absolute;inset:0;transform-origin:center;animation:orb-idle 8s ease-in-out infinite}
+.orb-body{transform:scale(var(--orb-scale));filter:brightness(var(--orb-light))}
+.orb-arms{opacity:.3;mask-image:radial-gradient(ellipse at center,transparent 27%,#000 43%,transparent 73%);mix-blend-mode:screen;animation:arms-idle 9s ease-in-out infinite}
+.arms-left{clip-path:inset(0 50% 0 0);transform:translateX(calc(-1 * var(--arm-shift))) scale(var(--arm-scale))}
+.arms-right{clip-path:inset(0 0 0 50%);transform:translateX(var(--arm-shift)) scale(var(--arm-scale));animation-delay:-4s}
+.neurobreath-art>.living-orb{width:min(100%,390px);max-height:180px}
+.neurobreath-art.detail-art>.living-orb{max-height:none}
+.living-orb[data-active] .orb-body,.living-orb[data-active] .orb-arms{animation:none}
+.living-orb[data-dormant] *{animation-play-state:paused!important}
+@keyframes orb-idle{0%,100%{transform:scale(.975);filter:brightness(.96)}50%{transform:scale(1.025);filter:brightness(1.08)}}
+@keyframes arms-idle{0%,100%{transform:scale(.99) rotate(-.35deg);opacity:.2}50%{transform:scale(1.035) rotate(.35deg);opacity:.35}}
+@media(max-width:850px){.laboratory-explorer .neurobreath-art>.living-orb{width:min(100%,340px);max-height:150px}}
+@media(prefers-reduced-motion:reduce){.living-orb .orb-body,.living-orb .orb-arms{animation:none!important;transform:none!important;filter:none!important}.living-orb .orb-arms{opacity:0}}
+.breathing-scene{width:min(100%,410px);aspect-ratio:1;position:relative;margin:auto;isolation:isolate}
+.breathing-scene>.living-orb{position:absolute;width:100%;top:50%;transform:translateY(-50%)}
+.breathing-frame{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.breathing-frame path{fill:none;stroke-linejoin:round;stroke-linecap:round;stroke-width:1.5}
+.frame-base{stroke:#387d9b;filter:drop-shadow(0 0 3px #5ed8ff77)}
+.frame-trace{stroke:var(--gold);stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 4px #ffce4f)}
+.breathing-scene[data-shape="neural-wave"] .breathing-frame{opacity:.75}
+.breathing-scene[data-phase="1"] .frame-base{stroke:#78dfff}
+@media(prefers-reduced-motion:reduce){.frame-base,.frame-trace{filter:none}}
