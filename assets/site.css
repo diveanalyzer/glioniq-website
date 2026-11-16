@@ -22,10 +22,11 @@ main:focus{outline:none}
 .navigation a[aria-current=page]{color:#ffe5a4;border-color:var(--gold);text-shadow:0 0 12px #ffc53780}
 .search-link{display:grid;place-items:center;min-width:44px;min-height:44px;color:var(--silver)}
 .search-link svg{fill:none;stroke:currentColor;stroke-width:1.8}
-.corporate-hero{max-width:1440px;min-height:305px;position:relative;isolation:isolate;margin:auto;display:grid;grid-template-columns:45% 55%;align-items:center;padding:12px 7% 20px;border-bottom:1px solid #278be744}
-.corporate-hero:before,.corporate-hero:after{position:absolute;content:"";z-index:-1;top:0;bottom:0;width:24%;background-size:cover;opacity:.8;mask-image:linear-gradient(90deg,#000,transparent)}
+/* Full-width atmosphere; the inset preserves the existing 1440px content geometry. */
+.corporate-hero{max-width:none;min-height:305px;position:relative;isolation:isolate;margin:auto;display:grid;grid-template-columns:45% 55%;align-items:center;padding:12px max(7%,calc((100% - 1440px)/2 + 7%)) 20px;border-bottom:1px solid #278be744;background:radial-gradient(ellipse at 28% 40%,#0a345555,transparent 65%),linear-gradient(180deg,#020d20,transparent 28%,transparent 72%,#020d2000)}
+.corporate-hero:before,.corporate-hero:after{position:absolute;content:"";z-index:-1;pointer-events:none;top:0;bottom:0;width:24%;background-size:cover;background-repeat:no-repeat;opacity:.8;mask-image:radial-gradient(ellipse 100% 50% at left center,#000 25%,transparent 100%)}
 .corporate-hero:before{left:0;background-image:url('/public/images/development/neural-left.webp')}
-.corporate-hero:after{right:0;background-image:url('/public/images/development/neural-right.webp');mask-image:linear-gradient(90deg,transparent,#000)}
+.corporate-hero:after{right:0;background-image:url('/public/images/development/neural-right.webp');mask-image:radial-gradient(ellipse 100% 50% at right center,#000 25%,transparent 100%)}
 .hero-art{display:block;width:min(450px,100%);margin:auto}
 .hero-art img{display:block;width:100%}
 .hero-copy{padding:8px 0 8px 42px;border-left:1px solid #d69c40}
@@ -154,7 +155,7 @@ main:focus{outline:none}
 .hero-copy{padding:20px 0 0;border-left:0;border-top:1px solid #d69c4066;text-align:center}
 .hero-copy h1{font-size:30px}
 .hero-copy p{font-size:19px}
-.corporate-hero:before,.corporate-hero:after{width:22%;height:270px;opacity:.55}
+.corporate-hero:before,.corporate-hero:after{width:22%;height:270px;bottom:auto;opacity:.55}
 .section-title{gap:12px;font-size:32px}
 .section-intro{font-size:18px}
 .laboratories{padding:24px 20px 0}
