@@ -7,62 +7,6 @@ function searchEntries(entries, query) {
 }
 if (typeof module !== 'undefined') module.exports = { searchEntries };
 if (typeof document !== 'undefined') {
-  const region = document.querySelector('.laboratory-explorer');
-  if (region) {
-    const cards = [...region.querySelectorAll('.platform-card')];
-    const buttons = cards.map(card => card.querySelector('.laboratory-toggle'));
-    const trees = [...region.querySelectorAll('[data-tree]')];
-    const panel = region.querySelector('#laboratory-panel');
-    const title = panel.querySelector('#tree-title');
-    const connector = region.querySelector('.neural-connector');
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const narrow = matchMedia('(max-width: 650px)');
-    let active = null;
-    function connect() {
-      if (!active || narrow.matches) { connector.hidden = true; return; }
-      connector.hidden = false;
-      const r = region.getBoundingClientRect(), c = active.closest('.platform-card').getBoundingClientRect(), p = panel.getBoundingClientRect();
-      const left = c.left + c.width / 2 < r.left + r.width / 2;
-      const x = (left ? c.left : c.right) - r.left, y = c.top + c.height / 2 - r.top;
-      const rail = left ? 3 : r.width - 3, endY = p.top - r.top;
-      connector.setAttribute('viewBox', `0 0 ${r.width} ${r.height}`);
-      connector.querySelector('path').setAttribute('d', `M${x} ${y}H${rail}V${endY-18}H${r.width/2}V${endY}`);
-    }
-    function select(button, restoreFocus = false) {
-      const previous = active;
-      active = button;
-      buttons.forEach(item => {
-        const open = item === active;
-        item.setAttribute('aria-expanded', String(open));
-        item.querySelector('.toggle-label').textContent = open ? 'Close Laboratories' : 'Discover Laboratories';
-        item.querySelector('.toggle-mark').textContent = open ? '×' : '+';
-        item.closest('.platform-card').classList.toggle('is-active', open);
-      });
-      trees.forEach(tree => { tree.hidden = !active || tree.dataset.tree !== active.closest('.platform-card').dataset.platform; });
-      panel.hidden = !active;
-      region.classList.toggle('has-active', !!active);
-      if (active) {
-        title.textContent = active.dataset.name + ' Laboratories';
-        if (narrow.matches) {
-          // Only explicit activation scrolls. Focus follows the newly revealed content.
-          title.focus({preventScroll:true});
-          const rect = panel.getBoundingClientRect();
-          if (rect.top < 0 || rect.top > innerHeight - 140) panel.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});
-        }
-      } else if (restoreFocus && previous) previous.focus();
-      connect();
-    }
-    buttons.forEach(button => {
-      button.hidden = false;
-      button.addEventListener('click', () => select(active === button ? null : button));
-    });
-    panel.querySelector('.tree-close').addEventListener('click', () => select(null, true));
-    region.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && active) { event.preventDefault(); select(null, true); }
-    });
-    new ResizeObserver(connect).observe(region);
-    narrow.addEventListener('change', connect);
-  }
   const navigation = document.querySelector('#navigation');
   const mobile = window.matchMedia('(max-width: 850px)');
   const syncNavigation = () => { if (navigation) navigation.open = !mobile.matches; };

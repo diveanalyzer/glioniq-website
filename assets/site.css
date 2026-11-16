@@ -298,3 +298,32 @@ html{scroll-behavior:smooth}
 .article-references{overflow-wrap:anywhere}.article-references li{font-size:16px;line-height:1.7}
 .article-tags{font-size:14px!important;color:var(--blue)!important}
 .preview-banner{padding:14px 18px;margin-bottom:28px;border:1px dashed var(--gold);border-radius:12px;color:var(--gold);font-size:14px;line-height:1.5}
+
+/* Dedicated exploration: native links retain browser history and direct URLs. */
+.laboratory-toggle{text-decoration:none}
+.central-exploration{max-width:1200px}
+.tree-root{text-align:center;max-width:620px;margin:10px auto 0;padding-bottom:32px;position:relative}
+.tree-root>.product-art{display:block;width:min(100%,364px);height:230px;object-fit:contain;margin:auto}
+.tree-root>.neurobreath-art{max-width:410px;margin:auto}
+.tree-root h1{font-size:clamp(26px,4vw,38px);margin:20px 0 12px}
+.tree-root p{font-size:17px;line-height:1.65}
+.tree-root:after{content:"";position:absolute;width:2px;height:32px;bottom:0;left:50%;background:var(--blue);box-shadow:0 0 10px #55caff}
+.tree-branches,.tree-activities{list-style:none;padding:0;margin:0}
+.tree-branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px;padding-top:28px;position:relative}
+.tree-branches:before{content:"";position:absolute;top:0;left:16.66%;right:16.66%;height:2px;background:linear-gradient(90deg,#55caff,#ffe28b,#55caff);box-shadow:0 0 9px #55caff}
+.tree-branch{min-width:0;position:relative}
+.tree-branch:before{content:"";position:absolute;top:-28px;height:28px;width:2px;left:50%;background:var(--blue);box-shadow:0 0 9px #55caff}
+.tree-branch>.activity-card{height:auto;min-height:440px}
+.tree-branch .category-visual{height:180px}
+.tree-status{font-size:13px!important;color:var(--muted);text-align:center;margin:10px 0 20px}
+.tree-activities{margin:0 0 24px 16px;padding-left:20px;border-left:1px solid #62cbff;display:grid;gap:18px}
+.tree-activities>li{position:relative}
+.tree-activities>li:before{content:"";position:absolute;left:-20px;top:30px;width:20px;height:1px;background:var(--gold);box-shadow:0 0 8px #ffd45e}
+.tree-activities .activity-card{padding:16px}
+.tree-activities .category-visual{height:140px}
+.breathing-node .cycle{font-size:30px;color:var(--gold);letter-spacing:.06em}
+.phase-summary{font-size:14px;line-height:1.7;color:var(--muted)}
+.central-exploration>.breadcrumb:last-child{display:inline-block;margin-top:30px}
+@media(min-width:1000px){[data-central-tree="neuropath"] .tree-branches{grid-template-columns:repeat(4,minmax(0,1fr))}[data-central-tree="neuropath"] .tree-branches:before{left:12.5%;right:12.5%}}
+@media(max-width:850px){.tree-branches{grid-template-columns:repeat(2,minmax(0,1fr))}.tree-branches:before{left:25%;right:25%}}
+@media(max-width:650px){.tree-branches{grid-template-columns:1fr;padding-left:18px;border-left:1px solid #62cbff;margin-left:8px;gap:24px}.tree-branches:before{left:-1px;right:50%;height:1px}.tree-branch:before{left:-19px;top:32px;width:19px;height:1px}.tree-branch>.activity-card{min-height:0}.tree-activities{margin-left:8px}.tree-root{padding-bottom:28px}.central-exploration{padding-inline:18px}}

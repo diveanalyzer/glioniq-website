@@ -42,5 +42,5 @@ for path in mapping['homepage_platforms'].values():
     assert f'src="/{path}"' in home, 'Master Design Reference platform artwork must remain'
 assert '<span class="category-visual"><svg' not in home, 'No generic category SVG substitutes'
 for k in ('colors', 'numbers', 'shapes', 'letters'):
-    assert f'data-artwork="{k}" data-artwork-status="owner-review-required"' in home
+    assert f'data-artwork="{k}" data-artwork-status="owner-review-required"' in (ROOT / 'laboratories/trampolina/explore/index.html').read_text()
 print(f'PASS: {len(mapping["originals"])} supplied originals unchanged, {len(assets)} source/crop/web hashes valid, all {len(expected)} destinations mapped; 4 generated illustrations remain review-only.')

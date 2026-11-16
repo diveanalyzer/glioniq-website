@@ -153,13 +153,15 @@ for route in ROUTES:
 
 home = pages[(ROOT / 'index.html').resolve()]
 for platform in json.loads((ROOT/'content/laboratories.json').read_text()):
-    assert {b['route'] for b in platform['branches']} <= set(home.refs), platform['name']
-    assert 'branches-'+platform['key'] in home.ids
-    button = next(b for b in home.buttons if b.get('id')=='explore-'+platform['key'])
-    assert button.get('aria-controls')=='laboratory-panel' and button.get('aria-expanded')=='false'
-    assert platform['route'] in home.refs, 'Explore must navigate independently'
-assert len(home.details)==1, 'Only navigation is a native disclosure; trees use the shared panel'
-assert home.ids.count('laboratory-panel')==1
+    route = platform['route']+'explore/'
+    assert route in home.refs, 'Discover must open its dedicated tree'
+    assert platform['route'] in home.refs, 'Explore must keep its original destination'
+    tree = pages[(ROOT/route.strip('/')/'index.html').resolve()]
+    assert {b['route'] for b in platform['branches']} <= set(tree.refs), platform['name']
+    assert '/#platform-'+platform['key'] in tree.refs
+    assert not any(b['route'] in home.refs for b in platform['branches']), 'No branches appended to home'
+assert 'laboratory-panel' not in home.ids
+assert len(home.details) == 1
 assert '/public/images/neurobreath-logo-official.jpg' in home.refs
 search_html=(ROOT/'search/index.html').read_text()
 assert 'Search GlionIQ laboratories, platforms and research…' in search_html
@@ -167,7 +169,7 @@ assert 'Discover our platforms, laboratories and scientific insights.' in search
 assert 'Try memory or Trampolina' not in search_html and 'Enter a topic to search.' not in search_html
 runtime=(ROOT/'assets/site.js').read_text()
 assert not any(word in runtime for word in ['pointerenter','pointermove','pointerleave','mouseenter','mouseleave','setTimeout']), 'No timed or pointer-driven expansion'
-print('PASS: four explicit controls, one shared panel, official NeuroBreath image and corrected search source output.')
+print('PASS: four dedicated exploration routes, no appended panel, official NeuroBreath image and corrected search source output.')
 
 for path, page in pages.items():
     for ref in page.refs:

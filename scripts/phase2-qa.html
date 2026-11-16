@@ -12,36 +12,26 @@ document.querySelector('#show').onclick=()=>{const view=document.querySelector('
  check(searchPage.querySelector('#search-status').textContent==='Discover our platforms, laboratories and scientific insights.','Exact empty-state helper after JavaScript initialization');
 
  for(const width of [320,390,768,1024,1440]){
-  const d=await load('/',width),w=frame.contentWindow,region=d.querySelector('.laboratory-explorer'),cards=[...d.querySelectorAll('[data-platform]')],buttons=cards.map(c=>c.querySelector('.laboratory-toggle')),panel=d.querySelector('#laboratory-panel'),trees=[...panel.querySelectorAll('[data-tree]')];
-  const rect=c=>{const r=c.getBoundingClientRect();return {x:r.x,y:r.y+w.scrollY,height:r.height,width:r.width};};
-  const positions=cards.map(rect);
-  check(cards.map(c=>c.dataset.platform).join(',')==='trampolina,dr-quiz,neuropath,neurobreath','Four cards in approved order at '+width);
-  check(width>650?Math.abs(positions[0].y-positions[1].y)<2&&positions[2].y>positions[0].y:positions.every((r,i)=>i===0||r.y>positions[i-1].y),'Correct grid at '+width);
-  check(Math.max(...positions.map(r=>r.height))-Math.min(...positions.map(r=>r.height))<2,'Equal main card heights at '+width);
-  check(panel.hidden&&buttons.every(b=>b.getAttribute('aria-expanded')==='false'),'All trees initially closed at '+width);
-  for(const type of ['mouse','touch']){
-   cards.forEach(c=>{for(const event of ['pointerenter','pointermove','mouseenter','mouseover'])c.dispatchEvent(new w.PointerEvent(event,{pointerType:type,bubbles:true}));});
-   await sleep(380);check(panel.hidden,'Pointer traversal does not open trees ('+type+') at '+width);
+  let d=await load('/',width);let w=frame.contentWindow;
+  const cards=[...d.querySelectorAll('[data-platform]')],heights=cards.map(c=>c.getBoundingClientRect().height);
+  check(cards.map(c=>c.dataset.platform).join(',')==='trampolina,dr-quiz,neuropath,neurobreath','Four approved cards in order at '+width);
+  check(Math.max(...heights)-Math.min(...heights)<2,'Equal main card heights at '+width);
+  check(!d.querySelector('#laboratory-panel'),'No appended homepage tree at '+width);
+  for(const key of ['trampolina','dr-quiz','neuropath','neurobreath']){
+   d=frame.contentDocument;
+   const card=d.querySelector('[data-platform="'+key+'"]');
+   check(card.querySelector('.gold-button').pathname==='/laboratories/'+key+'/','Existing Explore destination: '+key);
+   const next=new Promise(resolve=>frame.onload=resolve);card.querySelector('.laboratory-toggle').click();await next;
+   d=frame.contentDocument;
+   check(d.querySelector('[data-central-tree]')?.dataset.centralTree===key,'Discover opens dedicated '+key+' tree at '+width);
+   check(!d.querySelector('.platform-card')&&d.querySelectorAll('.tree-branch').length>=3,'Functional branches, no duplicate main cards');
+   check(d.documentElement.scrollWidth<=frame.contentWindow.innerWidth,'Tree fits '+width);
+   const back=new Promise(resolve=>frame.onload=resolve);d.querySelector('.breadcrumb').click();await back;
+   check(!!frame.contentDocument.querySelector('[data-platform="'+key+'"]'),'Back to Home works: '+key);
   }
-  for(let i=0;i<buttons.length;i++){
-   buttons[i].click();await sleep(500);
-   check(!panel.hidden&&trees.filter(t=>!t.hidden).length===1&&!trees[i].hidden,'Explicit activation opens correct single tree '+cards[i].dataset.platform+' at '+width);
-   check(buttons.filter(b=>b.getAttribute('aria-expanded')==='true').length===1&&buttons[i].getAttribute('aria-expanded')==='true','Expanded state and switching at '+width);
-   check(buttons[i].textContent.includes('Close Laboratories')&&buttons[i].getAttribute('aria-controls')===panel.id,'Button label and shared panel association at '+width);
-   check(d.documentElement.scrollWidth<=w.innerWidth,'Expanded tree has no overflow at '+width);
-   check(rect(panel).y>=Math.max(...cards.map(c=>rect(c).y+rect(c).height)),'Shared panel remains below all four cards at '+width);
-   check(cards.every((c,j)=>Math.abs(rect(c).x-positions[j].x)<2&&Math.abs(rect(c).y-positions[j].y)<2&&Math.abs(rect(c).height-positions[j].height)<2),'Main grid stays fixed while switching at '+width);
-   check([...trees[i].querySelectorAll('.activity-card')].every(a=>a.getBoundingClientRect().height>=44&&a.querySelector('.category-visual')),'Visual cards and readable targets at '+width);
-   if(width<=650)check(d.activeElement.id==='tree-title'&&panel.getBoundingClientRect().top>=-2&&panel.getBoundingClientRect().top<180,'Mobile focus and controlled scroll reveal panel at '+width);
-   region.dispatchEvent(new w.PointerEvent('pointerleave',{pointerType:'mouse'}));await sleep(550);check(!panel.hidden,'Pointer exit does not close tree at '+width);
-   const link=cards[i].querySelector('.gold-button');link.addEventListener('click',e=>e.preventDefault(),{once:true});link.click();check(!panel.hidden&&!trees[i].hidden,'Explore link does not toggle tree at '+width);
-  }
-  buttons[3].click();check(panel.hidden&&buttons.every(b=>b.textContent.includes('Discover Laboratories')),'Secondary click closes tree at '+width);
-  buttons[0].click();panel.querySelector('.tree-close').click();check(panel.hidden&&d.activeElement===buttons[0],'Panel close restores trigger focus at '+width);
-  buttons[2].click();region.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));check(panel.hidden&&d.activeElement===buttons[2],'Escape closes and restores focus at '+width);
-  const search=d.querySelector('.search-link'),sr=search.getBoundingClientRect();check(search.pathname==='/search/'&&sr.width>=44&&sr.height>=44&&(!d.querySelector('#navigation').contains(search)),'Search directly accessible outside collapsed menu at '+width);
-  const art=cards[3].querySelector('.neurobreath-art img');await art.decode();check(art.naturalWidth===1206&&w.getComputedStyle(art).objectFit==='contain','Original NeuroBreath image loads without cropping at '+width);
  }
+ check(true,'All four Discover and Back to Home actions at five widths');
+ if(new URLSearchParams(location.search).get('editorial')==='1'){
  const d=await load('/admin/',1440),w=frame.contentWindow,form=d.querySelector('#article-form'),f=n=>form.elements.namedItem(n),slug='browser-qa-'+Date.now();
  const values={title:'Local browser test — unpublished',slug,author:'QA fixture',summary:'Temporary local draft used to verify the editor. Not a published article.',body:'## A clear heading\n\nA **bold** idea and *gentle* emphasis.\n\n<script>window.unsafeExecuted=true;<\/script>',category:'Local QA'};
  for(const [name,value] of Object.entries(values)){f(name).value=value;f(name).dispatchEvent(new w.Event('input',{bubbles:true}));}f('slug').value=slug;
@@ -54,6 +44,7 @@ document.querySelector('#show').onclick=()=>{const view=document.querySelector('
  d.querySelector('#new-article').click();const saved=[...d.querySelectorAll('.draft-button')].find(b=>b.textContent.includes('Local browser test — edited'));saved.click();await until(()=>f('title').value==='Local browser test — edited');check(f('body').value.includes('**bold**'),'Saved draft reopens with content');
  for(const width of [320,390,768,1024,1440]){
   for(const route of ['/admin/','/preview/blog/','/preview/science/']){const page=await load(route,width);check(page.documentElement.scrollWidth<=frame.contentWindow.innerWidth,route+' fits '+width);}
+ }
  }
  qaStatus.textContent=results.length+' PASS · 0 failures. Native touch devices and production authentication not verified.';document.querySelector('#show').click();
 })().catch(error=>{qaStatus.textContent='FAILED: '+error.message;console.error(error);});

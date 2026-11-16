@@ -5,7 +5,7 @@ from pathlib import Path
 import json
 import re
 from hashlib import sha256
-from laboratories import explorer, neurobreath_art, breathing_methods, activity_cards, artwork_for, ARTWORK
+from laboratories import central_tree, explorer, neurobreath_art, breathing_methods, activity_cards, artwork_for, ARTWORK
 from editorial import article_html, load_articles, listing_html
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -137,6 +137,8 @@ def build():
     pages = [('/', 'GlionIQ — Where Neuroscience Meets Lifelong Learning', 'Science-inspired digital laboratories for learning, discovery and cognitive engagement at every stage of life.', home_html(), 'home-page', 'Home'),('/about-us/', 'About Us — Our Story', 'Our complete approved story, scientific commitment and vision.', '<article class="story">'+story_html()+'</article>'+contact().format(story='/about-us/'), 'about-page', 'About Us')]
     for entry in entries:
         pages.append((entry['route'],entry['name'],entry['introduction'],information_html(entry),'information-page',entry['name']))
+    for platform in json.loads((ROOT/'content/laboratories.json').read_text()):
+        pages.append((platform['route']+'explore/', platform['name']+' Laboratories', platform['description'], central_tree(platform, entries), 'information-page', platform['name']))
     pages.append(('/search/','Search GlionIQ','Search available GlionIQ website content.',search_html(),'information-page','Search'))
     articles = load_articles(ROOT / 'content/editorial')
     for article in articles:

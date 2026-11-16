@@ -30,15 +30,34 @@ def activity_cards(activities):
     return '<div class="activity-grid">'+''.join(branch_card(a, True) for a in activities)+'</div>'
 
 
+def platform_art(platform):
+    key = platform['key']
+    return neurobreath_art() if key == 'neurobreath' else f'<img class="product-art" src="/public/images/development/{key}.webp" width="364" height="230" alt="{e(platform["name"])} approved artwork" loading="lazy">'
+
+
 def explorer(platforms):
-    cards, trees = [], []
+    cards = []
     for p in platforms:
         key = p['key']
-        art = neurobreath_art() if key == 'neurobreath' else f'<img class="product-art" src="/public/images/development/{key}.webp" width="364" height="230" alt="{e(p["name"])} approved artwork" loading="lazy">'
-        cards.append(f'''<article class="platform-card {key}" id="platform-{key}" data-platform="{key}">{art}<h3 class="visually-hidden">{e(p['name'])}</h3><h4>{e(p['subtitle'])}</h4><p class="platform-description">{e(p['description'])}</p><div class="platform-actions"><a class="gold-button" href="{p['route']}">Explore {e(p['name'])} <span aria-hidden="true">›</span></a><button class="laboratory-toggle" id="explore-{key}" type="button" aria-expanded="false" aria-controls="laboratory-panel" data-name="{e(p['name'])}" hidden><span class="toggle-label">Discover Laboratories</span> <span class="toggle-mark" aria-hidden="true">+</span><span class="visually-hidden"> — {e(p['name'])}</span></button></div></article>''')
-        trees.append(f'<div class="laboratory-tree" id="branches-{key}" data-tree="{key}" hidden><div class="branch-links">'+''.join(branch_card(b) for b in p['branches'])+'</div></div>')
-    panel='<section class="laboratory-panel" id="laboratory-panel" aria-labelledby="tree-title" hidden><header class="tree-header"><div><p class="kicker">Connected laboratories</p><h3 id="tree-title" tabindex="-1"></h3></div><button class="tree-close" type="button">Close Laboratories <span aria-hidden="true">×</span></button></header>'+''.join(trees)+'</section>'
-    return '<p class="explorer-hint">Choose Discover Laboratories to reveal a platform’s connected experiences.</p><div class="laboratory-explorer"><svg class="neural-connector" aria-hidden="true" focusable="false"><path></path></svg><div class="platform-grid">'+''.join(cards)+'</div>'+panel+'<noscript><p>Explore each platform above to discover its laboratories.</p></noscript></div>'
+        cards.append(f'''<article class="platform-card {key}" id="platform-{key}" data-platform="{key}">{platform_art(p)}<h3 class="visually-hidden">{e(p['name'])}</h3><h4>{e(p['subtitle'])}</h4><p class="platform-description">{e(p['description'])}</p><div class="platform-actions"><a class="gold-button" href="{p['route']}">Explore {e(p['name'])} <span aria-hidden="true">›</span></a><a class="laboratory-toggle" href="{p['route']}explore/">Discover Laboratories <span aria-hidden="true">→</span><span class="visually-hidden"> — {e(p['name'])}</span></a></div></article>''')
+    return '<p class="explorer-hint">Choose Discover Laboratories to explore a platform’s connected experiences.</p><div class="laboratory-explorer"><div class="platform-grid">'+''.join(cards)+'</div></div>'
+
+
+def central_tree(platform, entries):
+    nodes = []
+    for branch in platform['branches']:
+        entry = next(item for item in entries if item['route'] == branch['route'])
+        children = entry.get('activities', [])
+        nested = '<ul class="tree-activities">'+''.join('<li>'+branch_card(a, True)+'</li>' for a in children)+'</ul>' if children else ''
+        if platform['key'] == 'neurobreath':
+            name, cycle, phases, _, _ = METHODS[branch['key']]
+            summary = ' · '.join(f'{phase} {seconds}s' for phase, seconds in phases)
+            node = f'<a class="activity-card breathing-node" href="{branch["route"]}">{artwork_for(branch["route"])}<strong class="activity-title">{e(name)}</strong><span class="cycle">{cycle}</span><span class="activity-description">{e(branch["description"])}</span><span class="phase-summary">{summary}</span><span class="activity-action">Open activity <span aria-hidden="true">→</span></span></a>'
+        else:
+            node = branch_card(branch) + '<p class="tree-status">In development · Explore information</p>'
+        nodes.append('<li class="tree-branch">'+node+nested+'</li>')
+    key = platform['key']
+    return f'''<section class="central-exploration content-page" data-central-tree="{key}"><a class="breadcrumb" href="/#platform-{key}">← Back to Home</a><header class="tree-root">{platform_art(platform)}<h1>{e(platform['name'])} Laboratories</h1><p>{e(platform['description'])}</p><p class="kicker">Choose a connected experience</p></header><nav class="neural-tree" aria-label="{e(platform['name'])} laboratory tree"><ul class="tree-branches">{''.join(nodes)}</ul></nav><a class="breadcrumb" href="/#platform-{key}">← Back to Home</a></section>'''
 
 
 METHODS = {

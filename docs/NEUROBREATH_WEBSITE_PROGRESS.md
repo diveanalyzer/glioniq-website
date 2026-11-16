@@ -22,8 +22,8 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 | Phase | Status | Local checkpoint |
 |---|---|---|
 | 0 — safety / preserve existing artwork | Complete | `1542123` |
-| 1 — approved NeuroBreath wordmark | Complete | Recorded in the next checkpoint |
-| 2 — central laboratory trees | Pending | — |
+| 1 — approved NeuroBreath wordmark | Complete | `9c44096` |
+| 2 — central laboratory trees | Complete | Recorded in the next checkpoint |
 | 3 — living orb | Pending | — |
 | 4 — breathing activities | Pending | — |
 | 5 — responsive verification | Pending | — |
@@ -34,7 +34,7 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 
 GitHub Backup: INCOMPLETE — implementation has just started; no push attempted.
 
-Next step: build four central exploration routes using existing laboratory and activity data.
+Next step: implement elapsed-time breathing state and non-destructive living orb layers.
 
 Publication is not authorized. Never merge into main, change DNS/hosting, or trigger production deployment.
 
@@ -43,3 +43,9 @@ Publication is not authorized. Never merge into main, change DNS/hosting, or tri
 Extracted the exact 539 × 83 wordmark from the supplied approved reference, with reproducible crop coordinates and SHA-256 provenance. Both original NeuroBreath files and all other approved logos remain unchanged. The original orb is larger within the existing artwork area. The subtitle, descriptions, card sizing and both actions are retained.
 
 Safari visual review: desktop and a 320 CSS-pixel iframe show the full wordmark, original orb, readable text and reachable controls. Build: 37 pages. The crop retains a thin blue reference glow and navy background; this is not a redrawn or newly approved logo. The reference's lung-orb differs from the explicitly required original neural orb, which is preserved. Final screenshots and responsive sweep follow in phase 6.
+
+## Phase 2 — central exploration
+
+Four native, directly addressable `/laboratories/{platform}/explore/` pages replace the homepage expansion. Each uses its approved logo, existing branches, and the ten existing child-activity links. Luminous connectors preserve the approved palette. Unimplemented products are explicitly described as in development. NeuroBreath's three nodes show their names, exact timing sequences and links.
+
+Validation: build 41 pages; static verification 1,239 local references, original branding and 61 About Us blocks pass; artwork verification passes. Safari local QA: **118 checks PASS**, including all four Discover and Back to Home actions at 320, 390, 768, 1024 and 1440px, equal card heights and no tree overflow. Actual Safari toolbar Back and Forward returned between the NeuroBreath tree and homepage correctly. Direct NeuroBreath tree visually inspected. Editorial-writing browser tests are now opt-in (`?editorial=1`); this navigation run did not write drafts.
