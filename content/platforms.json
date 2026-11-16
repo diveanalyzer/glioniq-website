@@ -207,10 +207,7 @@
     "sections": [
       {
         "title": "Signature activity",
-        "paragraphs": [
-          "Memory Lab is the confirmed signature activity in this laboratory. Specific mechanics and release details are not announced here."
-        ],
-        "items": []
+        "activity_cards": true
       },
       {
         "title": "What to expect next",
@@ -227,6 +224,15 @@
       {
         "label": "Explore NeuroPath",
         "href": "/laboratories/neuropath/"
+      }
+    ],
+    "activities": [
+      {
+        "key": "memory-activity",
+        "name": "Memory Lab",
+        "route": "/laboratories/neuropath/memory/memory-activity/",
+        "description": "A confirmed signature activity within Memory Lab. Mechanics and public availability will be shared when approved.",
+        "laboratory": "Memory Lab"
       }
     ]
   },
@@ -275,11 +281,7 @@
     "sections": [
       {
         "title": "Signature activities",
-        "paragraphs": [],
-        "items": [
-          "NeuroWeave",
-          "CodeQuest"
-        ]
+        "activity_cards": true
       },
       {
         "title": "Explore the ideas behind the activities",
@@ -296,6 +298,22 @@
       {
         "label": "Explore NeuroPath",
         "href": "/laboratories/neuropath/"
+      }
+    ],
+    "activities": [
+      {
+        "key": "neuroweave",
+        "name": "NeuroWeave",
+        "route": "/laboratories/neuropath/logic/neuroweave/",
+        "description": "A confirmed signature activity within Logic Lab. Mechanics and public availability will be shared when approved.",
+        "laboratory": "Logic Lab"
+      },
+      {
+        "key": "codequest",
+        "name": "CodeQuest",
+        "route": "/laboratories/neuropath/logic/codequest/",
+        "description": "A confirmed signature activity within Logic Lab. Mechanics and public availability will be shared when approved.",
+        "laboratory": "Logic Lab"
       }
     ]
   },
@@ -470,6 +488,10 @@
         "paragraphs": [
           "Memory Game, Picture Puzzle and Spot the Differences."
         ]
+      },
+      {
+        "title": "Activities in development",
+        "activity_cards": true
       }
     ],
     "links": [
@@ -480,6 +502,29 @@
       {
         "label": "Home",
         "href": "/"
+      }
+    ],
+    "activities": [
+      {
+        "key": "memory-perception",
+        "name": "Memory Game",
+        "route": "/laboratories/trampolina/memory-perception/memory-game/",
+        "description": "A confirmed Trampolina activity in Memory & Perception. Detailed features and public availability will be introduced when ready.",
+        "laboratory": "Memory & Perception"
+      },
+      {
+        "key": "picture-puzzle",
+        "name": "Picture Puzzle",
+        "route": "/laboratories/trampolina/memory-perception/picture-puzzle/",
+        "description": "A confirmed Trampolina activity in Memory & Perception. Detailed features and public availability will be introduced when ready.",
+        "laboratory": "Memory & Perception"
+      },
+      {
+        "key": "spot-differences",
+        "name": "Spot the Differences",
+        "route": "/laboratories/trampolina/memory-perception/spot-differences/",
+        "description": "A confirmed Trampolina activity in Memory & Perception. Detailed features and public availability will be introduced when ready.",
+        "laboratory": "Memory & Perception"
       }
     ]
   },
@@ -500,6 +545,10 @@
         "paragraphs": [
           "Continue the Pattern, Sorting Categories, First & Next and Odd One Out."
         ]
+      },
+      {
+        "title": "Activities in development",
+        "activity_cards": true
       }
     ],
     "links": [
@@ -510,6 +559,36 @@
       {
         "label": "Home",
         "href": "/"
+      }
+    ],
+    "activities": [
+      {
+        "key": "continue-pattern",
+        "name": "Continue the Pattern",
+        "route": "/laboratories/trampolina/thinking-logic/continue-pattern/",
+        "description": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+        "laboratory": "Thinking & Logic"
+      },
+      {
+        "key": "sorting-categories",
+        "name": "Sorting Categories",
+        "route": "/laboratories/trampolina/thinking-logic/sorting-categories/",
+        "description": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+        "laboratory": "Thinking & Logic"
+      },
+      {
+        "key": "first-next",
+        "name": "First & Next",
+        "route": "/laboratories/trampolina/thinking-logic/first-next/",
+        "description": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+        "laboratory": "Thinking & Logic"
+      },
+      {
+        "key": "odd-one-out",
+        "name": "Odd One Out",
+        "route": "/laboratories/trampolina/thinking-logic/odd-one-out/",
+        "description": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+        "laboratory": "Thinking & Logic"
       }
     ]
   },
@@ -742,6 +821,309 @@
       {
         "label": "Home",
         "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/memory/memory-activity/",
+    "name": "Memory Lab",
+    "category": "NeuroPath · Memory Lab · Signature activity",
+    "introduction": "A confirmed signature activity within Memory Lab. Mechanics and public availability will be shared when approved.",
+    "audience": "People interested in exploring memory-focused digital activities as part of their lifelong learning.",
+    "purpose": "Part of the confirmed Memory Lab activity organization.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/neuropath/memory/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "About this activity",
+        "paragraphs": [
+          "A confirmed signature activity within Memory Lab. Mechanics and public availability will be shared when approved.",
+          "No clinical or preventive benefit is promised."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Memory Lab",
+        "href": "/laboratories/neuropath/memory/"
+      },
+      {
+        "label": "Explore NeuroPath",
+        "href": "/laboratories/neuropath/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/logic/neuroweave/",
+    "name": "NeuroWeave",
+    "category": "NeuroPath · Logic Lab · Signature activity",
+    "introduction": "A confirmed signature activity within Logic Lab. Mechanics and public availability will be shared when approved.",
+    "audience": "People who enjoy reasoning, considering possibilities and exploring intellectual challenges.",
+    "purpose": "Part of the confirmed Logic Lab activity organization.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/neuropath/logic/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "About this activity",
+        "paragraphs": [
+          "A confirmed signature activity within Logic Lab. Mechanics and public availability will be shared when approved.",
+          "No clinical or preventive benefit is promised."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Logic Lab",
+        "href": "/laboratories/neuropath/logic/"
+      },
+      {
+        "label": "Explore NeuroPath",
+        "href": "/laboratories/neuropath/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neuropath/logic/codequest/",
+    "name": "CodeQuest",
+    "category": "NeuroPath · Logic Lab · Signature activity",
+    "introduction": "A confirmed signature activity within Logic Lab. Mechanics and public availability will be shared when approved.",
+    "audience": "People who enjoy reasoning, considering possibilities and exploring intellectual challenges.",
+    "purpose": "Part of the confirmed Logic Lab activity organization.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/neuropath/logic/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "About this activity",
+        "paragraphs": [
+          "A confirmed signature activity within Logic Lab. Mechanics and public availability will be shared when approved.",
+          "No clinical or preventive benefit is promised."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Logic Lab",
+        "href": "/laboratories/neuropath/logic/"
+      },
+      {
+        "label": "Explore NeuroPath",
+        "href": "/laboratories/neuropath/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/memory-perception/memory-game/",
+    "name": "Memory Game",
+    "category": "Trampolina · Memory & Perception",
+    "introduction": "A confirmed Trampolina activity in Memory & Perception. Detailed features and public availability will be introduced when ready.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Part of the confirmed Memory & Perception learning area.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/trampolina/memory-perception/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Development and availability",
+        "paragraphs": [
+          "This page identifies an existing activity in the product organization. Further activity information will be shared as it is approved."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Memory & Perception",
+        "href": "/laboratories/trampolina/memory-perception/"
+      },
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/memory-perception/picture-puzzle/",
+    "name": "Picture Puzzle",
+    "category": "Trampolina · Memory & Perception",
+    "introduction": "A confirmed Trampolina activity in Memory & Perception. Detailed features and public availability will be introduced when ready.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Part of the confirmed Memory & Perception learning area.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/trampolina/memory-perception/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Development and availability",
+        "paragraphs": [
+          "This page identifies an existing activity in the product organization. Further activity information will be shared as it is approved."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Memory & Perception",
+        "href": "/laboratories/trampolina/memory-perception/"
+      },
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/memory-perception/spot-differences/",
+    "name": "Spot the Differences",
+    "category": "Trampolina · Memory & Perception",
+    "introduction": "A confirmed Trampolina activity in Memory & Perception. Detailed features and public availability will be introduced when ready.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Part of the confirmed Memory & Perception learning area.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/trampolina/memory-perception/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Development and availability",
+        "paragraphs": [
+          "This page identifies an existing activity in the product organization. Further activity information will be shared as it is approved."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Memory & Perception",
+        "href": "/laboratories/trampolina/memory-perception/"
+      },
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/thinking-logic/continue-pattern/",
+    "name": "Continue the Pattern",
+    "category": "Trampolina · Thinking & Logic",
+    "introduction": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Part of the confirmed Thinking & Logic learning area.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/trampolina/thinking-logic/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Development and availability",
+        "paragraphs": [
+          "This page identifies an existing activity in the product organization. Further activity information will be shared as it is approved."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Thinking & Logic",
+        "href": "/laboratories/trampolina/thinking-logic/"
+      },
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/thinking-logic/sorting-categories/",
+    "name": "Sorting Categories",
+    "category": "Trampolina · Thinking & Logic",
+    "introduction": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Part of the confirmed Thinking & Logic learning area.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/trampolina/thinking-logic/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Development and availability",
+        "paragraphs": [
+          "This page identifies an existing activity in the product organization. Further activity information will be shared as it is approved."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Thinking & Logic",
+        "href": "/laboratories/trampolina/thinking-logic/"
+      },
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/thinking-logic/first-next/",
+    "name": "First & Next",
+    "category": "Trampolina · Thinking & Logic",
+    "introduction": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Part of the confirmed Thinking & Logic learning area.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/trampolina/thinking-logic/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Development and availability",
+        "paragraphs": [
+          "This page identifies an existing activity in the product organization. Further activity information will be shared as it is approved."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Thinking & Logic",
+        "href": "/laboratories/trampolina/thinking-logic/"
+      },
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/thinking-logic/odd-one-out/",
+    "name": "Odd One Out",
+    "category": "Trampolina · Thinking & Logic",
+    "introduction": "A confirmed Trampolina activity in Thinking & Logic. Detailed features and public availability will be introduced when ready.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Part of the confirmed Thinking & Logic learning area.",
+    "status": "In development. No public release or download is announced.",
+    "kind": "activity",
+    "parent": "/laboratories/trampolina/thinking-logic/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Development and availability",
+        "paragraphs": [
+          "This page identifies an existing activity in the product organization. Further activity information will be shared as it is approved."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Back to Thinking & Logic",
+        "href": "/laboratories/trampolina/thinking-logic/"
+      },
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
       }
     ]
   }

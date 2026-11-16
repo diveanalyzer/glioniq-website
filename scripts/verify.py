@@ -18,6 +18,7 @@ APPROVED = {
     'public/images/glioniq-coming-soon.PNG': '1bec352cca692d54d39e16f7ede7528f32eaa321c29f3fb277b51c3176c6dc3c',
     'public/images/glioniq-logo-official.PNG': '68b5f5375e51c588d45726377b1963aaa5403bbe523cde0350eb4b19449fe76f',
     'CNAME': '032cb9062e2ae84bdd721624565df97ae64ab2929e925b8e8241e94af8dfd45f',
+    'public/images/neurobreath-logo-official.jpg': '6866c599f679a561dbe5aa78e7ed4dcaeb5fd19246c7f17790d7882ba065ac4b',
     'design/glioniq-homepage-approved.png': '6309d5952eb403822a4becfda6f357b6108f1e9b501336c059a135c17921b152',
 }
 
@@ -104,7 +105,7 @@ class Page(HTMLParser):
 
 for filename, expected in APPROVED.items():
     assert sha256((ROOT / filename).read_bytes()).hexdigest() == expected, filename
-print('PASS: original PNGs, approved reference, Markdown, and CNAME bytes unchanged (5/5).')
+print(f'PASS: approved original artwork, reference, Markdown, and CNAME bytes unchanged ({len(APPROVED)}/{len(APPROVED)}).')
 
 source = (ROOT / 'content/about-us.md').read_text().strip().split('\n\n')
 expected_blocks = [re.sub(r'^#{1,4} ', '', block).replace('**', '') for block in source]
@@ -151,13 +152,22 @@ for route in ROUTES:
         assert detail['summary_links'] == 0, 'Keep navigation separate from the disclosure control'
 
 home = pages[(ROOT / 'index.html').resolve()]
-lab_routes = {f'/laboratories/neuropath/{name}/' for name in ('memory', 'attention', 'logic', 'flexibility')}
-assert any(lab_routes <= set(detail['refs']) for detail in home.details), 'Missing accessible NeuroPath tree'
 for platform in json.loads((ROOT/'content/laboratories.json').read_text()):
-    expected = {b['route'] for b in platform['branches']}
-    assert any(expected <= set(detail['refs']) for detail in home.details), platform['name']
-assert len(home.details) == 5, 'Navigation plus four laboratory disclosures required'
-assert '/laboratories/neuropath/' in home.refs, 'Explore NeuroPath must navigate independently'
+    assert {b['route'] for b in platform['branches']} <= set(home.refs), platform['name']
+    assert 'branches-'+platform['key'] in home.ids
+    button = next(b for b in home.buttons if b.get('id')=='explore-'+platform['key'])
+    assert button.get('aria-controls')=='laboratory-panel' and button.get('aria-expanded')=='false'
+    assert platform['route'] in home.refs, 'Explore must navigate independently'
+assert len(home.details)==1, 'Only navigation is a native disclosure; trees use the shared panel'
+assert home.ids.count('laboratory-panel')==1
+assert '/public/images/neurobreath-logo-official.jpg' in home.refs
+search_html=(ROOT/'search/index.html').read_text()
+assert 'Search GlionIQ laboratories, platforms and research…' in search_html
+assert 'Discover our platforms, laboratories and scientific insights.' in search_html
+assert 'Try memory or Trampolina' not in search_html and 'Enter a topic to search.' not in search_html
+runtime=(ROOT/'assets/site.js').read_text()
+assert not any(word in runtime for word in ['pointerenter','pointermove','pointerleave','mouseenter','mouseleave','setTimeout']), 'No timed or pointer-driven expansion'
+print('PASS: four explicit controls, one shared panel, official NeuroBreath image and corrected search source output.')
 
 for path, page in pages.items():
     for ref in page.refs:

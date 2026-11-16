@@ -1,4 +1,4 @@
-/* Small progressive enhancements; navigation and lab disclosures work without JS. */
+/* Small progressive enhancements; platform navigation works without JS. */
 function searchEntries(entries, query) {
   const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   if (!terms.length) return [];
@@ -10,66 +10,58 @@ if (typeof document !== 'undefined') {
   const region = document.querySelector('.laboratory-explorer');
   if (region) {
     const cards = [...region.querySelectorAll('.platform-card')];
-    const disclosures = cards.map(card => card.querySelector('details'));
+    const buttons = cards.map(card => card.querySelector('.laboratory-toggle'));
+    const trees = [...region.querySelectorAll('[data-tree]')];
+    const panel = region.querySelector('#laboratory-panel');
+    const title = panel.querySelector('#tree-title');
+    const connector = region.querySelector('.neural-connector');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const hover = matchMedia('(hover: hover) and (pointer: fine)');
-    let enterTimer, leaveTimer, active = null, movingUntil = 0;
-    const cancel = () => { clearTimeout(enterTimer); clearTimeout(leaveTimer); };
-    function select(detail, restoreFocus = false) {
-      cancel();
-      if (active === detail) return;
-      const previous = active;
-      const positions = cards.map(card => card.getBoundingClientRect());
-      active = detail;
-      disclosures.forEach(item => {
-        item.open = item === detail;
-        item.querySelector('summary').setAttribute('aria-expanded', String(item.open));
-        item.closest('.platform-card').classList.toggle('is-active', item.open);
-      });
-      region.classList.toggle('has-active', !!detail);
-      if (!reduced.matches && matchMedia('(min-width: 851px)').matches) {
-        movingUntil = performance.now() + 520;
-        cards.forEach((card, index) => {
-          const next = card.getBoundingClientRect(), old = positions[index];
-          card.animate([{transform:`translate(${old.x-next.x}px,${old.y-next.y}px)`},{transform:'translate(0,0)'}], {duration:500,easing:'cubic-bezier(.2,.7,.2,1)'});
-        });
-      }
-      if (restoreFocus && previous) previous.querySelector('summary').focus({preventScroll:true});
+    const narrow = matchMedia('(max-width: 650px)');
+    let active = null;
+    function connect() {
+      if (!active || narrow.matches) { connector.hidden = true; return; }
+      connector.hidden = false;
+      const r = region.getBoundingClientRect(), c = active.closest('.platform-card').getBoundingClientRect(), p = panel.getBoundingClientRect();
+      const left = c.left + c.width / 2 < r.left + r.width / 2;
+      const x = (left ? c.left : c.right) - r.left, y = c.top + c.height / 2 - r.top;
+      const rail = left ? 3 : r.width - 3, endY = p.top - r.top;
+      connector.setAttribute('viewBox', `0 0 ${r.width} ${r.height}`);
+      connector.querySelector('path').setAttribute('d', `M${x} ${y}H${rail}V${endY-18}H${r.width/2}V${endY}`);
     }
-    disclosures.forEach(detail => {
-      const card = detail.closest('.platform-card'), summary = detail.querySelector('summary');
-      summary.setAttribute('aria-expanded', 'false');
-      summary.addEventListener('click', event => { event.preventDefault(); select(active===detail ? null : detail); });
-      detail.querySelector('.tree-close').addEventListener('click', () => select(null, true));
-      card.addEventListener('click', event => {
-        if (!event.target.closest('a,button,summary,details')) select(active===detail ? null : detail);
+    function select(button, restoreFocus = false) {
+      const previous = active;
+      active = button;
+      buttons.forEach(item => {
+        const open = item === active;
+        item.setAttribute('aria-expanded', String(open));
+        item.querySelector('.toggle-label').textContent = open ? 'Close Laboratories' : 'Discover Laboratories';
+        item.querySelector('.toggle-mark').textContent = open ? '×' : '+';
+        item.closest('.platform-card').classList.toggle('is-active', open);
       });
-      const considerHover = event => {
-        if (!hover.matches || event.pointerType === 'touch' || performance.now() < movingUntil || active === detail) return;
-        clearTimeout(enterTimer); clearTimeout(leaveTimer);
-        enterTimer = setTimeout(() => select(detail), 300);
-      };
-      card.addEventListener('pointerenter', considerHover);
-      card.addEventListener('pointermove', event => {
-        // Movement after a layout transition starts a fresh intentional dwell.
-        if (performance.now() >= movingUntil && !enterTimer) considerHover(event);
-      });
-      card.addEventListener('pointerleave', () => { clearTimeout(enterTimer); enterTimer = null; });
-      detail.addEventListener('toggle', () => {
-        // Native disclosures remain the no-JavaScript fallback.
-        if (detail.open && active !== detail) select(detail);
-      });
+      trees.forEach(tree => { tree.hidden = !active || tree.dataset.tree !== active.closest('.platform-card').dataset.platform; });
+      panel.hidden = !active;
+      region.classList.toggle('has-active', !!active);
+      if (active) {
+        title.textContent = active.dataset.name + ' Laboratories';
+        if (narrow.matches) {
+          // Only explicit activation scrolls. Focus follows the newly revealed content.
+          title.focus({preventScroll:true});
+          const rect = panel.getBoundingClientRect();
+          if (rect.top < 0 || rect.top > innerHeight - 140) panel.scrollIntoView({behavior:reduced.matches?'instant':'smooth',block:'start'});
+        }
+      } else if (restoreFocus && previous) previous.focus();
+      connect();
+    }
+    buttons.forEach(button => {
+      button.hidden = false;
+      button.addEventListener('click', () => select(active === button ? null : button));
     });
-    region.addEventListener('pointerenter', () => clearTimeout(leaveTimer));
-    region.addEventListener('pointerleave', () => {
-      clearTimeout(enterTimer); enterTimer = null;
-      if (hover.matches) leaveTimer = setTimeout(() => {
-        if (!region.contains(document.activeElement)) select(null);
-      }, 500);
-    });
+    panel.querySelector('.tree-close').addEventListener('click', () => select(null, true));
     region.addEventListener('keydown', event => {
       if (event.key === 'Escape' && active) { event.preventDefault(); select(null, true); }
     });
+    new ResizeObserver(connect).observe(region);
+    narrow.addEventListener('change', connect);
   }
   const navigation = document.querySelector('#navigation');
   const mobile = window.matchMedia('(max-width: 850px)');
@@ -89,7 +81,7 @@ if (typeof document !== 'undefined') {
       const ownRequest = ++requestNumber;
       const query = field.value.trim().slice(0, 120);
       results.replaceChildren();
-      if (!query) { status.textContent = 'Enter a topic to search.'; return; }
+      if (!query) { status.textContent = 'Discover our platforms, laboratories and scientific insights.'; return; }
       status.textContent = 'Searching…';
       try {
         if (!entries) {

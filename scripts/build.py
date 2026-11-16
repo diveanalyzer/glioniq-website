@@ -5,7 +5,7 @@ from pathlib import Path
 import json
 import re
 from hashlib import sha256
-from laboratories import explorer, placeholder, breathing_methods
+from laboratories import explorer, neurobreath_art, breathing_methods, activity_cards
 from editorial import article_html, load_articles, listing_html
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -114,20 +114,21 @@ def information_html(entry):
     e = escape
     artwork = entry.get('artwork')
     image = f'<img class="detail-art" src="/public/images/development/{artwork}.webp" width="364" height="230" alt="{e(entry["name"])} approved artwork">' if artwork else ''
-    if entry['route'] == '/laboratories/neurobreath/': image = placeholder()
+    if entry['route'] == '/laboratories/neurobreath/': image = neurobreath_art(detail=True)
     methods = breathing_methods(entry['route'].strip('/').split('/')[-1] if entry.get('kind') == 'lab' else None) if entry['route'].startswith('/laboratories/neurobreath/') else ''
     info = ''.join(f'<div><dt>{label}</dt><dd>{e(entry[key])}</dd></div>' for key,label in [('audience','Intended audience'),('purpose','Purpose'),('status','Development status')] if entry.get(key))
     sections = ''
     for section in entry.get('sections',[]):
         paragraphs = ''.join(f'<p>{e(p)}</p>' for p in section.get('paragraphs',[]))
         items = '<ul>'+''.join(f'<li>{e(p)}</li>' for p in section['items'])+'</ul>' if section.get('items') else ''
-        sections += f'<section><h2>{e(section["title"])}</h2>{paragraphs}{items}</section>'
+        cards = activity_cards(entry['activities']) if section.get('activity_cards') else ''
+        sections += f'<section><h2>{e(section["title"])}</h2>{paragraphs}{items}{cards}</section>'
     links = ''.join(f'<a class="gold-button" href="{e(link["href"])}">{e(link["label"])}</a>' for link in entry.get('links',[]))
     return f'''<div class="content-page"><a class="breadcrumb" href="/">← Home</a><div class="page-intro">{image}<div><p class="kicker">{e(entry.get('category',''))}</p><h1>{e(entry['name'])}</h1><p class="lead">{e(entry['introduction'])}</p></div></div><dl class="facts">{info}</dl>{methods}<div class="editorial">{sections}</div><div class="related-links">{links}</div></div>'''
 
 
 def search_html():
-    return '''<section class="content-page search-page"><a class="breadcrumb" href="/">← Home</a><h1>Search GlionIQ</h1><p>Explore our platforms, laboratories, story and science-informed approach.</p><form action="/search/" method="get" role="search" id="site-search"><label for="query">Search website content</label><div class="search-fields"><input id="query" name="q" type="search" maxlength="120" autocomplete="off" placeholder="Try memory or Trampolina"><button class="gold-button" type="submit">Search</button></div></form><p id="search-status" role="status" aria-live="polite">Enter a topic to search.</p><div id="search-results"></div><noscript><p>Search needs JavaScript. Browse <a href="/#laboratories">Our Laboratories</a>, <a href="/about-us/">About Us</a>, <a href="/science/">Science &amp; Research</a>, <a href="/blog/">Blog &amp; Insights</a>, or <a href="/contact/">Contact</a>.</p></noscript></section>'''
+    return '''<section class="content-page search-page"><a class="breadcrumb" href="/">← Home</a><h1>Search GlionIQ</h1><p>Explore our platforms, laboratories, story and science-informed approach.</p><form action="/search/" method="get" role="search" id="site-search"><label for="query">Search website content</label><div class="search-fields"><input id="query" name="q" type="search" maxlength="120" autocomplete="off" placeholder="Search GlionIQ laboratories, platforms and research…"><button class="gold-button" type="submit">Search</button></div></form><p id="search-status" role="status" aria-live="polite">Discover our platforms, laboratories and scientific insights.</p><div id="search-results"></div><noscript><p>Search needs JavaScript. Browse <a href="/#laboratories">Our Laboratories</a>, <a href="/about-us/">About Us</a>, <a href="/science/">Science &amp; Research</a>, <a href="/blog/">Blog &amp; Insights</a>, or <a href="/contact/">Contact</a>.</p></noscript></section>'''
 
 
 def build():
