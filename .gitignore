@@ -1,3 +1,7 @@
 .DS_Store
 __pycache__/
 .local-cms/
+# Keep the supplied personal-profile screenshot local; not needed by the site.
+public/images/laboratories/neuropath/04_profile/profile_setup_flow.jpeg
+# New HTML routes are reproducible build output. Existing tracked HTML is retained.
+laboratories/*/explore/index.html

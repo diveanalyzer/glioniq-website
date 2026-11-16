@@ -1,0 +1,32 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "intent": "New category illustrations using approved art only as style references; no official logo was generated or edited.",
+  "status": "owner-review-required",
+  "transparent_background": false,
+  "prompts": [
+    {
+      "key": "colors",
+      "file": "public/images/laboratories/generated-review/trampolina-colors-3d-review.png",
+      "references": ["public/images/laboratories/trampolina/AAB54338-01FE-46AB-8BF5-3A39FD3F9786.png", "design/glioniq-homepage-approved.png"],
+      "prompt": "Use case: stylized-concept. Generate ONE new square 3D illustration for the Colors activity category on the GlionIQ Trampolina website. Inputs are STYLE REFERENCES ONLY, not edit targets: first image supplies the colorful child-friendly glossy 3D rendering; second image supplies deep navy setting, luminous blue and restrained gold light. Subject: a charming arrangement of large rounded glossy red, yellow, blue, green and purple paint drops and a bright artist palette, visibly volumetric, rich materials and detailed soft reflections. Centered composition with generous navy margins, no panel border. Premium playful 3D educational artwork harmonizing with supplied Trampolina art. No characters, no logo, no letters, no captions, no watermark, no flat icons. This is a new proposed category illustration awaiting owner approval, never an official logo. Save the generated file for local project use."
+    },
+    {
+      "key": "numbers",
+      "file": "public/images/laboratories/generated-review/trampolina-numbers-3d-review.png",
+      "references": ["public/images/laboratories/trampolina/AAB54338-01FE-46AB-8BF5-3A39FD3F9786.png", "public/images/laboratories/generated-review/trampolina-colors-3d-review.png"],
+      "prompt": "Use case: stylized-concept. Generate ONE square premium 3D Numbers category illustration for Trampolina on GlionIQ. Both inputs are style references only; do not edit, copy their objects or create a logo. Match the second reference's deep navy, playful rich glossy 3D materials, luminous blue and gold highlights. Subject: large clearly readable toy numerals '1', '2', '3' in vivid yellow, blue and purple, with exactly one red counting bead beside 1, two blue beads beside 2, three green beads beside 3. Simple spacious composition with generous navy margins; excellent small-card readability. No character, no label, no extra text, no border, no watermark, no flat icons. Proposed educational illustration, not official branding."
+    },
+    {
+      "key": "shapes",
+      "file": "public/images/laboratories/generated-review/trampolina-shapes-3d-review.png",
+      "references": ["public/images/laboratories/trampolina/AAB54338-01FE-46AB-8BF5-3A39FD3F9786.png", "public/images/laboratories/generated-review/trampolina-colors-3d-review.png"],
+      "prompt": "Use case: stylized-concept. Generate ONE square premium 3D Shapes category illustration for Trampolina on GlionIQ. Inputs are STYLE references only, not editing targets. Match rich colorful child-friendly glossy 3D rendering and second image deep navy backdrop, luminous blue and restrained gold lighting. Four large rounded toy shapes, facing camera so recognizable: red circle, blue square, yellow triangle, green rectangle (clearly wider than tall), each visibly thick and three-dimensional with subtle reflections and soft shadows. Playful balanced arrangement, generous navy margins, small-card legibility. No characters, no labels, no numerals, no logo, no panel border, no watermark, no flat symbols. New proposed illustration awaiting owner approval."
+    },
+    {
+      "key": "letters",
+      "file": "public/images/laboratories/generated-review/trampolina-letters-3d-review.png",
+      "references": ["public/images/laboratories/trampolina/AAB54338-01FE-46AB-8BF5-3A39FD3F9786.png", "public/images/laboratories/generated-review/trampolina-colors-3d-review.png"],
+      "prompt": "Use case: stylized-concept. Generate ONE square premium 3D Letters category illustration for Trampolina on GlionIQ. Both inputs are STYLE references only, not edit targets. Match colorful child-friendly glossy 3D materials, deep navy backdrop, luminous blue and restrained gold light. Subject: three large freestanding toy letters, accurate glyphs: Latin capital 'A', Hebrew 'א', Cyrillic capital 'Б'. Each letter has clear simple correct proportions and thick rounded dimensional depth; respectively blue, golden yellow, purple. Playful balanced arrangement on subtle reflective navy surface; generous margins, strong small-card readability. Only these three letters, no other text, no characters, no logo, no panel border, no watermark, no flat icons. New proposed illustration for owner review, not approved branding."
+    }
+  ]
+}

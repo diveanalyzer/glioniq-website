@@ -258,11 +258,15 @@ html{scroll-behavior:smooth}
 .activity-description{font-size:15px;color:var(--muted)}
 .activity-action{margin-top:auto;padding-top:8px;color:var(--gold);font-size:14px}
 .activity-status{font-size:12px;color:#e1c58d}
-.category-visual{display:flex;flex-direction:column;align-items:center;justify-content:center;width:112px;min-height:120px;margin-bottom:2px}
-.category-visual svg{width:100px;height:94px;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 3px 7px #59bfff33)}
-.category-visual text{font-family:Georgia,serif;font-size:37px;font-weight:bold}
-.category-visual img{width:88px;height:80px;object-fit:contain}
-.category-visual small{font-size:10px;letter-spacing:.03em;color:#9fb4c9;margin-top:6px}
+.category-visual{display:flex;align-items:center;justify-content:center;width:100%;height:232px;margin-bottom:2px}
+.category-visual img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.category-visual[data-artwork-status="owner-review-required"] img{mask-image:radial-gradient(ellipse 66% 66% at center,#000 66%,transparent 100%)}
+.artwork-detail{display:flex;align-items:center;justify-content:center;max-width:360px}
+.artwork-detail img{display:block;width:100%;height:auto;object-fit:contain}
+.category-visual[data-artwork="memory-activity"] img{width:160px;height:auto;max-width:100%}
+.artwork-detail[data-artwork="memory-activity"]{max-width:160px}
+.category-visual[data-artwork="neurobreath"] img{object-fit:contain}
+@media(max-width:650px){.category-visual{height:220px}.artwork-detail{width:100%;margin-inline:auto}}
 .signature-card{border-color:#b9964e;box-shadow:inset 0 1px 0 #ffe18a55,0 7px 15px #0005}
 .editorial:has(.activity-grid){max-width:none}.activity-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px}
 .neurobreath-art{display:flex;flex-direction:column;align-items:center;justify-content:center;height:230px;width:100%;flex-shrink:0;gap:0}

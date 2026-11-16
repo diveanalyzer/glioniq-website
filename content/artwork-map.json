@@ -1,0 +1,801 @@
+{
+  "version": 1,
+  "originals": [
+    {
+      "file": "public/images/laboratories/dr-quiz/C514A1B2-697F-4527-BF9E-E3BA8FBA2368.png",
+      "sha256": "92be6c1c9095cde7841aa35d90e5729cf1f11e1329680fcb5e85bc295b9120c9",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "dr-quiz-character"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/dr-quiz/challenge-me.png",
+      "sha256": "e95e38847e4e36bb201ede3bdd6bdb2808e98794973b1d271abd7f83292dd713",
+      "width": 1206,
+      "height": 367,
+      "used_by": [
+        "challenge-me"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/dr-quiz/discover-and-learn.png",
+      "sha256": "a66ff2634ea463bf87906eba8fefb92ddb042a02cb2a88301d1830789662ae63",
+      "width": 1120,
+      "height": 437,
+      "used_by": [
+        "discover-learn"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/dr-quiz/party-quiz.png",
+      "sha256": "a9904fccc0bba41cfa620be852355b25e05142def6f57eda0ab4251c87ceb3f1",
+      "width": 1206,
+      "height": 409,
+      "used_by": [
+        "party-quiz"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/neurobreath/IMG_0020 3.JPG",
+      "sha256": "6866c599f679a561dbe5aa78e7ed4dcaeb5fd19246c7f17790d7882ba065ac4b",
+      "width": 1206,
+      "height": 640,
+      "used_by": [
+        "neurobreath"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/01_brand_logo/approved_logo_reference.jpeg",
+      "sha256": "4768bf76b0269a557b413a205829954d58a55663d5442dd0d185bff4aef074ce",
+      "width": 1536,
+      "height": 864,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/02_onboarding/registration_login_flow.jpeg",
+      "sha256": "08cf0fff36af52427653f65cedd5dbaf269f4cc335805b56aad79b9043141f33",
+      "width": 1199,
+      "height": 1312,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/03_home/home.jpeg",
+      "sha256": "deb8dc29916faf6868588bdd41bd81075ba6bf159f000a4c3fefabc59f46eaac",
+      "width": 1024,
+      "height": 1536,
+      "used_by": [
+        "neuropath-brand"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/04_profile/profile_dashboard.jpeg",
+      "sha256": "d8541b69601c3289d32c65b69487e3f9c701998a44232ee4a26241e9d75d99cb",
+      "width": 1024,
+      "height": 1536,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/04_profile/profile_setup_flow.jpeg",
+      "sha256": "0456978af581c166f5a6f05a42816af1aa4ed31e3b513fc14eada43049832a00",
+      "width": 1536,
+      "height": 1024,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported",
+      "backup_excluded": true
+    },
+    {
+      "file": "public/images/laboratories/neuropath/05_daily_training/daily_training_progress.jpeg",
+      "sha256": "f126027a97c690f20e513e4e9b3ff215937ca644b0169fddebb5ca322d7a74b4",
+      "width": 1199,
+      "height": 1312,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/05_daily_training/training_duration.jpeg",
+      "sha256": "feca31ab8f2964fedb4c76d30d18b4441c516c2fb330dd9579e75125c9cfb623",
+      "width": 1199,
+      "height": 1312,
+      "used_by": [
+        "memory-activity"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/06_games/game_selection.jpeg",
+      "sha256": "990b4312a48dea4d342c050974e503320a1b9c278be16138c82b88fad17debfc",
+      "width": 1199,
+      "height": 1312,
+      "used_by": [
+        "memory",
+        "attention",
+        "logic",
+        "flexibility",
+        "neuroweave",
+        "codequest"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/06_games/logic_lab_reference.jpeg",
+      "sha256": "173068967a53ef7c42ba3d96ea6e29d46f0ed0eba156c7216a48a817e7bdb2b3",
+      "width": 1536,
+      "height": 1024,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/07_rewards/achievements.jpeg",
+      "sha256": "ebb379fd1f8948e9ace361fa7ef865edb2ca8445ddce71ea4735b721b679097e",
+      "width": 1191,
+      "height": 1321,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/08_progress/progress.jpeg",
+      "sha256": "27d3629b15bfb1b243e94c9c53292db952a3a447adfe44cb889aaf7f7358a8d0",
+      "width": 1199,
+      "height": 1312,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/neuropath/09_settings/settings.jpeg",
+      "sha256": "91a6cb533322b9bc3dd0466da7129f10dec0bb4fb4118893ef497034ddb0ca0b",
+      "width": 1024,
+      "height": 1536,
+      "used_by": [],
+      "role": "reference only; no UI or additional games imported"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/08471A48-DD4B-41BC-8A0D-5F843D58737B.png",
+      "sha256": "42049670464b16ad9fc814bb95ff3e242a574458bd73a5b7c68cacfdb1e44dcf",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "picture-puzzle"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/1B2081EC-7484-4C5A-BF82-8B3721C02205.png",
+      "sha256": "15e3e49ede1967d4da995f403a0a41dc8e67387e07ed651b0cf1191a46cb42f1",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "odd-one-out"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/526CFEED-567B-4C82-A7E9-21B7CDF1ACF2 3.png",
+      "sha256": "42669c239481e4b6240261743c89f94dbd019fff5e3ce4715fa8c37f0840a5b0",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "trampolina-brand"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/56D2556C-E502-49F1-90F3-A1D30C4F1621.png",
+      "sha256": "8154697b1e069fb05c5800b27c35923aea39b47779ee4ad30f2bd8472ce1c4f6",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "thinking-logic"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/6F105743-02F3-479E-BDDB-7EC1908DC771 2.png",
+      "sha256": "8a224521f6a5af5fbe48a7e2bbe90ee28397b090df0b1794a9c429dfbb472f17",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "memory-game"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/78612329-716C-4B2E-A379-5969D6209669.png",
+      "sha256": "06e96e168539c21855daa50f20d7b995a153c02f3fda69aa043fa4e9eca12355",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "memory-perception"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/A357F62F-4375-4B51-A261-5163FF7ADB06.png",
+      "sha256": "18837a371c2c2f66890c6629e69348a659cd7c0a834737e8d5e1a7d73d2c9db9",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "sorting-categories"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/AAB54338-01FE-46AB-8BF5-3A39FD3F9786.png",
+      "sha256": "ca9961f7dd5804244c6bcf472a5e663b399076a784b4f1c62a89578001f28904",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "continue-pattern"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/DFBEE128-E301-44F3-9316-092A7B7E2713.png",
+      "sha256": "4dcad8a3b4a73e2d21645efdbd6194d9afe4a53a3712add996dc65dd4d852d51",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "spot-differences"
+      ],
+      "role": "artwork source"
+    },
+    {
+      "file": "public/images/laboratories/trampolina/FEB9898E-F8C1-4B0E-837D-3C3A3814FF77.png",
+      "sha256": "8119343ca61d11ec04c043fa154b87b69c823e4693c917ade8aaca3a7ff50a5a",
+      "width": 1254,
+      "height": 1254,
+      "used_by": [
+        "first-next"
+      ],
+      "role": "artwork source"
+    }
+  ],
+  "assets": {
+    "trampolina-brand": {
+      "source": "public/images/laboratories/trampolina/526CFEED-567B-4C82-A7E9-21B7CDF1ACF2 3.png",
+      "crop": null,
+      "matte": false,
+      "embedded_text": "en",
+      "file": "public/images/laboratories/derived/trampolina-brand-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/trampolina-brand-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "72952ca745968b8351a3fc36a2c2b473883a8b66160f37b0d5f8ec8bbfbfcfe5",
+      "source_sha256": "42669c239481e4b6240261743c89f94dbd019fff5e3ce4715fa8c37f0840a5b0",
+      "sha256": "642b4111e5e87c785a090c4a6a9816007e6380dc3ea7f19d314326495c15beeb",
+      "status": "approved-source-derivative"
+    },
+    "memory-perception": {
+      "source": "public/images/laboratories/trampolina/78612329-716C-4B2E-A379-5969D6209669.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "matte_seeds": [
+        [
+          750,
+          440
+        ]
+      ],
+      "file": "public/images/laboratories/derived/memory-perception-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/memory-perception-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "15488097fad5bda5486aa036b165206f9556faa26382a7ef282f3d9034354980",
+      "source_sha256": "06e96e168539c21855daa50f20d7b995a153c02f3fda69aa043fa4e9eca12355",
+      "sha256": "39b508c976d71460b5690500b3d2694eaf7aa244dcefdf79704412b8b51302af",
+      "status": "approved-source-derivative"
+    },
+    "thinking-logic": {
+      "source": "public/images/laboratories/trampolina/56D2556C-E502-49F1-90F3-A1D30C4F1621.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "matte_seeds": [
+        [
+          980,
+          455
+        ],
+        [
+          1085,
+          560
+        ],
+        [
+          900,
+          80
+        ],
+        [
+          955,
+          80
+        ]
+      ],
+      "file": "public/images/laboratories/derived/thinking-logic-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/thinking-logic-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "ebd6a5166a2e6ae2ac2e57db55372f75308d221d346c8be2627f23497f8da595",
+      "source_sha256": "8154697b1e069fb05c5800b27c35923aea39b47779ee4ad30f2bd8472ce1c4f6",
+      "sha256": "a0dd0d2a140e89bbfe7af717e30505a2a78a8bbcc5c7b0cac20ebf24addec446",
+      "status": "approved-source-derivative"
+    },
+    "memory-game": {
+      "source": "public/images/laboratories/trampolina/6F105743-02F3-479E-BDDB-7EC1908DC771 2.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "file": "public/images/laboratories/derived/memory-game-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/memory-game-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "80ea674b5878fd92c2ac22da5db096163060a4cb2dad69ca395c5c22b9ff475d",
+      "source_sha256": "8a224521f6a5af5fbe48a7e2bbe90ee28397b090df0b1794a9c429dfbb472f17",
+      "sha256": "4b45452e61be4bc3c2f4b388cee3f66ad5b1cf85020e23a77d1971c6593a0d2a",
+      "status": "approved-source-derivative"
+    },
+    "picture-puzzle": {
+      "source": "public/images/laboratories/trampolina/08471A48-DD4B-41BC-8A0D-5F843D58737B.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "file": "public/images/laboratories/derived/picture-puzzle-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/picture-puzzle-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "c438bcae4d690d00ecb7ea5ecf9cd31b3da7aad0ba16bb48cf4035ce70398ce6",
+      "source_sha256": "42049670464b16ad9fc814bb95ff3e242a574458bd73a5b7c68cacfdb1e44dcf",
+      "sha256": "c27cd0ff4dc362056f27632480a5fb5045c50f42a8ccd3657df5b373204c2177",
+      "status": "approved-source-derivative"
+    },
+    "spot-differences": {
+      "source": "public/images/laboratories/trampolina/DFBEE128-E301-44F3-9316-092A7B7E2713.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "file": "public/images/laboratories/derived/spot-differences-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/spot-differences-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "83e4499f6f77fb6cfe9d98869191c2335b8c9ab4aa64ebd0de8fd2b4832aeaae",
+      "source_sha256": "4dcad8a3b4a73e2d21645efdbd6194d9afe4a53a3712add996dc65dd4d852d51",
+      "sha256": "5896e0bc434d11172372edef291f8efc3ce2fa772e93fe05a8a316963db634ae",
+      "status": "approved-source-derivative"
+    },
+    "continue-pattern": {
+      "source": "public/images/laboratories/trampolina/AAB54338-01FE-46AB-8BF5-3A39FD3F9786.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "file": "public/images/laboratories/derived/continue-pattern-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/continue-pattern-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "6732090537a002a38169dded3e1cec8e3ab95400edfc3ddee76c21b4aa95a16b",
+      "source_sha256": "ca9961f7dd5804244c6bcf472a5e663b399076a784b4f1c62a89578001f28904",
+      "sha256": "5d49a34c108bcf4063b25c6b6d60464fa70c7da2cf4ae158ba0d6c040a6d8c20",
+      "status": "approved-source-derivative"
+    },
+    "sorting-categories": {
+      "source": "public/images/laboratories/trampolina/A357F62F-4375-4B51-A261-5163FF7ADB06.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "file": "public/images/laboratories/derived/sorting-categories-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/sorting-categories-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "7a679fe72f18dd1658913012b34c257796f4db41e42d57ca6a2833844304c53a",
+      "source_sha256": "18837a371c2c2f66890c6629e69348a659cd7c0a834737e8d5e1a7d73d2c9db9",
+      "sha256": "86bb1a5159db506ee062f77062565911250884ba2e47e57984a57bec1a887043",
+      "status": "approved-source-derivative"
+    },
+    "first-next": {
+      "source": "public/images/laboratories/trampolina/FEB9898E-F8C1-4B0E-837D-3C3A3814FF77.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "file": "public/images/laboratories/derived/first-next-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/first-next-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "8093936b92b412d5b8ef18e6b7b1e760361c2ab8913b451638ef521eda89edda",
+      "source_sha256": "8119343ca61d11ec04c043fa154b87b69c823e4693c917ade8aaca3a7ff50a5a",
+      "sha256": "ca0b06d90abf7af6576f33f526e26e9c72d0e98974beaa587cbce2a641da2293",
+      "status": "approved-source-derivative"
+    },
+    "odd-one-out": {
+      "source": "public/images/laboratories/trampolina/1B2081EC-7484-4C5A-BF82-8B3721C02205.png",
+      "crop": null,
+      "matte": true,
+      "embedded_text": "he",
+      "file": "public/images/laboratories/derived/odd-one-out-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/odd-one-out-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "57a446904c874c229960ab589713f811a597ac18f89cdca53c37fd1250cb384e",
+      "source_sha256": "15e3e49ede1967d4da995f403a0a41dc8e67387e07ed651b0cf1191a46cb42f1",
+      "sha256": "573dfd410b79a46e97dde1566a73c89e2a2560c1568081579ec39d206ac05d8a",
+      "status": "approved-source-derivative"
+    },
+    "colors": {
+      "source": "public/images/laboratories/generated-review/trampolina-colors-3d-review.png",
+      "crop": null,
+      "status": "owner-review-required",
+      "file": "public/images/laboratories/derived/colors-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/colors-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "5071f68279e53a772d9468228e37cb1b7e8a3043267afa83487f868766d3ab4c",
+      "source_sha256": "d5c866d39d17924c22c7fea67c5c8c4bbfed1028c57107b8ac911a2e06e2df00",
+      "sha256": "e41757c453ff9d0cff2e7affe43ecc7e7e1951b0ea6bceaa0d6fc2c6e55d20d9"
+    },
+    "numbers": {
+      "source": "public/images/laboratories/generated-review/trampolina-numbers-3d-review.png",
+      "crop": null,
+      "status": "owner-review-required",
+      "file": "public/images/laboratories/derived/numbers-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/numbers-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "33a4c2cb7f612b009e128e01d2230adea23384ada7ca2407316062a134f91786",
+      "source_sha256": "45c9f863a07030c1ed8e6ae3ae09b6860dc628e27a3c4330920c8672445709c7",
+      "sha256": "54d8260584d136d3c143992548e74179c8a85d4af9a853c20f3aa116d90b6ad1"
+    },
+    "shapes": {
+      "source": "public/images/laboratories/generated-review/trampolina-shapes-3d-review.png",
+      "crop": null,
+      "status": "owner-review-required",
+      "file": "public/images/laboratories/derived/shapes-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/shapes-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "a473fa641623d05f034aea662e646bba51cf9a94a00f3fa74102d5d5897bca15",
+      "source_sha256": "c8f83c35ef42619531c98834e8f3d9ddc44c0b82bdab8218a52e10dd02b87c4a",
+      "sha256": "4d5f4467ff86cf1da7b097d0e49f8226b30dc3b0f3e6987aa6438def7597fa4a"
+    },
+    "letters": {
+      "source": "public/images/laboratories/generated-review/trampolina-letters-3d-review.png",
+      "crop": null,
+      "status": "owner-review-required",
+      "file": "public/images/laboratories/derived/letters-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/letters-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "727273d161cb60f8425a9805da589d64efb0ef8f599fd1d9e250ed5a8f0e428d",
+      "source_sha256": "4f08385d4ede4929e530333f9e8e9cae2be53fd45f2c1ea499aa81edb5cb62f5",
+      "sha256": "d2d977416c5485d246c220cea50478ccb38d58ed596f56aa2a9979cf4fe95a2a"
+    },
+    "dr-quiz-character": {
+      "source": "public/images/laboratories/dr-quiz/C514A1B2-697F-4527-BF9E-E3BA8FBA2368.png",
+      "crop": null,
+      "file": "public/images/laboratories/derived/dr-quiz-character-source-art.png",
+      "width": 1254,
+      "height": 1254,
+      "web_file": "public/images/laboratories/derived/dr-quiz-character-card.webp",
+      "web_width": 640,
+      "web_height": 640,
+      "web_sha256": "2a265dac2a2ebabd0c369d2e0a31c7099fb92bb957844444db26e78da5d7671c",
+      "source_sha256": "92be6c1c9095cde7841aa35d90e5729cf1f11e1329680fcb5e85bc295b9120c9",
+      "sha256": "1c3e15e386e5d58cbc0efafbc2d9c1f159126fa27f55d16dffb69901dec37287",
+      "status": "approved-source-derivative"
+    },
+    "challenge-me": {
+      "source": "public/images/laboratories/dr-quiz/challenge-me.png",
+      "crop": [
+        80,
+        16,
+        579,
+        351
+      ],
+      "file": "public/images/laboratories/derived/challenge-me-source-art.png",
+      "width": 499,
+      "height": 335,
+      "web_file": "public/images/laboratories/derived/challenge-me-card.webp",
+      "web_width": 499,
+      "web_height": 335,
+      "web_sha256": "cdcea1532d6b552004991ae4f89e5df58bb04aca49c161503fc8964603d02a26",
+      "source_sha256": "e95e38847e4e36bb201ede3bdd6bdb2808e98794973b1d271abd7f83292dd713",
+      "sha256": "07a153a0dbee16f01424fc83a9d4696c70ca36c38f59a08d2eb18e3ff1b965f9",
+      "status": "approved-source-derivative"
+    },
+    "discover-learn": {
+      "source": "public/images/laboratories/dr-quiz/discover-and-learn.png",
+      "crop": [
+        32,
+        20,
+        545,
+        412
+      ],
+      "file": "public/images/laboratories/derived/discover-learn-source-art.png",
+      "width": 513,
+      "height": 392,
+      "web_file": "public/images/laboratories/derived/discover-learn-card.webp",
+      "web_width": 513,
+      "web_height": 392,
+      "web_sha256": "c6243ee2062995e3d4cb1a43dec85ec7311358841f71a87eb0b4166aa7a963d1",
+      "source_sha256": "a66ff2634ea463bf87906eba8fefb92ddb042a02cb2a88301d1830789662ae63",
+      "sha256": "9f69b402a0d2eecba08ae377e0ff6d22a58e317978c1b0939b4ed7574f85dd8d",
+      "status": "approved-source-derivative"
+    },
+    "party-quiz": {
+      "source": "public/images/laboratories/dr-quiz/party-quiz.png",
+      "crop": [
+        70,
+        20,
+        625,
+        389
+      ],
+      "file": "public/images/laboratories/derived/party-quiz-source-art.png",
+      "width": 555,
+      "height": 369,
+      "web_file": "public/images/laboratories/derived/party-quiz-card.webp",
+      "web_width": 555,
+      "web_height": 369,
+      "web_sha256": "1245f5139c8c4ad121da310b1c75a0a146964d73f73bc79ed9f70bacb1ad7fc0",
+      "source_sha256": "a9904fccc0bba41cfa620be852355b25e05142def6f57eda0ab4251c87ceb3f1",
+      "sha256": "9f96d0059ee4c7ccf927584fdc70dd7d80f26a279173a82c255187a6fb1523d9",
+      "status": "approved-source-derivative"
+    },
+    "memory": {
+      "source": "public/images/laboratories/neuropath/06_games/game_selection.jpeg",
+      "crop": [
+        58,
+        309,
+        352,
+        508
+      ],
+      "clear_rect": [
+        260,
+        0,
+        294,
+        75
+      ],
+      "file": "public/images/laboratories/derived/memory-source-art.png",
+      "width": 294,
+      "height": 199,
+      "web_file": "public/images/laboratories/derived/memory-card.webp",
+      "web_width": 294,
+      "web_height": 199,
+      "web_sha256": "0469ff1826e95082282725af4e0e5cb90a13da26691f27a65b08aa2431147fc5",
+      "source_sha256": "990b4312a48dea4d342c050974e503320a1b9c278be16138c82b88fad17debfc",
+      "sha256": "8a35d96bcabf171b230eba6bc016588f16b3b4804aede1818be2ec91683d3620",
+      "status": "approved-source-derivative"
+    },
+    "attention": {
+      "source": "public/images/laboratories/neuropath/06_games/game_selection.jpeg",
+      "crop": [
+        630,
+        305,
+        881,
+        511
+      ],
+      "file": "public/images/laboratories/derived/attention-source-art.png",
+      "width": 251,
+      "height": 206,
+      "web_file": "public/images/laboratories/derived/attention-card.webp",
+      "web_width": 251,
+      "web_height": 206,
+      "web_sha256": "dd5ec7d8d8b5ea0dcd9da3f25c5e55f42ddff5f0d71551fb9c31b282ceb347b4",
+      "source_sha256": "990b4312a48dea4d342c050974e503320a1b9c278be16138c82b88fad17debfc",
+      "sha256": "bf569db8e43e8c9696fa93f025031854b975288e0d2e6ea93eada702b6365c65",
+      "status": "approved-source-derivative"
+    },
+    "logic": {
+      "source": "public/images/laboratories/neuropath/06_games/game_selection.jpeg",
+      "crop": [
+        632,
+        555,
+        866,
+        753
+      ],
+      "file": "public/images/laboratories/derived/logic-source-art.png",
+      "width": 234,
+      "height": 198,
+      "web_file": "public/images/laboratories/derived/logic-card.webp",
+      "web_width": 234,
+      "web_height": 198,
+      "web_sha256": "f64c28ae6a5dc2e11d911f411aeeed4f02f107f85003836ea6721c5235bcf0c6",
+      "source_sha256": "990b4312a48dea4d342c050974e503320a1b9c278be16138c82b88fad17debfc",
+      "sha256": "3fabd965575417ce3dcd707d603c64c40faf9ea1e64ab3789317f791b2521abc",
+      "status": "approved-source-derivative"
+    },
+    "flexibility": {
+      "source": "public/images/laboratories/neuropath/06_games/game_selection.jpeg",
+      "crop": [
+        62,
+        556,
+        307,
+        754
+      ],
+      "file": "public/images/laboratories/derived/flexibility-source-art.png",
+      "width": 245,
+      "height": 198,
+      "web_file": "public/images/laboratories/derived/flexibility-card.webp",
+      "web_width": 245,
+      "web_height": 198,
+      "web_sha256": "8d3fd96df43a7e4e5624985a8cbc9fd0cdae48a519d927f4fef2fbb1335cbd32",
+      "source_sha256": "990b4312a48dea4d342c050974e503320a1b9c278be16138c82b88fad17debfc",
+      "sha256": "23556d5b5988397a3f09c82c20b021d9156bc02e96df3741343adcc317dd3026",
+      "status": "approved-source-derivative"
+    },
+    "neuroweave": {
+      "source": "public/images/laboratories/neuropath/06_games/game_selection.jpeg",
+      "crop": [
+        719,
+        884,
+        895,
+        1059
+      ],
+      "embedded_text": "en",
+      "file": "public/images/laboratories/derived/neuroweave-source-art.png",
+      "width": 176,
+      "height": 175,
+      "web_file": "public/images/laboratories/derived/neuroweave-card.webp",
+      "web_width": 176,
+      "web_height": 175,
+      "web_sha256": "d71abce50e00bbf9cda85b1ffbeabba1d5b90f63c227a7f0d523e3cadf90afec",
+      "source_sha256": "990b4312a48dea4d342c050974e503320a1b9c278be16138c82b88fad17debfc",
+      "sha256": "bdf2b8f04684b33fce81b556ccf5e6f3f92f8fed87abac20d2afe7353c02aa53",
+      "status": "approved-source-derivative"
+    },
+    "codequest": {
+      "source": "public/images/laboratories/neuropath/06_games/game_selection.jpeg",
+      "crop": [
+        923,
+        884,
+        1098,
+        1060
+      ],
+      "embedded_text": "en",
+      "file": "public/images/laboratories/derived/codequest-source-art.png",
+      "width": 175,
+      "height": 176,
+      "web_file": "public/images/laboratories/derived/codequest-card.webp",
+      "web_width": 175,
+      "web_height": 176,
+      "web_sha256": "5752892de0e85005192c80fb405d1e776134233e680bbce7b3da360711d3060f",
+      "source_sha256": "990b4312a48dea4d342c050974e503320a1b9c278be16138c82b88fad17debfc",
+      "sha256": "0af6a8574c4227e728047ac80d6982332391558a43111573f595c51a849443b0",
+      "status": "approved-source-derivative"
+    },
+    "memory-activity": {
+      "source": "public/images/laboratories/neuropath/05_daily_training/training_duration.jpeg",
+      "crop": [
+        995,
+        654,
+        1125,
+        747
+      ],
+      "file": "public/images/laboratories/derived/memory-activity-source-art.png",
+      "width": 130,
+      "height": 93,
+      "web_file": "public/images/laboratories/derived/memory-activity-card.webp",
+      "web_width": 130,
+      "web_height": 93,
+      "web_sha256": "bf16077770bc0dde5277f2834054cb5c2225f964a9cc26f68dc0ef9b2af1c202",
+      "source_sha256": "feca31ab8f2964fedb4c76d30d18b4441c516c2fb330dd9579e75125c9cfb623",
+      "sha256": "ed879dca28529e4412a9fed9e17b043e34125e1e146c8b9a3146658254376cc8",
+      "status": "approved-source-derivative"
+    },
+    "neuropath-brand": {
+      "source": "public/images/laboratories/neuropath/03_home/home.jpeg",
+      "crop": [
+        205,
+        70,
+        815,
+        508
+      ],
+      "clear_rect": [
+        565,
+        0,
+        610,
+        18
+      ],
+      "embedded_text": "en",
+      "file": "public/images/laboratories/derived/neuropath-brand-source-art.png",
+      "width": 610,
+      "height": 438,
+      "web_file": "public/images/laboratories/derived/neuropath-brand-card.webp",
+      "web_width": 610,
+      "web_height": 438,
+      "web_sha256": "ec555fa2d4a27dcc0049a0e8620ea0af7d7482a057932548aa08ddc06605b4fa",
+      "source_sha256": "deb8dc29916faf6868588bdd41bd81075ba6bf159f000a4c3fefabc59f46eaac",
+      "sha256": "90a9fa8c6178095cee0ababa60bf04650867c4c2d37d33d3394238dad414a109",
+      "status": "approved-source-derivative"
+    },
+    "neurobreath": {
+      "source": "public/images/laboratories/neurobreath/IMG_0020 3.JPG",
+      "crop": null,
+      "file": "public/images/laboratories/derived/neurobreath-source-art.png",
+      "width": 1206,
+      "height": 640,
+      "web_file": "public/images/laboratories/derived/neurobreath-card.webp",
+      "web_width": 640,
+      "web_height": 340,
+      "web_sha256": "242a889388c3e5474d02260c3e87cc4597a55d88da4063c62e8c392e5407ccb5",
+      "source_sha256": "6866c599f679a561dbe5aa78e7ed4dcaeb5fd19246c7f17790d7882ba065ac4b",
+      "sha256": "9a38b7bec04b52988d3c8353e080e951fa62a5a40815ac89ed99c476db542668",
+      "status": "approved-source-derivative"
+    }
+  },
+  "routes": {
+    "/laboratories/trampolina/": "trampolina-brand",
+    "/laboratories/dr-quiz/": "dr-quiz-character",
+    "/laboratories/neuropath/": "neuropath-brand",
+    "/laboratories/neuropath/memory/": "memory",
+    "/laboratories/neuropath/attention/": "attention",
+    "/laboratories/neuropath/logic/": "logic",
+    "/laboratories/neuropath/flexibility/": "flexibility",
+    "/laboratories/trampolina/colors/": "colors",
+    "/laboratories/trampolina/numbers/": "numbers",
+    "/laboratories/trampolina/shapes/": "shapes",
+    "/laboratories/trampolina/letters/": "letters",
+    "/laboratories/trampolina/memory-perception/": "memory-perception",
+    "/laboratories/trampolina/thinking-logic/": "thinking-logic",
+    "/laboratories/dr-quiz/challenge-me/": "challenge-me",
+    "/laboratories/dr-quiz/party-quiz/": "party-quiz",
+    "/laboratories/dr-quiz/discover-learn/": "discover-learn",
+    "/laboratories/neurobreath/": "neurobreath",
+    "/laboratories/neurobreath/square-focus/": "neurobreath",
+    "/laboratories/neurobreath/sleep-calm/": "neurobreath",
+    "/laboratories/neurobreath/neural-wave/": "neurobreath",
+    "/laboratories/neuropath/memory/memory-activity/": "memory-activity",
+    "/laboratories/neuropath/logic/neuroweave/": "neuroweave",
+    "/laboratories/neuropath/logic/codequest/": "codequest",
+    "/laboratories/trampolina/memory-perception/memory-game/": "memory-game",
+    "/laboratories/trampolina/memory-perception/picture-puzzle/": "picture-puzzle",
+    "/laboratories/trampolina/memory-perception/spot-differences/": "spot-differences",
+    "/laboratories/trampolina/thinking-logic/continue-pattern/": "continue-pattern",
+    "/laboratories/trampolina/thinking-logic/sorting-categories/": "sorting-categories",
+    "/laboratories/trampolina/thinking-logic/first-next/": "first-next",
+    "/laboratories/trampolina/thinking-logic/odd-one-out/": "odd-one-out"
+  },
+  "homepage_platforms": {
+    "trampolina": "public/images/development/trampolina.webp",
+    "dr-quiz": "public/images/development/dr-quiz.webp",
+    "neuropath": "public/images/development/neuropath.webp"
+  },
+  "notes": [
+    "Homepage platform logos retain the authoritative Master Design Reference.",
+    "Hebrew labels stay unchanged; English card headings provide the site-language translation.",
+    "NeuroBreath methods share the approved orb; route diagrams remain explanatory content.",
+    "Generated illustrations are proposals, never officially approved logos.",
+    "Other games visible in screenshots are inventory references only, not new site content."
+  ]
+}
