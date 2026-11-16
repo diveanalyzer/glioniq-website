@@ -9,19 +9,17 @@
     "status": "In development. Activity availability and release details will be confirmed before public access is offered.",
     "sections": [
       {
-        "title": "Planned learning areas",
+        "title": "Learning areas in development",
         "paragraphs": [
-          "The following areas describe the platform’s planned direction. They are not a catalogue of currently released activities."
+          "These areas reflect the current product structure. Their presence here does not announce a public release."
         ],
         "items": [
           "Colors",
-          "Shapes",
           "Numbers",
+          "Shapes",
           "Letters",
-          "Puzzles",
-          "Problem-solving",
-          "Creativity",
-          "Interactive learning"
+          "Memory & Perception",
+          "Thinking & Logic"
         ]
       },
       {
@@ -44,7 +42,31 @@
     "artwork": "trampolina",
     "links": [
       {
-        "label": "Our laboratories",
+        "label": "Colors",
+        "href": "/laboratories/trampolina/colors/"
+      },
+      {
+        "label": "Numbers",
+        "href": "/laboratories/trampolina/numbers/"
+      },
+      {
+        "label": "Shapes",
+        "href": "/laboratories/trampolina/shapes/"
+      },
+      {
+        "label": "Letters",
+        "href": "/laboratories/trampolina/letters/"
+      },
+      {
+        "label": "Memory & Perception",
+        "href": "/laboratories/trampolina/memory-perception/"
+      },
+      {
+        "label": "Thinking & Logic",
+        "href": "/laboratories/trampolina/thinking-logic/"
+      },
+      {
+        "label": "All laboratories",
         "href": "/#laboratories"
       }
     ]
@@ -92,7 +114,19 @@
     "artwork": "dr-quiz",
     "links": [
       {
-        "label": "Our laboratories",
+        "label": "Challenge Me",
+        "href": "/laboratories/dr-quiz/challenge-me/"
+      },
+      {
+        "label": "Party Quiz",
+        "href": "/laboratories/dr-quiz/party-quiz/"
+      },
+      {
+        "label": "Discover & Learn",
+        "href": "/laboratories/dr-quiz/discover-learn/"
+      },
+      {
+        "label": "All laboratories",
         "href": "/#laboratories"
       }
     ]
@@ -155,6 +189,10 @@
       {
         "label": "Flexibility Lab",
         "href": "/laboratories/neuropath/flexibility/"
+      },
+      {
+        "label": "All laboratories",
+        "href": "/#laboratories"
       }
     ]
   },
@@ -292,6 +330,418 @@
       {
         "label": "Explore NeuroPath",
         "href": "/laboratories/neuropath/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/colors/",
+    "name": "Colors",
+    "category": "Trampolina laboratory",
+    "introduction": "Explore colors through learning activities.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Explore colors through learning activities.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/trampolina/",
+    "artwork": "trampolina",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Explore colors through learning activities."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/numbers/",
+    "name": "Numbers",
+    "category": "Trampolina laboratory",
+    "introduction": "Explore numbers and counting concepts.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Explore numbers and counting concepts.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/trampolina/",
+    "artwork": "trampolina",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Explore numbers and counting concepts."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/shapes/",
+    "name": "Shapes",
+    "category": "Trampolina laboratory",
+    "introduction": "Discover circles, squares, triangles and rectangles.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Discover circles, squares, triangles and rectangles.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/trampolina/",
+    "artwork": "trampolina",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Discover circles, squares, triangles and rectangles."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/letters/",
+    "name": "Letters",
+    "category": "Trampolina laboratory",
+    "introduction": "Explore letters in Hebrew, English and Russian.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Explore letters in Hebrew, English and Russian.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/trampolina/",
+    "artwork": "trampolina",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Explore letters in Hebrew, English and Russian."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/memory-perception/",
+    "name": "Memory & Perception",
+    "category": "Trampolina laboratory",
+    "introduction": "Memory Game, Picture Puzzle and Spot the Differences.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Memory Game, Picture Puzzle and Spot the Differences.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/trampolina/",
+    "artwork": "trampolina",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Memory Game, Picture Puzzle and Spot the Differences."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/trampolina/thinking-logic/",
+    "name": "Thinking & Logic",
+    "category": "Trampolina laboratory",
+    "introduction": "Continue the Pattern, Sorting Categories, First & Next and Odd One Out.",
+    "audience": "Children and the families and educators who support their learning. Activities are intended to accommodate different interests and stages of development, without a fixed age range.",
+    "purpose": "Continue the Pattern, Sorting Categories, First & Next and Odd One Out.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/trampolina/",
+    "artwork": "trampolina",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Continue the Pattern, Sorting Categories, First & Next and Odd One Out."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Trampolina",
+        "href": "/laboratories/trampolina/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/dr-quiz/challenge-me/",
+    "name": "Challenge Me",
+    "category": "Dr. Quiz laboratory",
+    "introduction": "Explore individual quiz challenges and opportunities for discovery.",
+    "audience": "Curious learners who enjoy discovering knowledge, thinking through questions and sharing quiz experiences with others.",
+    "purpose": "Explore individual quiz challenges and opportunities for discovery.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/dr-quiz/",
+    "artwork": "dr-quiz",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Explore individual quiz challenges and opportunities for discovery."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Dr. Quiz",
+        "href": "/laboratories/dr-quiz/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/dr-quiz/party-quiz/",
+    "name": "Party Quiz",
+    "category": "Dr. Quiz laboratory",
+    "introduction": "Discover the shared quiz experience.",
+    "audience": "Curious learners who enjoy discovering knowledge, thinking through questions and sharing quiz experiences with others.",
+    "purpose": "Discover the shared quiz experience.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/dr-quiz/",
+    "artwork": "dr-quiz",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Discover the shared quiz experience."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Dr. Quiz",
+        "href": "/laboratories/dr-quiz/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/dr-quiz/discover-learn/",
+    "name": "Discover & Learn",
+    "category": "Dr. Quiz laboratory",
+    "introduction": "Follow curiosity through fascinating facts and explanations.",
+    "audience": "Curious learners who enjoy discovering knowledge, thinking through questions and sharing quiz experiences with others.",
+    "purpose": "Follow curiosity through fascinating facts and explanations.",
+    "status": "In development. This page introduces the confirmed product organization; public availability is not announced.",
+    "kind": "lab",
+    "parent": "/laboratories/dr-quiz/",
+    "artwork": "dr-quiz",
+    "sections": [
+      {
+        "title": "The experience",
+        "paragraphs": [
+          "Follow curiosity through fascinating facts and explanations."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore Dr. Quiz",
+        "href": "/laboratories/dr-quiz/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neurobreath/",
+    "name": "NeuroBreath",
+    "category": "Breathing & Relaxation Laboratory",
+    "introduction": "Science-inspired breathing experiences designed to support relaxation, mindful attention and mental preparation.",
+    "audience": "People interested in gentle breathing and mindful well-being.",
+    "purpose": "To introduce future guided breathing experiences for relaxation and mental preparation.",
+    "status": "Coming Soon. This is product information, not a breathing application.",
+    "kind": "platform",
+    "parent": "/#laboratories",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Custom Breathing",
+        "paragraphs": [
+          "The future application will allow users to customize breathing durations and select suitable patterns. Custom Breathing is a configuration feature, not a fourth primary method."
+        ]
+      },
+      {
+        "title": "Science and responsible expectations",
+        "paragraphs": [
+          "Breathing patterns can provide a structure for mindful practice. These exact timing patterns are not presented as individually proven medical treatments. No guaranteed treatment of insomnia, anxiety or neurological conditions is claimed."
+        ]
+      },
+      {
+        "title": "Breathe comfortably",
+        "items": [
+          "Breathing exercises are wellness activities, not medical treatments.",
+          "Breathe comfortably without forcing breath holds.",
+          "Stop if dizziness or discomfort occurs."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Square Focus",
+        "href": "/laboratories/neurobreath/square-focus/"
+      },
+      {
+        "label": "Sleep Calm",
+        "href": "/laboratories/neurobreath/sleep-calm/"
+      },
+      {
+        "label": "Neural Wave",
+        "href": "/laboratories/neurobreath/neural-wave/"
+      },
+      {
+        "label": "All laboratories",
+        "href": "/#laboratories"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neurobreath/square-focus/",
+    "name": "Square Focus",
+    "category": "NeuroBreath laboratory",
+    "introduction": "A four-phase 4–4–4–4 breathing pattern.",
+    "audience": "People interested in gentle breathing and mindful well-being.",
+    "purpose": "A four-phase 4–4–4–4 breathing pattern.",
+    "status": "Coming Soon. Product information only; no activity or download is provided here.",
+    "kind": "lab",
+    "parent": "/laboratories/neurobreath/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Comfort and choice",
+        "paragraphs": [
+          "Breathe comfortably without forcing breath holds. Stop if dizziness or discomfort occurs. This is a wellness activity, not a medical treatment. Exact timings are illustrative product patterns, not claims of proven medical effectiveness."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore NeuroBreath",
+        "href": "/laboratories/neurobreath/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neurobreath/sleep-calm/",
+    "name": "Sleep Calm",
+    "category": "NeuroBreath laboratory",
+    "introduction": "A three-phase 4–2–6 breathing pattern.",
+    "audience": "People interested in gentle breathing and mindful well-being.",
+    "purpose": "A three-phase 4–2–6 breathing pattern.",
+    "status": "Coming Soon. Product information only; no activity or download is provided here.",
+    "kind": "lab",
+    "parent": "/laboratories/neurobreath/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Comfort and choice",
+        "paragraphs": [
+          "Breathe comfortably without forcing breath holds. Stop if dizziness or discomfort occurs. This is a wellness activity, not a medical treatment. Exact timings are illustrative product patterns, not claims of proven medical effectiveness."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore NeuroBreath",
+        "href": "/laboratories/neurobreath/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
+      }
+    ]
+  },
+  {
+    "route": "/laboratories/neurobreath/neural-wave/",
+    "name": "Neural Wave",
+    "category": "NeuroBreath laboratory",
+    "introduction": "A two-phase 4–6 breathing pattern.",
+    "audience": "People interested in gentle breathing and mindful well-being.",
+    "purpose": "A two-phase 4–6 breathing pattern.",
+    "status": "Coming Soon. Product information only; no activity or download is provided here.",
+    "kind": "lab",
+    "parent": "/laboratories/neurobreath/",
+    "artwork": null,
+    "sections": [
+      {
+        "title": "Comfort and choice",
+        "paragraphs": [
+          "Breathe comfortably without forcing breath holds. Stop if dizziness or discomfort occurs. This is a wellness activity, not a medical treatment. Exact timings are illustrative product patterns, not claims of proven medical effectiveness."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Explore NeuroBreath",
+        "href": "/laboratories/neurobreath/"
+      },
+      {
+        "label": "Home",
+        "href": "/"
       }
     ]
   }

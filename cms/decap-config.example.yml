@@ -1,0 +1,58 @@
+# INACTIVE DESIGN EXAMPLE. Do not copy to a public /admin/ before owner activation.
+# Pin reviewed Decap >= 3.17.3. External HTTPS OAuth and Git rules are required.
+backend:
+  name: github
+  repo: diveanalyzer/glioniq-website
+  branch: OWNER_PROTECTED_CONTENT_BRANCH
+  base_url: https://OWNER_AUTH_SERVICE.invalid
+  auth_endpoint: auth
+publish_mode: editorial_workflow
+media_folder: public/editorial
+public_folder: /public/editorial
+collections:
+  - name: articles
+    label: Articles
+    folder: content/editorial
+    create: true
+    format: json
+    extension: json
+    slug: '{{slug}}'
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Address, name: slug, widget: string, pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Lowercase letters, numbers and hyphens']}
+      - {label: Subtitle, name: subtitle, widget: string, required: false}
+      - {label: Summary, name: summary, widget: text}
+      - {label: Destination, name: destination, widget: select, options: [blog, science]}
+      - {label: Category, name: category, widget: string}
+      - {label: Author, name: author, widget: string}
+      - {label: Tags, name: tags, widget: list, required: false}
+      - {label: Body, name: body, widget: markdown}
+      - {label: Publication date, name: publication_date, widget: datetime, format: YYYY-MM-DD, time_format: false, required: false}
+      - {label: Updated date, name: updated_date, widget: datetime, format: YYYY-MM-DD, time_format: false, required: false}
+      # This field is NOT authorization. Protected review and merge rules enforce release.
+      - {label: Content status, name: status, widget: select, options: [draft, review, published], default: draft}
+      - {label: Featured image, name: featured_image, widget: image, required: false, media_library: {config: {max_file_size: 5242880}}}
+      - {label: Featured caption, name: featured_caption, widget: string, required: false}
+      - {label: SEO title, name: seo_title, widget: string, required: false}
+      - {label: SEO description, name: seo_description, widget: text, required: false}
+      - label: References
+        name: references
+        widget: list
+        required: false
+        fields:
+          - {label: Study title, name: title, widget: string}
+          - {label: Authors, name: authors, widget: string, required: false}
+          - {label: Journal or publisher, name: publisher, widget: string, required: false}
+          - {label: Year, name: year, widget: string, required: false}
+          - {label: Source URL, name: url, widget: string, required: false}
+          - {label: DOI, name: doi, widget: string, required: false}
+          - {label: Legal PDF attachment, name: pdf, widget: file, required: false}
+      - label: Attachments
+        name: attachments
+        widget: list
+        required: false
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: PDF, name: url, widget: file}
+# Enforce type/signature/size restrictions in the authenticated upload API and build checks.
+# Decap widget labels/options alone are not a security boundary.

@@ -7,6 +7,70 @@ function searchEntries(entries, query) {
 }
 if (typeof module !== 'undefined') module.exports = { searchEntries };
 if (typeof document !== 'undefined') {
+  const region = document.querySelector('.laboratory-explorer');
+  if (region) {
+    const cards = [...region.querySelectorAll('.platform-card')];
+    const disclosures = cards.map(card => card.querySelector('details'));
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const hover = matchMedia('(hover: hover) and (pointer: fine)');
+    let enterTimer, leaveTimer, active = null, movingUntil = 0;
+    const cancel = () => { clearTimeout(enterTimer); clearTimeout(leaveTimer); };
+    function select(detail, restoreFocus = false) {
+      cancel();
+      if (active === detail) return;
+      const previous = active;
+      const positions = cards.map(card => card.getBoundingClientRect());
+      active = detail;
+      disclosures.forEach(item => {
+        item.open = item === detail;
+        item.querySelector('summary').setAttribute('aria-expanded', String(item.open));
+        item.closest('.platform-card').classList.toggle('is-active', item.open);
+      });
+      region.classList.toggle('has-active', !!detail);
+      if (!reduced.matches && matchMedia('(min-width: 851px)').matches) {
+        movingUntil = performance.now() + 520;
+        cards.forEach((card, index) => {
+          const next = card.getBoundingClientRect(), old = positions[index];
+          card.animate([{transform:`translate(${old.x-next.x}px,${old.y-next.y}px)`},{transform:'translate(0,0)'}], {duration:500,easing:'cubic-bezier(.2,.7,.2,1)'});
+        });
+      }
+      if (restoreFocus && previous) previous.querySelector('summary').focus({preventScroll:true});
+    }
+    disclosures.forEach(detail => {
+      const card = detail.closest('.platform-card'), summary = detail.querySelector('summary');
+      summary.setAttribute('aria-expanded', 'false');
+      summary.addEventListener('click', event => { event.preventDefault(); select(active===detail ? null : detail); });
+      detail.querySelector('.tree-close').addEventListener('click', () => select(null, true));
+      card.addEventListener('click', event => {
+        if (!event.target.closest('a,button,summary,details')) select(active===detail ? null : detail);
+      });
+      const considerHover = event => {
+        if (!hover.matches || event.pointerType === 'touch' || performance.now() < movingUntil || active === detail) return;
+        clearTimeout(enterTimer); clearTimeout(leaveTimer);
+        enterTimer = setTimeout(() => select(detail), 300);
+      };
+      card.addEventListener('pointerenter', considerHover);
+      card.addEventListener('pointermove', event => {
+        // Movement after a layout transition starts a fresh intentional dwell.
+        if (performance.now() >= movingUntil && !enterTimer) considerHover(event);
+      });
+      card.addEventListener('pointerleave', () => { clearTimeout(enterTimer); enterTimer = null; });
+      detail.addEventListener('toggle', () => {
+        // Native disclosures remain the no-JavaScript fallback.
+        if (detail.open && active !== detail) select(detail);
+      });
+    });
+    region.addEventListener('pointerenter', () => clearTimeout(leaveTimer));
+    region.addEventListener('pointerleave', () => {
+      clearTimeout(enterTimer); enterTimer = null;
+      if (hover.matches) leaveTimer = setTimeout(() => {
+        if (!region.contains(document.activeElement)) select(null);
+      }, 500);
+    });
+    region.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && active) { event.preventDefault(); select(null, true); }
+    });
+  }
   const navigation = document.querySelector('#navigation');
   const mobile = window.matchMedia('(max-width: 850px)');
   const syncNavigation = () => { if (navigation) navigation.open = !mobile.matches; };
@@ -29,7 +93,7 @@ if (typeof document !== 'undefined') {
       status.textContent = 'Searching…';
       try {
         if (!entries) {
-          const response = await fetch('/assets/search-index.json');
+          const response = await fetch('/assets/search-index.json', {cache:'no-cache'});
           if (!response.ok) throw new Error('Search index unavailable');
           entries = await response.json();
         }

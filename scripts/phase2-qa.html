@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>GlionIQ phase two browser QA</title><style>body{font:16px system-ui;margin:24px;background:#e8edf4;color:#102236}iframe{width:100%;height:760px;border:1px solid #446}pre{white-space:pre-wrap}#runner{position:absolute;left:-10000px;width:1440px;visibility:hidden}button{padding:12px}</style><h1>GlionIQ phase two browser QA</h1><p id="status">Running local tests…</p><pre id="results"></pre><h2>Responsive visual preview</h2><select id="page"><option value="/">Homepage</option><option value="/laboratories/neurobreath/">NeuroBreath</option><option value="/admin/">Editorial Studio</option><option value="/preview/blog/">Blog template</option><option value="/preview/science/">Science template</option></select><select id="width"><option>320</option><option selected>390</option><option>768</option><option>1024</option><option>1440</option></select><button id="show">Show</button><div id="view"></div><iframe id="runner" title="Local browser test runner"></iframe><script>
+if(!['127.0.0.1','localhost'].includes(location.hostname))throw Error('Local only');
+const results=[],status=document.querySelector('#status'),out=document.querySelector('#results'),frame=document.querySelector('#runner');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function check(ok,label){results.push({status:ok?'PASS':'FAIL',label});out.textContent=results.map(r=>r.status+' · '+r.label).join('\n');if(!ok)throw Error(label);}
+async function load(url,width){frame.style.width=width+'px';const done=new Promise(resolve=>frame.onload=resolve);frame.src=url;await done;await sleep(80);return frame.contentDocument;}
+async function until(test){for(let n=0;n<80;n++){if(test())return;await sleep(50);}throw Error('Timed out waiting for UI');}
+document.querySelector('#show').onclick=()=>{const view=document.querySelector('#view');view.replaceChildren();const f=document.createElement('iframe');f.style.width=document.querySelector('#width').value+'px';f.src=document.querySelector('#page').value;f.title='Selected responsive preview';view.append(f);};
+(async()=>{
+ for(const width of [320,390,768,1024,1440]){
+  const d=await load('/',width),w=frame.contentWindow,region=d.querySelector('.laboratory-explorer'),cards=[...d.querySelectorAll('[data-platform]')],details=cards.map(c=>c.querySelector('details'));
+  const positions=cards.map(c=>c.getBoundingClientRect());
+  check(cards.map(c=>c.dataset.platform).join(',')==='trampolina,dr-quiz,neuropath,neurobreath','Four cards in approved source order at '+width);
+  check(width>650?Math.abs(positions[0].y-positions[1].y)<2&&positions[2].y>positions[0].y:positions.every((r,i)=>i===0||r.y>positions[i-1].y),'Correct grid at '+width);
+  for(let i=0;i<details.length;i++){
+   details[i].querySelector('summary').click();await sleep(580);
+   check(details.filter(x=>x.open).length===1&&details[i].open,'Single active tree '+cards[i].dataset.platform+' at '+width);
+   check(d.documentElement.scrollWidth<=w.innerWidth,'Expanded tree has no overflow '+cards[i].dataset.platform+' at '+width);
+   check([...details[i].querySelectorAll('.branch-links a')].every(a=>a.getBoundingClientRect().height>=44),'Readable branch touch targets '+cards[i].dataset.platform+' at '+width);
+   check(details[i].querySelector('summary').getAttribute('aria-expanded')==='true','ARIA expanded at '+width);
+   if(width>850){const rect=cards[i].getBoundingClientRect(),r=region.getBoundingClientRect();check(Math.abs((rect.left+rect.right)/2-(r.left+r.right)/2)<2,'Selected card centered at '+width);check(cards.every(c=>c.getBoundingClientRect().height>0),'Other platforms remain present at '+width);}
+   details[i].querySelector('.tree-close').click();await sleep(550);check(!details.some(x=>x.open),'Close control at '+width);
+  }
+  details[0].querySelector('summary').click();region.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));check(!details.some(x=>x.open),'Escape closes and restores focus at '+width);
+  if(width===1440&&w.matchMedia('(hover:hover)').matches){
+   await sleep(600);d.activeElement.blur();cards[0].dispatchEvent(new w.PointerEvent('pointerenter',{pointerType:'mouse'}));await sleep(150);check(!details[0].open,'Hover dwell does not open early');await sleep(190);check(details[0].open,'300 ms hover opens tree');await sleep(550);
+   cards[0].dispatchEvent(new w.PointerEvent('pointerleave',{pointerType:'mouse'}));await sleep(550);check(details[0].open,'Card-to-branch movement inside region stays open');
+   region.dispatchEvent(new w.PointerEvent('pointerleave',{pointerType:'mouse'}));await sleep(200);check(details[0].open,'Region leave delay does not close early');await sleep(350);check(!details[0].open,'500 ms region leave closes');
+   cards[1].dispatchEvent(new w.PointerEvent('pointerenter',{pointerType:'touch'}));await sleep(350);check(!details[1].open,'Touch pointer does not activate hover');
+  }
+ }
+ const d=await load('/admin/',1440),w=frame.contentWindow,form=d.querySelector('#article-form'),f=n=>form.elements.namedItem(n),slug='browser-qa-'+Date.now();
+ const values={title:'Local browser test — unpublished',slug,author:'QA fixture',summary:'Temporary local draft used to verify the editor. Not a published article.',body:'## A clear heading\n\nA **bold** idea and *gentle* emphasis.\n\n<script>window.unsafeExecuted=true;<\/script>',category:'Local QA'};
+ for(const [name,value] of Object.entries(values)){f(name).value=value;f(name).dispatchEvent(new w.Event('input',{bubbles:true}));}f('slug').value=slug;
+ form.requestSubmit();await until(()=>d.querySelector('#editor-status').textContent.includes('Draft saved'));
+ check(true,'Browser editor creates a local draft');
+ f('title').value='Local browser test — edited';d.querySelector('#review-article').click();await until(()=>d.querySelector('#editor-status').textContent.includes('Marked for owner review'));check(true,'Browser edit and review save');
+ d.querySelector('#preview-article').click();await until(()=>!d.querySelector('#preview-section').hidden);const pf=d.querySelector('#article-preview');await until(()=>pf.contentDocument?.querySelector('.article-page'));
+ check(pf.contentDocument.querySelector('h1').textContent==='Local browser test — edited','Preview uses edited title');check(!pf.contentWindow.unsafeExecuted,'Pasted HTML does not execute');check(pf.contentDocument.querySelector('.preview-banner').textContent.includes('Not published'),'Preview visibly unpublished');check(!!pf.contentDocument.querySelector('strong')&&!!pf.contentDocument.querySelector('em'),'Markdown emphasis rendered');
+ check(d.querySelector('#draft-list').textContent.includes('Local browser test — edited'),'Draft appears in local list');
+ d.querySelector('#new-article').click();const saved=[...d.querySelectorAll('.draft-button')].find(b=>b.textContent.includes('Local browser test — edited'));saved.click();await until(()=>f('title').value==='Local browser test — edited');check(f('body').value.includes('**bold**'),'Saved draft reopens with content');
+ for(const width of [320,390,768,1024,1440]){
+  for(const route of ['/admin/','/preview/blog/','/preview/science/']){const page=await load(route,width);check(page.documentElement.scrollWidth<=frame.contentWindow.innerWidth,route+' fits '+width);}
+ }
+ status.textContent=results.length+' PASS · 0 failures. Native touch devices and production authentication not verified.';document.querySelector('#show').click();
+})().catch(error=>{status.textContent='FAILED: '+error.message;console.error(error);});
+</script></html>

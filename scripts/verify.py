@@ -21,11 +21,8 @@ APPROVED = {
     'design/glioniq-homepage-approved.png': '6309d5952eb403822a4becfda6f357b6108f1e9b501336c059a135c17921b152',
 }
 
-ROUTES = ('/', '/about-us/', '/science/', '/blog/', '/contact/', '/journey/',
-          '/search/', '/laboratories/trampolina/', '/laboratories/dr-quiz/',
-          '/laboratories/neuropath/', '/laboratories/neuropath/memory/',
-          '/laboratories/neuropath/attention/', '/laboratories/neuropath/logic/',
-          '/laboratories/neuropath/flexibility/')
+ROUTES = ['/', '/about-us/', '/search/'] + [entry['route'] for filename in ('platforms.json','pages.json') for entry in json.loads((ROOT/'content'/filename).read_text())]
+ROUTES += [item['url'] for item in json.loads((ROOT/'assets/search-index.json').read_text()) if item['url'] not in ROUTES]
 
 
 class Page(HTMLParser):
@@ -124,7 +121,7 @@ for route in ROUTES:
     page.feed(html)
     pages[path.resolve()] = page
     assert 'mailto:' not in html and 'info@glioniq.tech' not in html, 'Unverified contact address'
-    assert all(script.get('src') == '/assets/site.js' and 'defer' in script for script in page.scripts), 'Unexpected or blocking runtime JavaScript'
+    assert all(urlsplit(script.get('src','')).path == '/assets/site.js' and 'defer' in script for script in page.scripts), 'Unexpected or blocking runtime JavaScript'
     assert len(page.scripts) == 1, f'Missing shared interaction script: {route}'
     assert f'https://glioniq.tech{route}' in html, 'Incorrect canonical domain'
     for destination in ('/', '/about-us/', '/science/', '/blog/', '/contact/', '/search/'):
@@ -155,7 +152,11 @@ for route in ROUTES:
 
 home = pages[(ROOT / 'index.html').resolve()]
 lab_routes = {f'/laboratories/neuropath/{name}/' for name in ('memory', 'attention', 'logic', 'flexibility')}
-assert any(lab_routes <= set(detail['refs']) for detail in home.details), 'Missing accessible four-laboratory tree'
+assert any(lab_routes <= set(detail['refs']) for detail in home.details), 'Missing accessible NeuroPath tree'
+for platform in json.loads((ROOT/'content/laboratories.json').read_text()):
+    expected = {b['route'] for b in platform['branches']}
+    assert any(expected <= set(detail['refs']) for detail in home.details), platform['name']
+assert len(home.details) == 5, 'Navigation plus four laboratory disclosures required'
 assert '/laboratories/neuropath/' in home.refs, 'Explore NeuroPath must navigate independently'
 
 for path, page in pages.items():

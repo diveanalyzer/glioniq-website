@@ -9,7 +9,7 @@ const path = require('node:path');
 const { searchEntries } = require('../assets/site.js');
 const root = path.resolve(__dirname, '..');
 const entries = JSON.parse(fs.readFileSync(path.join(root, 'assets/search-index.json'), 'utf8'));
-assert(Array.isArray(entries) && entries.length === 13);
+assert(Array.isArray(entries) && entries.length >= 26);
 assert.equal(new Set(entries.map(entry => entry.url)).size, entries.length, 'Duplicate search destinations');
 for (const entry of entries) {
   assert(entry.url.startsWith('/') && entry.url.endsWith('/') && !entry.url.includes('..'));
@@ -24,6 +24,8 @@ assert.deepEqual(urls('MeMoRy'), urls('memory'), 'Search must ignore case');
 assert.deepEqual(urls('   memory   lab  '), urls('memory lab'), 'Search must normalize whitespace');
 assert(urls('memory lab').includes('/laboratories/neuropath/memory/'), 'Find the named Memory Lab');
 assert(urls('NeuroWeave').includes('/laboratories/neuropath/logic/'), 'Find approved signature activity');
+assert(urls('Neural Wave').includes('/laboratories/neurobreath/neural-wave/'));
+assert(urls('Party Quiz').includes('/laboratories/dr-quiz/party-quiz/'));
 assert(urls('Trampolina').includes('/laboratories/trampolina/'), 'Find platform by name');
 assert(urls('Dr. Quiz').includes('/laboratories/dr-quiz/'), 'Find punctuated product name');
 assert.deepEqual(urls('zzzznonexistentquery8675309'), [], 'Unknown terms must not produce invented results');
@@ -42,4 +44,4 @@ for (const query of ['memory', 'NeuroWeave', 'Trampolina', 'science', '<script>a
   assert(searchEntries(entries, query).every(item => entries.some(entry => entry.url === item.url)),
     'Search results must point only to indexed content');
 }
-console.log('PASS: 13 real search destinations; case/whitespace normalization, multi-term matching, signature activities, empty/no-result states and immutable index.');
+console.log('PASS: '+entries.length+' real search destinations; case/whitespace normalization, multi-term matching, signature activities, empty/no-result states and immutable index.');

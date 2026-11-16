@@ -1,0 +1,134 @@
+[
+  {
+    "key": "trampolina",
+    "name": "Trampolina",
+    "subtitle": "Children’s Learning & Development Laboratories",
+    "description": "Colors, numbers, letters, shapes and cognitive challenges for curious learners.",
+    "route": "/laboratories/trampolina/",
+    "branches": [
+      {
+        "key": "colors",
+        "name": "Colors",
+        "description": "Explore colors through learning activities.",
+        "route": "/laboratories/trampolina/colors/"
+      },
+      {
+        "key": "numbers",
+        "name": "Numbers",
+        "description": "Explore numbers and counting concepts.",
+        "route": "/laboratories/trampolina/numbers/"
+      },
+      {
+        "key": "shapes",
+        "name": "Shapes",
+        "description": "Discover circles, squares, triangles and rectangles.",
+        "route": "/laboratories/trampolina/shapes/"
+      },
+      {
+        "key": "letters",
+        "name": "Letters",
+        "description": "Explore letters in Hebrew, English and Russian.",
+        "route": "/laboratories/trampolina/letters/"
+      },
+      {
+        "key": "memory-perception",
+        "name": "Memory & Perception",
+        "description": "Memory Game, Picture Puzzle and Spot the Differences.",
+        "route": "/laboratories/trampolina/memory-perception/"
+      },
+      {
+        "key": "thinking-logic",
+        "name": "Thinking & Logic",
+        "description": "Continue the Pattern, Sorting Categories, First & Next and Odd One Out.",
+        "route": "/laboratories/trampolina/thinking-logic/"
+      }
+    ]
+  },
+  {
+    "key": "dr-quiz",
+    "name": "Dr. Quiz",
+    "subtitle": "Knowledge & Discovery Lab",
+    "description": "Fascinating facts, quizzes and mind-expanding challenges.",
+    "route": "/laboratories/dr-quiz/",
+    "branches": [
+      {
+        "key": "challenge-me",
+        "name": "Challenge Me",
+        "description": "Explore individual quiz challenges and opportunities for discovery.",
+        "route": "/laboratories/dr-quiz/challenge-me/"
+      },
+      {
+        "key": "party-quiz",
+        "name": "Party Quiz",
+        "description": "Discover the shared quiz experience.",
+        "route": "/laboratories/dr-quiz/party-quiz/"
+      },
+      {
+        "key": "discover-learn",
+        "name": "Discover & Learn",
+        "description": "Follow curiosity through fascinating facts and explanations.",
+        "route": "/laboratories/dr-quiz/discover-learn/"
+      }
+    ]
+  },
+  {
+    "key": "neuropath",
+    "name": "NeuroPath",
+    "subtitle": "Cognitive Engagement Laboratories",
+    "description": "A suite of brain-training labs for memory, attention, logic and cognitive flexibility.",
+    "route": "/laboratories/neuropath/",
+    "branches": [
+      {
+        "key": "memory",
+        "name": "Memory Lab",
+        "description": "Memory-oriented cognitive engagement.",
+        "route": "/laboratories/neuropath/memory/"
+      },
+      {
+        "key": "attention",
+        "name": "Attention Lab",
+        "description": "Attention-oriented cognitive engagement.",
+        "route": "/laboratories/neuropath/attention/"
+      },
+      {
+        "key": "logic",
+        "name": "Logic Lab",
+        "description": "Logic-oriented cognitive engagement.",
+        "route": "/laboratories/neuropath/logic/"
+      },
+      {
+        "key": "flexibility",
+        "name": "Flexibility Lab",
+        "description": "Cognitive-flexibility-oriented engagement.",
+        "route": "/laboratories/neuropath/flexibility/"
+      }
+    ]
+  },
+  {
+    "key": "neurobreath",
+    "name": "NeuroBreath",
+    "subtitle": "Breathing & Relaxation Laboratory",
+    "description": "Science-inspired breathing experiences designed to support relaxation, mindful attention and mental preparation.",
+    "route": "/laboratories/neurobreath/",
+    "branches": [
+      {
+        "key": "square-focus",
+        "name": "Square Focus",
+        "description": "A four-phase 4–4–4–4 breathing pattern.",
+        "route": "/laboratories/neurobreath/square-focus/"
+      },
+      {
+        "key": "sleep-calm",
+        "name": "Sleep Calm",
+        "description": "A three-phase 4–2–6 breathing pattern.",
+        "route": "/laboratories/neurobreath/sleep-calm/"
+      },
+      {
+        "key": "neural-wave",
+        "name": "Neural Wave",
+        "description": "A two-phase 4–6 breathing pattern.",
+        "route": "/laboratories/neurobreath/neural-wave/"
+      }
+    ]
+  }
+]

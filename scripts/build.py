@@ -4,6 +4,9 @@ from html import escape
 from pathlib import Path
 import json
 import re
+from hashlib import sha256
+from laboratories import explorer, placeholder, breathing_methods
+from editorial import article_html, load_articles, listing_html
 
 ROOT = Path(__file__).resolve().parents[1]
 DOMAIN = (ROOT / 'CNAME').read_text().strip()
@@ -11,6 +14,9 @@ ICON_VERSION = json.loads((ROOT / 'public/images/branding-provenance.json').read
 
 
 def head(title, description, path, prefix):
+    asset_root = Path(__file__).resolve().parents[1]
+    css_version = sha256((asset_root/'assets/site.css').read_bytes()).hexdigest()[:12]
+    js_version = sha256((asset_root/'assets/site.js').read_bytes()).hexdigest()[:12]
     url = f'https://{DOMAIN}/{path}'
     return f'''<!doctype html>
 <html lang="en">
@@ -37,8 +43,8 @@ def head(title, description, path, prefix):
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v={ICON_VERSION}">
   <link rel="manifest" href="/site.webmanifest?v={ICON_VERSION}">
   <meta name="apple-mobile-web-app-title" content="GlionIQ">
-  <link rel="stylesheet" href="{prefix}assets/site.css">
-  <script src="/assets/site.js" defer></script>
+  <link rel="stylesheet" href="{prefix}assets/site.css?v={css_version}">
+  <script src="/assets/site.js?v={js_version}" defer></script>
 </head>'''
 
 
@@ -96,15 +102,11 @@ def lab_links():
 
 
 def home_html():
-    cards = []
-    platforms = [('trampolina','Trampolina', 'Children’s Learning &amp; Development Laboratories',''),('dr-quiz','Dr. Quiz','Knowledge &amp; Discovery Lab','Fascinating facts, quizzes and mind-expanding challenges.'),('neuropath','NeuroPath','Cognitive Engagement Laboratories','A suite of brain-training labs for memory, attention, logic and cognitive flexibility.')]
-    for key,name,category,description in platforms:
-        tree = f'<details class="lab-tree" id="neuro-labs" open><summary>NeuroPath laboratories <span aria-hidden="true">⌄</span></summary><div class="tree-links"><svg class="neural-branches" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M60 0V6Q60 18 12.5 18M60 6Q60 18 37.5 18M60 6Q60 18 62.5 18M60 6Q60 18 87.5 18"/><circle cx="12.5" cy="18" r="1"/><circle cx="37.5" cy="18" r="1"/><circle cx="62.5" cy="18" r="1"/><circle cx="87.5" cy="18" r="1"/></svg>{lab_links()}</div></details>' if key=='neuropath' else ''
-        cards.append(f'''<div class="platform-stack {key}"><article class="platform-card"><img class="product-art" src="/public/images/development/{key}.webp" width="364" height="230" alt="{name} approved artwork"><h3 class="visually-hidden">{name}</h3><h4>{category}</h4><p>{description}</p><a class="gold-button" href="/laboratories/{key}/">Explore {name} <span aria-hidden="true">›</span></a></article>{tree}</div>''')
+    platforms = json.loads((ROOT/'content/laboratories.json').read_text())
     blocks = [('/science/','science','The Science Behind Our Work','Research, principles and methodology.'),('/about-us/','story','Our Story','The meaning and vision behind GlionIQ.'),('/blog/','blog','Blog &amp; Insights','Articles, ideas and updates from our labs.'),('/journey/','journey','Join Our Journey','Stay informed about new releases and features.')]
     lower = ''.join(f'<a href="{url}"><img class="portal-icon" src="/public/images/development/{icon}-symbol.png" width="66" height="54" alt=""><h3>{title}</h3><p>{text}</p></a>' for url,icon,title,text in blocks)
     return f'''<section class="corporate-hero"><a class="hero-art" href="/" aria-label="GlionIQ — Home"><img src="/public/images/glioniq-hero-transparent.png" width="450" height="270" fetchpriority="high" alt="GlionIQ luminous blue brain and silver and gold wordmark"></a><div class="hero-copy"><h1>Where <em>Neuroscience</em> Meets <em>Lifelong Learning</em></h1><p>Science-inspired digital laboratories for learning, discovery and cognitive engagement at every stage of life.</p></div></section>
-<section class="laboratories" id="laboratories" aria-labelledby="labs-title"><h2 class="section-title" id="labs-title">Our Laboratories</h2><p class="section-intro">Three unified platforms. A lifelong journey of learning, knowledge and brain engagement.</p><div class="platform-grid">{''.join(cards)}</div></section>
+<section class="laboratories" id="laboratories" aria-labelledby="labs-title"><h2 class="section-title" id="labs-title">Our Laboratories</h2><p class="section-intro">Four unified platforms. A lifelong journey of learning, discovery, cognitive engagement and mindful well-being.</p>{explorer(platforms)}</section>
 <section class="portals" aria-label="Discover GlionIQ">{lower}</section><section class="earth-cta" aria-label="Explore our platforms"><a class="gold-button" href="#laboratories">Explore the GlionIQ World <span aria-hidden="true">›</span></a></section>'''
 
 
@@ -112,6 +114,8 @@ def information_html(entry):
     e = escape
     artwork = entry.get('artwork')
     image = f'<img class="detail-art" src="/public/images/development/{artwork}.webp" width="364" height="230" alt="{e(entry["name"])} approved artwork">' if artwork else ''
+    if entry['route'] == '/laboratories/neurobreath/': image = placeholder()
+    methods = breathing_methods(entry['route'].strip('/').split('/')[-1] if entry.get('kind') == 'lab' else None) if entry['route'].startswith('/laboratories/neurobreath/') else ''
     info = ''.join(f'<div><dt>{label}</dt><dd>{e(entry[key])}</dd></div>' for key,label in [('audience','Intended audience'),('purpose','Purpose'),('status','Development status')] if entry.get(key))
     sections = ''
     for section in entry.get('sections',[]):
@@ -119,7 +123,7 @@ def information_html(entry):
         items = '<ul>'+''.join(f'<li>{e(p)}</li>' for p in section['items'])+'</ul>' if section.get('items') else ''
         sections += f'<section><h2>{e(section["title"])}</h2>{paragraphs}{items}</section>'
     links = ''.join(f'<a class="gold-button" href="{e(link["href"])}">{e(link["label"])}</a>' for link in entry.get('links',[]))
-    return f'''<div class="content-page"><a class="breadcrumb" href="/">← Home</a><div class="page-intro">{image}<div><p class="kicker">{e(entry.get('category',''))}</p><h1>{e(entry['name'])}</h1><p class="lead">{e(entry['introduction'])}</p></div></div><dl class="facts">{info}</dl><div class="editorial">{sections}</div><div class="related-links">{links}</div></div>'''
+    return f'''<div class="content-page"><a class="breadcrumb" href="/">← Home</a><div class="page-intro">{image}<div><p class="kicker">{e(entry.get('category',''))}</p><h1>{e(entry['name'])}</h1><p class="lead">{e(entry['introduction'])}</p></div></div><dl class="facts">{info}</dl>{methods}<div class="editorial">{sections}</div><div class="related-links">{links}</div></div>'''
 
 
 def search_html():
@@ -132,30 +136,14 @@ def build():
     for entry in entries:
         pages.append((entry['route'],entry['name'],entry['introduction'],information_html(entry),'information-page',entry['name']))
     pages.append(('/search/','Search GlionIQ','Search available GlionIQ website content.',search_html(),'information-page','Search'))
-    # Approved future articles are authored in content/articles.json. Empty means no invented publications.
-    articles = json.loads((ROOT/'content/articles.json').read_text())['approved_articles']
+    articles = load_articles(ROOT / 'content/editorial')
     for article in articles:
-        assert all(article.get(k) for k in ('slug','title','category','publication_date','body')), 'Incomplete approved article'
-        assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', article['slug']), 'Unsafe article slug'
-        from datetime import date
-        date.fromisoformat(article['publication_date'])
-        body = ''
-        for section in article['body']:
-            body += '<section><h2>'+escape(section['title'])+'</h2>'
-            body += ''.join('<p>'+escape(p)+'</p>' for p in section.get('paragraphs', []))
-            if section.get('items'): body += '<ul>'+''.join('<li>'+escape(i)+'</li>' for i in section['items'])+'</ul>'
-            body += '</section>'
-        assert all(s['url'].startswith(('https://','http://')) for s in article.get('sources',[])), 'Invalid article source URL'
-        sources = ''.join(f'<li><a href="{escape(s["url"])}">{escape(s["title"])}</a></li>' for s in article.get('sources',[]))
-        byline = ' · '+escape(article['author']) if article.get('author') else ''
-        html=f'<article class="content-page editorial"><a href="/blog/">← Blog &amp; Insights</a><p class="kicker">{escape(article["category"])}</p><h1>{escape(article["title"])}</h1><p><time datetime="{escape(article["publication_date"])}">{escape(article["publication_date"])}</time>{byline}</p>{body}<ul>{sources}</ul></article>'
-        pages.append((f'/blog/{article["slug"]}/',article['title'],article['title'],html,'information-page','Blog & Insights'))
-    if articles:
-        listing = '<div class="content-page"><h1>Blog &amp; Insights</h1><p>Articles, ideas and updates from our labs.</p>'
-        for article in articles:
-            listing += '<article class="search-result"><p class="kicker">'+escape(article['category'])+'</p><h2><a href="/blog/'+escape(article['slug'])+'/">'+escape(article['title'])+'</a></h2><p>'+escape(article['publication_date'])+'</p><p>'+escape(article.get('summary',''))+'</p></article>'
-        listing += '</div>'
-        pages = [(r,t,'Articles, ideas and updates from our labs.' if r=='/blog/' else d,listing if r=='/blog/' else b,c,n) for r,t,d,b,c,n in pages]
+        route = f'/{article["destination"]}/{article["slug"]}/'
+        pages.append((route, article.get('seo_title') or article['title'], article.get('seo_description') or article['summary'], article_html(article), 'information-page', 'Blog & Insights' if article['destination']=='blog' else 'Science & Research'))
+    for destination in ('blog', 'science'):
+        selected = [a for a in articles if a['destination']==destination]
+        if selected:
+            pages = [(r,t,d,listing_html(selected,destination) if r==f'/{destination}/' else b,c,n) for r,t,d,b,c,n in pages]
     search = []
     for route,title,description,body,css,current in pages:
         target = ROOT / route.strip('/') / 'index.html' if route!='/' else ROOT/'index.html'
@@ -166,6 +154,15 @@ def build():
             from html import unescape
             plain = re.sub(r'\s+',' ',unescape(re.sub('<[^>]+>',' ',body))).strip()
             search.append({'url':route,'title':title,'description':description,'text':plain})
+    current_routes = [page[0] for page in pages]
+    manifest_path = ROOT/'assets/generated-routes.json'
+    previous_routes = json.loads(manifest_path.read_text()) if manifest_path.exists() else []
+    for old_route in set(previous_routes)-set(current_routes):
+        # Only retired generated editorial pages may be removed; never site pages.
+        if re.fullmatch(r'/(blog|science)/[a-z0-9]+(?:-[a-z0-9]+)*/', old_route):
+            target = ROOT/old_route.strip('/')/'index.html'
+            if target.is_file(): target.unlink()
+    manifest_path.write_text(json.dumps(current_routes,indent=2)+'\n')
     (ROOT/'assets/search-index.json').write_text(json.dumps(search,ensure_ascii=False,indent=2)+'\n')
     print(f'Built {len(pages)} local pages; indexed {len(search)} content pages. No publication performed.')
 
