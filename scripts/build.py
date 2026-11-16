@@ -5,7 +5,7 @@ from pathlib import Path
 import json
 import re
 from hashlib import sha256
-from laboratories import central_tree, explorer, neurobreath_art, breathing_methods, activity_cards, artwork_for, ARTWORK
+from laboratories import breathing_activity, central_tree, explorer, neurobreath_art, breathing_methods, activity_cards, artwork_for, ARTWORK
 from editorial import article_html, load_articles, listing_html
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,6 +111,8 @@ def home_html():
 
 
 def information_html(entry):
+    if entry['route'].startswith('/laboratories/neurobreath/') and entry.get('kind') == 'lab':
+        return breathing_activity(entry)
     e = escape
     artwork = entry.get('artwork')
     image = f'<img class="detail-art" src="/public/images/development/{artwork}.webp" width="364" height="230" alt="{e(entry["name"])} approved artwork">' if artwork else ''

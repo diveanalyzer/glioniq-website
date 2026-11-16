@@ -45,6 +45,29 @@ document.querySelector('#show').onclick=()=>{const view=document.querySelector('
  orbWindow.renderBreathingOrb(orb,orbWindow.breathingSnapshot('square-focus',2000),true);
  check(orb.style.getPropertyValue('--orb-scale')==='1'&&orb.style.getPropertyValue('--arm-shift')==='0px','Reduced-motion renderer disables transform movement');
  check([...orb.querySelectorAll('img')].every(i=>i.getAttribute('src')==='/public/images/neurobreath-logo-official.jpg'),'All orb layers use the unchanged original');
+ // Keep the test viewport geometrically on screen for visibility-pausing tests.
+ frame.style.position='fixed';frame.style.left='0';frame.style.top='0';
+ for(const [method,duration,expectedPhases] of [['square-focus',16,['Inhale','Hold','Exhale','Hold']],['sleep-calm',12,['Inhale','Hold','Exhale']],['neural-wave',10,['Inhale','Exhale']]]){
+  const page=await load('/laboratories/neurobreath/'+method+'/',390),root=page.querySelector('[data-breathing]');
+  const start=root.querySelector('[data-action="start"]'),pause=root.querySelector('[data-action="pause"]'),restart=root.querySelector('[data-action="restart"]');
+  check(!start.disabled&&pause.disabled&&restart.disabled,'Ready controls: '+method);
+  start.click();await sleep(180);check(root.dataset.state==='running'&&root.querySelector('.current-phase').textContent==='Inhale','Start '+method);
+  pause.click();const frozen=root.querySelector('.living-orb').style.cssText,count=root.querySelector('[data-countdown]').textContent;await sleep(220);
+  check(root.dataset.state==='paused'&&start.textContent==='Resume'&&root.querySelector('.living-orb').style.cssText===frozen&&root.querySelector('[data-countdown]').textContent===count,'Pause preserves animation and countdown: '+method);
+  start.click();await sleep(100);check(root.dataset.state==='running','Resume '+method);
+  restart.click();const began=performance.now(),seen=[];
+  while(root.querySelector('[data-cycle]').textContent==='1'&&performance.now()-began<(duration+2)*1000){
+   const step=page.querySelector('.exercise-steps li[data-current]');const index=[...page.querySelectorAll('.exercise-steps li')].indexOf(step);
+   if(seen.at(-1)?.index!==index)seen.push({index,phase:root.querySelector('.current-phase').textContent,time:Math.round(performance.now()-began)});
+   await sleep(60);
+  }
+  check(root.querySelector('[data-cycle]').textContent==='2','Real-time complete cycle: '+method+' '+Math.round(performance.now()-began)+'ms');
+  check(seen.filter(s=>s.time<duration*1000-100).map(s=>s.phase).join(',')===expectedPhases.join(','),'Real-time phase order: '+method+' '+JSON.stringify(seen));
+  pause.click();check(!start.disabled&&pause.disabled&&!restart.disabled,'Pause control accessibility: '+method);
+  const exited=new Promise(resolve=>frame.onload=resolve);root.querySelector('.exit-activity').click();await exited;
+  check(frame.contentDocument.querySelector('[data-central-tree]')?.dataset.centralTree==='neurobreath','Exit returns to NeuroBreath tree: '+method);
+ }
+ frame.style.position='absolute';frame.style.left='-10000px';
  if(new URLSearchParams(location.search).get('editorial')==='1'){
  const d=await load('/admin/',1440),w=frame.contentWindow,form=d.querySelector('#article-form'),f=n=>form.elements.namedItem(n),slug='browser-qa-'+Date.now();
  const values={title:'Local browser test — unpublished',slug,author:'QA fixture',summary:'Temporary local draft used to verify the editor. Not a published article.',body:'## A clear heading\n\nA **bold** idea and *gentle* emphasis.\n\n<script>window.unsafeExecuted=true;<\/script>',category:'Local QA'};

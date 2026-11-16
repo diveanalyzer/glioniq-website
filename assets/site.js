@@ -111,3 +111,53 @@ if (typeof document !== 'undefined') {
     runSearch();
   }
 }
+
+function initializeBreathingActivity(root) {
+  const clock=new BreathingClock(root.dataset.breathing), scene=root.querySelector('.breathing-scene');
+  const start=root.querySelector('[data-action="start"]'),pause=root.querySelector('[data-action="pause"]'),restart=root.querySelector('[data-action="restart"]');
+  const phase=root.querySelector('.current-phase'),counter=root.querySelector('[data-countdown]'),cycle=root.querySelector('[data-cycle]'),note=root.querySelector('.session-note');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let frame=0, lastPaint=-Infinity;
+  const write=(element,value)=>{ if(element.textContent!==String(value)) element.textContent=String(value); };
+  function paint(now) {
+    const snapshot=clock.snapshot(now);
+    renderBreathingScene(scene,snapshot,reduced.matches);
+    write(phase,clock.started ? snapshot.phase : 'Ready when you are');
+    write(counter,snapshot.remaining);write(cycle,snapshot.cycle);
+    root.querySelectorAll('.exercise-steps li').forEach((step,i)=>step.toggleAttribute('data-current',clock.started&&i===snapshot.index));
+  }
+  function tick(now) {
+    if(!clock.running) return;
+    if(now-lastPaint>=33){paint(now);lastPaint=now;}
+    frame=requestAnimationFrame(tick);
+  }
+  function controls() {
+    root.dataset.state=clock.running?'running':clock.started?'paused':'ready';
+    start.disabled=clock.running;write(start,clock.running?'Running':clock.started?'Resume':'Start');
+    pause.disabled=!clock.running;restart.disabled=!clock.started;
+  }
+  function run(restartCycle=false) {
+    cancelAnimationFrame(frame);
+    const now=performance.now();
+    if(restartCycle||!clock.started)clock.start(now);else clock.resume(now);
+    paint(now);controls();write(note,'Follow the rhythm. Pause whenever you need.');
+    lastPaint=now;frame=requestAnimationFrame(tick);pause.focus({preventScroll:true});
+  }
+  function stop(reason='Paused. Resume whenever you feel ready.',focus=false) {
+    if(!clock.running)return;
+    clock.pause(performance.now());cancelAnimationFrame(frame);paint(performance.now());controls();write(note,reason);
+    if(focus)start.focus({preventScroll:true});
+  }
+  start.addEventListener('click',()=>run());
+  pause.addEventListener('click',()=>stop(undefined,true));
+  restart.addEventListener('click',()=>run(true));
+  root.querySelector('.exit-activity').addEventListener('click',()=>{stop();clock.reset();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop('Paused while the page was hidden. Resume when ready.');});
+  const observer=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)stop('Paused while the guide was out of view. Resume when ready.');},{threshold:0});
+  observer.observe(root.querySelector('.breathing-workspace'));
+  window.addEventListener('pagehide',()=>{stop('Paused after leaving the activity. Resume when ready.');observer.disconnect();});
+  window.addEventListener('pageshow',()=>observer.observe(root.querySelector('.breathing-workspace')));
+  reduced.addEventListener('change',()=>{if(clock.started)paint(performance.now());});
+  controls();
+}
+if(typeof document!=='undefined')document.querySelectorAll('[data-breathing]').forEach(initializeBreathingActivity);

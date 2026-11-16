@@ -34,7 +34,7 @@ for route, key in mapping['routes'].items():
     html = (ROOT / route.strip('/') / 'index.html').read_text()
     parser = Images()
     parser.feed(html)
-    path = '/public/images/neurobreath-logo-official.jpg' if route == '/laboratories/neurobreath/' else '/' + assets[key]['web_file']
+    path = '/public/images/neurobreath-logo-official.jpg' if route.startswith('/laboratories/neurobreath/') else '/' + assets[key]['web_file']
     assert any(i.get('src') == path for i in parser.images), (route, path)
     assert 'Category illustration' not in html, route
 home = (ROOT / 'index.html').read_text()

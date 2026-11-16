@@ -24,8 +24,8 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 | 0 — safety / preserve existing artwork | Complete | `1542123` |
 | 1 — approved NeuroBreath wordmark | Complete | `9c44096` |
 | 2 — central laboratory trees | Complete | `f7b9528` |
-| 3 — living orb | Complete | Recorded in the next checkpoint |
-| 4 — breathing activities | Pending | — |
+| 3 — living orb | Complete | `5c33c70` |
+| 4 — breathing activities | Complete | Recorded in the next checkpoint |
 | 5 — responsive verification | Pending | — |
 | 6 — complete testing / screenshots | Pending | — |
 | 7 — verified GitHub backup | Pending | — |
@@ -34,7 +34,7 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 
 GitHub Backup: INCOMPLETE — implementation has just started; no push attempted.
 
-Next step: connect the three exercise pages to Start, Pause, Resume, Restart and Exit controls.
+Next step: complete responsive and visual QA, then capture final screenshots.
 
 Publication is not authorized. Never merge into main, change DNS/hosting, or trigger production deployment.
 
@@ -57,3 +57,9 @@ The unchanged original image is rendered as a base and two soft masked outer-arm
 Limit: the JPG has no separate arm geometry. The two masked overlays are a faithful non-destructive approximation, not independently rigged individual neurons. Reduced-motion CSS removes all orb animation/transforms; the renderer also keeps its scale fixed.
 
 Node timing tests passed: exact boundaries for all three patterns, continuous sizes, pause/resume with fractional elapsed time, restart/reset and 100-cycle frame gaps. Safari **125 checks PASS**, including moving idle animations, explicit active-renderer phase sizes and reduced-motion renderer behavior. End-to-end user controls are phase 4; OS-level reduced-motion preference has not been changed.
+
+## Phase 4 — breathing activities
+
+Three existing URLs now contain working guides: Square Focus 4/4/4/4, Sleep Calm 4/2/6 and Neural Wave 4/6. Start, Pause, Resume, Restart and Exit are functional; phase, countdown, cycle, highlighted steps and frame trace derive from the same elapsed-time snapshot. Hidden pages, leaving the activity and scrolling the guide out of view pause the clock; return requires explicit Resume. No saved data, backend or permissions are required. Existing comfort guidance remains.
+
+Safari **149 checks PASS**: actual full 16s, 12s and 10s cycles, phase order, controls, paused countdown/animation, resume, restart and Exit destinations. Also manually activated and paused Square Focus with focus moving to the next available control. Static build and links passed; artwork verification was updated from the retired flat activity-thumbnail contract to the original orb image and passed. Node timing and search tests passed.
