@@ -1,0 +1,135 @@
+{
+  "captured": "2026-11-17",
+  "browser": "Safari",
+  "chrome_crop_top_pixels": 180,
+  "images": [
+    {
+      "file": "activity-neural-wave.png",
+      "sha256": "49db6f6d584d6429a9cac3404342a3bf0960c1acc60411b7d0c6e35f07c06e28",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "activity-sleep-calm.png",
+      "sha256": "7fcbd7209a7d5ba42119ae1ed3078d4df26a239bcd0c64662efb3d001baa16bf",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "activity-square-focus.png",
+      "sha256": "cc3164355c8b250b68e47a5c26681e2cb48053f605186805761f161b414089a0",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "browser-results.png",
+      "sha256": "2c08a63b3053895078d8a94619c10987716efee4552c51647d721a260041fa70",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "homepage-four-cards.png",
+      "sha256": "130f16d7990f35b235e63bc8724c782cbb8ad211ca3b6cf86385be823c305a04",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "homepage-hero.png",
+      "sha256": "b8ed5d3e2a65f920c56e8a21dd8b86251d915493269cdd2f6b9a17b4012bb716",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "mobile-homepage.png",
+      "sha256": "6dc73b999db27ba0bcc93b2bf1359a84d6dbda7a4e3080ac57bdfc59823362b8",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "mobile-neurobreath-tree-lower.png",
+      "sha256": "b62f7fbc4bde340401e50848d94bb3c0576fe74caa67982f8524b21b6e95edc6",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "mobile-neurobreath-tree.png",
+      "sha256": "9588fc101c3ae2a9ec168a6f3af50ceda748e3123bdc6b8e55c0ef2b685f2e14",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "mobile-sleep-calm.png",
+      "sha256": "cb57456d6222ad374f34961af5693657cd8f0818e4184dfb35854ca636eaaf61",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "responsive-results.png",
+      "sha256": "d4f157c5bc44e10432ff4aaf685d4c12ca3859dad197a30db5c23fd5f40e79f8",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "tree-dr-quiz.png",
+      "sha256": "c1c8338871f2146fba1eadfd0eabfc7d754c67b0063980189a990375771b58ef",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "tree-neurobreath.png",
+      "sha256": "bd01e6ea39a7525b2ce11329761e97329d9dd7f597c4eca8051de9866be75c46",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "tree-neuropath.png",
+      "sha256": "6af39880242cbb2155d89482c5c8557e396674a11d20d320966c67e0909f4950",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "tree-trampolina-lower.png",
+      "sha256": "58401473222a122032707cef6437be5d4ead58123cd58a2410f892f60284acc9",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    },
+    {
+      "file": "tree-trampolina.png",
+      "sha256": "4b4ca11a41dec8bf713673717625ef893340cf3e2b250a9c65952861915f56f4",
+      "dimensions": [
+        3486,
+        1848
+      ]
+    }
+  ]
+}

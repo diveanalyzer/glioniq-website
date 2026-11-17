@@ -26,15 +26,15 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 | 2 — central laboratory trees | Complete | `f7b9528` |
 | 3 — living orb | Complete | `5c33c70` |
 | 4 — breathing activities | Complete | `67e8932` |
-| 5 — responsive verification | Complete | Recorded in the next checkpoint |
-| 6 — complete testing / screenshots | Pending | — |
-| 7 — verified GitHub backup | Pending | — |
+| 5 — responsive verification | Complete | `dbecbfe` |
+| 6 — complete testing / screenshots | Complete locally; visual limitations below | Final QA checkpoint recorded below |
+| 7 — verified GitHub backup | INCOMPLETE — awaiting owner approval | No push attempted |
 
 ## Current state
 
-GitHub Backup: INCOMPLETE — implementation has just started; no push attempted.
+GitHub Backup: INCOMPLETE — owner approval required by the newer recovery directive dated 17 November 2026. No push attempted.
 
-Next step: final test sweep, screenshot evidence, source-only security review and verified non-deploying GitHub backup.
+Next step: owner review of the local preview and approval for a normal push of this feature branch to the existing GlionIQ GitHub remote. No publication is proposed.
 
 Publication is not authorized. Never merge into main, change DNS/hosting, or trigger production deployment.
 
@@ -69,3 +69,53 @@ Safari **149 checks PASS**: actual full 16s, 12s and 10s cycles, phase order, co
 Preserved the original grid dimensions/order, Explore destinations, subtitle/descriptions, shared header/footer and complete approved Hero HTML/CSS prefix (compared with `c289642`). The exact cropped wordmark is blended against navy; its thin reference glow remains visible. Tree connectors now follow measured node positions, including wrapped rows and mobile, without changing homepage layout.
 
 Safari **205/205 page-width combinations PASS** (41 pages × 320/390/768/1024/1440 CSS pixels): no horizontal overflow, no clipped main cards, all images decoded, navigation breakpoint correct, zero captured JavaScript/resource errors. Browser search direct-query/result/no-results/blank-query checks also passed. Mobile NeuroBreath tree was visually inspected. These are desktop Safari viewport tests, not physical-device acceptance. HTTP verification: **93 unique URLs PASS**, all 200 and byte-matched.
+
+## Recovery audit — 17 November 2026
+
+Latest owner directive supersedes automatic push authorization: finish local work and request approval before pushing or publishing. Existing feature branch and all prior development work remain intact. Phase 5 (`dbecbfe`) was the last completed checkpoint. Phase 6 stopped with three source changes awaiting final verification: Exit/Back ready-state reset, lifecycle/reduced-motion browser QA, and exclusion of the private reference image from static packaging. Generated HTML/search/route files remain unstaged by design. No staged files were present.
+
+Read-only audit ran cwd/root, branch/status/remote/log, full diff (saved in the recovery snapshot), staged/untracked/ignored inventory, source diff inspection and integrity verification. Main and remote main remain `479a153aa9b767ad47b3f919dd7b55f3261f4ca2`; the remote contains only main. There are 13 local commits above main at the audit checkpoint. Development branch remains `c289642`. No missing protected source assets or approved story blocks were found. Four local editor files remain present; hashes are recorded privately in the snapshot.
+
+New snapshot: `/private/tmp/glioniq-recovery-20261117-193355/`. Its `working-tree.tar.gz` contains 205 relevant tracked/untracked/generated-route files, all reopened and SHA-256 verified; `history.bundle` was verified by Git. `working-tree.diff`, `staged.diff` and a manifest preserve the exact audited changes. Local editor contents, the unused personal-profile reference, caches and credentials are not in the shareable tree archive; they are preserved in place. The local editor hash manifest is local-only. No existing backup was overwritten.
+
+Earlier temporary screenshot/authoring folders and the previous preview process disappeared across the environment restart. These were temporary artifacts, not website source. Earlier visual test results are conversation evidence; final screenshot files will be recaptured into the repository. Safari reconnects successfully; its error page was caused by the stopped loopback server.
+
+Read-only production check: HTTPS 200 for Home, About Us and CNAME; all three byte-match main. GitHub Pages uses legacy `main:/`, only the dynamic Pages workflow is active, no webhooks exist, and the latest deployment is main `479a153`. No publication or hosting setting changed.
+
+## Phase 6 — completed local validation, 17 November 2026
+
+Resumed the three preserved fixes: Exit now resets the rendered guide and controls before navigation, the browser QA covers visibility and reduced motion, and local static packaging excludes the unused personal-profile reference. Native Safari Start → Exit → toolbar Back returned to “Ready when you are” with Start enabled and Pause/Restart disabled. No approved art, other product repository, CMS content or live setting was changed during recovery.
+
+Final Safari interaction run: **153 PASS, 0 failures**. It includes all four laboratory trees at five widths, complete real-time breathing cycles, pause/resume/restart/exit, synthetic visibility events and forced reduced-motion stylesheet rules. The forced-rule test supplements the reduced-motion renderer test; it does not claim actual OS preference testing. Browser history was checked manually because iframe history is not equivalent to native navigation.
+
+Final responsive run: **205/205 PASS**, 41 pages at 320, 390, 768, 1024 and 1440 CSS pixels. Images decoded, no horizontal overflow or clipped main cards, expected navigation breakpoint, no captured JavaScript/resource errors. Search query, linked result, no-results and empty-query states passed. Mobile tree → Sleep Calm navigation was also activated manually in a 390px iframe.
+
+Other validation: **3,847** breathing timing assertions; search unit checks; **8** editorial tests using isolated temporary storage; static build **41 pages / 40 search entries**; **1,263** local references; **93** HTTP URLs returned 200 and byte-matched; **27** supplied original assets and their mapping passed integrity checks; six original protected branding pins and all **61** approved About Us story blocks passed. Local packaging produced **160** files with all 41 routes and the exact CNAME, without the private reference image. No standalone lint command is configured; `git diff --check` passes.
+
+Screenshots: [evidence index](evidence/neurobreath-20261117/README.md). All final files were recaptured after the environment restart. Browser chrome is cropped from saved evidence. These are Safari desktop captures and CSS-width iframe tests, not physical-device certification or a full accessibility audit.
+
+### Remaining differences and acceptance boundaries
+
+- The NeuroBreath wordmark is an exact crop of the supplied reference. Its blue glow/navy strip remains faintly visible. The original neural orb is retained as explicitly requested; the reference's different lung-like orb was not substituted.
+- Neural-arm motion uses two masked overlays of the original image, an approximation rather than separately rigged neurons. No original image bytes were changed.
+- Four earlier Trampolina illustrations (Colors, Numbers, Shapes, Letters) still require owner visual approval; see [artwork review](../ARTWORK_REVIEW.md). No new illustrations were generated during this recovery.
+- Physical mobile devices, other browsers, a full screen-reader audit, actual OS reduced-motion switching and production deployment acceptance remain **NOT VERIFIED**. No remaining functional failure was observed in the completed local suites.
+- GitHub backup is **INCOMPLETE** until the owner approves the push and the remote SHA is verified. The local source checkout intentionally retains unstaged generated HTML/search/route outputs; they were not reset or included in new source checkpoints.
+
+## Recovery report A–K
+
+| Item | Verified result |
+|---|---|
+| A — Repository / branch | Existing `glioniq-website`; `feature/neurobreath-central-trees-20261116`; correct `diveanalyzer/glioniq-website` origin. |
+| B — Integrity / backup | Protected assets, story, source history and local editor files preserved. Read-back-verified recovery snapshot and Git bundle recorded above; final checkpoint bundle recorded below. |
+| C — Last task before recovery | Phase 5 responsive/layout preservation, commit `dbecbfe`. |
+| D — Stop point | Phase 6 final lifecycle/package fixes and screenshot evidence. The reported older CSS-only stop preceded the actual current state; `assets/site.css` was already committed. |
+| E — Unfinished changes recovered | Exit/Back ready reset, lifecycle/reduced-motion QA, private-reference package exclusion; generated outputs retained. |
+| F — Completed on resume | Recovery audit, new snapshot, Safari reconnection, final fixes/QA, replacement screenshots and local checkpoint preparation. |
+| G — Remaining | Owner visual acceptance, device/accessibility checks noted above, approval and verification of GitHub backup. |
+| H — Tests | Final results and precise coverage above. |
+| I — GitHub sync | Remote main remains `479a153`; feature commits are local only. No push attempted. |
+| J — Publication | No publish, merge, hosting or DNS changes. Live Home/About/CNAME byte-match main. |
+| K — Next action | Review local preview at `http://127.0.0.1:8787/`, approve feature-branch backup; after approval recheck deployment coupling, normal push, verify exact remote SHA. Publication requires separate approval. |
+
+Proposed push after approval: `git push -u origin feature/neurobreath-central-trees-20261116`. Never force-push. Source-only checkpoints require `python3 -B scripts/build.py` after a fresh checkout to regenerate the current site.

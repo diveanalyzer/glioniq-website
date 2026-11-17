@@ -7,6 +7,7 @@ async function load(url,width){frame.style.width=width+'px';const done=new Promi
 async function until(test){for(let n=0;n<80;n++){if(test())return;await sleep(50);}throw Error('Timed out waiting for UI');}
 document.querySelector('#show').onclick=()=>{const view=document.querySelector('#view');view.replaceChildren();const f=document.createElement('iframe');f.style.width=document.querySelector('#width').value+'px';f.src=document.querySelector('#page').value;f.title='Selected responsive preview';view.append(f);};
 (async()=>{
+ if(!new URLSearchParams(location.search).has('lifecycle')){
  const searchPage=await load('/search/',390);
  check(searchPage.querySelector('#query').placeholder==='Search GlionIQ laboratories, platforms and research…','Exact search placeholder: '+JSON.stringify(searchPage.querySelector('#query').placeholder));
  check(searchPage.querySelector('#search-status').textContent==='Discover our platforms, laboratories and scientific insights.','Exact empty-state helper after JavaScript initialization');
@@ -67,6 +68,21 @@ document.querySelector('#show').onclick=()=>{const view=document.querySelector('
   const exited=new Promise(resolve=>frame.onload=resolve);root.querySelector('.exit-activity').click();await exited;
   check(frame.contentDocument.querySelector('[data-central-tree]')?.dataset.centralTree==='neurobreath','Exit returns to NeuroBreath tree: '+method);
  }
+ }
+ frame.style.position='fixed';frame.style.left='0';frame.style.top='0';
+ const lifecyclePage=await load('/laboratories/neurobreath/square-focus/',390),lifecycleWindow=frame.contentWindow,lifecycle=lifecyclePage.querySelector('[data-breathing]');
+ lifecycle.querySelector('[data-action="start"]').click();await sleep(130);
+ Object.defineProperty(lifecyclePage,'hidden',{configurable:true,value:true});lifecyclePage.dispatchEvent(new lifecycleWindow.Event('visibilitychange'));
+ check(lifecycle.dataset.state==='paused'&&lifecycle.querySelector('.session-note').textContent.includes('hidden'),'Visibility event pauses the clock');
+ delete lifecyclePage.hidden;lifecyclePage.dispatchEvent(new lifecycleWindow.Event('visibilitychange'));
+ check(lifecycle.dataset.state==='paused','Returning visibility requires explicit Resume');
+ const reduceRules=[...lifecyclePage.styleSheets].flatMap(sheet=>[...sheet.cssRules]).filter(rule=>rule.conditionText?.includes('prefers-reduced-motion: reduce')).map(rule=>[...rule.cssRules].map(r=>r.cssText).join('')).join('');
+ const forced=new lifecycleWindow.CSSStyleSheet();forced.replaceSync(reduceRules);lifecyclePage.adoptedStyleSheets=[...lifecyclePage.adoptedStyleSheets,forced];
+ check(lifecycleWindow.getComputedStyle(lifecycle.querySelector('.orb-body')).animationName==='none'&&lifecycleWindow.getComputedStyle(lifecycle.querySelector('.orb-arms')).transform==='none','Reduced-motion stylesheet rules suppress idle and arm movement (forced-rule test)');
+ lifecyclePage.adoptedStyleSheets=lifecyclePage.adoptedStyleSheets.filter(sheet=>sheet!==forced);
+ lifecycle.querySelector('[data-action="start"]').click();
+ const exitedAgain=new Promise(resolve=>frame.onload=resolve);lifecycle.querySelector('.exit-activity').click();await exitedAgain;
+ check(lifecycle.dataset.state==='ready'&&lifecycle.querySelector('[data-action="start"]').textContent==='Start','Exit resets the cached guide to ready; native history is checked separately');
  frame.style.position='absolute';frame.style.left='-10000px';
  if(new URLSearchParams(location.search).get('editorial')==='1'){
  const d=await load('/admin/',1440),w=frame.contentWindow,form=d.querySelector('#article-form'),f=n=>form.elements.namedItem(n),slug='browser-qa-'+Date.now();

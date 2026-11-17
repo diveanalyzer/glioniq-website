@@ -19,6 +19,9 @@ def package(output):
     files += ['index.html' if route=='/' else route.strip('/')+'/index.html' for route in routes]
     files += ['assets/site.css','assets/site.js','assets/search-index.json']
     files += [str(path.relative_to(ROOT)) for folder in ('public/images','public/editorial') for path in (ROOT/folder).rglob('*') if path.is_file() and path.suffix.lower() in ('.png','.webp','.jpg','.jpeg','.pdf')]
+    mapping=json.loads((ROOT/'content/artwork-map.json').read_text())
+    local_only={item['file'] for item in mapping['originals'] if item.get('backup_excluded')}
+    files=[name for name in files if name not in local_only]
     for name in files:
         source=ROOT/name
         if not source.resolve().is_relative_to(ROOT): raise ValueError('Unsafe source path.')

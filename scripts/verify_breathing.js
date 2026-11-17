@@ -24,3 +24,5 @@ for(const [method,cases] of Object.entries(expected)){
 }
 assert.throws(()=>new BreathingClock('unknown'));assertions++;
 console.log(`PASS: ${assertions} breathing assertions; exact boundaries, countdowns, continuity, pause fractions, resume, restart, exit and delayed-frame recovery.`);
+
+module.exports={assertions};

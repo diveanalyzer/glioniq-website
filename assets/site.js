@@ -151,7 +151,7 @@ function initializeBreathingActivity(root) {
   start.addEventListener('click',()=>run());
   pause.addEventListener('click',()=>stop(undefined,true));
   restart.addEventListener('click',()=>run(true));
-  root.querySelector('.exit-activity').addEventListener('click',()=>{stop();clock.reset();});
+  root.querySelector('.exit-activity').addEventListener('click',()=>{stop();clock.reset();paint(performance.now());controls();scene.querySelector('.living-orb').removeAttribute('data-active');write(note,'Start when you feel ready. Follow a comfortable pace.');});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)stop('Paused while the page was hidden. Resume when ready.');});
   const observer=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)stop('Paused while the guide was out of view. Resume when ready.');},{threshold:0});
   observer.observe(root.querySelector('.breathing-workspace'));
