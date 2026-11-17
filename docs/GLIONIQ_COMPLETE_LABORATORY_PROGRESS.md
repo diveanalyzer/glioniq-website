@@ -77,7 +77,8 @@ Visual evidence and limits: these are Safari desktop/iframe checks, not physical
 1. `f76dcfddfc4437e661a855368f5087c101858ec3` — preserved starting development commit.
 2. `10a320c` — verified recovery and pre-development backup record.
 3. `0dc0bed8b84b1df57fb5e3ab36f718bcd08f97a1` — complete four-platform catalogue source/artwork/templates.
-4. Final validation/evidence checkpoint and backup receipts are recorded below after verification.
+4. `22d3fe7307e7afafe92bef7b39d85cc69cf64497` — complete validation, 17 screenshots, final source audits and portable inventory checks.
+5. The closing report commit is identified by the delivery archive manifest and its GitHub verification receipt.
 
 The tracked legacy HTML, search index and generated-route manifest are reproducible build outputs. Their working-tree changes are intentionally retained in local archives; source checkpoints include every input needed to rebuild all 113 routes. Do not reset or clean the working tree merely to remove generated differences.
 
@@ -95,6 +96,18 @@ python3 scripts/serve.py --port 8787
 
 If offline, clone the verified `history.bundle` instead, selecting the same branch. Use the full working-tree archive for the exact rendered snapshot; extract only into a new empty folder. Private CMS content remains in the original checkout and is intentionally absent from shareable backups. `inventory_catalogue_assets.py --check` additionally requires Pillow. Existing preview: `http://127.0.0.1:8787/`; source evidence and the asset mapping are under `docs/catalogue/` and `docs/GLIONIQ_OFFICIAL_ASSET_MAPPING.md`.
 
-## Final backup phase status
+## Verified final backups and production boundary
 
-Final local archive/bundle and non-production feature-branch remote verification are in progress. The pre-development local and GitHub backups above remain verified and preserved. Do not interpret this checkpoint as publication approval.
+**Final local backup: VERIFIED.** `/Users/igor/Documents/GlionIQ-Recovery/catalogue-final-20261117-205109/` contains the validated implementation at `22d3fe7307e7afafe92bef7b39d85cc69cf64497`: all 375 files passed archive read-back SHA-256 comparison; the all-ref history bundle passed verification; 183 working-snapshot text files passed the known-credential-pattern scan. An additional outgoing-history scan covered 205 text blobs. No scanner result is a general guarantee against every possible secret format.
+
+**GitHub Backup: VERIFIED.** The normal, non-force push created `feature/glioniq-complete-laboratory-catalogue-20261117` at exact SHA `22d3fe7307e7afafe92bef7b39d85cc69cf64497`. Independent GitHub API checks verified the ref, ten critical source/report files and the 299-file tree, with no private profile or local CMS data. Repository: https://github.com/diveanalyzer/glioniq-website . The implementation receipt is committed at `docs/evidence/catalogue-20261117/implementation-backup-verification.json`.
+
+A fresh, unmodified archive of that exact implementation commit rebuilt all 113 pages, and `verify.py`, `verify_catalogue.py` and `inventory_catalogue_assets.py --check` passed with no patches or app repositories. The portable inventory check tolerates only absent intentionally excluded private/OS files; missing or hash-modified required art still fails.
+
+**Production: unchanged.** Post-push HTTPS Home, About Us, CNAME and favicon responses returned 200 and byte-matched production main `479a153aa9b767ad47b3f919dd7b55f3261f4ca2`. Pages remains `main:/`, with the legacy Pages workflow, no webhook and no feature-branch deployment. Local main, the previous development branch and `development/glioniq-homepage-v2` retain their original commits. No DNS, Namecheap, DigitalOcean, merge or publication operation was performed.
+
+Closing delivery archive target: `/Users/igor/Documents/GlionIQ-Recovery/catalogue-delivery-20261117-205651`. This separate archive will include the closing report commit as well as the verified implementation. Its `manifest.json` identifies the exact final archived HEAD; its `github-verification.json` records the final remote SHA and repeated production comparison. Earlier pre-development and final backups are preserved. The final owner report must use these receipts after verification, not infer completion from a successful push command alone.
+
+Source changes span the reusable catalogue renderer/build integration, four content inventories and source audits, research registry, provenance-aware artwork inventory, homepage explorer enhancement, appended catalogue CSS, verification/QA harnesses and separately named artwork derivatives/screenshots. Existing Hero/header/footer/story and original images are protected by the baseline checks.
+
+All requested local catalogue development and validation are complete, with missing content and owner artwork/device acceptance boundaries documented above. Publication remains blocked pending the owner's explicit approval.

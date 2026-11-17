@@ -1,0 +1,78 @@
+{
+  "verified_at": "2026-11-17T18:55:42.799329+00:00",
+  "pages": {
+    "status": "built",
+    "cname": "glioniq.tech",
+    "build_type": "legacy",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    }
+  },
+  "workflows": [
+    {
+      "name": "pages-build-deployment",
+      "path": "dynamic/pages/pages-build-deployment",
+      "state": "active"
+    }
+  ],
+  "hook_count": 0,
+  "main": "479a153aa9b767ad47b3f919dd7b55f3261f4ca2",
+  "deployments": [
+    {
+      "ref": "main",
+      "sha": "479a153aa9b767ad47b3f919dd7b55f3261f4ca2",
+      "environment": "github-pages"
+    },
+    {
+      "ref": "main",
+      "sha": "617e86cc6e323815d6eac9b8df71ef256c7de8ec",
+      "environment": "github-pages"
+    },
+    {
+      "ref": "main",
+      "sha": "25bcee3b895af1887f9439a6036553b25fe37f35",
+      "environment": "github-pages"
+    },
+    {
+      "ref": "main",
+      "sha": "bb104b68e3538ab381872392d33ba28bf3cf97cb",
+      "environment": "github-pages"
+    },
+    {
+      "ref": "main",
+      "sha": "e78fb12e433512ef898ef280b0217a894ac0eb71",
+      "environment": "github-pages"
+    }
+  ],
+  "production": {
+    "index.html": {
+      "status": 200,
+      "sha256": "9bcd4e7c9ab58d5cac9d4a412e37486e5076f7d192651c0d559bf3522d0760ce",
+      "matches_main": true
+    },
+    "about-us/index.html": {
+      "status": 200,
+      "sha256": "0153b8cda4713fd02bc205cd9dea188d72f19f5c7d2f201437786463789f3d7d",
+      "matches_main": true
+    },
+    "CNAME": {
+      "status": 200,
+      "sha256": "032cb9062e2ae84bdd721624565df97ae64ab2929e925b8e8241e94af8dfd45f",
+      "matches_main": true
+    },
+    "favicon-32x32.png": {
+      "status": 200,
+      "sha256": "88a70473e60df3aba04a7f614f17b17ab53ceb8bb4925855591bcf489f5425cc",
+      "matches_main": true
+    }
+  },
+  "github_backup": {
+    "status": "VERIFIED",
+    "branch": "feature/glioniq-complete-laboratory-catalogue-20261117",
+    "sha": "22d3fe7307e7afafe92bef7b39d85cc69cf64497",
+    "required_files_verified": 10,
+    "remote_tracked_files": 299,
+    "repository": "https://github.com/diveanalyzer/glioniq-website"
+  }
+}
