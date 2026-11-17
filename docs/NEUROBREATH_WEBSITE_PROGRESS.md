@@ -27,7 +27,7 @@ Per the owner's no-build-artifacts requirement, new commits include source, nece
 | 3 — living orb | Complete | `5c33c70` |
 | 4 — breathing activities | Complete | `67e8932` |
 | 5 — responsive verification | Complete | `dbecbfe` |
-| 6 — complete testing / screenshots | Complete locally; visual limitations below | Final QA checkpoint recorded below |
+| 6 — complete testing / screenshots | Complete locally; visual limitations below | `2e1baab` |
 | 7 — verified GitHub backup | INCOMPLETE — awaiting owner approval | No push attempted |
 
 ## Current state
@@ -119,3 +119,13 @@ Screenshots: [evidence index](evidence/neurobreath-20261117/README.md). All fina
 | K — Next action | Review local preview at `http://127.0.0.1:8787/`, approve feature-branch backup; after approval recheck deployment coupling, normal push, verify exact remote SHA. Publication requires separate approval. |
 
 Proposed push after approval: `git push -u origin feature/neurobreath-central-trees-20261116`. Never force-push. Source-only checkpoints require `python3 -B scripts/build.py` after a fresh checkout to regenerate the current site.
+
+## Final local checkpoint and recovery package
+
+Phase 6 commit: `2e1baab` — source fixes, verification scripts, progress and 16 reviewed screenshots with SHA-256 manifest. Staging review covered 23 files; known credential-pattern checks found no matches. No generated HTML/index, local editor content, cache or private profile image was staged.
+
+A fresh `git archive HEAD` extraction at `/private/tmp/glioniq-source-restore-qoup5ft2` rebuilt all 41 pages and passed both `verify.py` and `verify_artwork.py`. This verifies the committed source can reproduce the site without the original working tree or the local-only profile reference.
+
+Durable local recovery destination outside the repository: `/Users/igor/Documents/GlionIQ-Recovery/glioniq-20261117-195527/`. The final Git bundle, source snapshot including unstaged generated outputs, per-file integrity manifest and exact final HEAD are recorded there. The original audit snapshot is preserved separately. The final documentation-only checkpoint follows `2e1baab`; the recovery manifest and `git log -1` identify its exact SHA.
+
+Final remote read: only `main`, still `479a153aa9b767ad47b3f919dd7b55f3261f4ca2`. GitHub Backup: **INCOMPLETE — owner approval required**, not an authentication failure. All feature work remains local. No publication action is proposed or performed.
