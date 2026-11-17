@@ -2,6 +2,7 @@
 """Inventory artwork without altering sources. Requires Pillow; --check is read-only."""
 import argparse
 from collections import Counter, defaultdict
+from copy import deepcopy
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -302,21 +303,64 @@ def markdown(data):
     return '\n'.join(lines) + '\n'
 
 
+def portable_comparison(data, stored):
+    """Retain recorded local-only metadata when a clean export omits those files.
+
+    Required images, mappings, expected hashes and validation errors are never
+    normalized. A present private reference still receives the normal hash check.
+    Only the explicitly excluded profile's filesystem observations and absent
+    .DS_Store records may come from the existing report.
+    """
+    result = deepcopy(data)
+    tolerated = []
+    saved_assets = {item['file']: item for item in stored.get('assets', [])}
+    for item in result['assets']:
+        saved = saved_assets.get(item['file'], {})
+        if (item['file'] == PRIVATE and item.get('excluded') and not item['present']
+                and saved.get('excluded')):
+            pinned = {check['sha256'] for check in item['expected_hashes']}
+            if saved.get('sha256') is not None and saved['sha256'] not in pinned:
+                continue  # A changed recorded private-source hash is not tolerated.
+            for field in ('present', 'bytes', 'width', 'height', 'sha256', 'hash_verification'):
+                if field in saved:
+                    item[field] = saved[field]
+                else:
+                    item.pop(field, None)
+            tolerated.append(item['file'])
+    actual_metadata = {item['file'] for item in result['metadata_files']}
+    for item in stored.get('metadata_files', []):
+        path = Path(item['file'])
+        if (path.name == '.DS_Store' and path.parts[:2] == ('public', 'images')
+                and item['file'] not in actual_metadata and not (ROOT / path).exists()):
+            canonical = {'file': item['file'], 'format': 'OS metadata',
+                         'intended_use': 'Not artwork; ignored OS metadata', 'excluded_from_artwork': True}
+            result['metadata_files'].append(canonical)
+            tolerated.append(item['file'])
+    result['metadata_files'].sort(key=lambda item: item['file'])
+    return result, tolerated
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true', help='Read-only: fail if generated reports are stale or references invalid')
     args = parser.parse_args()
     data = inventory()
-    output = {JSON_OUTPUT: json.dumps(data, indent=2, ensure_ascii=False) + '\n', DOC_OUTPUT: markdown(data)}
+    comparison, tolerated = data, []
+    if args.check and JSON_OUTPUT.is_file():
+        comparison, tolerated = portable_comparison(data, json.loads(JSON_OUTPUT.read_text()))
+    output = {JSON_OUTPUT: json.dumps(comparison, indent=2, ensure_ascii=False) + '\n', DOC_OUTPUT: markdown(comparison)}
     stale = []
     for path, text in output.items():
         if args.check:
-            if not path.is_file() or path.read_text() != text:
+            matches = path.is_file() and (json.loads(path.read_text()) == comparison
+                                          if path == JSON_OUTPUT else path.read_text() == text)
+            if not matches:
                 stale.append(path.relative_to(ROOT).as_posix())
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(text)
-    print(json.dumps({'mode': 'check' if args.check else 'generate', **data['summary'], 'stale': stale}, indent=2))
+    print(json.dumps({'mode': 'check' if args.check else 'generate', **data['summary'],
+                      'stale': stale, 'absent_local_only_files_tolerated': tolerated}, indent=2))
     if data['errors'] or stale:
         for error in data['errors']:
             print(error)

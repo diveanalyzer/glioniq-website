@@ -579,7 +579,7 @@
       "introduction": "Remember card locations, rebuild a picture and compare two scenes in three distinct visual activities.",
       "purpose": "Offer focused opportunities to remember, assemble and notice visual details.",
       "audience": "Children who enjoy illustrated problems, with an adult available to discuss choices.",
-      "age_guidance": "Gentler boards can suit children around ages 3–6. More complex patterns, stories and puzzles may also interest ages 7–8. Adjust by experience rather than using an age gate.",
+      "age_guidance": "Gentler boards can suit children around ages 3–6. Larger memory boards, picture puzzles and subtler visual differences may also interest ages 7–8. Adjust by experience rather than using an age gate.",
       "difficulty": "Three levels change board size, choice count or rule complexity. Each game describes its own progression.",
       "languages": [
         "English",
@@ -598,12 +598,12 @@
         "Spot the Differences marks explicitly changed regions."
       ],
       "interaction": {
-        "see": "Illustrated cards, objects, scenes or story stages appropriate to the selected game.",
+        "see": "Picture cards to remember, image pieces to assemble or paired scenes with specific visual differences, depending on the chosen game.",
         "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
         "do": "Choose the game, inspect its rule and respond by tapping, dragging or selecting a destination.",
         "feedback": "Correct parts remain in place; feedback supports another attempt when needed.",
         "progression": "Increase the difficulty or try a related type of problem after a comfortable round.",
-        "help": "Use Help or replay where offered. Story playback can be replayed; missing narration is not replaced with synthesized speech."
+        "help": "Use Help or instruction replay where offered. Inspect the picture reference or marked choices together; missing narration is not replaced with synthesized speech."
       },
       "tutorial": [
         {

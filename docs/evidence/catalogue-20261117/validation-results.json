@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-17",
+  "catalogue_entries": 102,
+  "generated_pages": 113,
+  "search_entries": 112,
+  "static_local_references": 4454,
+  "http_urls": 207,
+  "browser_interaction_assertions": 197,
+  "responsive_combinations": 565,
+  "responsive_failures": 0,
+  "captured_js_resource_errors": 0,
+  "widths": [
+    320,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "breathing_assertions": 3847,
+  "isolated_cms_tests": 8,
+  "actual_website_screenshots": 17,
+  "physical_devices": "NOT VERIFIED",
+  "owner_artwork_approval": "PENDING",
+  "production_publication": "NOT AUTHORIZED"
+}
