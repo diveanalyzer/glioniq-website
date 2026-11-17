@@ -1,0 +1,71 @@
+{
+  "ramani2008": {
+    "title": "Promoting Broad and Stable Improvements in Low-Income Children’s Numerical Knowledge Through Playing Number Board Games",
+    "authors": "Geetha B. Ramani and Robert S. Siegler", "year": 2008, "publication": "Child Development, 79(2), 375–394",
+    "url": "https://doi.org/10.1111/j.1467-8624.2007.01131.x",
+    "summary": "A study of preschoolers examined numerical learning through structured number-board play, including counting and comparing numerical quantities.",
+    "relevance": "Connecting numerals, spoken counting and visible quantities is a useful design idea for these activities. This study tested a particular board-game intervention, not Trampolina or its digital exercises. It does not establish an age requirement or guarantee a child's progress.",
+    "verified_url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2007.01131.x", "verified_on": "2026-11-17", "type": "original research"
+  },
+  "fisher2013": {
+    "title": "Taking shape: supporting preschoolers' acquisition of geometric knowledge through guided play",
+    "authors": "Kelly R. Fisher, Kathy Hirsh-Pasek, Nora Newcombe and Roberta M. Golinkoff", "year": 2013, "publication": "Child Development, 84(6), 1872–1878",
+    "url": "https://doi.org/10.1111/cdev.12091",
+    "summary": "This experiment examined preschool shape learning in guided-play, free-play and direct-instruction conditions.",
+    "relevance": "An adult can invite children to notice, compare and explain features while they play. The findings concern the study's shape-learning activities; they do not validate this app or prove effects for every matching, color or memory task.",
+    "verified_url": "https://pubmed.ncbi.nlm.nih.gov/23534446/", "verified_on": "2026-11-17", "type": "original research"
+  },
+  "james2012": {
+    "title": "The effects of handwriting experience on functional brain development in pre-literate children",
+    "authors": "Karin H. James and Laura Engelhardt", "year": 2012, "publication": "Trends in Neuroscience and Education, 1(1), 32–42",
+    "url": "https://doi.org/10.1016/j.tine.2012.08.001",
+    "summary": "Researchers compared brain responses after five-year-old children printed, traced or typed letters and shapes. Different experiences were associated with different later responses to letters.",
+    "relevance": "Recognizing, tracing and freely producing a letter are different activities. The study does not show that touchscreen tracing equals handwriting, nor that Trampolina teaches reading or assesses development.",
+    "verified_url": "https://pubmed.ncbi.nlm.nih.gov/25541600/", "verified_on": "2026-11-17", "type": "original research"
+  },
+  "roediger2006": {
+    "title": "Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention",
+    "authors": "Henry L. Roediger III and Jeffrey D. Karpicke", "year": 2006, "publication": "Psychological Science, 17(3), 249–255",
+    "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x",
+    "summary": "Experiments with students and prose passages compared repeated study with retrieval practice. Prior testing supported later recall at delayed assessments under the studied conditions.",
+    "relevance": "Moving between reading a fact and recalling an answer provides an opportunity to retrieve information. These experiments did not test Dr. Quiz, its multiple-choice questions, its social format or every topic in the catalogue.",
+    "verified_url": "https://www.psychologicalscience.org/journals/psychological-science/j.1467-9280.2006.01693.x/", "verified_on": "2026-11-17", "type": "original research"
+  },
+  "diamond2013": {
+    "title": "Executive Functions", "authors": "Adele Diamond", "year": 2013, "publication": "Annual Review of Psychology, 64, 135–168",
+    "url": "https://doi.org/10.1146/annurev-psych-113011-143750",
+    "summary": "This review describes working memory, inhibitory control and cognitive flexibility, including how they support more complex thinking.",
+    "relevance": "Remembering information, selecting relevant features and adapting to rules help describe the demands of a task. Naming those demands is not evidence that a particular game improves them outside play or provides a clinical assessment.",
+    "verified_url": "https://www.annualreviews.org/content/journals/10.1146/annurev-psych-113011-143750", "verified_on": "2026-11-17", "type": "research review"
+  },
+  "simons2016": {
+    "title": "Do “Brain-Training” Programs Work?", "authors": "Daniel J. Simons and colleagues", "year": 2016, "publication": "Psychological Science in the Public Interest, 17(3), 103–186",
+    "url": "https://doi.org/10.1177/1529100616661983",
+    "summary": "This evidence review distinguishes improvement on practiced tasks from transfer to other abilities and everyday functioning, and examines limitations in training studies.",
+    "relevance": "Enjoyment or better game scores should not be presented as proof of broad cognitive benefit. NeuroPath is designed for cognitive engagement; its effectiveness requires product-specific research.",
+    "verified_url": "https://journals.sagepub.com/doi/full/10.1177/1529100616661983", "verified_on": "2026-11-17", "type": "research review"
+  },
+  "stern2020": {
+    "title": "Whitepaper: Defining and investigating cognitive reserve, brain reserve, and brain maintenance",
+    "authors": "Yaakov Stern and colleagues", "year": 2020, "publication": "Alzheimer’s & Dementia, 16(9), 1305–1311",
+    "url": "https://doi.org/10.1016/j.jalz.2018.07.219",
+    "summary": "This consensus framework distinguishes cognitive adaptability, structural brain resources and maintenance of the brain over time.",
+    "relevance": "Lifelong cognitive activity belongs to a much broader research context. Playing a particular game is not established as increasing cognitive reserve, preventing dementia or protecting against disease.",
+    "verified_url": "https://pubmed.ncbi.nlm.nih.gov/30222945/", "verified_on": "2026-11-17", "type": "consensus research framework"
+  },
+  "balban2023": {
+    "title": "Brief structured respiration practices enhance mood and reduce physiological arousal",
+    "authors": "Melis Yilmaz Balban and colleagues", "year": 2023, "publication": "Cell Reports Medicine, 4(1), 100895",
+    "url": "https://doi.org/10.1016/j.xcrm.2022.100895",
+    "summary": "A remote randomized study compared three short daily breathing practices with mindfulness meditation over one month, examining mood and physiological measures.",
+    "relevance": "It provides background for paced breathing research. It did not test NeuroBreath, and does not establish that these exact timings improve sleep, treat anxiety or cure any medical condition.",
+    "verified_url": "https://pubmed.ncbi.nlm.nih.gov/36630953/", "verified_on": "2026-11-17", "type": "randomized study"
+  },
+  "nhs-breathing": {
+    "title": "Breathing exercises for stress", "authors": "NHS", "year": 2026, "publication": "NHS self-help guidance, reviewed 12 June 2026",
+    "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/",
+    "summary": "The NHS describes a comfortable, gentle breathing exercise with an unforced pace and optional counting.",
+    "relevance": "Comfort takes priority over matching a timer. This guidance does not prescribe NeuroBreath's breath holds. Pause if a pattern feels uncomfortable; these guides are optional wellness activities rather than treatment.",
+    "verified_url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/", "verified_on": "2026-11-17", "type": "public health guidance"
+  }
+}

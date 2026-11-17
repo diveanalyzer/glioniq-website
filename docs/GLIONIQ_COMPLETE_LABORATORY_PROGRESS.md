@@ -20,7 +20,20 @@ Remote: `https://github.com/diveanalyzer/glioniq-website.git`.
 
 ## Current implementation checkpoint
 
-Phases 3–19 in progress: source-backed platform inventory, reusable content architecture, hierarchy, responsive templates, central explorer and scientific context. Independent content work owns only its platform JSON and separately named derivative/screenshot folders. Root owns shared rendering, navigation, research, QA and Git checkpoints.
+Phases 3–17 implemented locally: reusable source-backed catalogue, hierarchical navigation, premium information templates, in-place homepage explorer, genuine screenshots, asset inventory and research context. Existing source audits record app revisions and mechanics. No app repository was modified.
+
+| Platform | Catalogue entries | Verified scope |
+| --- | ---: | --- |
+| Trampolina | 32 | Platform, 6 laboratories, 25 activity or learning-sequence destinations |
+| Dr. Quiz | 52 | Platform, 3 modes, 28 categories, 20 nested subcategories |
+| NeuroPath | 14 | Platform, 4 laboratories, 9 games, including 3 signatures |
+| NeuroBreath | 4 | Platform and 3 existing live breathing guides |
+
+Total: 102 catalogue entries, 113 generated pages, 112 searchable pages. All 30 legacy catalogue routes retained. Native details elements expose six interaction fields; tutorials and Back links follow actual parents. Homepage Discover replaces the four-card grid in place, and Close restores its original DOM and focus. Dedicated explorer URLs remain functional fallbacks.
+
+Asset mapping is complete in `docs/GLIONIQ_OFFICIAL_ASSET_MAPPING.md`: 160 image files, 27 protected originals, nine genuine development screenshots, 13 provisional illustration concepts (22 related files), 41 entries intentionally sharing artwork. Missing screenshot needs are recorded for 79 activity/category/experience entries; no broken image placeholders are displayed.
+
+Nine primary research or official guidance references are recorded in `content/catalogue-research.json`, with verification URLs, summaries and limitations. These support general background, not product-specific efficacy.
 
 Verified source distinctions to retain:
 
@@ -31,7 +44,8 @@ Verified source distinctions to retain:
 
 ## Remaining phases
 
-Asset mapping: `docs/GLIONIQ_OFFICIAL_ASSET_MAPPING.md` to be completed after platform inventories.
-Functional and rendered QA, screenshot evidence, final source checkpoint, local bundle and verified feature-branch push remain pending.
+Phase 18–19 validation in progress. Current passing checks: build; verify.py (113 pages, 4,454 local references, six protected hashes, 61 story blocks); verify_artwork.py; verify_catalogue.py (102 entries and preserved baseline); inventory_catalogue_assets.py --check (160 images); 3,847 breathing timing assertions and search unit checks; all eight isolated editorial tests. The editor tests required loopback access outside the filesystem sandbox; the isolated retry passed without accessing the owner's draft data.
+
+Safari in-place explorer/Close checks have passed at all five requested widths. Live breathing-cycle checks, full responsive sweep and screenshot inspection are still running. Native Back/Forward restoration was already observed. Final visual evidence, final source checkpoint, local bundle and verified feature-branch push remain pending.
 
 Do not report overall completion before validation and final backup verification. To resume, inspect Git status and this report; continue the unfinished phase without repeating completed safety work unless the remote or working tree has changed.

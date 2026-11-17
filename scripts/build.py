@@ -7,6 +7,7 @@ import re
 from hashlib import sha256
 from laboratories import breathing_activity, central_tree, explorer, neurobreath_art, breathing_methods, activity_cards, artwork_for, ARTWORK
 from editorial import article_html, load_articles, listing_html
+from catalogue import load_catalogue, page as catalogue_page, exploration as catalogue_exploration
 
 ROOT = Path(__file__).resolve().parents[1]
 DOMAIN = (ROOT / 'CNAME').read_text().strip()
@@ -135,12 +136,17 @@ def search_html():
 
 
 def build():
-    entries = json.loads((ROOT/'content/platforms.json').read_text()) + json.loads((ROOT/'content/pages.json').read_text())
+    catalogue = load_catalogue()
+    existing = json.loads((ROOT/'content/platforms.json').read_text())
+    entries = [entry for entry in existing if entry['route'] not in catalogue] + list(catalogue.values()) + json.loads((ROOT/'content/pages.json').read_text())
     pages = [('/', 'GlionIQ — Where Neuroscience Meets Lifelong Learning', 'Science-inspired digital laboratories for learning, discovery and cognitive engagement at every stage of life.', home_html(), 'home-page', 'Home'),('/about-us/', 'About Us — Our Story', 'Our complete approved story, scientific commitment and vision.', '<article class="story">'+story_html()+'</article>'+contact().format(story='/about-us/'), 'about-page', 'About Us')]
     for entry in entries:
-        pages.append((entry['route'],entry['name'],entry['introduction'],information_html(entry),'information-page',entry['name']))
+        body = catalogue_page(entry, catalogue) if entry['route'] in catalogue else information_html(entry)
+        pages.append((entry['route'],entry['name'],entry['introduction'],body,'information-page',entry['name']))
     for platform in json.loads((ROOT/'content/laboratories.json').read_text()):
-        pages.append((platform['route']+'explore/', platform['name']+' Laboratories', platform['description'], central_tree(platform, entries), 'information-page', platform['name']))
+        complete = platform['route'] in catalogue and all(branch['route'] in catalogue for branch in platform['branches'])
+        tree = catalogue_exploration(platform, catalogue) if complete else central_tree(platform, entries)
+        pages.append((platform['route']+'explore/', platform['name']+' Laboratories', platform['description'], tree, 'information-page', platform['name']))
     pages.append(('/search/','Search GlionIQ','Search available GlionIQ website content.',search_html(),'information-page','Search'))
     articles = load_articles(ROOT / 'content/editorial')
     for article in articles:

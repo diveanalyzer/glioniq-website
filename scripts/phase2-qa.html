@@ -22,16 +22,29 @@ document.querySelector('#show').onclick=()=>{const view=document.querySelector('
    d=frame.contentDocument;
    const card=d.querySelector('[data-platform="'+key+'"]');
    check(card.querySelector('.gold-button').pathname==='/laboratories/'+key+'/','Existing Explore destination: '+key);
-   const next=new Promise(resolve=>frame.onload=resolve);card.querySelector('.laboratory-toggle').click();await next;
-   d=frame.contentDocument;
-   check(d.querySelector('[data-central-tree]')?.dataset.centralTree===key,'Discover opens dedicated '+key+' tree at '+width);
-   check(!d.querySelector('.platform-card')&&d.querySelectorAll('.tree-branch').length>=3,'Functional branches, no duplicate main cards');
+   card.querySelector('.laboratory-toggle').click();await until(()=>d.querySelector('[data-central-tree]')?.dataset.centralTree===key);
+   check(d===frame.contentDocument&&new URL(w.location.href).searchParams.get('laboratory')===key,'Discover replaces cards in place: '+key+' at '+width);
+   check(d.querySelector('.platform-grid').hidden&&d.querySelectorAll('.platform-card').length===4&&d.querySelectorAll('.tree-branch').length>=3,'Selected tree replaces the preserved four-card grid');
+   check(d.activeElement===d.querySelector('.tree-root h3')&&d.querySelectorAll('h1').length===1,'Explorer heading receives focus; homepage keeps one H1');
    check(d.documentElement.scrollWidth<=frame.contentWindow.innerWidth,'Tree fits '+width);
-   const back=new Promise(resolve=>frame.onload=resolve);d.querySelector('.breadcrumb').click();await back;
-   check(!!frame.contentDocument.querySelector('[data-platform="'+key+'"]'),'Back to Home works: '+key);
+   d.querySelector('[data-close-explorer]').click();await until(()=>!d.querySelector('[data-central-tree]'));
+   check(!d.querySelector('.platform-grid').hidden&&d.activeElement===card.querySelector('.laboratory-toggle'),'Close restores four cards and initiating focus: '+key);
   }
  }
- check(true,'All four Discover and Back to Home actions at five widths');
+ check(true,'All four in-place Discover and Close actions at five widths');
+ for(const key of ['trampolina','dr-quiz','neuropath','neurobreath']){
+  const deep=await load('/?laboratory='+key,390);await until(()=>deep.querySelector('[data-central-tree]')?.dataset.centralTree===key);
+  check(deep.querySelector('.platform-grid').hidden,'Deep-link reload restores selected '+key+' tree');
+ }
+ for(const route of ['/laboratories/trampolina/numbers/','/laboratories/dr-quiz/discover-learn/wine/italy/piedmont/barolo/','/laboratories/neuropath/logic/codequest/','/laboratories/neurobreath/square-focus/']){
+  const page=await load(route,390),parent=page.querySelector('[data-parent-link]');
+  check(!!parent&&page.querySelector('.catalogue-breadcrumbs [aria-current="page"]'),'Hierarchical breadcrumb and explicit Back: '+route);
+  const details=page.querySelector('.catalogue-disclosure');details.querySelector('summary').click();check(details.open,'Accessible details expand: '+route);
+  details.querySelector('summary').click();check(!details.open,'Accessible details collapse: '+route);
+  check(page.querySelectorAll('#tutorial li').length>=3,'Meaningful tutorial: '+route);
+  const destination=parent.pathname,arrived=new Promise(resolve=>frame.onload=resolve);parent.click();await arrived;
+  check(frame.contentWindow.location.pathname===destination,'Back reaches actual parent: '+route);
+ }
  const orbPage=await load('/laboratories/neurobreath/explore/',1440),orb=orbPage.querySelector('.living-orb'),orbWindow=frame.contentWindow;
  const animations=orb.getAnimations({subtree:true});
  // The hidden test runner is offscreen: test idle behavior by making its own

@@ -1,0 +1,3189 @@
+{
+  "platform": "trampolina",
+  "source": {
+    "repository": "/Users/igor/Documents/Repositories/trampolina",
+    "revision": "ba461a85f47d7c0e428612edca06dfeb0e4e9127",
+    "inspection": "Read-only source inspection on 2026-11-17. Existing application working-tree changes were preserved. Curriculum and cognitive source files used here are clean; app_controller.dart contains pre-existing changes. No app, device or user-data mutation was performed. Descriptions establish implemented source behavior, not public release or product-specific scientific efficacy."
+  },
+  "entries": [
+    {
+      "id": "trampolina",
+      "kind": "platform",
+      "name": "Trampolina",
+      "route": "/laboratories/trampolina/",
+      "parent": "/#laboratories",
+      "platform": "trampolina",
+      "introduction": "A colorful learning world for noticing, counting, matching, remembering and making sense of everyday patterns.",
+      "purpose": "Bring foundational ideas into approachable activities that children can explore with an adult or at their own pace.",
+      "audience": "Young children, parents and educators looking for short, adjustable learning experiences.",
+      "age_guidance": "Primarily designed around ages 2–6. Selected reasoning, mathematics and harder puzzles may also interest children aged 7–8. These are flexible starting suggestions, not age gates or developmental assessments.",
+      "difficulty": "Choose a small concept set or an easier board, then adjust the challenge. Several activities offer Smart progression and manual difficulty.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Notice colors, shapes, symbols and quantities.",
+        "Practise comparing, sorting, remembering and sequencing.",
+        "Build familiarity with learning through attempts, examples and feedback."
+      ],
+      "offers": [
+        "Six connected laboratories: Colors, Numbers & Mathematics, Shapes, Letters, Memory & Perception, and Thinking & Logic.",
+        "Parent settings include language and voice selection, optional reminders, daily/session limits and a protected parent challenge.",
+        "Saved activities, learning reports and completion-based star rewards are implemented in the development app."
+      ],
+      "interaction": {
+        "see": "Illustrated learning worlds, large choices and child-friendly controls.",
+        "hear": "English, Hebrew and Russian interfaces and four voice identities are configured. Full instructional narration is still missing; available praise/retry clips are separate.",
+        "do": "Choose a laboratory, select concepts or difficulty, then follow that activity’s instructions.",
+        "feedback": "Visual responses distinguish a completed task from an attempt; rewards are recorded for eligible completed activities.",
+        "progression": "Children can repeat familiar tasks or move to more demanding boards without a universal age restriction.",
+        "help": "Use an example, Help or replay where the activity provides it. The parent area uses a changing number challenge, not a persistent PIN."
+      },
+      "tutorial": [
+        {
+          "title": "Choose a learning world",
+          "text": "Start with a topic the child recognizes or is curious about."
+        },
+        {
+          "title": "Set a comfortable starting point",
+          "text": "Select fewer concepts or a gentler difficulty. An adult can demonstrate the first task."
+        },
+        {
+          "title": "Explore one activity",
+          "text": "Read the activity guide together and let the child respond. Missing instructional audio is identified in the relevant guide."
+        },
+        {
+          "title": "Keep control of the session",
+          "text": "Use Help, return to the category or stop when the child wishes. Parents may configure reminders and limits."
+        }
+      ],
+      "parent_tips": [
+        "Treat the suggested ages as starting points; interest and familiarity matter.",
+        "Connect on-screen ideas to toys, clothing, food and everyday routines.",
+        "Star rewards are product feedback, not measures of ability or development."
+      ],
+      "related": [
+        "/laboratories/trampolina/colors/",
+        "/laboratories/trampolina/numbers/",
+        "/laboratories/trampolina/shapes/",
+        "/laboratories/trampolina/letters/",
+        "/laboratories/trampolina/memory-perception/",
+        "/laboratories/trampolina/thinking-logic/"
+      ],
+      "artwork_route": "/laboratories/trampolina/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/parent/parent_settings_screen.dart",
+          "lines": "125-159,237-294",
+          "supports": "Language/voice settings, voice sample, optional reminders and daily/session limits."
+        },
+        {
+          "file": "lib/features/parent/parent_gate.dart",
+          "lines": "21-37",
+          "supports": "Random reverse-order three-digit parent challenge; not a persistent PIN."
+        },
+        {
+          "file": "lib/core/audio/voice_catalog.dart",
+          "lines": "1-11",
+          "supports": "English/Hebrew/Russian interface options and Noa/Mia/Niko/Leo voice identities."
+        },
+        {
+          "file": "lib/features/rewards/reward_completion.dart",
+          "lines": "459-479",
+          "supports": "Recorded completion-based star rewards and separate bonuses; not every interaction earns stars."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Persistent parent PIN protection is not verified; the current parent gate uses a random reverse-order number challenge.",
+        "Full instructional recordings and public release availability remain incomplete.",
+        "The four Colors/Numbers/Shapes/Letters illustrations are proposals awaiting owner approval."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Trampolina — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-colors",
+      "kind": "lab",
+      "name": "Colors",
+      "route": "/laboratories/trampolina/colors/",
+      "parent": "/laboratories/trampolina/",
+      "platform": "trampolina",
+      "introduction": "Discover six familiar colors through visible examples, single matches, multiple matches and a later listening sequence.",
+      "purpose": "Offer repeated opportunities to distinguish a target color while the number and arrangement of choices change.",
+      "audience": "Children beginning color recognition, with an adult available for instructions and support.",
+      "age_guidance": "A gentle starting point around ages 2–3; multiple matches and listening tasks may suit older or more experienced children. Choose by readiness, not age alone.",
+      "difficulty": "Easy, Medium and Hard vary the number of visible choices. The two-choice listening stage always presents two options.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare a visible color with alternatives.",
+        "Find one or several cards sharing the target color.",
+        "Explore spoken-color recognition once approved recordings are supplied."
+      ],
+      "offers": [
+        "Red, blue, yellow, green, orange and purple.",
+        "Five ordered stages: one visible match, all visible matches, listening Yes/No, listening with two cards and listening with all matches.",
+        "Visual examples can be replayed; completed tasks and skipped tasks are treated separately."
+      ],
+      "interaction": {
+        "see": "A target example and colored cards in the visual stages; no visible target in listening stages.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Tap one match, select all matches or answer the listening question appropriate to the stage.",
+        "feedback": "Correct selections remain recognized; an incorrect attempt allows another try.",
+        "progression": "The journey advances through five stages, with adjustable choice density. Listening stages remain unavailable without their real target recording.",
+        "help": "Replay the visible example or use Help. Audio-only tasks cannot reveal a visual substitute for the unheard target."
+      },
+      "tutorial": [
+        {
+          "title": "Start with a visible example",
+          "text": "Look together at the target color before choosing a card."
+        },
+        {
+          "title": "Find the right match",
+          "text": "Tap one matching card, or every matching card when the activity asks for all of them."
+        },
+        {
+          "title": "Use the example again",
+          "text": "Replay the example if the child is unsure. Try again without rushing."
+        },
+        {
+          "title": "Understand the listening boundary",
+          "text": "The later listening stages require approved recorded instructions. They are documented here but are currently unavailable in the app."
+        }
+      ],
+      "parent_tips": [
+        "Name examples in the room after a visual match.",
+        "Start with fewer choices and avoid treating a mistake as a diagnosis."
+      ],
+      "related": [
+        "/laboratories/trampolina/colors/visual-recognition/",
+        "/laboratories/trampolina/colors/multiple-matches/",
+        "/laboratories/trampolina/colors/listening-recognition/",
+        "/laboratories/trampolina/shapes/"
+      ],
+      "artwork_route": "/laboratories/trampolina/colors/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/colors/color_journey.dart",
+          "lines": "172-257",
+          "supports": "Five stages, six colors, selection rules and difficulty-dependent choices."
+        },
+        {
+          "file": "lib/features/colors/color_journey_screen.dart",
+          "lines": "166-174,350-440",
+          "supports": "Listening tasks require a successfully played instruction; visual example replay and help."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/MISSING_INSTRUCTION_AUDIO_INVENTORY.md",
+          "lines": "3-28",
+          "supports": "Missing full instruction recordings; distinction between visual and listening activities."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Approved Colors instructions are missing for all language/voice combinations.",
+        "The current Colors illustration awaits owner approval.",
+        "No approved gameplay screenshot has been supplied to the website."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Colors — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-numbers",
+      "kind": "lab",
+      "name": "Numbers & Mathematics",
+      "route": "/laboratories/trampolina/numbers/",
+      "parent": "/laboratories/trampolina/",
+      "platform": "trampolina",
+      "introduction": "Meet numbers from 1 to 20, connect numerals with quantities and explore early addition and subtraction using visible groups of apples.",
+      "purpose": "Make the relationship between a written number, a counted set and a simple operation easier to explore.",
+      "audience": "Children beginning counting and numeral recognition, and children ready to try small-number arithmetic.",
+      "age_guidance": "Counting and recognition may be starting points around ages 3–6. Addition, subtraction and more demanding quantities may suit ages 4–8 with adult guidance. These are approximate suggestions.",
+      "difficulty": "Choose number groups 1–5, 6–10 or 11–20 for the curriculum. Arithmetic uses up to 5, up to 10 or both, with three difficulty levels.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Recognize and write familiar numerals.",
+        "Connect counting with a quantity and its numeral.",
+        "Explore combining and taking away concrete groups."
+      ],
+      "offers": [
+        "A seven-stage number learning sequence: meet, trace, draw, recognize, count, compare groups and choose a numeral for a quantity.",
+        "Learn and Challenge use the selected number set.",
+        "Addition and Subtraction are distinct activities within Numbers World."
+      ],
+      "interaction": {
+        "see": "Large numerals, tracing guides, countable apples and quantity groups.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Choose numerals, count visible objects, compare groups or write on the drawing surface. In arithmetic, watch the operation and choose the resulting quantity.",
+        "feedback": "Visual feedback and retry opportunities follow answers; completed and assisted practice are distinguished.",
+        "progression": "Learn introduces each selected number through several representations. Challenge revisits recognition and quantity; arithmetic adjusts support and difficulty.",
+        "help": "Use the guide or Show me again. Arithmetic offers Another game, Back to Numbers World and supported stopping options."
+      },
+      "tutorial": [
+        {
+          "title": "Select a number range",
+          "text": "Begin with a familiar range and select the numbers to practise."
+        },
+        {
+          "title": "Choose Learn or Challenge",
+          "text": "Learn moves through several ways of meeting each number. Challenge revisits recognition and quantity choices."
+        },
+        {
+          "title": "Try a representation",
+          "text": "Follow a trace, count the objects or match the requested quantity to its numeral."
+        },
+        {
+          "title": "Explore arithmetic when ready",
+          "text": "Choose Addition or Subtraction and watch the apples move before answering."
+        }
+      ],
+      "parent_tips": [
+        "Count actual objects alongside the screen.",
+        "Use a smaller selected range before increasing the number of choices."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/recognition/",
+        "/laboratories/trampolina/numbers/counting/",
+        "/laboratories/trampolina/numbers/quantity-matching/",
+        "/laboratories/trampolina/numbers/number-writing/",
+        "/laboratories/trampolina/numbers/addition/",
+        "/laboratories/trampolina/numbers/subtraction/",
+        "/laboratories/trampolina/numbers/challenge/"
+      ],
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_catalog.dart",
+          "lines": "1-18",
+          "supports": "Numbers 1-20, base shapes and English/Hebrew/Russian alphabets."
+        },
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "55-70,110-145,191-240",
+          "supports": "Selected number ranges and letters; Learn, Challenge and Resume actions."
+        },
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/app/trampolina_app.dart",
+          "lines": "704-715",
+          "supports": "The app starts Numbers curriculum version 6, Shapes version 4 and Letters version 3."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/features/math/math_session.dart",
+          "lines": "6-9,47-115,131-145",
+          "supports": "Addition/subtraction, difficulty, ranges, demonstrations and completion rules."
+        },
+        {
+          "file": "lib/features/math/math_screens.dart",
+          "lines": "295-415",
+          "supports": "Apples demonstration, Show me again, choices, Another game and Back to Numbers World."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full number instruction recordings remain missing.",
+        "The current Numbers illustration awaits owner approval.",
+        "Approved individual arithmetic artwork and tutorial screenshots have not been supplied to the website."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Numbers & Mathematics — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-shapes",
+      "kind": "lab",
+      "name": "Shapes",
+      "route": "/laboratories/trampolina/shapes/",
+      "parent": "/laboratories/trampolina/",
+      "platform": "trampolina",
+      "introduction": "Explore shape names and outlines, find shapes in everyday objects and fit pieces into matching openings.",
+      "purpose": "Encourage comparison of an outline with the shape of a visible object or a matching space.",
+      "audience": "Children beginning shape recognition and children ready for more detailed matching boards.",
+      "age_guidance": "Basic shapes may be a starting point around ages 2–4. Object matching, larger boards and additional shapes may suit ages 3–6 and beyond according to familiarity.",
+      "difficulty": "Choose the starting shapes. Matching-hole difficulty can add more pieces and additional shapes; object matching progresses from one match to all relevant objects.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Recognize circle, square, triangle and rectangle.",
+        "Connect outlines with familiar objects.",
+        "Practise aligning a shape with its matching opening."
+      ],
+      "offers": [
+        "Learn Shapes combines introduction, identification, matching and tracing.",
+        "Shapes and real-world objects moves from a single relevant object to multiple matches.",
+        "Shapes and matching holes uses drag-and-drop placement, with additional shapes on harder boards."
+      ],
+      "interaction": {
+        "see": "Clear shape examples, everyday objects or a board of shaped openings.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Select the requested shape or object, follow an outline, or drag a piece into the corresponding opening.",
+        "feedback": "Correct matches are retained and incorrect placements can be tried again.",
+        "progression": "Focused practice uses selected shapes; Mixed practice uses the base set. Larger and more varied matching boards increase the challenge.",
+        "help": "Use Help, replay or resume where provided. Choose a smaller set when the task feels too busy."
+      },
+      "tutorial": [
+        {
+          "title": "Select a starting set",
+          "text": "Choose from circle, square, triangle and rectangle."
+        },
+        {
+          "title": "Choose a shape experience",
+          "text": "Open Learn Shapes, real-world objects or matching holes."
+        },
+        {
+          "title": "Compare before acting",
+          "text": "Look at the outline, object or opening, then select or place the match."
+        },
+        {
+          "title": "Return for another type of practice",
+          "text": "Move back to Shapes and try the same idea with a different representation."
+        }
+      ],
+      "parent_tips": [
+        "Look for circles, squares and rectangles among nearby objects.",
+        "Let the child compare edges and corners without demanding speed."
+      ],
+      "related": [
+        "/laboratories/trampolina/shapes/learn-shapes/",
+        "/laboratories/trampolina/shapes/real-world-objects/",
+        "/laboratories/trampolina/shapes/matching-holes/",
+        "/laboratories/trampolina/colors/",
+        "/laboratories/trampolina/shapes/mixed-practice/"
+      ],
+      "artwork_route": "/laboratories/trampolina/shapes/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/learning/shapes_category_screen.dart",
+          "lines": "294-378",
+          "supports": "Learn Shapes, real-world objects, matching holes, focused/mixed practice and resume."
+        },
+        {
+          "file": "lib/features/learning/shape_game.dart",
+          "lines": "73-80,148-227",
+          "supports": "Object matching and drag-to-hole rules, multi-match progression and extra difficulty shapes."
+        },
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Spoken shape instructions remain missing.",
+        "A separately selectable free-drawing Shapes activity is not verified in the current flow.",
+        "The current Shapes illustration awaits owner approval; individual mode screenshots are missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Shapes — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-letters",
+      "kind": "lab",
+      "name": "Letters",
+      "route": "/laboratories/trampolina/letters/",
+      "parent": "/laboratories/trampolina/",
+      "platform": "trampolina",
+      "introduction": "Explore a selected alphabet through letter recognition, object or word associations, guided tracing and free drawing.",
+      "purpose": "Give children several ways to become familiar with the appearance of a letter and its place in a language.",
+      "audience": "Children curious about letters, with parent or educator support for language-specific names and pronunciation.",
+      "age_guidance": "Often a starting point around ages 4–6, with earlier or later exploration according to interest. This is not a reading-readiness assessment.",
+      "difficulty": "Select a small set of letters or the full alphabet. Learn provides a sequence of representations; Challenge revisits selected letters.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Notice the visual form of a letter.",
+        "Connect letters with the available language-specific examples.",
+        "Explore stroke direction and independent drawing."
+      ],
+      "offers": [
+        "English, Hebrew and Russian alphabet selection.",
+        "Meet a letter, identify it, explore an association, follow the guide and draw independently.",
+        "Learn, Challenge and Resume use the selected alphabet and saved activity."
+      ],
+      "interaction": {
+        "see": "Large letter forms, relevant illustrated examples and a drawing surface.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used. Spoken letter-name availability must not be inferred from the interface language.",
+        "do": "Identify a target letter, select an associated example or follow/draw its form.",
+        "feedback": "Answers receive visual feedback; drawing support provides another attempt or a guide.",
+        "progression": "The learning sequence moves from seeing to choosing and drawing; Challenge provides recognition questions from the selected set.",
+        "help": "Replay the guide or use Help. An adult can provide the letter name while app recordings remain unavailable."
+      },
+      "tutorial": [
+        {
+          "title": "Choose the language and letters",
+          "text": "Use the intended alphabet and a manageable selection."
+        },
+        {
+          "title": "Meet the letter",
+          "text": "Inspect its form and the available example before answering."
+        },
+        {
+          "title": "Choose and draw",
+          "text": "Identify the requested letter, explore its association and follow the drawing guide."
+        },
+        {
+          "title": "Repeat with support",
+          "text": "Try free drawing or Challenge when comfortable, and return to a guide whenever needed."
+        }
+      ],
+      "parent_tips": [
+        "Use the child’s intended language and familiar names or words.",
+        "Treat the drawing activity as practice rather than a handwriting diagnosis."
+      ],
+      "related": [
+        "/laboratories/trampolina/letters/recognition/",
+        "/laboratories/trampolina/letters/letter-object-matching/",
+        "/laboratories/trampolina/letters/letter-writing/",
+        "/laboratories/trampolina/shapes/",
+        "/laboratories/trampolina/letters/challenge/"
+      ],
+      "artwork_route": "/laboratories/trampolina/letters/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_catalog.dart",
+          "lines": "1-18",
+          "supports": "Numbers 1-20, base shapes and English/Hebrew/Russian alphabets."
+        },
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "55-70,110-145,191-240",
+          "supports": "Selected number ranges and letters; Learn, Challenge and Resume actions."
+        },
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Approved letter-name and full instruction recordings are missing.",
+        "The current Letters illustration awaits owner approval.",
+        "Language pronunciation review and approved website tutorial screenshots remain outstanding."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Letters — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-memory-perception",
+      "kind": "lab",
+      "name": "Memory & Perception",
+      "route": "/laboratories/trampolina/memory-perception/",
+      "parent": "/laboratories/trampolina/",
+      "platform": "trampolina",
+      "introduction": "Remember card locations, rebuild a picture and compare two scenes in three distinct visual activities.",
+      "purpose": "Offer focused opportunities to remember, assemble and notice visual details.",
+      "audience": "Children who enjoy illustrated problems, with an adult available to discuss choices.",
+      "age_guidance": "Gentler boards can suit children around ages 3–6. More complex patterns, stories and puzzles may also interest ages 7–8. Adjust by experience rather than using an age gate.",
+      "difficulty": "Three levels change board size, choice count or rule complexity. Each game describes its own progression.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Recall the position of a picture.",
+        "Relate a small image part to a whole.",
+        "Compare scenes carefully."
+      ],
+      "offers": [
+        "Memory Game uses a preview followed by pairs.",
+        "Picture Puzzle keeps a genuine reference image visible.",
+        "Spot the Differences marks explicitly changed regions."
+      ],
+      "interaction": {
+        "see": "Illustrated cards, objects, scenes or story stages appropriate to the selected game.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Choose the game, inspect its rule and respond by tapping, dragging or selecting a destination.",
+        "feedback": "Correct parts remain in place; feedback supports another attempt when needed.",
+        "progression": "Increase the difficulty or try a related type of problem after a comfortable round.",
+        "help": "Use Help or replay where offered. Story playback can be replayed; missing narration is not replaced with synthesized speech."
+      },
+      "tutorial": [
+        {
+          "title": "Choose one type of problem",
+          "text": "Open a game that matches the child’s interest."
+        },
+        {
+          "title": "Inspect the example or rule",
+          "text": "Look at the board together before making the first selection."
+        },
+        {
+          "title": "Complete the board",
+          "text": "Tap or place one item at a time and use the feedback to continue."
+        },
+        {
+          "title": "Pause or explore a related game",
+          "text": "Return to this laboratory when the child wants a different challenge."
+        }
+      ],
+      "parent_tips": [
+        "Ask the child to describe what they noticed.",
+        "Offer an example or a smaller board instead of rushing the answer."
+      ],
+      "related": [
+        "/laboratories/trampolina/memory-perception/memory-game/",
+        "/laboratories/trampolina/memory-perception/picture-puzzle/",
+        "/laboratories/trampolina/memory-perception/spot-differences/"
+      ],
+      "artwork_route": "/laboratories/trampolina/memory-perception/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_game_screen.dart",
+          "lines": "92-111,625-718",
+          "supports": "Instruction replay, completed-story replay and assistance controls."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full cognitive-game instruction recordings and approved website gameplay screenshots remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Memory & Perception — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-thinking-logic",
+      "kind": "lab",
+      "name": "Thinking & Logic",
+      "route": "/laboratories/trampolina/thinking-logic/",
+      "parent": "/laboratories/trampolina/",
+      "platform": "trampolina",
+      "introduction": "Continue a pattern, sort objects, order a story or explain which item is different.",
+      "purpose": "Make rules and relationships visible through short illustrated challenges.",
+      "audience": "Children who enjoy illustrated problems, with an adult available to discuss choices.",
+      "age_guidance": "Gentler boards can suit children around ages 3–6. More complex patterns, stories and puzzles may also interest ages 7–8. Adjust by experience rather than using an age gate.",
+      "difficulty": "Three levels change board size, choice count or rule complexity. Each game describes its own progression.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Notice a repeating rule.",
+        "Group by a relevant property.",
+        "Order meaningful events and explain a choice."
+      ],
+      "offers": [
+        "Continue the Pattern explores repeating units.",
+        "Sorting Categories uses explicit grouping criteria.",
+        "First & Next uses illustrated story sequences.",
+        "Odd One Out links each supported answer to a reason."
+      ],
+      "interaction": {
+        "see": "Illustrated cards, objects, scenes or story stages appropriate to the selected game.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Choose the game, inspect its rule and respond by tapping, dragging or selecting a destination.",
+        "feedback": "Correct parts remain in place; feedback supports another attempt when needed.",
+        "progression": "Increase the difficulty or try a related type of problem after a comfortable round.",
+        "help": "Use Help or replay where offered. Story playback can be replayed; missing narration is not replaced with synthesized speech."
+      },
+      "tutorial": [
+        {
+          "title": "Choose one type of problem",
+          "text": "Open a game that matches the child’s interest."
+        },
+        {
+          "title": "Inspect the example or rule",
+          "text": "Look at the board together before making the first selection."
+        },
+        {
+          "title": "Complete the board",
+          "text": "Tap or place one item at a time and use the feedback to continue."
+        },
+        {
+          "title": "Pause or explore a related game",
+          "text": "Return to this laboratory when the child wants a different challenge."
+        }
+      ],
+      "parent_tips": [
+        "Ask the child to describe what they noticed.",
+        "Offer an example or a smaller board instead of rushing the answer."
+      ],
+      "related": [
+        "/laboratories/trampolina/thinking-logic/continue-pattern/",
+        "/laboratories/trampolina/thinking-logic/sorting-categories/",
+        "/laboratories/trampolina/thinking-logic/first-next/",
+        "/laboratories/trampolina/thinking-logic/odd-one-out/"
+      ],
+      "artwork_route": "/laboratories/trampolina/thinking-logic/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_game_screen.dart",
+          "lines": "92-111,625-718",
+          "supports": "Instruction replay, completed-story replay and assistance controls."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full cognitive-game instruction recordings and approved website gameplay screenshots remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Thinking & Logic — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-memory-perception-memory-game",
+      "kind": "activity",
+      "name": "Memory Game",
+      "route": "/laboratories/trampolina/memory-perception/memory-game/",
+      "parent": "/laboratories/trampolina/memory-perception/",
+      "platform": "trampolina",
+      "introduction": "Remember where pictures are hidden and uncover matching pairs.",
+      "purpose": "Provide a concrete opportunity to recall locations after a brief preview.",
+      "audience": "Children who enjoy visual challenges, with adult support available.",
+      "age_guidance": "Gentler boards may suit ages 3–6; more demanding boards may also interest children aged 7–8. Use the child’s familiarity and preferred pace as the guide.",
+      "difficulty": "Easy: 2 pairs. Medium: 3–4 pairs. Hard: 5–6 pairs. Preview time is 3.6, 2.4 or 1.5 seconds respectively.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Notice picture locations during the preview.",
+        "Recall and compare two selected cards."
+      ],
+      "offers": [
+        "A short preview shows the board before cards close.",
+        "Matched pairs remain found; Smart progression visits three levels, while manual practice uses one board."
+      ],
+      "interaction": {
+        "see": "Picture cards briefly face up, then a hidden board awaits matching.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Tap two cards and compare the pictures; continue until every pair is matched.",
+        "feedback": "Matching cards stay found. Different cards close again so the child can try another pair.",
+        "progression": "Smart mode moves through Easy, Medium and Hard. Manual mode keeps the selected challenge for one board.",
+        "help": "Help and preview replay preserve already-found matches while marking the round as assisted."
+      },
+      "tutorial": [
+        {
+          "title": "Study the preview",
+          "text": "Look for pairs and notice where each picture sits before the cards close."
+        },
+        {
+          "title": "Open two cards",
+          "text": "Tap one card and then another. Compare the pictures."
+        },
+        {
+          "title": "Remember what was revealed",
+          "text": "Keep a successful pair or use the locations you just saw for the next attempt."
+        },
+        {
+          "title": "Finish or replay",
+          "text": "Find every pair. Use Help/replay if needed, then return to the laboratory or another round."
+        }
+      ],
+      "parent_tips": [
+        "Let the child explain a choice before giving the answer.",
+        "Use Help without treating assisted practice as failure."
+      ],
+      "related": [
+        "/laboratories/trampolina/memory-perception/picture-puzzle/",
+        "/laboratories/trampolina/memory-perception/spot-differences/"
+      ],
+      "artwork_route": "/laboratories/trampolina/memory-perception/memory-game/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_generator.dart",
+          "lines": "40-99",
+          "supports": "Pair counts, card identities and shuffled layouts."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "90-106,670-689",
+          "supports": "Preview timing, smart/manual sessions and pair-matching behavior."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full instructional narration is unavailable.",
+        "An approved gameplay screenshot for this website has not yet been supplied."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Memory Game — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-memory-perception-picture-puzzle",
+      "kind": "activity",
+      "name": "Picture Puzzle",
+      "route": "/laboratories/trampolina/memory-perception/picture-puzzle/",
+      "parent": "/laboratories/trampolina/memory-perception/",
+      "platform": "trampolina",
+      "introduction": "Rebuild a complete picture by matching its real pieces to their positions.",
+      "purpose": "Encourage careful comparison between an image part and a visible whole.",
+      "audience": "Children who enjoy visual challenges, with adult support available.",
+      "age_guidance": "Gentler boards may suit ages 3–6; more demanding boards may also interest children aged 7–8. Use the child’s familiarity and preferred pace as the guide.",
+      "difficulty": "Easy: 2 or 4 pieces. Medium: 6 or 8. Hard: 9 or 12.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare shape, color and detail across an image.",
+        "Relate each piece to a location in the whole picture."
+      ],
+      "offers": [
+        "Every piece is cut from the same image as the reference.",
+        "Choose a picture category or a surprise; the reference stays available."
+      ],
+      "interaction": {
+        "see": "A complete reference, an empty grid and shuffled pieces.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Drag a piece to its cell, or select the piece and then its destination.",
+        "feedback": "Correctly placed pieces remain in the picture; an incorrect placement can be retried.",
+        "progression": "Higher levels increase the number of pieces while preserving the same placement principle.",
+        "help": "Refer back to the full picture and use Help. Begin with fewer pieces when needed."
+      },
+      "tutorial": [
+        {
+          "title": "Look at the complete picture",
+          "text": "Notice where its main objects and colors belong."
+        },
+        {
+          "title": "Choose a piece",
+          "text": "Compare the piece with the reference."
+        },
+        {
+          "title": "Place it in the grid",
+          "text": "Drag it into position, or tap the piece and then the matching cell."
+        },
+        {
+          "title": "Build the whole image",
+          "text": "Keep placing pieces until the grid reproduces the reference."
+        }
+      ],
+      "parent_tips": [
+        "Let the child explain a choice before giving the answer.",
+        "Use Help without treating assisted practice as failure."
+      ],
+      "related": [
+        "/laboratories/trampolina/memory-perception/memory-game/",
+        "/laboratories/trampolina/shapes/matching-holes/"
+      ],
+      "artwork_route": "/laboratories/trampolina/memory-perception/picture-puzzle/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_generator.dart",
+          "lines": "149-177",
+          "supports": "Puzzle piece counts, reference source, grid and piece-to-slot solutions."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full instructional narration is unavailable.",
+        "An approved gameplay screenshot for this website has not yet been supplied."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Picture Puzzle — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-memory-perception-spot-differences",
+      "kind": "activity",
+      "name": "Spot the Differences",
+      "route": "/laboratories/trampolina/memory-perception/spot-differences/",
+      "parent": "/laboratories/trampolina/memory-perception/",
+      "platform": "trampolina",
+      "introduction": "Compare two related scenes and find the details that changed.",
+      "purpose": "Offer a structured visual comparison task with identifiable changes.",
+      "audience": "Children who enjoy visual challenges, with adult support available.",
+      "age_guidance": "Gentler boards may suit ages 3–6; more demanding boards may also interest children aged 7–8. Use the child’s familiarity and preferred pace as the guide.",
+      "difficulty": "Easy: 1–2 differences. Medium: 3–4. Hard: 5–6.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare corresponding areas of two pictures.",
+        "Notice changes in presence, size or position."
+      ],
+      "offers": [
+        "Both scenes share a genuine common background.",
+        "Found differences remain marked; narrow screens stack the images for readable comparison."
+      ],
+      "interaction": {
+        "see": "Two scenes with a small number of explicit differences.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Compare the same region in both pictures and tap a changed area.",
+        "feedback": "A found difference is marked once. Tapping an unchanged region allows another attempt.",
+        "progression": "Difficulty increases the number of differences to locate.",
+        "help": "Use Help for a visual cue and inspect one region at a time."
+      },
+      "tutorial": [
+        {
+          "title": "Compare the same area",
+          "text": "Start with one object and find its counterpart in the other scene."
+        },
+        {
+          "title": "Look for a change",
+          "text": "Check whether it is missing, a different size or in a different position."
+        },
+        {
+          "title": "Mark the difference",
+          "text": "Tap the changed region and continue with another area."
+        },
+        {
+          "title": "Complete the comparison",
+          "text": "Find all required differences or use Help before continuing."
+        }
+      ],
+      "parent_tips": [
+        "Let the child explain a choice before giving the answer.",
+        "Use Help without treating assisted practice as failure."
+      ],
+      "related": [
+        "/laboratories/trampolina/memory-perception/picture-puzzle/",
+        "/laboratories/trampolina/thinking-logic/odd-one-out/"
+      ],
+      "artwork_route": "/laboratories/trampolina/memory-perception/spot-differences/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_generator.dart",
+          "lines": "251-300",
+          "supports": "Shared scene and explicit missing/size/position differences, with counts by level."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full instructional narration is unavailable.",
+        "An approved gameplay screenshot for this website has not yet been supplied."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Spot the Differences — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-thinking-logic-continue-pattern",
+      "kind": "activity",
+      "name": "Continue the Pattern",
+      "route": "/laboratories/trampolina/thinking-logic/continue-pattern/",
+      "parent": "/laboratories/trampolina/thinking-logic/",
+      "platform": "trampolina",
+      "introduction": "Find the repeating unit and choose what should come next.",
+      "purpose": "Make a sequence rule visible through changes in shapes, colors, sizes or objects.",
+      "audience": "Children who enjoy visual challenges, with adult support available.",
+      "age_guidance": "Gentler boards may suit ages 3–6; more demanding boards may also interest children aged 7–8. Use the child’s familiarity and preferred pace as the guide.",
+      "difficulty": "Easy begins with AB and AAB. Medium adds ABC and AABB. Hard includes longer units such as AABC, ABBC and ABCD.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Identify which elements repeat.",
+        "Apply a visible rule to the next position."
+      ],
+      "offers": [
+        "The visible sequence follows an explicit repeating unit.",
+        "Five boards form a run; answer choices are distinct."
+      ],
+      "interaction": {
+        "see": "An unfinished repeating sequence and possible next items.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Inspect the repeating unit and tap the item that continues it.",
+        "feedback": "The correct continuation completes the board; an incorrect attempt can be retried.",
+        "progression": "Longer units and additional dimensions increase the difficulty.",
+        "help": "Use Help and say the pattern aloud together; no recorded instruction should be assumed available."
+      },
+      "tutorial": [
+        {
+          "title": "Find the smallest repeat",
+          "text": "Look for the short group that repeats along the sequence."
+        },
+        {
+          "title": "Name or point to the unit",
+          "text": "Follow the elements in order, such as red–blue or circle–circle–square."
+        },
+        {
+          "title": "Choose the next item",
+          "text": "Select the answer that belongs in the next position."
+        },
+        {
+          "title": "Check and continue",
+          "text": "Use the feedback, then try the next board or return to the laboratory."
+        }
+      ],
+      "parent_tips": [
+        "Let the child explain a choice before giving the answer.",
+        "Use Help without treating assisted practice as failure."
+      ],
+      "related": [
+        "/laboratories/trampolina/thinking-logic/sorting-categories/",
+        "/laboratories/trampolina/thinking-logic/first-next/"
+      ],
+      "artwork_route": "/laboratories/trampolina/thinking-logic/continue-pattern/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_generator.dart",
+          "lines": "100-148",
+          "supports": "Repeating-unit templates, dimensions, answer generation and current ABCD hard variant."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "90-106,670-689",
+          "supports": "Preview timing, smart/manual sessions and pair-matching behavior."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full instructional narration is unavailable.",
+        "An approved gameplay screenshot for this website has not yet been supplied."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Continue the Pattern — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-thinking-logic-sorting-categories",
+      "kind": "activity",
+      "name": "Sorting Categories",
+      "route": "/laboratories/trampolina/thinking-logic/sorting-categories/",
+      "parent": "/laboratories/trampolina/thinking-logic/",
+      "platform": "trampolina",
+      "introduction": "Place objects into groups by their relevant shared property.",
+      "purpose": "Encourage comparing an item with a clear grouping rule.",
+      "audience": "Children who enjoy visual challenges, with adult support available.",
+      "age_guidance": "Gentler boards may suit ages 3–6; more demanding boards may also interest children aged 7–8. Use the child’s familiarity and preferred pace as the guide.",
+      "difficulty": "Easy uses 4 items. Medium uses 6 or 8. Hard uses 9 and may combine shape with color.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Identify a grouping property.",
+        "Compare each item with a group example."
+      ],
+      "offers": [
+        "Rules include shape, color, size, category and use.",
+        "Some harder boards combine two visual properties."
+      ],
+      "interaction": {
+        "see": "Illustrated objects and groups represented by labels or examples.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used.",
+        "do": "Drag each object into its matching group, or select it and then a destination.",
+        "feedback": "Correct placements stay in their groups; incorrect placements can be tried again.",
+        "progression": "More items, more groups or combined properties increase the challenge.",
+        "help": "Use Help and discuss one group example before sorting the remaining objects."
+      },
+      "tutorial": [
+        {
+          "title": "Inspect the groups",
+          "text": "Notice what the example or label tells you about each destination."
+        },
+        {
+          "title": "Choose one object",
+          "text": "Compare it with the available group rules."
+        },
+        {
+          "title": "Place it",
+          "text": "Drag it to the matching group, or select the item and then the group."
+        },
+        {
+          "title": "Sort the full set",
+          "text": "Continue until every item has a valid destination."
+        }
+      ],
+      "parent_tips": [
+        "Let the child explain a choice before giving the answer.",
+        "Use Help without treating assisted practice as failure."
+      ],
+      "related": [
+        "/laboratories/trampolina/thinking-logic/odd-one-out/",
+        "/laboratories/trampolina/colors/multiple-matches/"
+      ],
+      "artwork_route": "/laboratories/trampolina/thinking-logic/sorting-categories/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "308-397",
+          "supports": "Sorting criteria, groups, item counts and valid destinations."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full instructional narration is unavailable.",
+        "An approved gameplay screenshot for this website has not yet been supplied."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Sorting Categories — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-thinking-logic-first-next",
+      "kind": "activity",
+      "name": "First & Next",
+      "route": "/laboratories/trampolina/thinking-logic/first-next/",
+      "parent": "/laboratories/trampolina/thinking-logic/",
+      "platform": "trampolina",
+      "introduction": "Put illustrated story moments into an order that makes sense.",
+      "purpose": "Provide opportunities to discuss sequence and everyday cause-and-effect relationships.",
+      "audience": "Children who enjoy visual challenges, with adult support available.",
+      "age_guidance": "Gentler boards may suit ages 3–6; more demanding boards may also interest children aged 7–8. Use the child’s familiarity and preferred pace as the guide.",
+      "difficulty": "Easy uses 3 story stages, Medium 4 and Hard 5.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare different moments in a story.",
+        "Arrange events in a plausible authored sequence."
+      ],
+      "offers": [
+        "Fifteen authored story sets provide consistent illustrated stages.",
+        "The completed sequence plays back and can be replayed."
+      ],
+      "interaction": {
+        "see": "Shuffled pictures from one story and ordered positions.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used. Story-stage recordings are missing; the current story playback uses captions and reading time.",
+        "do": "Place each picture into its chronological position.",
+        "feedback": "Correct stages remain placed; the completed story is shown in order.",
+        "progression": "Harder boards include more stages from the same coherent story.",
+        "help": "Use Help to inspect the sequence and Replay after completion to watch it again."
+      },
+      "tutorial": [
+        {
+          "title": "Look at every picture",
+          "text": "Identify the shared story before moving any stage."
+        },
+        {
+          "title": "Choose the beginning",
+          "text": "Find what must happen first and place it at the start."
+        },
+        {
+          "title": "Build the sequence",
+          "text": "Place the remaining moments in order, considering what changes between them."
+        },
+        {
+          "title": "Watch the completed story",
+          "text": "Review the ordered playback and use Replay to discuss it together."
+        }
+      ],
+      "parent_tips": [
+        "Let the child explain a choice before giving the answer.",
+        "Use Help without treating assisted practice as failure."
+      ],
+      "related": [
+        "/laboratories/trampolina/thinking-logic/continue-pattern/",
+        "/laboratories/trampolina/memory-perception/picture-puzzle/"
+      ],
+      "artwork_route": "/laboratories/trampolina/thinking-logic/first-next/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_generator.dart",
+          "lines": "178-201",
+          "supports": "Authored story stages and chronological placement."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_game_screen.dart",
+          "lines": "92-111,625-718",
+          "supports": "Instruction replay, completed-story replay and assistance controls."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full instructional narration is unavailable.",
+        "An approved gameplay screenshot for this website has not yet been supplied."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "First & Next — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-thinking-logic-odd-one-out",
+      "kind": "activity",
+      "name": "Odd One Out",
+      "route": "/laboratories/trampolina/thinking-logic/odd-one-out/",
+      "parent": "/laboratories/trampolina/thinking-logic/",
+      "platform": "trampolina",
+      "introduction": "Notice which item differs and connect the choice with a supported reason.",
+      "purpose": "Invite children to compare attributes and explain a relevant distinction.",
+      "audience": "Children who enjoy visual challenges, with adult support available.",
+      "age_guidance": "Gentler boards may suit ages 3–6; more demanding boards may also interest children aged 7–8. Use the child’s familiarity and preferred pace as the guide.",
+      "difficulty": "Easy and Medium use 4 choices; Hard uses 5 and may ask for a reason.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare shape, size, color, category or use.",
+        "Relate an answer to an explicit explanation."
+      ],
+      "offers": [
+        "The activity uses authored distinctions, not arbitrary penalties for a different opinion.",
+        "Five boards form a run; a supported reason may be required on Hard."
+      ],
+      "interaction": {
+        "see": "A group of illustrated choices, followed by reason options when appropriate.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used. Recorded explanations are missing; authored text explains accepted answers.",
+        "do": "Select the item that differs under the intended rule, then choose a supported reason if asked.",
+        "feedback": "An accepted answer is connected to its explanation; unsupported choices can be retried.",
+        "progression": "Harder boards add a choice and require closer attention to the explanation.",
+        "help": "Use Help, compare one attribute at a time and discuss why an item differs."
+      },
+      "tutorial": [
+        {
+          "title": "Compare the group",
+          "text": "Look for what most items share."
+        },
+        {
+          "title": "Find the difference",
+          "text": "Consider shape, size, color, category or use."
+        },
+        {
+          "title": "Explain when asked",
+          "text": "Choose the item and select a supported reason on boards that request one."
+        },
+        {
+          "title": "Read the explanation",
+          "text": "Review the accepted distinction before continuing to the next board."
+        }
+      ],
+      "parent_tips": [
+        "Let the child explain a choice before giving the answer.",
+        "Use Help without treating assisted practice as failure."
+      ],
+      "related": [
+        "/laboratories/trampolina/thinking-logic/sorting-categories/",
+        "/laboratories/trampolina/memory-perception/spot-differences/"
+      ],
+      "artwork_route": "/laboratories/trampolina/thinking-logic/odd-one-out/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/cognitive/cognitive_catalog.dart",
+          "lines": "5-23",
+          "supports": "Seven stable game identities and their laboratory assignments."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_generator.dart",
+          "lines": "202-250",
+          "supports": "Odd-item rules, choice counts and authored rationale."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "664-752",
+          "supports": "Help, tap answers, rationale confirmation and drag/select placement validation."
+        },
+        {
+          "file": "lib/features/cognitive/cognitive_session.dart",
+          "lines": "90-106,670-689",
+          "supports": "Preview timing, smart/manual sessions and pair-matching behavior."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Full instructional narration is unavailable.",
+        "An approved gameplay screenshot for this website has not yet been supplied."
+      ],
+      "screenshots": [],
+      "artwork_status": "approved-source-derivative",
+      "artwork_alt": "Odd One Out — supplied Trampolina artwork"
+    },
+    {
+      "id": "trampolina-colors-visual-recognition",
+      "kind": "activity",
+      "name": "Visual Color Recognition",
+      "route": "/laboratories/trampolina/colors/visual-recognition/",
+      "parent": "/laboratories/trampolina/colors/",
+      "platform": "trampolina",
+      "introduction": "Look at a target color and find the matching card.",
+      "purpose": "Compare a visible example with a choice set.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "A gentle starting point around ages 2–3; multiple matches and listening tasks may suit older or more experienced children. Choose by readiness, not age alone.",
+      "difficulty": "One correct card; Easy/Medium/Hard change the number of choices.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Notice a target color.",
+        "Select one matching visual example."
+      ],
+      "offers": [
+        "This is the first stage of the Colors journey, not a separate downloadable game."
+      ],
+      "interaction": {
+        "see": "A visible target example and several colored cards.",
+        "hear": "The visual stage can be followed without a recording; full recorded instructions remain missing.",
+        "do": "Tap the card matching the visible target.",
+        "feedback": "The correct card is recognized; another attempt is allowed after a mismatch.",
+        "progression": "Later Colors stages ask for several matches and then listening-based responses.",
+        "help": "Replay the example or use Help."
+      },
+      "tutorial": [
+        {
+          "title": "Look at the target",
+          "text": "Give the child time to inspect the example."
+        },
+        {
+          "title": "Compare the choices",
+          "text": "Look for a card with the same color."
+        },
+        {
+          "title": "Tap one match",
+          "text": "Choose a single matching card and observe the feedback."
+        },
+        {
+          "title": "Try the next color",
+          "text": "Continue or replay the example for another look."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/colors/multiple-matches/",
+        "/laboratories/trampolina/shapes/learn-shapes/"
+      ],
+      "artwork_route": "/laboratories/trampolina/colors/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/colors/color_journey.dart",
+          "lines": "172-257",
+          "supports": "Five stages, six colors, selection rules and difficulty-dependent choices."
+        },
+        {
+          "file": "lib/features/colors/color_journey_screen.dart",
+          "lines": "166-174,350-440",
+          "supports": "Listening tasks require a successfully played instruction; visual example replay and help."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Visual Color Recognition — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-colors-multiple-matches",
+      "kind": "activity",
+      "name": "Find All Matching Colors",
+      "route": "/laboratories/trampolina/colors/multiple-matches/",
+      "parent": "/laboratories/trampolina/colors/",
+      "platform": "trampolina",
+      "introduction": "Find every card that matches the visible target color.",
+      "purpose": "Extend one-to-one matching to a set of relevant choices.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "A gentle starting point around ages 2–3; multiple matches and listening tasks may suit older or more experienced children. Choose by readiness, not age alone.",
+      "difficulty": "Easy uses fewer options; higher levels present more distractors and multiple matching cards.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare each card with the same target.",
+        "Continue searching after finding one match."
+      ],
+      "offers": [
+        "This is the second stage of the Colors journey.",
+        "Every required matching card must be selected to finish the task."
+      ],
+      "interaction": {
+        "see": "A visible color example and a mixture of matching and non-matching cards.",
+        "hear": "Full spoken instructions are missing; the visible example remains available.",
+        "do": "Tap all cards with the target color.",
+        "feedback": "Selected correct matches are retained while the child searches for the remaining matches.",
+        "progression": "The same all-match idea returns later in the audio-only stage, once recordings are available.",
+        "help": "Replay the example and scan the board in a comfortable order."
+      },
+      "tutorial": [
+        {
+          "title": "Inspect the example",
+          "text": "Identify the target color together."
+        },
+        {
+          "title": "Find a first match",
+          "text": "Tap one card with the same color."
+        },
+        {
+          "title": "Keep looking",
+          "text": "Check every remaining card; there may be more than one match."
+        },
+        {
+          "title": "Complete the set",
+          "text": "Continue when all required matches have been found."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/colors/visual-recognition/",
+        "/laboratories/trampolina/colors/listening-recognition/"
+      ],
+      "artwork_route": "/laboratories/trampolina/colors/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/colors/color_journey.dart",
+          "lines": "172-257",
+          "supports": "Five stages, six colors, selection rules and difficulty-dependent choices."
+        },
+        {
+          "file": "lib/features/colors/color_journey_screen.dart",
+          "lines": "166-174,350-440",
+          "supports": "Listening tasks require a successfully played instruction; visual example replay and help."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Find All Matching Colors — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-colors-listening-recognition",
+      "kind": "activity",
+      "name": "Listening-Based Color Recognition",
+      "route": "/laboratories/trampolina/colors/listening-recognition/",
+      "parent": "/laboratories/trampolina/colors/",
+      "platform": "trampolina",
+      "introduction": "Three later Colors stages connect a recorded color name with a visual choice.",
+      "purpose": "Explore recognition from a spoken target without revealing the answer as a visible example.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "A gentle starting point around ages 2–3; multiple matches and listening tasks may suit older or more experienced children. Choose by readiness, not age alone.",
+      "difficulty": "The sequence moves through a one-card Yes/No decision, a two-card choice and an all-matches board.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Listening mechanics are implemented, but the activity is unavailable without approved target recordings. This website provides an explanatory guide only.",
+      "objectives": [
+        "Recognize the intended spoken color.",
+        "Select a response without a visible target sample."
+      ],
+      "offers": [
+        "The mechanics are implemented as stages three to five of the Colors journey.",
+        "These stages are currently unavailable because approved target recordings are missing."
+      ],
+      "interaction": {
+        "see": "One candidate card, two cards or a multi-card board, depending on the stage.",
+        "hear": "An approved same-language/same-voice target recording is required. It is currently missing; there is no synthesized substitute.",
+        "do": "After a real target instruction plays, answer Yes/No, choose one card or select all matches according to the stage.",
+        "feedback": "A listening answer is enabled only after successful target playback.",
+        "progression": "The three listening stages increase the type of decision; they do not currently unlock through a visual substitute.",
+        "help": "Replay the target instruction when available. Until recordings are supplied, use the visual Colors activities."
+      },
+      "tutorial": [
+        {
+          "title": "Understand current availability",
+          "text": "This is an explanatory guide; the listening stages are not currently available with real narration."
+        },
+        {
+          "title": "Listen when recordings become available",
+          "text": "Hear the complete color target before responding."
+        },
+        {
+          "title": "Use the stage’s response",
+          "text": "Answer whether the single card matches, choose between two cards or find all matches."
+        },
+        {
+          "title": "Replay if needed",
+          "text": "Replay the same instruction rather than guessing an unheard target."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/colors/visual-recognition/",
+        "/laboratories/trampolina/colors/multiple-matches/"
+      ],
+      "artwork_route": "/laboratories/trampolina/colors/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/colors/color_journey.dart",
+          "lines": "172-257",
+          "supports": "Five stages, six colors, selection rules and difficulty-dependent choices."
+        },
+        {
+          "file": "lib/features/colors/color_journey_screen.dart",
+          "lines": "166-174,350-440",
+          "supports": "Listening tasks require a successfully played instruction; visual example replay and help."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/MISSING_INSTRUCTION_AUDIO_INVENTORY.md",
+          "lines": "3-28",
+          "supports": "Missing full instruction recordings; distinction between visual and listening activities."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Listening-Based Color Recognition — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-numbers-recognition",
+      "kind": "activity",
+      "name": "Number Recognition",
+      "route": "/laboratories/trampolina/numbers/recognition/",
+      "parent": "/laboratories/trampolina/numbers/",
+      "platform": "trampolina",
+      "introduction": "Match a numeral with another representation of the same number.",
+      "purpose": "Build familiarity with selected numerals before extending to quantity tasks.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Counting and recognition may be starting points around ages 3–6. Addition, subtraction and more demanding quantities may suit ages 4–8 with adult guidance. These are approximate suggestions.",
+      "difficulty": "Select 1–5, 6–10 or 11–20; a smaller set provides a gentler start.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Notice the visual form of a numeral.",
+        "Choose a matching number among alternatives."
+      ],
+      "offers": [
+        "Recognition is a stage of the number curriculum and also appears in Challenge."
+      ],
+      "interaction": {
+        "see": "A number example and numeral choices.",
+        "hear": "Full recorded number instructions remain missing.",
+        "do": "Inspect the target and choose the same numeral.",
+        "feedback": "Correct selection completes the task; mismatches permit another attempt.",
+        "progression": "Learn connects the numeral with drawing and counting; Challenge revisits recognition and quantity.",
+        "help": "Use Help or return to the example, and reduce the selected range if needed."
+      },
+      "tutorial": [
+        {
+          "title": "Choose a range",
+          "text": "Select numbers the child is beginning to recognize."
+        },
+        {
+          "title": "Inspect the numeral",
+          "text": "Notice its visual shape."
+        },
+        {
+          "title": "Find the same number",
+          "text": "Choose the matching numeral from the options."
+        },
+        {
+          "title": "Connect it with counting",
+          "text": "Try the related counting activity with the same number."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/counting/",
+        "/laboratories/trampolina/numbers/number-writing/"
+      ],
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "55-70,110-145,191-240",
+          "supports": "Selected number ranges and letters; Learn, Challenge and Resume actions."
+        },
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/app/trampolina_app.dart",
+          "lines": "704-715",
+          "supports": "The app starts Numbers curriculum version 6, Shapes version 4 and Letters version 3."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Number Recognition — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-numbers-counting",
+      "kind": "activity",
+      "name": "Guided Counting",
+      "route": "/laboratories/trampolina/numbers/counting/",
+      "parent": "/laboratories/trampolina/numbers/",
+      "platform": "trampolina",
+      "introduction": "Count visible apples one at a time and connect the total with the selected number.",
+      "purpose": "Provide a concrete bridge between counting actions and a quantity.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Counting and recognition may be starting points around ages 3–6. Addition, subtraction and more demanding quantities may suit ages 4–8 with adult guidance. These are approximate suggestions.",
+      "difficulty": "The selected number determines the size of the set; begin within 1–5 before adding larger groups.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Attend to one object at a time.",
+        "Relate the count to the full set."
+      ],
+      "offers": [
+        "Guided Counting is one stage in the current number-learning sequence.",
+        "Show me again replays support without inventing an additional game mode."
+      ],
+      "interaction": {
+        "see": "A visible set of apples associated with the selected number.",
+        "hear": "Full spoken number instructions are missing, so an adult may count aloud with the child.",
+        "do": "Tap through the guided set, following the activity’s counting order.",
+        "feedback": "The guided count tracks progress through the visible objects.",
+        "progression": "Later stages compare groups and ask the child to choose a numeral for a quantity.",
+        "help": "Use Show me again and begin with a smaller range."
+      },
+      "tutorial": [
+        {
+          "title": "Look at the set",
+          "text": "Notice all the apples before starting."
+        },
+        {
+          "title": "Count one at a time",
+          "text": "Follow the guided tapping interaction without skipping an object."
+        },
+        {
+          "title": "Check the total",
+          "text": "Relate the completed count to the displayed number."
+        },
+        {
+          "title": "Try another representation",
+          "text": "Move on to a quantity group or numeral choice."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/quantity-matching/",
+        "/laboratories/trampolina/numbers/recognition/"
+      ],
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "55-70,110-145,191-240",
+          "supports": "Selected number ranges and letters; Learn, Challenge and Resume actions."
+        },
+        {
+          "file": "lib/app/trampolina_app.dart",
+          "lines": "704-715",
+          "supports": "The app starts Numbers curriculum version 6, Shapes version 4 and Letters version 3."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Guided Counting — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-numbers-quantity-matching",
+      "kind": "activity",
+      "name": "Quantities and Matching Groups",
+      "route": "/laboratories/trampolina/numbers/quantity-matching/",
+      "parent": "/laboratories/trampolina/numbers/",
+      "platform": "trampolina",
+      "introduction": "Connect a numeral with a group of objects, then connect a counted group with its numeral.",
+      "purpose": "Explore the same quantity through both symbols and visible sets.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Counting and recognition may be starting points around ages 3–6. Addition, subtraction and more demanding quantities may suit ages 4–8 with adult guidance. These are approximate suggestions.",
+      "difficulty": "Choices stay within the selected number range. Begin with smaller sets before larger quantities.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare the size of visible groups.",
+        "Choose a numeral representing a counted set."
+      ],
+      "offers": [
+        "The number curriculum includes finding the group with the target quantity.",
+        "A later task asks the child to count apples and choose their numeral."
+      ],
+      "interaction": {
+        "see": "Several quantity groups or a set of apples with numeral choices.",
+        "hear": "Full instructional narration is not yet available.",
+        "do": "Count carefully, then choose the matching group or number for that task.",
+        "feedback": "A correct correspondence completes the task; the child may retry a mismatch.",
+        "progression": "Both directions of matching follow earlier recognition and guided counting stages.",
+        "help": "Use the guide, count aloud together or return to Guided Counting."
+      },
+      "tutorial": [
+        {
+          "title": "Identify the target",
+          "text": "Determine whether this task starts with a numeral or a group."
+        },
+        {
+          "title": "Count the relevant objects",
+          "text": "Compare groups one at a time if necessary."
+        },
+        {
+          "title": "Choose the match",
+          "text": "Select the group with that many objects or the numeral for the set."
+        },
+        {
+          "title": "Check the relationship",
+          "text": "Discuss how the number and group represent the same quantity."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/counting/",
+        "/laboratories/trampolina/numbers/addition/"
+      ],
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "55-70,110-145,191-240",
+          "supports": "Selected number ranges and letters; Learn, Challenge and Resume actions."
+        },
+        {
+          "file": "lib/app/trampolina_app.dart",
+          "lines": "704-715",
+          "supports": "The app starts Numbers curriculum version 6, Shapes version 4 and Letters version 3."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Quantities and Matching Groups — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-numbers-number-writing",
+      "kind": "activity",
+      "name": "Number Writing",
+      "route": "/laboratories/trampolina/numbers/number-writing/",
+      "parent": "/laboratories/trampolina/numbers/",
+      "platform": "trampolina",
+      "introduction": "Follow a number’s visual guide and then explore drawing it independently.",
+      "purpose": "Offer practice noticing and reproducing a numeral’s visible form.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Counting and recognition may be starting points around ages 3–6. Addition, subtraction and more demanding quantities may suit ages 4–8 with adult guidance. These are approximate suggestions.",
+      "difficulty": "Start with a small selected set. Drawing tolerance is configurable and is not a handwriting assessment.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Follow a visible path.",
+        "Compare a drawn numeral with its example."
+      ],
+      "offers": [
+        "Tracing and free drawing are consecutive stages in the current number curriculum.",
+        "These stages belong to the learning sequence rather than a separate writing application."
+      ],
+      "interaction": {
+        "see": "A numeral, animated or visual stroke guidance and a drawing surface.",
+        "hear": "Full writing instructions are missing; the visual guide remains available.",
+        "do": "Follow the guide, then try drawing the numeral independently.",
+        "feedback": "Visual checks can invite another attempt or show guidance; they do not diagnose writing ability.",
+        "progression": "The sequence moves from supported tracing to independent drawing before later number tasks.",
+        "help": "Replay the demonstration or guide and try again at a comfortable pace."
+      },
+      "tutorial": [
+        {
+          "title": "Watch the guide",
+          "text": "Notice the starting point and direction of the numeral."
+        },
+        {
+          "title": "Trace the form",
+          "text": "Follow the visible path on the drawing surface."
+        },
+        {
+          "title": "Draw independently",
+          "text": "Try the number again in the free-drawing stage."
+        },
+        {
+          "title": "Use support when useful",
+          "text": "Replay the guide or return to the example without rushing."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/recognition/",
+        "/laboratories/trampolina/letters/letter-writing/"
+      ],
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/app/trampolina_app.dart",
+          "lines": "704-715",
+          "supports": "The app starts Numbers curriculum version 6, Shapes version 4 and Letters version 3."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Number Writing — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-shapes-learn-shapes",
+      "kind": "activity",
+      "name": "Learn Shapes",
+      "route": "/laboratories/trampolina/shapes/learn-shapes/",
+      "parent": "/laboratories/trampolina/shapes/",
+      "platform": "trampolina",
+      "introduction": "Meet, identify, match and trace a selected shape.",
+      "purpose": "Explore an outline through several connected representations.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Basic shapes may be a starting point around ages 2–4. Object matching, larger boards and additional shapes may suit ages 3–6 and beyond according to familiarity.",
+      "difficulty": "Start with a subset of circle, square, triangle and rectangle; Mixed practice revisits the base set.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Recognize a familiar outline.",
+        "Match a shape and follow its boundary."
+      ],
+      "offers": [
+        "The learning sequence includes demonstration, identification, matching and tracing.",
+        "Focused and Mixed practice are available from Shapes."
+      ],
+      "interaction": {
+        "see": "A clear shape example, answer choices or a tracing outline.",
+        "hear": "Full shape-name and instructional recordings are missing.",
+        "do": "Inspect the target, choose or match it, then follow its outline.",
+        "feedback": "Visual feedback supports retrying a choice or drawing attempt.",
+        "progression": "The selected shapes are explored through the learning stages; Mixed practice combines the base set.",
+        "help": "Use Help, replay or Resume where offered."
+      },
+      "tutorial": [
+        {
+          "title": "Choose shapes",
+          "text": "Select a manageable starting set."
+        },
+        {
+          "title": "Meet and identify",
+          "text": "Inspect the example and choose the matching outline."
+        },
+        {
+          "title": "Match the form",
+          "text": "Compare it with the matching space or choice."
+        },
+        {
+          "title": "Trace the boundary",
+          "text": "Follow the visual outline and return to the example if needed."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/shapes/real-world-objects/",
+        "/laboratories/trampolina/shapes/matching-holes/"
+      ],
+      "artwork_route": "/laboratories/trampolina/shapes/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/learning/shapes_category_screen.dart",
+          "lines": "294-378",
+          "supports": "Learn Shapes, real-world objects, matching holes, focused/mixed practice and resume."
+        },
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Learn Shapes — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-shapes-real-world-objects",
+      "kind": "activity",
+      "name": "Shapes and Real-World Objects",
+      "route": "/laboratories/trampolina/shapes/real-world-objects/",
+      "parent": "/laboratories/trampolina/shapes/",
+      "platform": "trampolina",
+      "introduction": "Find familiar objects that correspond to the requested shape.",
+      "purpose": "Connect a simple outline with objects beyond a geometric diagram.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Basic shapes may be a starting point around ages 2–4. Object matching, larger boards and additional shapes may suit ages 3–6 and beyond according to familiarity.",
+      "difficulty": "The experience moves from finding one relevant object to selecting all matching objects.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare an object’s visible form with an outline.",
+        "Recognize several examples of the same shape."
+      ],
+      "offers": [
+        "Object matching is a distinct selectable Shapes experience.",
+        "Later rounds require every relevant match rather than one choice."
+      ],
+      "interaction": {
+        "see": "A target shape and a selection of illustrated objects.",
+        "hear": "Full object-matching instructions are missing; an adult can describe the target.",
+        "do": "Select the object or all objects matching the target shape.",
+        "feedback": "Correct selections remain recognized until the required set is complete.",
+        "progression": "The later multi-match rounds add a search across several examples.",
+        "help": "Use Help and compare the outline with an object’s edges."
+      },
+      "tutorial": [
+        {
+          "title": "Inspect the shape",
+          "text": "Notice edges, corners or curves."
+        },
+        {
+          "title": "Compare each object",
+          "text": "Look for the same broad form in the illustrations."
+        },
+        {
+          "title": "Select the matches",
+          "text": "Choose one or every relevant object according to the current round."
+        },
+        {
+          "title": "Try a real example",
+          "text": "Afterward, look for a similar object nearby."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/shapes/learn-shapes/",
+        "/laboratories/trampolina/thinking-logic/sorting-categories/"
+      ],
+      "artwork_route": "/laboratories/trampolina/shapes/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/learning/shapes_category_screen.dart",
+          "lines": "294-378",
+          "supports": "Learn Shapes, real-world objects, matching holes, focused/mixed practice and resume."
+        },
+        {
+          "file": "lib/features/learning/shape_game.dart",
+          "lines": "73-80,148-227",
+          "supports": "Object matching and drag-to-hole rules, multi-match progression and extra difficulty shapes."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Shapes and Real-World Objects — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-shapes-matching-holes",
+      "kind": "activity",
+      "name": "Shapes and Matching Holes",
+      "route": "/laboratories/trampolina/shapes/matching-holes/",
+      "parent": "/laboratories/trampolina/shapes/",
+      "platform": "trampolina",
+      "introduction": "Fit each shape piece into the opening with the same outline.",
+      "purpose": "Provide a direct comparison between a piece and the space that accepts it.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Basic shapes may be a starting point around ages 2–4. Object matching, larger boards and additional shapes may suit ages 3–6 and beyond according to familiarity.",
+      "difficulty": "Larger boards add pieces. Medium and Hard can introduce additional outlines beyond the four starting shapes.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Compare a piece with an opening.",
+        "Coordinate a deliberate placement."
+      ],
+      "offers": [
+        "Drag-to-hole matching is a distinct Shapes experience.",
+        "Harder pools include shapes such as star, heart, oval, rhombus, pentagon, hexagon, trapezoid and semicircle."
+      ],
+      "interaction": {
+        "see": "Separate pieces and matching openings on a board.",
+        "hear": "Full recorded placement instructions are missing.",
+        "do": "Drag each piece into the opening with the same shape.",
+        "feedback": "Valid placements remain filled; an incorrect or already-filled opening does not accept the piece.",
+        "progression": "More pieces and a broader shape pool increase the visual challenge.",
+        "help": "Use Help or choose a smaller board. Compare the outline before dragging."
+      },
+      "tutorial": [
+        {
+          "title": "Choose a piece",
+          "text": "Look at its edges and curves."
+        },
+        {
+          "title": "Find the opening",
+          "text": "Compare the piece with the available spaces."
+        },
+        {
+          "title": "Drag to the match",
+          "text": "Place the piece inside the opening with the same outline."
+        },
+        {
+          "title": "Fill the board",
+          "text": "Repeat with the remaining pieces until every opening is filled."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/shapes/learn-shapes/",
+        "/laboratories/trampolina/memory-perception/picture-puzzle/"
+      ],
+      "artwork_route": "/laboratories/trampolina/shapes/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/learning/shapes_category_screen.dart",
+          "lines": "294-378",
+          "supports": "Learn Shapes, real-world objects, matching holes, focused/mixed practice and resume."
+        },
+        {
+          "file": "lib/features/learning/shape_game.dart",
+          "lines": "73-80,148-227",
+          "supports": "Object matching and drag-to-hole rules, multi-match progression and extra difficulty shapes."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Shapes and Matching Holes — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-letters-recognition",
+      "kind": "activity",
+      "name": "Letter Recognition",
+      "route": "/laboratories/trampolina/letters/recognition/",
+      "parent": "/laboratories/trampolina/letters/",
+      "platform": "trampolina",
+      "introduction": "Find a selected letter among other forms in the chosen alphabet.",
+      "purpose": "Offer visual familiarity with letters without presenting recognition as a reading assessment.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Often a starting point around ages 4–6, with earlier or later exploration according to interest. This is not a reading-readiness assessment.",
+      "difficulty": "Select a few letters or a wider alphabet set; Learn and Challenge use the chosen set.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Notice a letter’s distinctive visual features.",
+        "Recognize it among alternatives."
+      ],
+      "offers": [
+        "English, Hebrew and Russian use their own alphabet selections.",
+        "Recognition appears in the learning sequence and in Challenge."
+      ],
+      "interaction": {
+        "see": "A target letter and letter choices in the selected language.",
+        "hear": "Recorded letter names and complete instructions are still missing.",
+        "do": "Compare the target with the choices and select its match.",
+        "feedback": "The app provides visual correctness feedback and allows another attempt.",
+        "progression": "Learn connects recognition to examples and drawing; Challenge revisits the selected letters.",
+        "help": "Use the example or Help; an adult may supply the intended letter name."
+      },
+      "tutorial": [
+        {
+          "title": "Select the alphabet",
+          "text": "Use the language intended for this activity."
+        },
+        {
+          "title": "Choose a small letter set",
+          "text": "Start with familiar or interesting letters."
+        },
+        {
+          "title": "Find the requested form",
+          "text": "Compare its features and choose the match."
+        },
+        {
+          "title": "Explore the same letter",
+          "text": "Continue to its example or drawing guide."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/letters/letter-object-matching/",
+        "/laboratories/trampolina/letters/letter-writing/"
+      ],
+      "artwork_route": "/laboratories/trampolina/letters/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_catalog.dart",
+          "lines": "1-18",
+          "supports": "Numbers 1-20, base shapes and English/Hebrew/Russian alphabets."
+        },
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "55-70,110-145,191-240",
+          "supports": "Selected number ranges and letters; Learn, Challenge and Resume actions."
+        },
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Letter Recognition — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-letters-letter-object-matching",
+      "kind": "activity",
+      "name": "Letters, Objects and Words",
+      "route": "/laboratories/trampolina/letters/letter-object-matching/",
+      "parent": "/laboratories/trampolina/letters/",
+      "platform": "trampolina",
+      "introduction": "Connect a letter with its available language-specific example.",
+      "purpose": "Give a visible context for a letter while keeping language-specific exceptions accurate.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Often a starting point around ages 4–6, with earlier or later exploration according to interest. This is not a reading-readiness assessment.",
+      "difficulty": "Use the selected alphabet and a manageable set of letters; adult language support may be useful.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Attend to a letter in a meaningful example.",
+        "Compare the available object or word associations."
+      ],
+      "offers": [
+        "Object association is a stage of the current Letters curriculum.",
+        "For Russian Ъ, Ы and Ь, the activity uses a letter-in-word explanation instead of claiming every letter begins an object name."
+      ],
+      "interaction": {
+        "see": "A target letter and illustrated examples or a letter-in-word presentation.",
+        "hear": "Full recorded names and instructions are missing; pronunciation should be supported by an adult.",
+        "do": "Select the relevant example or inspect the letter’s role in the presented word.",
+        "feedback": "Visual feedback identifies the supported association.",
+        "progression": "This stage follows letter recognition and leads into drawing practice.",
+        "help": "Return to the letter example or use Help; do not guess an unheard pronunciation."
+      },
+      "tutorial": [
+        {
+          "title": "Look at the letter",
+          "text": "Identify the intended alphabet and target."
+        },
+        {
+          "title": "Inspect the examples",
+          "text": "Compare the available association with the letter."
+        },
+        {
+          "title": "Choose or discuss the match",
+          "text": "Select the supported example; use the letter-in-word explanation where applicable."
+        },
+        {
+          "title": "Continue to the form",
+          "text": "Try the drawing stage for the same letter."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/letters/recognition/",
+        "/laboratories/trampolina/letters/letter-writing/"
+      ],
+      "artwork_route": "/laboratories/trampolina/letters/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/core/learning/curriculum_catalog.dart",
+          "lines": "1-18",
+          "supports": "Numbers 1-20, base shapes and English/Hebrew/Russian alphabets."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Letters, Objects and Words — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-letters-letter-writing",
+      "kind": "activity",
+      "name": "Letter Writing",
+      "route": "/laboratories/trampolina/letters/letter-writing/",
+      "parent": "/laboratories/trampolina/letters/",
+      "platform": "trampolina",
+      "introduction": "Follow a visual letter guide and then try drawing the form independently.",
+      "purpose": "Provide an opportunity to explore stroke direction and letter shape.",
+      "audience": "Children exploring this learning sequence with parent or educator support.",
+      "age_guidance": "Often a starting point around ages 4–6, with earlier or later exploration according to interest. This is not a reading-readiness assessment.",
+      "difficulty": "Choose familiar letters and adjust support. The drawing feedback is practice guidance, not a handwriting diagnosis.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Follow the available visual path.",
+        "Compare an independent drawing with the example."
+      ],
+      "offers": [
+        "Guided tracing and free drawing are stages of the current Letters curriculum.",
+        "The chosen alphabet is preserved throughout the sequence."
+      ],
+      "interaction": {
+        "see": "The selected letter, a visual guide and a drawing surface.",
+        "hear": "Full letter-writing recordings remain missing.",
+        "do": "Follow the guide, then draw independently in the free-drawing stage.",
+        "feedback": "Visual guidance can invite another attempt; it does not establish a child’s writing proficiency.",
+        "progression": "Tracing provides support before free drawing. Return to the example as often as needed.",
+        "help": "Replay the guide, clear a practice attempt where offered and try again comfortably."
+      },
+      "tutorial": [
+        {
+          "title": "Inspect the form",
+          "text": "Look at the letter in the chosen language."
+        },
+        {
+          "title": "Follow the guide",
+          "text": "Notice the start and direction of the available path."
+        },
+        {
+          "title": "Try free drawing",
+          "text": "Draw the letter again without relying on the full guide."
+        },
+        {
+          "title": "Review gently",
+          "text": "Compare with the example, replay support or move to another letter."
+        }
+      ],
+      "parent_tips": [
+        "Choose a manageable set and allow the child time to compare.",
+        "Use the related guide or stop when the child prefers a break."
+      ],
+      "related": [
+        "/laboratories/trampolina/letters/recognition/",
+        "/laboratories/trampolina/numbers/number-writing/"
+      ],
+      "artwork_route": "/laboratories/trampolina/letters/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "110-163,246-264",
+          "supports": "Current Numbers, Letters and Shapes stages, challenge behavior and feedback."
+        },
+        {
+          "file": "lib/features/learning/curriculum_learning_screen.dart",
+          "lines": "536-551,758-1057",
+          "supports": "Actual counting, matching, drawing and letter-association interactions."
+        },
+        {
+          "file": "lib/core/learning/curriculum_catalog.dart",
+          "lines": "1-18",
+          "supports": "Numbers 1-20, base shapes and English/Hebrew/Russian alphabets."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved artwork and genuine tutorial screenshots are not yet available; the laboratory illustration is used.",
+        "Full instructional recordings remain missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Letter Writing — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-numbers-addition",
+      "kind": "activity",
+      "name": "Addition",
+      "route": "/laboratories/trampolina/numbers/addition/",
+      "parent": "/laboratories/trampolina/numbers/",
+      "platform": "trampolina",
+      "introduction": "Watch apples join and choose how many there are afterward.",
+      "purpose": "Connect combining two groups with a small-number equation.",
+      "audience": "Children familiar with counting small groups, with adult support for the operation.",
+      "age_guidance": "Often a starting point around ages 4–6; may also suit ages 7–8 practising early arithmetic. Familiarity with the chosen quantities matters more than age.",
+      "difficulty": "Choose up to 5, up to 10 or both. Three levels vary the answer choices and amount of initial demonstration.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Follow a visible change in a quantity.",
+        "Connect the resulting group with its numeral."
+      ],
+      "offers": [
+        "A dedicated activity within Numbers World.",
+        "The existing apples animation, Show me again help and supported ending options are preserved."
+      ],
+      "interaction": {
+        "see": "Apples joining into a combined group, an equation and numeral choices.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used. The established hint can use an existing support phrase; this does not imply full arithmetic narration.",
+        "do": "Watch the operation, count the resulting group and select its numeral.",
+        "feedback": "A correct answer is shown with the completed equation. A mismatch allows retrying or replaying support.",
+        "progression": "Manual practice works toward four independent successes; Smart progression considers performance at harder levels. Assisted completion remains a valid supported ending.",
+        "help": "Show me again replays the existing visual help. Another game, Back to Numbers World, Finish together and Finish for today are available in the relevant states."
+      },
+      "tutorial": [
+        {
+          "title": "Choose a range",
+          "text": "Use quantities up to 5, up to 10 or both according to familiarity."
+        },
+        {
+          "title": "Watch the apples join",
+          "text": "Observe which group changes before selecting an answer."
+        },
+        {
+          "title": "Count what is there now",
+          "text": "Use the resulting visible quantity to choose the numeral."
+        },
+        {
+          "title": "Replay when needed",
+          "text": "Choose Show me again to revisit the established demonstration."
+        },
+        {
+          "title": "Finish comfortably",
+          "text": "Continue the short run or use the supported ending and return to Numbers World."
+        }
+      ],
+      "parent_tips": [
+        "Use real objects to act out the same combining or taking-away idea.",
+        "Allow the established visual help to complete before discussing an answer."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/subtraction/",
+        "/laboratories/trampolina/numbers/counting/",
+        "/laboratories/trampolina/numbers/quantity-matching/"
+      ],
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/math/math_session.dart",
+          "lines": "6-9,47-115,131-145",
+          "supports": "Addition/subtraction, difficulty, ranges, demonstrations and completion rules."
+        },
+        {
+          "file": "lib/features/math/math_screens.dart",
+          "lines": "295-415",
+          "supports": "Apples demonstration, Show me again, choices, Another game and Back to Numbers World."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved arithmetic artwork and tutorial screenshots are not supplied; the Numbers illustration is used.",
+        "Full arithmetic instruction recordings are missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Addition — provisional Trampolina illustration"
+    },
+    {
+      "id": "trampolina-numbers-subtraction",
+      "kind": "activity",
+      "name": "Subtraction",
+      "route": "/laboratories/trampolina/numbers/subtraction/",
+      "parent": "/laboratories/trampolina/numbers/",
+      "platform": "trampolina",
+      "introduction": "Watch apples move away and choose how many there are afterward.",
+      "purpose": "Connect taking a visible group away with a small-number equation.",
+      "audience": "Children familiar with counting small groups, with adult support for the operation.",
+      "age_guidance": "Often a starting point around ages 4–6; may also suit ages 7–8 practising early arithmetic. Familiarity with the chosen quantities matters more than age.",
+      "difficulty": "Choose up to 5, up to 10 or both. Three levels vary the answer choices and amount of initial demonstration.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "objectives": [
+        "Follow a visible change in a quantity.",
+        "Connect the resulting group with its numeral."
+      ],
+      "offers": [
+        "A dedicated activity within Numbers World.",
+        "The existing apples animation, Show me again help and supported ending options are preserved."
+      ],
+      "interaction": {
+        "see": "Apples moving away from the starting group, an equation and numeral choices.",
+        "hear": "The visual activity is implemented in the development app. Full instructional recordings are not yet available; existing praise and retry clips are separate. No substitute voice or language is used. The established hint can use an existing support phrase; this does not imply full arithmetic narration.",
+        "do": "Watch the operation, count the resulting group and select its numeral.",
+        "feedback": "A correct answer is shown with the completed equation. A mismatch allows retrying or replaying support.",
+        "progression": "Manual practice works toward four independent successes; Smart progression considers performance at harder levels. Assisted completion remains a valid supported ending.",
+        "help": "Show me again replays the existing visual help. Another game, Back to Numbers World, Finish together and Finish for today are available in the relevant states."
+      },
+      "tutorial": [
+        {
+          "title": "Choose a range",
+          "text": "Use quantities up to 5, up to 10 or both according to familiarity."
+        },
+        {
+          "title": "Watch the apples move away",
+          "text": "Observe which group changes before selecting an answer."
+        },
+        {
+          "title": "Count what is there now",
+          "text": "Use the resulting visible quantity to choose the numeral."
+        },
+        {
+          "title": "Replay when needed",
+          "text": "Choose Show me again to revisit the established demonstration."
+        },
+        {
+          "title": "Finish comfortably",
+          "text": "Continue the short run or use the supported ending and return to Numbers World."
+        }
+      ],
+      "parent_tips": [
+        "Use real objects to act out the same combining or taking-away idea.",
+        "Allow the established visual help to complete before discussing an answer."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/addition/",
+        "/laboratories/trampolina/numbers/counting/",
+        "/laboratories/trampolina/numbers/quantity-matching/"
+      ],
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/features/math/math_session.dart",
+          "lines": "6-9,47-115,131-145",
+          "supports": "Addition/subtraction, difficulty, ranges, demonstrations and completion rules."
+        },
+        {
+          "file": "lib/features/math/math_screens.dart",
+          "lines": "295-415",
+          "supports": "Apples demonstration, Show me again, choices, Another game and Back to Numbers World."
+        },
+        {
+          "file": "lib/core/audio/instruction_catalog.dart",
+          "lines": "12-44",
+          "supports": "Only approved bundled same-language/same-voice instructional recordings are available; no fallback."
+        },
+        {
+          "file": "docs/RESEARCH_EVIDENCE_REGISTER.md",
+          "lines": "27-44",
+          "supports": "Approximate developmental starting suggestions are product proposals, not validated norms or limits."
+        }
+      ],
+      "missing": [
+        "Dedicated approved arithmetic artwork and tutorial screenshots are not supplied; the Numbers illustration is used.",
+        "Full arithmetic instruction recordings are missing."
+      ],
+      "screenshots": [],
+      "artwork_status": "owner-review-required",
+      "artwork_alt": "Subtraction — provisional Trampolina illustration"
+    },
+    {
+      "platform": "trampolina",
+      "age_guidance": "Counting and recognition may be starting points around ages 3–6. Addition, subtraction and more demanding quantities may suit ages 4–8 with adult guidance. These are approximate suggestions.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "artwork_route": "/laboratories/trampolina/numbers/",
+      "artwork_status": "owner-review-required",
+      "missing": [
+        "Full number instruction recordings remain missing.",
+        "The current Numbers illustration awaits owner approval.",
+        "Approved individual arithmetic artwork and tutorial screenshots have not been supplied to the website."
+      ],
+      "id": "trampolina-numbers-challenge",
+      "kind": "activity",
+      "name": "Number Challenge",
+      "route": "/laboratories/trampolina/numbers/challenge/",
+      "parent": "/laboratories/trampolina/numbers/",
+      "signature": false,
+      "artwork_alt": "Number Challenge — provisional Trampolina illustration",
+      "screenshots": [],
+      "introduction": "Revisit selected numbers through a short mix of numeral recognition and quantity questions.",
+      "purpose": "Offer a chance to revisit familiar concepts with less step-by-step introduction.",
+      "audience": "Children already familiar with the corresponding learning sequence, with adult help available.",
+      "difficulty": "Five questions drawn from the selected number set, alternating recognition with quantity selection.",
+      "objectives": [
+        "Recognize familiar concepts in a different order.",
+        "Apply an idea previously explored with a guide."
+      ],
+      "offers": [
+        "A selectable practice mode in the mobile app, not a new standalone game.",
+        "Return to the learning sequence whenever a concept needs another introduction."
+      ],
+      "interaction": {
+        "see": "A numeral or visible quantity with answer choices.",
+        "hear": "Full instructional recordings remain missing; this guide does not imply recorded targets are available.",
+        "do": "Choose the matching numeral or the numeral corresponding to the quantity shown.",
+        "feedback": "Visual feedback recognizes a correct response and allows another attempt when a choice does not match.",
+        "progression": "The mode uses five questions rather than the complete multi-stage learning sequence.",
+        "help": "Use Help or return to the laboratory and choose Learn for a guided introduction."
+      },
+      "tutorial": [
+        {
+          "title": "Start with familiar concepts",
+          "text": "Select a number range and a set of numbers the child has already explored."
+        },
+        {
+          "title": "Inspect the current target",
+          "text": "Look at the visible example or quantity before comparing the choices."
+        },
+        {
+          "title": "Choose a response",
+          "text": "Select the match and use the visual feedback to continue or try again."
+        },
+        {
+          "title": "Complete or return to Learn",
+          "text": "Work through the short sequence at a comfortable pace. Return to a guided activity whenever useful."
+        }
+      ],
+      "parent_tips": [
+        "Offer this mode after exploring the corresponding concept together.",
+        "A short practice result is not a developmental assessment."
+      ],
+      "related": [
+        "/laboratories/trampolina/numbers/recognition/",
+        "/laboratories/trampolina/numbers/"
+      ],
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "153-163,246-264",
+          "supports": "Challenge uses recognition, with alternating number quantity questions; answer feedback."
+        },
+        {
+          "file": "lib/app/app_controller.dart",
+          "lines": "1671-1684",
+          "supports": "Five selected-concept questions in challenge mode."
+        },
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "191-207",
+          "supports": "Actual Mixed practice or Challenge selection action."
+        }
+      ]
+    },
+    {
+      "platform": "trampolina",
+      "age_guidance": "Often a starting point around ages 4–6, with earlier or later exploration according to interest. This is not a reading-readiness assessment.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "artwork_route": "/laboratories/trampolina/letters/",
+      "artwork_status": "owner-review-required",
+      "missing": [
+        "Approved letter-name and full instruction recordings are missing.",
+        "The current Letters illustration awaits owner approval.",
+        "Language pronunciation review and approved website tutorial screenshots remain outstanding."
+      ],
+      "id": "trampolina-letters-challenge",
+      "kind": "activity",
+      "name": "Letter Challenge",
+      "route": "/laboratories/trampolina/letters/challenge/",
+      "parent": "/laboratories/trampolina/letters/",
+      "signature": false,
+      "artwork_alt": "Letter Challenge — provisional Trampolina illustration",
+      "screenshots": [],
+      "introduction": "Recognize selected letters in a short sequence of visual questions.",
+      "purpose": "Offer a chance to revisit familiar concepts with less step-by-step introduction.",
+      "audience": "Children already familiar with the corresponding learning sequence, with adult help available.",
+      "difficulty": "Five recognition questions drawn from the selected letters and language.",
+      "objectives": [
+        "Recognize familiar concepts in a different order.",
+        "Apply an idea previously explored with a guide."
+      ],
+      "offers": [
+        "A selectable practice mode in the mobile app, not a new standalone game.",
+        "Return to the learning sequence whenever a concept needs another introduction."
+      ],
+      "interaction": {
+        "see": "Letter forms and recognition choices in the selected alphabet.",
+        "hear": "Full instructional recordings remain missing; this guide does not imply recorded targets are available.",
+        "do": "Choose the letter matching the recognition target.",
+        "feedback": "Visual feedback recognizes a correct response and allows another attempt when a choice does not match.",
+        "progression": "The mode uses five questions rather than the complete multi-stage learning sequence.",
+        "help": "Use Help or return to the laboratory and choose Learn for a guided introduction."
+      },
+      "tutorial": [
+        {
+          "title": "Start with familiar concepts",
+          "text": "Choose the intended alphabet and a manageable letter set."
+        },
+        {
+          "title": "Inspect the current target",
+          "text": "Look at the visible example or quantity before comparing the choices."
+        },
+        {
+          "title": "Choose a response",
+          "text": "Select the match and use the visual feedback to continue or try again."
+        },
+        {
+          "title": "Complete or return to Learn",
+          "text": "Work through the short sequence at a comfortable pace. Return to a guided activity whenever useful."
+        }
+      ],
+      "parent_tips": [
+        "Offer this mode after exploring the corresponding concept together.",
+        "A short practice result is not a developmental assessment."
+      ],
+      "related": [
+        "/laboratories/trampolina/letters/recognition/",
+        "/laboratories/trampolina/letters/"
+      ],
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "153-163,246-264",
+          "supports": "Challenge uses recognition, with alternating number quantity questions; answer feedback."
+        },
+        {
+          "file": "lib/app/app_controller.dart",
+          "lines": "1671-1684",
+          "supports": "Five selected-concept questions in challenge mode."
+        },
+        {
+          "file": "lib/features/learning/curriculum_entry_screen.dart",
+          "lines": "191-207",
+          "supports": "Actual Mixed practice or Challenge selection action."
+        }
+      ]
+    },
+    {
+      "platform": "trampolina",
+      "age_guidance": "Basic shapes may be a starting point around ages 2–4. Object matching, larger boards and additional shapes may suit ages 3–6 and beyond according to familiarity.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "Implemented in the mobile development app; presented here as an information guide. Public release availability has not been announced.",
+      "artwork_route": "/laboratories/trampolina/shapes/",
+      "artwork_status": "owner-review-required",
+      "missing": [
+        "Spoken shape instructions remain missing.",
+        "A separately selectable free-drawing Shapes activity is not verified in the current flow.",
+        "The current Shapes illustration awaits owner approval; individual mode screenshots are missing."
+      ],
+      "id": "trampolina-shapes-mixed-practice",
+      "kind": "activity",
+      "name": "Mixed Shape Practice",
+      "route": "/laboratories/trampolina/shapes/mixed-practice/",
+      "parent": "/laboratories/trampolina/shapes/",
+      "signature": false,
+      "artwork_alt": "Mixed Shape Practice — provisional Trampolina illustration",
+      "screenshots": [],
+      "introduction": "Revisit the four base shapes in a short mixed recognition sequence.",
+      "purpose": "Offer a chance to revisit familiar concepts with less step-by-step introduction.",
+      "audience": "Children already familiar with the corresponding learning sequence, with adult help available.",
+      "difficulty": "Five recognition questions from circle, square, triangle and rectangle. The available recognition settings control the choices.",
+      "objectives": [
+        "Recognize familiar concepts in a different order.",
+        "Apply an idea previously explored with a guide."
+      ],
+      "offers": [
+        "A selectable practice mode in the mobile app, not a new standalone game.",
+        "Return to the learning sequence whenever a concept needs another introduction."
+      ],
+      "interaction": {
+        "see": "Shape recognition choices from the complete base set.",
+        "hear": "Full instructional recordings remain missing; this guide does not imply recorded targets are available.",
+        "do": "Select the shape or required matches for the recognition task.",
+        "feedback": "Visual feedback recognizes a correct response and allows another attempt when a choice does not match.",
+        "progression": "The mode uses five questions rather than the complete multi-stage learning sequence.",
+        "help": "Use Help or return to the laboratory and choose Learn for a guided introduction."
+      },
+      "tutorial": [
+        {
+          "title": "Start with familiar concepts",
+          "text": "Open Mixed practice from Shapes; it revisits the four base shapes."
+        },
+        {
+          "title": "Inspect the current target",
+          "text": "Look at the visible example or quantity before comparing the choices."
+        },
+        {
+          "title": "Choose a response",
+          "text": "Select the match and use the visual feedback to continue or try again."
+        },
+        {
+          "title": "Complete or return to Learn",
+          "text": "Work through the short sequence at a comfortable pace. Return to a guided activity whenever useful."
+        }
+      ],
+      "parent_tips": [
+        "Offer this mode after exploring the corresponding concept together.",
+        "A short practice result is not a developmental assessment."
+      ],
+      "related": [
+        "/laboratories/trampolina/shapes/learn-shapes/",
+        "/laboratories/trampolina/shapes/"
+      ],
+      "sources": [
+        {
+          "file": "lib/core/learning/curriculum_session.dart",
+          "lines": "153-163,246-264",
+          "supports": "Challenge uses recognition, with alternating number quantity questions; answer feedback."
+        },
+        {
+          "file": "lib/app/app_controller.dart",
+          "lines": "1671-1684",
+          "supports": "Five selected-concept questions in challenge mode."
+        },
+        {
+          "file": "lib/features/learning/shapes_category_screen.dart",
+          "lines": "345-363",
+          "supports": "Actual Mixed practice or Challenge selection action."
+        }
+      ]
+    }
+  ]
+}

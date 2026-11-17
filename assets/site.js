@@ -48,15 +48,17 @@ function renderBreathingScene(scene, snapshot, reduced=false) {
   scene.dataset.phase=String(snapshot.index);
   scene.querySelector('.frame-trace').style.strokeDashoffset=String(1-snapshot.routeProgress);
 }
-function initializeLivingOrbs() {
-  const orbs = [...document.querySelectorAll('.living-orb')], visible = new Set();
+function initializeLivingOrbs(scope=document) {
+  const orbs = [...scope.querySelectorAll('.living-orb')], visible = new Set();
   const sync = () => orbs.forEach(orb => orb.toggleAttribute('data-dormant',document.hidden || !visible.has(orb)));
   const observer = new IntersectionObserver(items => { items.forEach(item => item.isIntersecting ? visible.add(item.target) : visible.delete(item.target)); sync(); });
   orbs.forEach(orb => { orb.toggleAttribute('data-dormant',true); observer.observe(orb); });
   document.addEventListener('visibilitychange',sync);
   // bfcache restores reconnect observers; no animation is left running off-page.
-  window.addEventListener('pagehide',()=>{observer.disconnect();visible.clear();sync();});
-  window.addEventListener('pageshow',()=>{orbs.forEach(orb=>observer.observe(orb));sync();});
+  const hide=()=>{observer.disconnect();visible.clear();sync();};
+  const show=()=>{orbs.forEach(orb=>observer.observe(orb));sync();};
+  window.addEventListener('pagehide',hide);window.addEventListener('pageshow',show);
+  return ()=>{hide();document.removeEventListener('visibilitychange',sync);window.removeEventListener('pagehide',hide);window.removeEventListener('pageshow',show);};
 }
 if (typeof module !== 'undefined') module.exports = { searchEntries, BREATHING_PATTERNS, breathingSnapshot, BreathingClock, renderBreathingOrb };
 if (typeof document !== 'undefined') {
@@ -179,7 +181,62 @@ function initializeCentralTree(tree) {
     tree.toggleAttribute('data-connected',true);
   }
   const observer=new ResizeObserver(connect);observer.observe(tree);connect();
-  window.addEventListener('pagehide',()=>observer.disconnect());
-  window.addEventListener('pageshow',()=>observer.observe(tree));
+  const hide=()=>observer.disconnect(),show=()=>observer.observe(tree);
+  window.addEventListener('pagehide',hide);window.addEventListener('pageshow',show);
+  return ()=>{hide();window.removeEventListener('pagehide',hide);window.removeEventListener('pageshow',show);};
 }
 if(typeof document!=='undefined')document.querySelectorAll('.neural-tree').forEach(initializeCentralTree);
+
+function initializeHomepageExplorer() {
+  const container=document.querySelector('.home-page .laboratory-explorer');
+  if(!container)return;
+  const grid=container.querySelector('.platform-grid'),host=document.createElement('div');
+  const status=document.createElement('p');status.className='explorer-load-status';status.setAttribute('role','status');
+  host.className='inline-exploration';host.hidden=true;container.append(status,host);
+  const allowed=['trampolina','dr-quiz','neuropath','neurobreath'];
+  let sequence=0,request=null,dispose=[],lastKey=null;
+  const clear=()=>{dispose.forEach(fn=>fn());dispose=[];host.replaceChildren();};
+  const selected=()=>{const key=new URLSearchParams(location.search).get('laboratory');return allowed.includes(key)?key:null;};
+  async function show(key,{push=false,focus=false}={}) {
+    const current=++sequence;request?.abort();request=null;
+    if(!key){
+      clear();host.hidden=true;grid.hidden=false;status.textContent='';delete container.dataset.explorer;
+      if(push){const url=new URL(location.href);url.searchParams.delete('laboratory');url.hash='laboratories';history.pushState(null,'',url);}
+      if(focus&&lastKey)grid.querySelector('[data-platform="'+lastKey+'"] .laboratory-toggle').focus({preventScroll:true});
+      return;
+    }
+    status.textContent='Opening laboratories…';request=new AbortController();
+    try {
+      const response=await fetch('/laboratories/'+key+'/explore/',{signal:request.signal});
+      if(!response.ok)throw Error('Explorer unavailable');
+      const documentCopy=new DOMParser().parseFromString(await response.text(),'text/html');
+      const tree=documentCopy.querySelector('[data-central-tree="'+key+'"]');
+      if(!tree)throw Error('Explorer unavailable');
+      if(current!==sequence)return;
+      clear();
+      const title=tree.querySelector('h1'),heading=document.createElement('h3');
+      heading.textContent=title.textContent;heading.tabIndex=-1;title.replaceWith(heading);
+      tree.querySelectorAll('[data-close-explorer]').forEach(link=>link.addEventListener('click',event=>{
+        if(event.button||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+        event.preventDefault();show(null,{push:true,focus:true});
+      }));
+      grid.hidden=true;host.hidden=false;host.append(tree);container.dataset.explorer=key;lastKey=key;
+      dispose.push(initializeCentralTree(tree.querySelector('.neural-tree')),initializeLivingOrbs(tree));
+      status.textContent='';
+      if(push){const url=new URL(location.href);url.searchParams.set('laboratory',key);url.hash='laboratories';history.pushState(null,'',url);}
+      if(focus){heading.focus({preventScroll:true});container.scrollIntoView({block:'start',behavior:'instant'});}
+    } catch(error) {
+      if(current!==sequence||error.name==='AbortError')return;
+      status.replaceChildren(document.createTextNode('The explorer could not open here. '));
+      const link=document.createElement('a');link.href='/laboratories/'+key+'/explore/';link.textContent='Open the laboratory page';status.append(link);
+    }
+  }
+  grid.querySelectorAll('.laboratory-toggle').forEach(link=>link.addEventListener('click',event=>{
+    if(event.button||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+    const key=link.closest('[data-platform]').dataset.platform;
+    if(allowed.includes(key)){event.preventDefault();show(key,{push:true,focus:true});}
+  }));
+  window.addEventListener('popstate',()=>show(selected(),{focus:true}));
+  show(selected());
+}
+if(typeof document!=='undefined')initializeHomepageExplorer();

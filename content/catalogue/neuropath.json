@@ -1,0 +1,1278 @@
+{
+  "platform": "neuropath",
+  "source": {
+    "repository": "NeuroPath",
+    "revision": "c9b4ac3a044a16cb242411caf9839cd284fed6f2",
+    "inspection": "Read-only source and approved-specification review on 2026-11-17. No app execution, edits, device interaction or fresh app test run. Ages are editorial guidance, not a verified app rating."
+  },
+  "entries": [
+    {
+      "id": "neuropath",
+      "kind": "platform",
+      "name": "NeuroPath",
+      "route": "/laboratories/neuropath/",
+      "parent": "/#laboratories",
+      "platform": "neuropath",
+      "introduction": "Nine cognitive games connect four laboratories: Memory, Attention, Logic and Flexibility. Choose a focused puzzle or build a varied training routine.",
+      "purpose": "Offer structured cognitive engagement through associative recall, visual selection, flexible classification and deliberate reasoning. The activities are designed for practice and curiosity, not diagnosis or treatment.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Automatic is the default. Per-game Easy, Medium and Hard choices are available, with custom options for supported experiences.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Explore different ways of remembering, attending and reasoning.",
+        "Choose a comfortable challenge and revisit instructions without rushing.",
+        "Review personal in-app performance rather than interpret results as an IQ or health score."
+      ],
+      "offers": [
+        "Memory Lab brings together word associations, ordered light events and change detection.",
+        "Attention Lab combines target selection with careful orbital planning.",
+        "Logic Lab contains the signature NeuroWeave and CodeQuest experiences.",
+        "Flexibility Lab explores changing classifications and hidden transformations."
+      ],
+      "interaction": {
+        "see": "Four laboratories and their nine games, with game descriptions, difficulty choices and three clearly marked signature experiences.",
+        "hear": "Optional interaction tones and ambient sound. No speech recording pack is supplied.",
+        "do": "Open a laboratory, review a game and select guided practice or a difficulty before playing in the application.",
+        "feedback": "Completed play records genuine activity-specific measures such as accuracy, moves or sequence recall. These are app performance indicators, not medical assessments.",
+        "progression": "Automatic difficulty responds to comparable recent results. Manual choices remain in control; separate daily plans offer 5, 10, 15, 20 or 30 minute estimated routines.",
+        "help": "Open How to Play for contextual instructions and guided practice. Pause when needed; use the application Back or Home action to leave through its save flow. Completed attempts offer replay and analysis."
+      },
+      "tutorial": [
+        {
+          "title": "Choose a laboratory",
+          "text": "Open Choose a Game and select Memory, Attention, Logic or Flexibility."
+        },
+        {
+          "title": "Review an experience",
+          "text": "Read its purpose and rules, select difficulty and try the interactive tutorial when useful."
+        },
+        {
+          "title": "Play at a comfortable pace",
+          "text": "Use help or pause, finish the activity and review its own results. Return to the laboratory to choose another game."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/memory/",
+        "/laboratories/neuropath/attention/",
+        "/laboratories/neuropath/logic/",
+        "/laboratories/neuropath/flexibility/"
+      ],
+      "artwork_route": "/laboratories/neuropath/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/models.dart",
+          "lines": "15–42",
+          "supports": "Exact nine-game inventory, domain placement and three signature games."
+        },
+        {
+          "file": "lib/core/training.dart",
+          "lines": "4–46",
+          "supports": "Daily duration choices and automatic/manual difficulty."
+        },
+        {
+          "file": "NeuroPath_MASTER_PRD.md",
+          "lines": "7–18,89–108",
+          "supports": "Languages, accessibility, responsible scope and future-only services."
+        }
+      ],
+      "missing": [
+        "No verified public-release availability, product-specific effectiveness study or numeric age rating is supplied.",
+        "Online multiplayer, live cloud synchronization and production email verification are future work, not catalogue features."
+      ]
+    },
+    {
+      "id": "neuropath-memory",
+      "kind": "lab",
+      "name": "Memory Lab",
+      "route": "/laboratories/neuropath/memory/",
+      "parent": "/laboratories/neuropath/",
+      "platform": "neuropath",
+      "introduction": "Practice forming and retrieving associations, remembering ordered signals and noticing changes in recently seen information.",
+      "purpose": "Explore distinct recall demands without treating every memory task as the same exercise.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Word sets progress from 3 to 5 to 7–9 pairs; EchoShift from 3 to 5 to 7 events. Light Paths 2.0 has six configurable tiers.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Associate words with meanings.",
+        "Retain and reproduce a visual sequence.",
+        "Compare remembered events with their later versions."
+      ],
+      "offers": [
+        "Memory Lab uses real Spanish words and meaning associations.",
+        "Light Paths 2.0 adds order, direction, color and pulse memory.",
+        "EchoShift asks which event details changed after a hidden interval."
+      ],
+      "interaction": {
+        "see": "A choice of Memory Lab, Light Paths 2.0, EchoShift.",
+        "hear": "Optional application effects and ambience; spoken instruction recordings are not supplied.",
+        "do": "Choose a game, review its instructions and difficulty, then use guided practice or start a session in the application.",
+        "feedback": "Each experience reports its own recorded attempts, moves or task outcomes. Game performance is not a diagnosis.",
+        "progression": "Word sets progress from 3 to 5 to 7–9 pairs; EchoShift from 3 to 5 to 7 events. Light Paths 2.0 has six configurable tiers.",
+        "help": "Open How to Play for contextual instructions and guided practice. Pause when needed; use the application Back or Home action to leave through its save flow. Completed attempts offer replay and analysis."
+      },
+      "tutorial": [
+        {
+          "title": "Choose an activity",
+          "text": "Read the cards and choose the task you want to explore."
+        },
+        {
+          "title": "Try its instructions",
+          "text": "Open the game details and interactive tutorial; written help explains the current action."
+        },
+        {
+          "title": "Review and return",
+          "text": "Pause or save when needed. After completion, review results, replay or return to this laboratory."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/memory/memory-activity/",
+        "/laboratories/neuropath/memory/light-paths/",
+        "/laboratories/neuropath/memory/echoshift/"
+      ],
+      "artwork_route": "/laboratories/neuropath/memory/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/models.dart",
+          "lines": "15–42",
+          "supports": "Laboratory membership and game order."
+        },
+        {
+          "file": "lib/ui/screens.dart",
+          "lines": "176–227",
+          "supports": "Actual laboratory cards link to the existing game details."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "262–415",
+          "supports": "Interactive instructions for laboratory games."
+        },
+        {
+          "file": "NeuroPath_MASTER_PRD.md",
+          "lines": "25–75",
+          "supports": "Approved laboratory purposes and game rules."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied."
+      ]
+    },
+    {
+      "id": "neuropath-attention",
+      "kind": "lab",
+      "name": "Attention Lab",
+      "route": "/laboratories/neuropath/attention/",
+      "parent": "/laboratories/neuropath/",
+      "platform": "neuropath",
+      "introduction": "Explore visual target selection and controlled planning among competing elements.",
+      "purpose": "Practice reading the relevant rule, comparing visual information and making deliberate selections.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Target Hunt grows from 9 to 16 to 25–36 symbols. OrbitMind uses 2, 3 or 4 rings.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Check the requested attributes before responding.",
+        "Distinguish relevant targets from distractors.",
+        "Plan a sequence of spatial adjustments."
+      ],
+      "offers": [
+        "Target Hunt uses shape, color or combined target rules.",
+        "OrbitMind requires rotations and aligned exchanges between neighboring rings.",
+        "Each game reports measures appropriate to its own task rather than a common diagnostic score."
+      ],
+      "interaction": {
+        "see": "A choice of Target Hunt, OrbitMind.",
+        "hear": "Optional application effects and ambience; spoken instruction recordings are not supplied.",
+        "do": "Choose a game, review its instructions and difficulty, then use guided practice or start a session in the application.",
+        "feedback": "Each experience reports its own recorded attempts, moves or task outcomes. Game performance is not a diagnosis.",
+        "progression": "Target Hunt grows from 9 to 16 to 25–36 symbols. OrbitMind uses 2, 3 or 4 rings.",
+        "help": "Open How to Play for contextual instructions and guided practice. Pause when needed; use the application Back or Home action to leave through its save flow. Completed attempts offer replay and analysis."
+      },
+      "tutorial": [
+        {
+          "title": "Choose an activity",
+          "text": "Read the cards and choose the task you want to explore."
+        },
+        {
+          "title": "Try its instructions",
+          "text": "Open the game details and interactive tutorial; written help explains the current action."
+        },
+        {
+          "title": "Review and return",
+          "text": "Pause or save when needed. After completion, review results, replay or return to this laboratory."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/attention/target-hunt/",
+        "/laboratories/neuropath/attention/orbitmind/"
+      ],
+      "artwork_route": "/laboratories/neuropath/attention/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/models.dart",
+          "lines": "15–42",
+          "supports": "Laboratory membership and game order."
+        },
+        {
+          "file": "lib/ui/screens.dart",
+          "lines": "176–227",
+          "supports": "Actual laboratory cards link to the existing game details."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "262–415",
+          "supports": "Interactive instructions for laboratory games."
+        },
+        {
+          "file": "NeuroPath_MASTER_PRD.md",
+          "lines": "25–75",
+          "supports": "Approved laboratory purposes and game rules."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied."
+      ]
+    },
+    {
+      "id": "neuropath-logic",
+      "kind": "lab",
+      "name": "Logic Lab",
+      "route": "/laboratories/neuropath/logic/",
+      "parent": "/laboratories/neuropath/",
+      "platform": "neuropath",
+      "introduction": "Plan energy-aware routes in NeuroWeave and reason from aggregate feedback in CodeQuest. Both are GlionIQ Signature Games.",
+      "purpose": "Offer two distinct forms of reasoning: evaluating routes under constraints and narrowing possibilities through evidence.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "NeuroWeave offers increasingly complex networks and custom configurations. CodeQuest uses 1, 2 or 3 secret rows, with selectable modes and AI levels.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Compare possible moves with the stated goal.",
+        "Use feedback to revise a working hypothesis.",
+        "Distinguish game rules from assumptions about how a puzzle should behave."
+      ],
+      "offers": [
+        "NeuroWeave combines connected routes, energy, keys and challenges.",
+        "CodeQuest combines private numeric codes with row-level deduction.",
+        "Gold signature framing identifies these games within Logic Lab; it does not create another laboratory or confer a scoring advantage."
+      ],
+      "interaction": {
+        "see": "A choice of NeuroWeave, CodeQuest.",
+        "hear": "Optional application effects and ambience; spoken instruction recordings are not supplied.",
+        "do": "Choose a game, review its instructions and difficulty, then use guided practice or start a session in the application.",
+        "feedback": "Each experience reports its own recorded attempts, moves or task outcomes. Game performance is not a diagnosis.",
+        "progression": "NeuroWeave offers increasingly complex networks and custom configurations. CodeQuest uses 1, 2 or 3 secret rows, with selectable modes and AI levels.",
+        "help": "Open How to Play for contextual instructions and guided practice. Pause when needed; use the application Back or Home action to leave through its save flow. Completed attempts offer replay and analysis."
+      },
+      "tutorial": [
+        {
+          "title": "Choose an activity",
+          "text": "Read the cards and choose the task you want to explore."
+        },
+        {
+          "title": "Try its instructions",
+          "text": "Open the game details and interactive tutorial; written help explains the current action."
+        },
+        {
+          "title": "Review and return",
+          "text": "Pause or save when needed. After completion, review results, replay or return to this laboratory."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/logic/neuroweave/",
+        "/laboratories/neuropath/logic/codequest/"
+      ],
+      "artwork_route": "/laboratories/neuropath/logic/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/models.dart",
+          "lines": "15–42",
+          "supports": "Laboratory membership and game order."
+        },
+        {
+          "file": "lib/ui/screens.dart",
+          "lines": "176–227",
+          "supports": "Actual laboratory cards link to the existing game details."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "262–415",
+          "supports": "Interactive instructions for laboratory games."
+        },
+        {
+          "file": "NeuroPath_MASTER_PRD.md",
+          "lines": "25–75",
+          "supports": "Approved laboratory purposes and game rules."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied."
+      ]
+    },
+    {
+      "id": "neuropath-flexibility",
+      "kind": "lab",
+      "name": "Flexibility Lab",
+      "route": "/laboratories/neuropath/flexibility/",
+      "parent": "/laboratories/neuropath/",
+      "platform": "neuropath",
+      "introduction": "Switch between active classification rules and investigate consistent transformations through experiments.",
+      "purpose": "Practice adapting a response to the current rule and changing a hypothesis when evidence calls for it.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Rule Shift progresses through 2, 3 or 4 rules. Synapse Forge adds 1, 2 or 3 changing attributes.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Read the active rule before each choice.",
+        "Set aside a previous classification when it changes.",
+        "Test one transformation at a time."
+      ],
+      "offers": [
+        "Rule Shift changes the attribute used to classify a symbol.",
+        "Synapse Forge presents input/output examples and a real Test hypothesis control.",
+        "The experiences use visible rules or consistent evidence, not arbitrary trick answers."
+      ],
+      "interaction": {
+        "see": "A choice of Rule Shift, Synapse Forge.",
+        "hear": "Optional application effects and ambience; spoken instruction recordings are not supplied.",
+        "do": "Choose a game, review its instructions and difficulty, then use guided practice or start a session in the application.",
+        "feedback": "Each experience reports its own recorded attempts, moves or task outcomes. Game performance is not a diagnosis.",
+        "progression": "Rule Shift progresses through 2, 3 or 4 rules. Synapse Forge adds 1, 2 or 3 changing attributes.",
+        "help": "Open How to Play for contextual instructions and guided practice. Pause when needed; use the application Back or Home action to leave through its save flow. Completed attempts offer replay and analysis."
+      },
+      "tutorial": [
+        {
+          "title": "Choose an activity",
+          "text": "Read the cards and choose the task you want to explore."
+        },
+        {
+          "title": "Try its instructions",
+          "text": "Open the game details and interactive tutorial; written help explains the current action."
+        },
+        {
+          "title": "Review and return",
+          "text": "Pause or save when needed. After completion, review results, replay or return to this laboratory."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/flexibility/rule-shift/",
+        "/laboratories/neuropath/flexibility/synapse-forge/"
+      ],
+      "artwork_route": "/laboratories/neuropath/flexibility/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/models.dart",
+          "lines": "15–42",
+          "supports": "Laboratory membership and game order."
+        },
+        {
+          "file": "lib/ui/screens.dart",
+          "lines": "176–227",
+          "supports": "Actual laboratory cards link to the existing game details."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "262–415",
+          "supports": "Interactive instructions for laboratory games."
+        },
+        {
+          "file": "NeuroPath_MASTER_PRD.md",
+          "lines": "25–75",
+          "supports": "Approved laboratory purposes and game rules."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied."
+      ]
+    },
+    {
+      "id": "neuropath-memory-activity",
+      "kind": "activity",
+      "name": "Memory Lab",
+      "route": "/laboratories/neuropath/memory/memory-activity/",
+      "parent": "/laboratories/neuropath/memory/",
+      "platform": "neuropath",
+      "introduction": "Build a mental link between a real Spanish word and a familiar meaning, then retrieve that association in two different ways.",
+      "purpose": "Exercise associative encoding, typed recall and recognition using a small set of real words.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Easy: 3 word pairs. Medium: 5. Hard: 7–9. Automatic selects a level from comparable recent performance.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Form a memorable word–meaning association.",
+        "Recall the word without seeing the original pair.",
+        "Recognize its meaning among shuffled alternatives."
+      ],
+      "offers": [
+        "A visible study stage before recall begins.",
+        "Typed Spanish-word recall followed by meaning recognition.",
+        "A curated vocabulary with meanings in the selected interface language."
+      ],
+      "interaction": {
+        "see": "A small set of Spanish words paired with familiar meanings; later, a meaning prompt or shuffled recognition choices.",
+        "hear": "Pronunciation recordings have not been supplied. Optional touch effects and ambience do not replace spoken words.",
+        "do": "Study the pairs, choose Ready, type the Spanish word for each meaning, then choose meanings during recognition.",
+        "feedback": "Answers are compared with the actual word or meaning. Correct answers and errors are recorded across the two response stages.",
+        "progression": "Larger pair sets increase the amount to remember. Recall and recognition are distinct stages of the same game.",
+        "help": "Create a mental image linking each word to its meaning. Open How to Play or guided practice; pause and save before leaving when needed."
+      },
+      "tutorial": [
+        {
+          "title": "Study the pairs",
+          "text": "Look at each Spanish word and its meaning. Build an association that makes the pair memorable."
+        },
+        {
+          "title": "Hide the study display",
+          "text": "Choose Ready when you want to begin recall. The original pairs are hidden."
+        },
+        {
+          "title": "Recall the word",
+          "text": "Read the meaning prompt, type its Spanish word and submit one answer at a time."
+        },
+        {
+          "title": "Recognize the meaning",
+          "text": "Next, choose the matching meaning for each word from the shuffled options."
+        },
+        {
+          "title": "Review or replay",
+          "text": "Complete the remaining items and review the recorded outcome. Use replay, help or return to Memory Lab."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/memory/light-paths/",
+        "/laboratories/neuropath/memory/echoshift/"
+      ],
+      "artwork_route": "/laboratories/neuropath/memory/memory-activity/",
+      "signature": true,
+      "sources": [
+        {
+          "file": "lib/games/cognitive.dart",
+          "lines": "3–32,218–238",
+          "supports": "Real word set, pair counts and recall/recognition transitions."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "263–278",
+          "supports": "The three actual tutorial stages."
+        },
+        {
+          "file": "lib/core/audio.dart",
+          "lines": "4–51",
+          "supports": "Bundled effects and ambience only."
+        }
+      ],
+      "missing": [
+        "Optional pronunciation recordings are unavailable.",
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied."
+      ],
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/memory-activity-development-screen.png",
+          "alt": "Memory Lab application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-light-paths",
+      "kind": "activity",
+      "name": "Light Paths 2.0",
+      "route": "/laboratories/neuropath/memory/light-paths/",
+      "parent": "/laboratories/neuropath/memory/",
+      "platform": "neuropath",
+      "introduction": "Follow a sequence of numbered neural lights, then reconstruct the events in the displayed direction. Advanced rounds add colors, pulse durations and distracting signals.",
+      "purpose": "Explore ordered visual recall while keeping the required direction and enabled signal attributes in mind.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Six tiers use 6, 9, 12, 15, 18 or 24 nodes. Initial sequence ranges are 3–4, 5–7, 4–7, 5–8, 6–10 and 8–12 events. Automatic and manual/custom settings are available.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Recall a sequence forward or in reverse.",
+        "Remember enabled color and short/long pulse information.",
+        "Separate solid numbered signals from marked distractions."
+      ],
+      "offers": [
+        "Forward, Reverse and Mixed directions, shown before the sequence.",
+        "Four named colors with shape cues and explicit Short/Long controls.",
+        "Correction without advancing past a wrong answer, plus hints, retry, undo and skip.",
+        "Ten interactive tutorial lessons introducing each layer of the task."
+      ],
+      "interaction": {
+        "see": "A numbered neural network, a clear direction cue and solid lit nodes. Higher tiers may add color, pulse duration, layout changes between rounds and hollow × distractions.",
+        "hear": "Optional game effects and haptics. Sound is not required to reproduce the visible sequence; no narration pack is supplied.",
+        "do": "Watch the sequence without tapping. During recall, choose enabled color/pulse information and the next node in the indicated order. Measured presses are an optional alternative to explicit Short/Long controls.",
+        "feedback": "A wrong response leaves the same sequence position open for correction. Results distinguish first responses, corrections, assistance and skipped rounds.",
+        "progression": "Automatic mode reviews multiple rounds and changes demands gradually. Manual settings remain in control. A soft daily target and configurable free-play round count do not interrupt an active round.",
+        "help": "Use Next hint, Watch this round again, Undo last response or Skip round. Help use is recorded as assistance. Save and return to Memory Lab preserves progress."
+      },
+      "tutorial": [
+        {
+          "title": "Read the direction",
+          "text": "Check whether this round asks for Forward, Reverse or a direction within Mixed practice."
+        },
+        {
+          "title": "Watch the sequence",
+          "text": "Choose Show sequence and observe the solid numbered lights. Ignore hollow × lights, edge lights and traveling sparks."
+        },
+        {
+          "title": "Remember whole events",
+          "text": "When enabled, notice each event’s node, color and short or long pulse. The same attributes stay with the event when recall is reversed."
+        },
+        {
+          "title": "Reproduce the events",
+          "text": "Wait for recall to open. Choose color and pulse controls when shown, then select each remembered node in the indicated direction."
+        },
+        {
+          "title": "Correct or ask for help",
+          "text": "A mismatch keeps the current position. Try again or use a hint, replay, undo or skip; those forms of assistance are recorded."
+        },
+        {
+          "title": "Continue or save",
+          "text": "At a round boundary choose another round or finish. Use Save and return to Memory Lab if leaving before completion."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/memory/memory-activity/",
+        "/laboratories/neuropath/memory/echoshift/"
+      ],
+      "artwork_route": "/laboratories/neuropath/memory/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/core/controller.dart",
+          "lines": "270–290",
+          "supports": "New sessions select Light Paths V2 without creating a duplicate game."
+        },
+        {
+          "file": "lib/games/light_paths.dart",
+          "lines": "5–55,160–234",
+          "supports": "Six tiers, settings, events and reverse direction."
+        },
+        {
+          "file": "lib/l10n/light_paths_copy.dart",
+          "lines": "4–116",
+          "supports": "Current UI instructions and help controls."
+        },
+        {
+          "file": "docs/LIGHT_PATHS_2.md",
+          "lines": "25–44",
+          "supports": "Implemented behavior, correction, tutorials and progression."
+        }
+      ],
+      "missing": [
+        "A final approved game illustration is not supplied; the existing 3D proposal awaits owner review.",
+        "The included actual V2 development screenshot retains an older checkerboard-backed app logo treatment.",
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied.",
+        "This separate game illustration is provisional and awaits owner approval; it is not an official logo."
+      ],
+      "artwork_file": "public/images/laboratories/neuropath/catalogue/light-paths-illustration-provisional.png",
+      "artwork_status": "provisional-owner-review",
+      "artwork_alt": "Blue and gold crystal nodes joined by a luminous sequence",
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/light-paths-2-tutorial-development-screen.png",
+          "alt": "Light Paths 2.0 application development screen",
+          "caption": "Actual native development capture of the Light Paths 2.0 tutorial introduction. The older app logo treatment is visible; it is not the approved website logo presentation.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-echoshift",
+      "kind": "activity",
+      "name": "EchoShift",
+      "route": "/laboratories/neuropath/memory/echoshift/",
+      "parent": "/laboratories/neuropath/memory/",
+      "platform": "neuropath",
+      "introduction": "Study a sequence of events, hold their details in mind, then decide which events have changed.",
+      "purpose": "Practice comparing a remembered event with a later version while separating its shape, color and number.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Easy: 3 events. Medium: 5. Hard: 7. A short hidden interval separates study and recall.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Encode more than one attribute of an event.",
+        "Retain the event at its numbered position.",
+        "Judge change using what was actually shown."
+      ],
+      "offers": [
+        "Original events with shape, color and numeric value.",
+        "A hidden interval rather than an answer visible beside the question.",
+        "Changed and Unchanged responses for each corresponding event."
+      ],
+      "interaction": {
+        "see": "Numbered events during study, followed by their later versions after a hidden interval.",
+        "hear": "Optional touch effects and ambience; the task is visual and does not require recorded speech.",
+        "do": "Study each event, choose Ready, then decide whether any of its attributes changed.",
+        "feedback": "Each judgment is compared with the original event and recorded before the next event appears.",
+        "progression": "Higher levels increase the event set from 3 to 5 to 7.",
+        "help": "Compare one attribute at a time. How to Play and guided practice explain the sequence; pause/save controls are available."
+      },
+      "tutorial": [
+        {
+          "title": "Study each position",
+          "text": "Notice the shape, color and number belonging to each numbered event."
+        },
+        {
+          "title": "Start the recall interval",
+          "text": "Choose Ready; the original display is hidden for a short interval."
+        },
+        {
+          "title": "Compare from memory",
+          "text": "Inspect the later event at the corresponding position and decide Changed or Unchanged."
+        },
+        {
+          "title": "Complete the set",
+          "text": "Judge each event separately, then review the outcome or return to Memory Lab."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/memory/memory-activity/",
+        "/laboratories/neuropath/memory/light-paths/"
+      ],
+      "artwork_route": "/laboratories/neuropath/memory/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/games/cognitive.dart",
+          "lines": "52–82,253–260,343–346",
+          "supports": "Event construction, answers and two-second hidden interval."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "297–312",
+          "supports": "Actual study and comparison instructions."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied.",
+        "This separate game illustration is provisional and awaits owner approval; it is not an official logo."
+      ],
+      "artwork_file": "public/images/laboratories/neuropath/catalogue/echoshift-illustration-provisional.png",
+      "artwork_status": "provisional-owner-review",
+      "artwork_alt": "A luminous blue hourglass with echoes of geometric shapes",
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/echoshift-development-screen.png",
+          "alt": "EchoShift application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-target-hunt",
+      "kind": "activity",
+      "name": "Target Hunt",
+      "route": "/laboratories/neuropath/attention/target-hunt/",
+      "parent": "/laboratories/neuropath/attention/",
+      "platform": "neuropath",
+      "introduction": "Find every symbol that matches the displayed target rule while leaving distractors unselected.",
+      "purpose": "Practice deliberate visual selection using the attributes that matter for the current task.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Easy: 9 symbols with a shape rule. Medium: 16 symbols with a color rule. Hard: 25 or 36 symbols with both attributes.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Read a target rule before responding.",
+        "Scan a display systematically.",
+        "Check every selected symbol against the requested attributes."
+      ],
+      "offers": [
+        "Shape, color and combined target rules.",
+        "Randomized symbol positions with genuine matching targets.",
+        "Found-target marking and recorded selection errors."
+      ],
+      "interaction": {
+        "see": "A target rule above a grid of differently shaped and colored symbols.",
+        "hear": "Optional interaction tones and ambience; no audio-only target instructions are claimed.",
+        "do": "Scan the grid and tap every symbol matching the stated rule.",
+        "feedback": "Correct targets remain marked; wrong selections count as errors. A previously selected cell cannot be counted again.",
+        "progression": "More symbols and combined attributes increase visual demands. The round ends when every target is found.",
+        "help": "Scan one row at a time and check only the requested attributes. How to Play, guided practice and pause are available."
+      },
+      "tutorial": [
+        {
+          "title": "Read the rule",
+          "text": "Check whether this round asks for a shape, a color or both."
+        },
+        {
+          "title": "Scan steadily",
+          "text": "Work across the grid in a consistent order and compare each symbol with the rule."
+        },
+        {
+          "title": "Select matches",
+          "text": "Tap matching symbols and leave distractors alone. Found targets remain marked."
+        },
+        {
+          "title": "Finish the search",
+          "text": "Continue until every matching target is found, then review the recorded selections."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/attention/orbitmind/",
+        "/laboratories/neuropath/flexibility/rule-shift/"
+      ],
+      "artwork_route": "/laboratories/neuropath/attention/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/games/cognitive.dart",
+          "lines": "83–112,261–275",
+          "supports": "Target predicates, grid sizes and scoring."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "314–329",
+          "supports": "Displayed tutorial instructions."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied.",
+        "This separate game illustration is provisional and awaits owner approval; it is not an official logo."
+      ],
+      "artwork_file": "public/images/laboratories/neuropath/catalogue/target-hunt-illustration-provisional.png",
+      "artwork_status": "provisional-owner-review",
+      "artwork_alt": "Gold target rings surrounded by blue crystal distractors",
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/target-hunt-development-screen.png",
+          "alt": "Target Hunt application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-orbitmind",
+      "kind": "activity",
+      "name": "OrbitMind",
+      "route": "/laboratories/neuropath/attention/orbitmind/",
+      "parent": "/laboratories/neuropath/attention/",
+      "platform": "neuropath",
+      "introduction": "Rotate orbital rings and exchange aligned tokens until each token reaches its specified ring and position.",
+      "purpose": "Practice keeping track of spatial goals while planning a sequence of controlled moves.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Easy: 2 rings. Medium: 3. Hard: 4. Each ring has six slots, and generated puzzles require an exchange as well as rotations.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Track both token identity and position.",
+        "Plan alignment before making an exchange.",
+        "Compare the resulting arrangement with the whole goal."
+      ],
+      "offers": [
+        "One-step left and right ring rotations.",
+        "Exchanges between neighboring rings only when their slots align.",
+        "Move counting and a clear target arrangement."
+      ],
+      "interaction": {
+        "see": "Orbital rings, distinguishable tokens and target ring/slot information.",
+        "hear": "Optional interaction effects and ambience; no spoken spatial directions are supplied.",
+        "do": "Rotate rings to align adjacent tokens, exchange them, and rotate toward their target slots.",
+        "feedback": "Every valid move changes the actual arrangement and increments the move count. Completion requires all token identities and slots to match.",
+        "progression": "Additional rings create more relationships to coordinate. The moves are reversible and generated boards are checked for solvability.",
+        "help": "Align slots before exchanging tokens, then check the token’s required ring and slot. Use written help, guided practice or pause."
+      },
+      "tutorial": [
+        {
+          "title": "Compare with the goal",
+          "text": "Find the required token and slot for each ring."
+        },
+        {
+          "title": "Align two rings",
+          "text": "Rotate a ring one slot at a time until neighboring token positions align."
+        },
+        {
+          "title": "Exchange tokens",
+          "text": "Use Exchange with next ring when alignment permits it."
+        },
+        {
+          "title": "Place every token",
+          "text": "Continue rotations and exchanges until every identity and position matches the target."
+        },
+        {
+          "title": "Review the route",
+          "text": "Look at the completed move count, replay the attempt or return to Attention Lab."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/attention/target-hunt/",
+        "/laboratories/neuropath/logic/neuroweave/"
+      ],
+      "artwork_route": "/laboratories/neuropath/attention/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/games/cognitive.dart",
+          "lines": "113–146,276–293",
+          "supports": "Ring counts, necessary exchanges, legal moves and completion."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "331–346",
+          "supports": "Actual rotation/exchange tutorial."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied.",
+        "This separate game illustration is provisional and awaits owner approval; it is not an official logo."
+      ],
+      "artwork_file": "public/images/laboratories/neuropath/catalogue/orbitmind-illustration-provisional.png",
+      "artwork_status": "provisional-owner-review",
+      "artwork_alt": "Blue orbital rings carrying gold tokens",
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/orbitmind-development-screen.png",
+          "alt": "OrbitMind application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-neuroweave",
+      "kind": "activity",
+      "name": "NeuroWeave",
+      "route": "/laboratories/neuropath/logic/neuroweave/",
+      "parent": "/laboratories/neuropath/logic/",
+      "platform": "neuropath",
+      "introduction": "Plan a path through a luminous directed network while balancing energy, required targets and the exact goal of the puzzle.",
+      "purpose": "Explore constrained route planning and deliberate decisions using visible connection rules and energy consequences.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Typical initial networks use about 5–7, 8–12 or 13–20 nodes. Custom networks and objectives are supported; these ranges are not a fixed maximum.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Read the objective before choosing a route.",
+        "Compare edge costs and node effects with available energy.",
+        "Use required targets, keys and challenges to plan a valid solution."
+      ],
+      "offers": [
+        "Connected forward routes with clear start and destination markers.",
+        "Energy, chargers, drains, keys, barriers and challenge nodes.",
+        "Reach, shortest-route, maximum-energy and combined objectives.",
+        "Custom authored networks, evolving connections and optional hidden connections."
+      ],
+      "interaction": {
+        "see": "A directed network with start, destination, energy, required threshold and move count. Number labels identify nodes; they do not specify numerical visiting order.",
+        "hear": "Optional effects and ambience. The rules, energy and challenges remain visible as text and graphics.",
+        "do": "Follow legal connected edges, consider energy effects, collect required keys or targets and answer a node challenge when presented.",
+        "feedback": "Remaining energy and moves update after actions. Memory challenges conceal the map and relevant history until answered. Challenges trigger once; recovery retains their outcomes.",
+        "progression": "More nodes, node types and objectives create richer decisions. Current routes prohibit revisits. Recovery restarts the route with retained outcomes and counts as assistance.",
+        "help": "Read the stated goal and energy before each move. Use How to Play, progressive hints, zoom/pan and Fit network. Pause or save before leaving."
+      },
+      "tutorial": [
+        {
+          "title": "Read the full goal",
+          "text": "Check destination, required energy, intermediate targets and whether the goal is reach, shortest route, maximum energy or a combination."
+        },
+        {
+          "title": "Inspect legal connections",
+          "text": "Start at the marked node and follow connected arrows. A smaller node number can be a valid next move; numeric order is irrelevant."
+        },
+        {
+          "title": "Budget the next move",
+          "text": "Each edge normally costs one energy. Account for chargers, drains, keys, barriers and any required targets before committing."
+        },
+        {
+          "title": "Handle challenges",
+          "text": "Read the displayed challenge and its consequences. For a memory question the relevant map and history are hidden until the answer is committed."
+        },
+        {
+          "title": "Reach the objective or recover",
+          "text": "Complete the exact goal. If needed, use recovery with retained challenge outcomes; it is recorded as help rather than a new reward."
+        },
+        {
+          "title": "Analyze and return",
+          "text": "Review the route and energy changes, replay or return to Logic Lab."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/logic/codequest/",
+        "/laboratories/neuropath/attention/orbitmind/"
+      ],
+      "artwork_route": "/laboratories/neuropath/logic/neuroweave/",
+      "signature": true,
+      "sources": [
+        {
+          "file": "lib/core/controller.dart",
+          "lines": "270",
+          "supports": "New sessions select the current NeuroWeave engine."
+        },
+        {
+          "file": "lib/games/neuroweave.dart",
+          "lines": "77–224,250–263,587–665",
+          "supports": "Directed graph validation, energy recovery and memory concealment."
+        },
+        {
+          "file": "lib/l10n/strings.dart",
+          "lines": "430–434",
+          "supports": "Current user-visible rules including no revisits and retained recovery outcomes."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "399–414",
+          "supports": "Actual route-planning tutorial."
+        },
+        {
+          "file": "NeuroPath_MASTER_PRD.md",
+          "lines": "70–75",
+          "supports": "Approved objectives, node types and custom network scope."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied."
+      ],
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/neuroweave-development-screen.png",
+          "alt": "NeuroWeave application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-codequest",
+      "kind": "activity",
+      "name": "CodeQuest",
+      "route": "/laboratories/neuropath/logic/codequest/",
+      "parent": "/laboratories/neuropath/logic/",
+      "platform": "neuropath",
+      "introduction": "Decode private numeric rows by comparing your guesses with aggregate feedback and narrowing the remaining possibilities.",
+      "purpose": "Practice deduction, hypothesis tracking and evidence-based elimination without revealing which individual digit produced each feedback symbol.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Easy: 1 secret row. Medium: 2. Hard: 3. Each row contains three distinct digits from 1–9. Computer opponents offer Beginner, Advanced and Expert strengths.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Separate a correct digit from a correctly placed digit.",
+        "Compare evidence within the same row.",
+        "Revise private hypotheses without changing submitted guesses."
+      ],
+      "offers": [
+        "Solo practice, three computer-opponent strengths and a local two-player duel on one device.",
+        "Editable or randomized secrets that are hidden after Confirm & Lock.",
+        "Private cell annotations with undo; public submitted guess history.",
+        "Optional 30, 60 or 120 second turn clock, off by default."
+      ],
+      "interaction": {
+        "see": "Private setup rows followed by public guess history and target/molecule feedback totals for each row.",
+        "hear": "Optional touch effects and ambience; spoken questions and online voice interaction are not part of this game.",
+        "do": "Lock valid secret rows, choose one opposing row per turn and submit three distinct digits. Use the feedback totals to revise your next guess.",
+        "feedback": "A target counts a correct digit in its correct position. A molecule counts a correct digit elsewhere in that same row. Feedback is aggregate and never labels individual guessed digits.",
+        "progression": "More rows increase the deduction task. In competitive modes the second player receives an equalizing final turn; optional timeouts pass the turn without a guess.",
+        "help": "Use the visible history and private annotations to record hypotheses. Undo changes marks, not submitted guesses. How to Play and guided practice explain the feedback."
+      },
+      "tutorial": [
+        {
+          "title": "Choose the mode",
+          "text": "Select solo practice, a computer strength or a local two-player duel, then choose the row difficulty and optional clock."
+        },
+        {
+          "title": "Set and lock the secret",
+          "text": "Enter three different digits from 1–9 in each row, or randomize. Edit before Confirm & Lock and keep private setup hidden from the other player."
+        },
+        {
+          "title": "Submit one row guess",
+          "text": "Choose an unsolved opposing row and submit three different digits."
+        },
+        {
+          "title": "Interpret totals",
+          "text": "Targets indicate exact positions; molecules indicate correct digits in other positions within that row. The totals do not identify specific digits."
+        },
+        {
+          "title": "Narrow the possibilities",
+          "text": "Compare successive row results, mark private hypotheses and undo marks when your reasoning changes."
+        },
+        {
+          "title": "Finish fairly",
+          "text": "Solve the required rows. Local duel uses a handoff screen and an equalizing final turn; review the outcome and return to Logic Lab."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/logic/neuroweave/",
+        "/laboratories/neuropath/flexibility/synapse-forge/"
+      ],
+      "artwork_route": "/laboratories/neuropath/logic/codequest/",
+      "signature": true,
+      "sources": [
+        {
+          "file": "lib/games/codequest.dart",
+          "lines": "16–62,65–105,108–219",
+          "supports": "Distinct numeric rows, aggregate feedback, modes, annotation and turn handling."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "382–397",
+          "supports": "Actual setup/guess/deduction tutorial."
+        },
+        {
+          "file": "NeuroPath_MASTER_PRD.md",
+          "lines": "63–68",
+          "supports": "Approved modes, clocks and equalizing final turn."
+        }
+      ],
+      "missing": [
+        "Online remote duel is future work; current two-player play uses one device.",
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied."
+      ],
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/codequest-development-screen.png",
+          "alt": "CodeQuest application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-rule-shift",
+      "kind": "activity",
+      "name": "Rule Shift",
+      "route": "/laboratories/neuropath/flexibility/rule-shift/",
+      "parent": "/laboratories/neuropath/flexibility/",
+      "platform": "neuropath",
+      "introduction": "Classify each symbol using the highlighted attribute, then adapt when the active rule changes.",
+      "purpose": "Practice attending to the current rule and setting aside a classification that no longer applies.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Easy: 2 rules over 8 items, changing every 4. Medium: 3 rules over 12 items, every 3. Hard: 4 rules over 16 items, every 2.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Identify which attribute currently matters.",
+        "Select a category using that attribute alone.",
+        "Adjust to a rule change before the next response."
+      ],
+      "offers": [
+        "Shape, color, size and fill classifications as difficulty increases.",
+        "A visible active-rule label before a choice.",
+        "A fixed, internally consistent rule schedule for each round."
+      ],
+      "interaction": {
+        "see": "One symbol, a highlighted active rule and its category choices.",
+        "hear": "Optional interaction effects and ambience; the current rule is readable on screen.",
+        "do": "Classify the symbol only by the active attribute, then check the rule again for the next item.",
+        "feedback": "Each response is evaluated against the active rule and recorded as correct or an error. The following item may use a new rule.",
+        "progression": "Higher difficulty adds attributes and changes the rule more frequently.",
+        "help": "Treat the highlighted rule as the only classification that matters now. Use How to Play, guided practice, hints or pause."
+      },
+      "tutorial": [
+        {
+          "title": "Read the active rule",
+          "text": "Check whether this response is about shape, color, size or fill."
+        },
+        {
+          "title": "Classify the symbol",
+          "text": "Choose the matching category using only that attribute."
+        },
+        {
+          "title": "Check again",
+          "text": "Before answering the next item, look for a changed rule rather than repeating the previous classification."
+        },
+        {
+          "title": "Complete and review",
+          "text": "Work through the remaining items and review your recorded responses."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/flexibility/synapse-forge/",
+        "/laboratories/neuropath/attention/target-hunt/"
+      ],
+      "artwork_route": "/laboratories/neuropath/flexibility/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/games/cognitive.dart",
+          "lines": "148–167,203–207,294–304",
+          "supports": "Rule count, item count, change interval and scoring."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "348–363",
+          "supports": "Actual rule-switching tutorial."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied.",
+        "This separate game illustration is provisional and awaits owner approval; it is not an official logo."
+      ],
+      "artwork_file": "public/images/laboratories/neuropath/catalogue/rule-shift-illustration-provisional.png",
+      "artwork_status": "provisional-owner-review",
+      "artwork_alt": "Blue, gold and violet shapes linked by switching arrows",
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/rule-shift-development-screen.png",
+          "alt": "Rule Shift application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    },
+    {
+      "id": "neuropath-synapse-forge",
+      "kind": "activity",
+      "name": "Synapse Forge",
+      "route": "/laboratories/neuropath/flexibility/synapse-forge/",
+      "parent": "/laboratories/neuropath/flexibility/",
+      "platform": "neuropath",
+      "introduction": "Investigate how a set of symbols changes, test your own inputs and use the discovered rule to transform new examples.",
+      "purpose": "Explore hypothesis testing and consistent rule application by comparing evidence from input/output pairs.",
+      "audience": "Independent readers who enjoy visual, memory and reasoning challenges.",
+      "age_guidance": "Choose by reading comfort and puzzle familiarity. A numeric age recommendation has not yet been published.",
+      "difficulty": "Easy changes 1 attribute, Medium 2 and Hard 3. Each attribute cycles through four values; response sets contain 3, 4 or 5 queries.",
+      "languages": [
+        "English",
+        "Hebrew",
+        "Russian"
+      ],
+      "status": "In development. Application mechanics are documented here; this is not a playable web game.",
+      "objectives": [
+        "Compare several input/output examples.",
+        "Test one changed attribute while holding others steady.",
+        "Apply a discovered transformation consistently to unfamiliar input."
+      ],
+      "offers": [
+        "Example transformations with visible inputs and outputs.",
+        "A working Test hypothesis control for user-selected input.",
+        "Independent deduction queries using the same hidden rules."
+      ],
+      "interaction": {
+        "see": "Example input/output symbol groups, editable experiment input and a new deduction query.",
+        "hear": "Optional touch effects and ambience; no spoken rule explanation or narration is supplied.",
+        "do": "Study examples, change an experimental input and test it, then submit the transformed output for each query.",
+        "feedback": "An experiment reveals the exact output from the hidden rules. Submitted deductions are scored by whether all three output attributes match.",
+        "progression": "More attributes change at higher difficulty. Guided practice requires at least one real experiment before a deduction.",
+        "help": "Change one attribute at a time to distinguish causes. More experiments are available; How to Play and progressive hints support reasoning."
+      },
+      "tutorial": [
+        {
+          "title": "Compare examples",
+          "text": "Look for how each attribute changes from input to output."
+        },
+        {
+          "title": "Test a hypothesis",
+          "text": "Choose your own input and select Test hypothesis. In guided practice, do this at least once before submitting a deduction."
+        },
+        {
+          "title": "Refine one attribute",
+          "text": "Keep two attributes fixed while changing another, then compare the output with your prediction."
+        },
+        {
+          "title": "Apply the rule",
+          "text": "Set the expected output for the new query and submit it."
+        },
+        {
+          "title": "Continue consistently",
+          "text": "Use the same discovered transformations for the remaining queries, then review or return to Flexibility Lab."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/flexibility/rule-shift/",
+        "/laboratories/neuropath/logic/codequest/"
+      ],
+      "artwork_route": "/laboratories/neuropath/flexibility/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "lib/games/cognitive.dart",
+          "lines": "168–185,201–202,305–326",
+          "supports": "Hidden transformations, experiments, query counts and scoring."
+        },
+        {
+          "file": "lib/core/coaching.dart",
+          "lines": "365–380",
+          "supports": "Actual experiment-first tutorial."
+        }
+      ],
+      "missing": [
+        "A verified numeric age rating and product-specific effectiveness evidence have not been supplied.",
+        "This separate game illustration is provisional and awaits owner approval; it is not an official logo."
+      ],
+      "artwork_file": "public/images/laboratories/neuropath/catalogue/synapse-forge-illustration-provisional.png",
+      "artwork_status": "provisional-owner-review",
+      "artwork_alt": "Crystal inputs transformed through a luminous gold portal",
+      "screenshots": [
+        {
+          "file": "public/images/laboratories/neuropath/catalogue/synapse-forge-development-screen.png",
+          "alt": "Synapse Forge application development screen",
+          "caption": "Actual development UI with synthetic game state, captured from the application. This is an illustrative viewport, not a playable demo or an approved final design.",
+          "status": "development-ui-not-design-approval"
+        }
+      ]
+    }
+  ]
+}

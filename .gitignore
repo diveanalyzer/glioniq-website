@@ -5,3 +5,5 @@ __pycache__/
 public/images/laboratories/neuropath/04_profile/profile_setup_flow.jpeg
 # New HTML routes are reproducible build output. Existing tracked HTML is retained.
 laboratories/*/explore/index.html
+# Catalogue routes are reproduced by scripts/build.py; tracked legacy HTML stays.
+laboratories/**/index.html

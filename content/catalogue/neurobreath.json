@@ -1,0 +1,360 @@
+{
+  "platform": "neurobreath",
+  "source": {
+    "repository": "glioniq-website",
+    "revision": "f76dcfd",
+    "inspection": "Existing verified local implementation; no duplicate breathing engine."
+  },
+  "entries": [
+    {
+      "id": "neurobreath",
+      "kind": "platform",
+      "name": "NeuroBreath",
+      "route": "/laboratories/neurobreath/",
+      "parent": "/#laboratories",
+      "platform": "neurobreath",
+      "introduction": "Follow the living neural orb through three gentle, clearly timed breathing experiences. Choose a rhythm, pause whenever you need, and return at your own pace.",
+      "purpose": "Offer a visual focus for comfortable paced breathing and a quiet transition into rest or attention.",
+      "audience": "People who can comfortably follow written breathing instructions and choose whether a timing pattern suits them.",
+      "age_guidance": "No validated age rating is established; children should use breathing activities with appropriate adult guidance.",
+      "difficulty": "Fixed timing patterns, with no score or requirement to complete a session. Comfort is more important than keeping pace.",
+      "languages": "English instructions in this website preview.",
+      "status": "Three functional local web guides. Production publication and product-specific efficacy are not established.",
+      "objectives": [
+        "Notice the transition between breathing phases.",
+        "Use an optional visual rhythm without forcing the breath.",
+        "Pause or leave freely; no streak, score or completion pressure."
+      ],
+      "offers": [
+        "Square Focus follows four equal phases around a square. Sleep Calm uses a shorter hold and longer exhalation along an open path. Neural Wave alternates inhalation and exhalation without a holding phase.",
+        "Each guide uses the original NeuroBreath artwork, a shared elapsed-time clock and visible phase labels. Start, Pause, Resume, Restart and Exit are available. The animation supports reduced-motion preferences."
+      ],
+      "interaction": {
+        "see": "The original blue-and-gold neural orb, an activity path, the current phase and remaining seconds.",
+        "hear": "These web guides do not include spoken narration or breathing sounds.",
+        "do": "Choose one of the three activities. Start only when comfortable, follow the written phase and use Pause whenever needed.",
+        "feedback": "Phase, countdown and cycle number communicate timing. There is no score or judgement of how you breathe.",
+        "progression": "Timing repeats until you pause or leave; sessions do not become harder automatically.",
+        "help": "Read the instructions below each guide. Pause before leaving; Exit returns to NeuroBreath. Returning after the page is hidden requires explicit Resume."
+      },
+      "tutorial": [
+        {
+          "title": "Choose a comfortable rhythm",
+          "text": "Compare the three timing patterns below. A pattern with holds is optional; Neural Wave has no hold phase."
+        },
+        {
+          "title": "Settle before starting",
+          "text": "Sit or rest comfortably. Read the full sequence, then press Start when ready."
+        },
+        {
+          "title": "Follow without forcing",
+          "text": "Use the changing orb and written labels as a gentle guide. You do not need to match a timer if it feels uncomfortable."
+        },
+        {
+          "title": "Pause or finish",
+          "text": "Pause whenever you need, Resume to continue or Restart from the beginning. Exit returns to this platform."
+        }
+      ],
+      "related": [
+        "/laboratories/neuropath/"
+      ],
+      "artwork_route": "/laboratories/neurobreath/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "scripts/laboratories.py",
+          "lines": "living_orb, METHODS, breathing_activity",
+          "supports": "Original imagery, timing sequences and controls"
+        },
+        {
+          "file": "assets/site.js",
+          "lines": "BreathingClock, initializeBreathingActivity",
+          "supports": "Timing, visibility pause, restart and exit behavior"
+        }
+      ],
+      "missing": [
+        "No spoken audio is implemented.",
+        "No product-specific outcome study or validated age rating."
+      ]
+    },
+    {
+      "id": "neurobreath-square-focus",
+      "kind": "activity",
+      "name": "Square Focus",
+      "route": "/laboratories/neurobreath/square-focus/",
+      "parent": "/laboratories/neurobreath/",
+      "platform": "neurobreath",
+      "introduction": "An even four-part rhythm for attending to each change of phase.",
+      "purpose": "An even four-part rhythm for attending to each change of phase.",
+      "audience": "People who can comfortably follow written breathing instructions and choose whether a timing pattern suits them.",
+      "age_guidance": "No validated age rating is established; children should use breathing activities with appropriate adult guidance.",
+      "difficulty": "4–4–4–4 · 16 seconds per cycle. There is no score or automatic increase in difficulty.",
+      "languages": "English instructions in this website preview.",
+      "status": "Three functional local web guides. Production publication and product-specific efficacy are not established.",
+      "objectives": [
+        "Follow a square through a repeating 4–4–4–4 rhythm.",
+        "Practise paying attention to phase changes at a comfortable pace."
+      ],
+      "offers": [
+        "The highlighted trace travels around four sides. The orb expands on inhalation, maintains its size during the first hold, contracts on exhalation and stays smaller during the final hold.",
+        "Use the phase labels and seconds as the timing reference. The animation is a guide, not a measurement of your breathing. Stop if dizziness or discomfort occurs; do not force a hold."
+      ],
+      "interaction": {
+        "see": "The highlighted trace travels around four sides. The orb expands on inhalation, maintains its size during the first hold, contracts on exhalation and stays smaller during the final hold.",
+        "hear": "These web guides do not include spoken narration or breathing sounds.",
+        "do": "Press Start, then follow inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds, hold for 4 seconds. Pause as needed.",
+        "feedback": "The gold phase highlight, countdown and cycle number update from the same clock. The orb follows the current phase; reduced-motion settings suppress movement.",
+        "progression": "Timing repeats until you pause or leave; sessions do not become harder automatically.",
+        "help": "Read the instructions below each guide. Pause before leaving; Exit returns to NeuroBreath. Returning after the page is hidden requires explicit Resume."
+      },
+      "tutorial": [
+        {
+          "title": "Get comfortable",
+          "text": "Read the sequence and settle in a comfortable position. Use gentle, unforced breathing; skip this pattern if its holds or pace do not suit you."
+        },
+        {
+          "title": "Start the guide",
+          "text": "Press Start. The guide begins with inhalation and shows the phase name and remaining seconds."
+        },
+        {
+          "title": "Inhale · 4 seconds",
+          "text": "Breathe in gently as the orb opens."
+        },
+        {
+          "title": "Hold · 4 seconds",
+          "text": "Allow the indicated pause only if it feels comfortable. Never strain to hold your breath."
+        },
+        {
+          "title": "Exhale · 4 seconds",
+          "text": "Let the breath flow out comfortably as the orb contracts."
+        },
+        {
+          "title": "Hold · 4 seconds",
+          "text": "Allow the indicated pause only if it feels comfortable. Never strain to hold your breath."
+        },
+        {
+          "title": "Continue, pause or leave",
+          "text": "Pause freezes the timing; Resume continues from that point. Restart begins a new cycle. Exit returns to NeuroBreath. The guide pauses if you hide the page or scroll it out of view."
+        }
+      ],
+      "related": [
+        "/laboratories/neurobreath/sleep-calm/",
+        "/laboratories/neurobreath/neural-wave/"
+      ],
+      "artwork_route": "/laboratories/neurobreath/square-focus/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "scripts/laboratories.py",
+          "lines": "living_orb, METHODS, breathing_activity",
+          "supports": "Original imagery, timing sequences and controls"
+        },
+        {
+          "file": "assets/site.js",
+          "lines": "BreathingClock, initializeBreathingActivity",
+          "supports": "Timing, visibility pause, restart and exit behavior"
+        }
+      ],
+      "missing": [
+        "No spoken audio is implemented.",
+        "No product-specific outcome study or validated age rating."
+      ],
+      "timing": [
+        {
+          "phase": "Inhale",
+          "seconds": 4
+        },
+        {
+          "phase": "Hold",
+          "seconds": 4
+        },
+        {
+          "phase": "Exhale",
+          "seconds": 4
+        },
+        {
+          "phase": "Hold",
+          "seconds": 4
+        }
+      ]
+    },
+    {
+      "id": "neurobreath-sleep-calm",
+      "kind": "activity",
+      "name": "Sleep Calm",
+      "route": "/laboratories/neurobreath/sleep-calm/",
+      "parent": "/laboratories/neurobreath/",
+      "platform": "neurobreath",
+      "introduction": "A slower exhalation and brief hold for a quiet wind-down experience. The name does not imply a proven sleep treatment.",
+      "purpose": "A slower exhalation and brief hold for a quiet wind-down experience. The name does not imply a proven sleep treatment.",
+      "audience": "People who can comfortably follow written breathing instructions and choose whether a timing pattern suits them.",
+      "age_guidance": "No validated age rating is established; children should use breathing activities with appropriate adult guidance.",
+      "difficulty": "4–2–6 · 12 seconds per cycle. There is no score or automatic increase in difficulty.",
+      "languages": "English instructions in this website preview.",
+      "status": "Three functional local web guides. Production publication and product-specific efficacy are not established.",
+      "objectives": [
+        "Follow an open three-sided path through a repeating 4–2–6 rhythm.",
+        "Practise paying attention to phase changes at a comfortable pace."
+      ],
+      "offers": [
+        "The three-part path follows inhalation, a shorter hold and a longer exhalation. Read the timer: path lengths do not represent equal phase durations.",
+        "Use the phase labels and seconds as the timing reference. The animation is a guide, not a measurement of your breathing. Stop if dizziness or discomfort occurs; do not force a hold."
+      ],
+      "interaction": {
+        "see": "The three-part path follows inhalation, a shorter hold and a longer exhalation. Read the timer: path lengths do not represent equal phase durations.",
+        "hear": "These web guides do not include spoken narration or breathing sounds.",
+        "do": "Press Start, then follow inhale for 4 seconds, hold for 2 seconds, exhale for 6 seconds. Pause as needed.",
+        "feedback": "The gold phase highlight, countdown and cycle number update from the same clock. The orb follows the current phase; reduced-motion settings suppress movement.",
+        "progression": "Timing repeats until you pause or leave; sessions do not become harder automatically.",
+        "help": "Read the instructions below each guide. Pause before leaving; Exit returns to NeuroBreath. Returning after the page is hidden requires explicit Resume."
+      },
+      "tutorial": [
+        {
+          "title": "Get comfortable",
+          "text": "Read the sequence and settle in a comfortable position. Use gentle, unforced breathing; skip this pattern if its holds or pace do not suit you."
+        },
+        {
+          "title": "Start the guide",
+          "text": "Press Start. The guide begins with inhalation and shows the phase name and remaining seconds."
+        },
+        {
+          "title": "Inhale · 4 seconds",
+          "text": "Breathe in gently as the orb opens."
+        },
+        {
+          "title": "Hold · 2 seconds",
+          "text": "Allow the indicated pause only if it feels comfortable. Never strain to hold your breath."
+        },
+        {
+          "title": "Exhale · 6 seconds",
+          "text": "Let the breath flow out comfortably as the orb contracts."
+        },
+        {
+          "title": "Continue, pause or leave",
+          "text": "Pause freezes the timing; Resume continues from that point. Restart begins a new cycle. Exit returns to NeuroBreath. The guide pauses if you hide the page or scroll it out of view."
+        }
+      ],
+      "related": [
+        "/laboratories/neurobreath/square-focus/",
+        "/laboratories/neurobreath/neural-wave/"
+      ],
+      "artwork_route": "/laboratories/neurobreath/sleep-calm/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "scripts/laboratories.py",
+          "lines": "living_orb, METHODS, breathing_activity",
+          "supports": "Original imagery, timing sequences and controls"
+        },
+        {
+          "file": "assets/site.js",
+          "lines": "BreathingClock, initializeBreathingActivity",
+          "supports": "Timing, visibility pause, restart and exit behavior"
+        }
+      ],
+      "missing": [
+        "No spoken audio is implemented.",
+        "No product-specific outcome study or validated age rating."
+      ],
+      "timing": [
+        {
+          "phase": "Inhale",
+          "seconds": 4
+        },
+        {
+          "phase": "Hold",
+          "seconds": 2
+        },
+        {
+          "phase": "Exhale",
+          "seconds": 6
+        }
+      ]
+    },
+    {
+      "id": "neurobreath-neural-wave",
+      "kind": "activity",
+      "name": "Neural Wave",
+      "route": "/laboratories/neurobreath/neural-wave/",
+      "parent": "/laboratories/neurobreath/",
+      "platform": "neurobreath",
+      "introduction": "A continuous two-phase rhythm with a longer exhalation and no breath-holding phase.",
+      "purpose": "A continuous two-phase rhythm with a longer exhalation and no breath-holding phase.",
+      "audience": "People who can comfortably follow written breathing instructions and choose whether a timing pattern suits them.",
+      "age_guidance": "No validated age rating is established; children should use breathing activities with appropriate adult guidance.",
+      "difficulty": "4–6 · 10 seconds per cycle. There is no score or automatic increase in difficulty.",
+      "languages": "English instructions in this website preview.",
+      "status": "Three functional local web guides. Production publication and product-specific efficacy are not established.",
+      "objectives": [
+        "Follow a flowing wave through a repeating 4–6 rhythm.",
+        "Practise paying attention to phase changes at a comfortable pace."
+      ],
+      "offers": [
+        "A wave-shaped trace accompanies the changing orb. It switches directly between inhalation and exhalation.",
+        "Use the phase labels and seconds as the timing reference. The animation is a guide, not a measurement of your breathing. Stop if dizziness or discomfort occurs; do not force a hold."
+      ],
+      "interaction": {
+        "see": "A wave-shaped trace accompanies the changing orb. It switches directly between inhalation and exhalation.",
+        "hear": "These web guides do not include spoken narration or breathing sounds.",
+        "do": "Press Start, then follow inhale for 4 seconds, exhale for 6 seconds. Pause as needed.",
+        "feedback": "The gold phase highlight, countdown and cycle number update from the same clock. The orb follows the current phase; reduced-motion settings suppress movement.",
+        "progression": "Timing repeats until you pause or leave; sessions do not become harder automatically.",
+        "help": "Read the instructions below each guide. Pause before leaving; Exit returns to NeuroBreath. Returning after the page is hidden requires explicit Resume."
+      },
+      "tutorial": [
+        {
+          "title": "Get comfortable",
+          "text": "Read the sequence and settle in a comfortable position. Use gentle, unforced breathing; skip this pattern if its holds or pace do not suit you."
+        },
+        {
+          "title": "Start the guide",
+          "text": "Press Start. The guide begins with inhalation and shows the phase name and remaining seconds."
+        },
+        {
+          "title": "Inhale · 4 seconds",
+          "text": "Breathe in gently as the orb opens."
+        },
+        {
+          "title": "Exhale · 6 seconds",
+          "text": "Let the breath flow out comfortably as the orb contracts."
+        },
+        {
+          "title": "Continue, pause or leave",
+          "text": "Pause freezes the timing; Resume continues from that point. Restart begins a new cycle. Exit returns to NeuroBreath. The guide pauses if you hide the page or scroll it out of view."
+        }
+      ],
+      "related": [
+        "/laboratories/neurobreath/square-focus/",
+        "/laboratories/neurobreath/sleep-calm/"
+      ],
+      "artwork_route": "/laboratories/neurobreath/neural-wave/",
+      "signature": false,
+      "sources": [
+        {
+          "file": "scripts/laboratories.py",
+          "lines": "living_orb, METHODS, breathing_activity",
+          "supports": "Original imagery, timing sequences and controls"
+        },
+        {
+          "file": "assets/site.js",
+          "lines": "BreathingClock, initializeBreathingActivity",
+          "supports": "Timing, visibility pause, restart and exit behavior"
+        }
+      ],
+      "missing": [
+        "No spoken audio is implemented.",
+        "No product-specific outcome study or validated age rating."
+      ],
+      "timing": [
+        {
+          "phase": "Inhale",
+          "seconds": 4
+        },
+        {
+          "phase": "Exhale",
+          "seconds": 6
+        }
+      ]
+    }
+  ]
+}
